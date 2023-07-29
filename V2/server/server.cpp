@@ -22,13 +22,20 @@ class Bear{
    public:
    Eye lewe;
    Eye prawe;
-   
+
    std::string toString(){ return "Bear: \r\nprawe " + prawe.getName() + "lewe " + lewe.getName();  }
 };
 
 
 int main(){
-   Bear bear = Bear();
+   Bear bear;
+		std::cout << "& bear: " << & bear << "\r\n";
+        bear = Bear();
+		std::cout << "& bear: " << & bear << "\r\n";
+
+   Bear* Tbear = & bear;
+
+//   Bear bear = Bear();
    bear.lewe = Eye();
    bear.prawe = Eye("red");
    std::cout << bear.lewe.getName();
