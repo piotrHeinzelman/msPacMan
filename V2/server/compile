@@ -1,7 +1,6 @@
 clear
 g++ server.cpp -o a.out
 
-clear
 ./a.out
 
 
