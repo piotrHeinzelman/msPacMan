@@ -1,6 +1,0 @@
-clear
-g++ server.cpp -o a.out
-
-./a.out
-
-
