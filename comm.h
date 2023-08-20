@@ -5,16 +5,24 @@
 #ifndef XXX_COMM_H
 #define XXX_COMM_H
 
-
+#include <iostream>
 #include <string>
+#include <winsock2.h>
+#include <windows.h>
+#include <ws2tcpip.h>
+#pragma comment(lib, "ws2_32")
+
+
 
 class comm {
 
 private:
-    std::string serverAdd;
+    const char* serverAddr;
+    u_short serverPort;
+    int sock_fd; // deskryptor gniazda
 
 public:
-    int connect(  std::string const& serverAddr );
+    int connect(  std::string serverAddr , int serverPort );
     void disconnect();
 
 };
