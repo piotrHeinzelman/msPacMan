@@ -3,6 +3,8 @@
 //
 
 #include "comm.h"
+#include <winsock2.h>
+#include <windows.h>
 
 
 int comm::connect( std::string  _serverAddr , int _serverPort ){

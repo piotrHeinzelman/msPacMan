@@ -1,8 +1,0 @@
-# ninja log v5
-7	4492	7141983973798814	CMakeFiles/xxx.dir/main.cpp.obj	dc580c7bb2cc4a6e
-4580	4755	7141951156471770	xxx.exe	93d7d43a6b422610
-9	4459	7141983973448794	CMakeFiles/xxx.dir/comm.cpp.obj	81cd571e51b51333
-0	164	7141984940064081	build.ninja	42795db775247bcb
-0	5	0	clean	3670e2f1c48e8e8e
-11	4484	7141985373598878	CMakeFiles/xxx.dir/comm.cpp.obj	81cd571e51b51333
-9	4516	7141985373928897	CMakeFiles/xxx.dir/main.cpp.obj	dc580c7bb2cc4a6e

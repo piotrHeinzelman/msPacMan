@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
+				"line" : 11,
 				"parent" : 0
 			}
 		]
@@ -38,7 +38,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -fdiagnostics-color=always"
+					"fragment" : " -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -fdiagnostics-color=always"
 				}
 			],
 			"language" : "CXX",
@@ -63,12 +63,22 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "",
+				"fragment" : "-static -lws2_32",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 1,
+				"fragment" : "-lws2_32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 1,
+				"fragment" : "-lwsock32",
+				"role" : "libraries"
 			},
 			{
 				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
