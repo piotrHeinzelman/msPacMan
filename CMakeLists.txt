@@ -8,8 +8,13 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}
 link_libraries(ws2_32 wsock32)
 
 
-add_executable(xxx main.cpp
+add_executable(
+        xxx main.cpp
         comm.h
-        comm.cpp)
+        comm.cpp
+
+        tests/commTest.h
+        tests/myTests.h
+        )
 
 

@@ -1,5 +1,6 @@
-CMakeFiles/xxx.dir/main.cpp.obj: \
- C:\Users\Bill\CLionProjects\msPacMan\main.cpp \
+CMakeFiles/xxx.dir/test.cpp.obj: \
+ C:\Users\Bill\CLionProjects\msPacMan\test.cpp \
+ C:\Users\Bill\CLionProjects\msPacMan\comm.h \
  C:/CLion2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
  C:/CLion2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/CLion2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -133,7 +134,6 @@ CMakeFiles/xxx.dir/main.cpp.obj: \
  C:/CLion2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
  C:/CLion2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
  C:/CLion2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- C:\Users\Bill\CLionProjects\msPacMan\comm.h \
  C:/CLion2023.2/bin/mingw/x86_64-w64-mingw32/include/winsock2.h \
  C:/CLion2023.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_unicode.h \
  C:/CLion2023.2/bin/mingw/x86_64-w64-mingw32/include/windows.h \
@@ -380,7 +380,4 @@ CMakeFiles/xxx.dir/main.cpp.obj: \
  C:/CLion2023.2/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_wsadata.h \
  C:/CLion2023.2/bin/mingw/x86_64-w64-mingw32/include/ws2def.h \
  C:/CLion2023.2/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h \
- C:/CLion2023.2/bin/mingw/x86_64-w64-mingw32/include/qos.h \
- C:\Users\Bill\CLionProjects\msPacMan\tests/myTests.h \
- C:\Users\Bill\CLionProjects\msPacMan\tests/commTest.h \
- C:/Users/Bill/CLionProjects/msPacMan/comm.h
+ C:/CLion2023.2/bin/mingw/x86_64-w64-mingw32/include/qos.h

@@ -91,6 +91,12 @@
 		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/main.cpp">
 			<Option target="xxx"/>
 		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/tests/commTest.h">
+			<Option target="xxx"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/tests/myTests.h">
+			<Option target="xxx"/>
+		</Unit>
 		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

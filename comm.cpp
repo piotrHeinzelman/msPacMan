@@ -9,7 +9,7 @@
 
 int comm::connect( std::string  _serverAddr , int _serverPort ){
     serverAddr = _serverAddr.c_str();
-    serverPort = htons(_serverPort );
+    serverPort = ( u_short )_serverPort ;
 
     int sock_fd; // deskryptor gniazda
 /*
