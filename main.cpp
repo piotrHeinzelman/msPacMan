@@ -2,7 +2,6 @@
 #include <iostream>
 #include "comm.h"
 
-
 #include "tests/myTests.h"
 
 int main() {

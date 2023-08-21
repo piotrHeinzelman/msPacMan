@@ -10,9 +10,16 @@ class commTest {
 
     public:
     void run(){
+
+
         comm com;
-        com.connect( "wpolityce.pl", 80 );
+        //std::cout << com.connect( "127.0.0.1", 80 ) << "\r\n";
+        int socked_id = com.connect( "127.0.0.1", 8080 );
 
-
+        std::cout << socked_id;
+        char buf[512];
+        sprintf(buf, "HEL#janic#\n");
+        sprintf(buf, "/&a=1");
+        com.se_nd( buf );
     }
 };

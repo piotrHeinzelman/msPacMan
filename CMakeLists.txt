@@ -15,6 +15,9 @@ add_executable(
 
         tests/commTest.h
         tests/myTests.h
-        )
+        tests/servTest.h
+        serv.h
+        serv.cpp
+)
 
 
