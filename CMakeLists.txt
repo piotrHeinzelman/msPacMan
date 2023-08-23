@@ -18,6 +18,10 @@ add_executable(
         tests/servTest.h
         serv.h
         serv.cpp
+        tests/serv_win.cpp
+        tests/serv_win.h
+        tests/clien_win.cpp
+        tests/clien_win.h
 )
 
 

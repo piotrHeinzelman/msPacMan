@@ -20,14 +20,21 @@
 #ifndef XXX_SERV_H
 #define XXX_SERV_H
 
-#include <TcpSocket.h>
-#include <ISocketHandler.h>
+//https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html#link-libs
+//https://learn.microsoft.com/en-us/windows/win32/winsock/complete-client-code
 
-#include <string>
+#include <winsock2.h>
+#include <windows.h>
+#include <ws2tcpip.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-class serv : public TcpSocket {
+#pragma comment (lib, "Ws2_32.lib")
 
+#define DEFAULT_BUFLEN 512
+#define DEFAULT_PORT "27015"
 
+class serv : public tcp_keepalive {
 
 };
 

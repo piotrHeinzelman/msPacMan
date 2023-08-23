@@ -176,6 +176,78 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+serv.obj: serv.cpp.obj
+.PHONY : serv.obj
+
+# target to build an object file
+serv.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/serv.cpp.obj
+.PHONY : serv.cpp.obj
+
+serv.i: serv.cpp.i
+.PHONY : serv.i
+
+# target to preprocess a source file
+serv.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/serv.cpp.i
+.PHONY : serv.cpp.i
+
+serv.s: serv.cpp.s
+.PHONY : serv.s
+
+# target to generate assembly for a file
+serv.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/serv.cpp.s
+.PHONY : serv.cpp.s
+
+tests/clien_win.obj: tests/clien_win.cpp.obj
+.PHONY : tests/clien_win.obj
+
+# target to build an object file
+tests/clien_win.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/tests/clien_win.cpp.obj
+.PHONY : tests/clien_win.cpp.obj
+
+tests/clien_win.i: tests/clien_win.cpp.i
+.PHONY : tests/clien_win.i
+
+# target to preprocess a source file
+tests/clien_win.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/tests/clien_win.cpp.i
+.PHONY : tests/clien_win.cpp.i
+
+tests/clien_win.s: tests/clien_win.cpp.s
+.PHONY : tests/clien_win.s
+
+# target to generate assembly for a file
+tests/clien_win.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/tests/clien_win.cpp.s
+.PHONY : tests/clien_win.cpp.s
+
+tests/serv_win.obj: tests/serv_win.cpp.obj
+.PHONY : tests/serv_win.obj
+
+# target to build an object file
+tests/serv_win.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/tests/serv_win.cpp.obj
+.PHONY : tests/serv_win.cpp.obj
+
+tests/serv_win.i: tests/serv_win.cpp.i
+.PHONY : tests/serv_win.i
+
+# target to preprocess a source file
+tests/serv_win.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/tests/serv_win.cpp.i
+.PHONY : tests/serv_win.cpp.i
+
+tests/serv_win.s: tests/serv_win.cpp.s
+.PHONY : tests/serv_win.s
+
+# target to generate assembly for a file
+tests/serv_win.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xxx.dir\build.make CMakeFiles/xxx.dir/tests/serv_win.cpp.s
+.PHONY : tests/serv_win.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -191,6 +263,15 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... serv.obj
+	@echo ... serv.i
+	@echo ... serv.s
+	@echo ... tests/clien_win.obj
+	@echo ... tests/clien_win.i
+	@echo ... tests/clien_win.s
+	@echo ... tests/serv_win.obj
+	@echo ... tests/serv_win.i
+	@echo ... tests/serv_win.s
 .PHONY : help
 
 

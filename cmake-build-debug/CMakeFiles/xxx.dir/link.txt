@@ -1,0 +1,3 @@
+C:\CLion2023.2\bin\cmake\win\x64\bin\cmake.exe -E rm -f CMakeFiles\xxx.dir/objects.a
+C:\CLion2023.2\bin\mingw\bin\ar.exe qc CMakeFiles\xxx.dir/objects.a @CMakeFiles\xxx.dir\objects1.rsp
+C:\CLion2023.2\bin\mingw\bin\g++.exe  -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g   -static -lws2_32 -Wl,--whole-archive CMakeFiles\xxx.dir/objects.a -Wl,--no-whole-archive -o xxx.exe -Wl,--out-implib,libxxx.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\xxx.dir\linkLibs.rsp

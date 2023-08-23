@@ -91,10 +91,31 @@
 		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/main.cpp">
 			<Option target="xxx"/>
 		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/serv.cpp">
+			<Option target="xxx"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/serv.h">
+			<Option target="xxx"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/tests/clien_win.cpp">
+			<Option target="xxx"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/tests/clien_win.h">
+			<Option target="xxx"/>
+		</Unit>
 		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/tests/commTest.h">
 			<Option target="xxx"/>
 		</Unit>
 		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/tests/myTests.h">
+			<Option target="xxx"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/tests/servTest.h">
+			<Option target="xxx"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/tests/serv_win.cpp">
+			<Option target="xxx"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/tests/serv_win.h">
 			<Option target="xxx"/>
 		</Unit>
 		<Unit filename="C:/Users/Bill/CLionProjects/msPacMan/CMakeLists.txt">
