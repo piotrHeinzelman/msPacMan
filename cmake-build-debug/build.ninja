@@ -47,11 +47,11 @@ cmake_ninja_workdir = C$:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/
 #############################################
 # Order-only phony target for msPacMan
 
-build cmake_object_order_depends_target_msPacMan: phony || cmake_object_order_depends_target_sum_integers
+build cmake_object_order_depends_target_msPacMan: phony || CMakeFiles/msPacMan.dir
 
 build CMakeFiles/msPacMan.dir/main.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug C$:/Users/Bill/CLionProjects/msPacMan/main.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\main.cpp.obj.d
-  FLAGS = -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir
 
@@ -63,91 +63,16 @@ build CMakeFiles/msPacMan.dir/main.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Deb
 #############################################
 # Link the executable msPacMan.exe
 
-build msPacMan.exe: CXX_EXECUTABLE_LINKER__msPacMan_Debug CMakeFiles/msPacMan.dir/main.cpp.obj | libsum_integers.a || libsum_integers.a
-  FLAGS = -g
-  LINK_LIBRARIES = libsum_integers.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+build msPacMan.exe: CXX_EXECUTABLE_LINKER__msPacMan_Debug CMakeFiles/msPacMan.dir/main.cpp.obj
+  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g
+  LINK_FLAGS = -static -lws2_32
+  LINK_LIBRARIES = -lws2_32  -lwsock32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = msPacMan.exe
   TARGET_IMPLIB = libmsPacMan.dll.a
   TARGET_PDB = msPacMan.exe.dbg
-
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target sum_integers
-
-
-#############################################
-# Order-only phony target for sum_integers
-
-build cmake_object_order_depends_target_sum_integers: phony || CMakeFiles/sum_integers.dir
-
-build CMakeFiles/sum_integers.dir/sum_integers.cpp.obj: CXX_COMPILER__sum_integers_unscanned_Debug C$:/Users/Bill/CLionProjects/msPacMan/sum_integers.cpp || cmake_object_order_depends_target_sum_integers
-  DEP_FILE = CMakeFiles\sum_integers.dir\sum_integers.cpp.obj.d
-  FLAGS = -g -std=c++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\sum_integers.dir
-  OBJECT_FILE_DIR = CMakeFiles\sum_integers.dir
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target sum_integers
-
-
-#############################################
-# Link the static library libsum_integers.a
-
-build libsum_integers.a: CXX_STATIC_LIBRARY_LINKER__sum_integers_Debug CMakeFiles/sum_integers.dir/sum_integers.cpp.obj
-  LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = CMakeFiles\sum_integers.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = libsum_integers.a
-  TARGET_PDB = sum_integers.a.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target cpp_test
-
-
-#############################################
-# Order-only phony target for cpp_test
-
-build cmake_object_order_depends_target_cpp_test: phony || cmake_object_order_depends_target_sum_integers
-
-build CMakeFiles/cpp_test.dir/test.cpp.obj: CXX_COMPILER__cpp_test_unscanned_Debug C$:/Users/Bill/CLionProjects/msPacMan/test.cpp || cmake_object_order_depends_target_cpp_test
-  DEP_FILE = CMakeFiles\cpp_test.dir\test.cpp.obj.d
-  FLAGS = -g -std=c++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\cpp_test.dir
-  OBJECT_FILE_DIR = CMakeFiles\cpp_test.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target cpp_test
-
-
-#############################################
-# Link the executable cpp_test.exe
-
-build cpp_test.exe: CXX_EXECUTABLE_LINKER__cpp_test_Debug CMakeFiles/cpp_test.dir/test.cpp.obj | libsum_integers.a || libsum_integers.a
-  FLAGS = -g
-  LINK_LIBRARIES = libsum_integers.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\cpp_test.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = cpp_test.exe
-  TARGET_IMPLIB = libcpp_test.dll.a
-  TARGET_PDB = cpp_test.exe.dbg
-
-
-#############################################
-# Utility command for test
-
-build CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Bill\CLionProjects\msPacMan\cmake-build-debug && C:\CLion2023.2\bin\cmake\win\x64\bin\ctest.exe --force-new-ctest-process "
-  DESC = Running tests...
-  pool = console
-  restat = 1
-
-build test: phony CMakeFiles/test.util
 
 
 #############################################
@@ -175,11 +100,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build cpp_test: phony cpp_test.exe
-
 build msPacMan: phony msPacMan.exe
-
-build sum_integers: phony libsum_integers.a
 
 # =============================================================================
 # Folder targets.
@@ -189,7 +110,7 @@ build sum_integers: phony libsum_integers.a
 #############################################
 # Folder: C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug
 
-build all: phony msPacMan.exe libsum_integers.a cpp_test.exe
+build all: phony msPacMan.exe
 
 # =============================================================================
 # Built-in targets
