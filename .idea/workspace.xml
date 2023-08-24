@@ -21,25 +21,26 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="ADD :: TEST CppUnit">
-      <change afterPath="$PROJECT_DIR$/src/cliserv/Cli.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cliserv/Cli.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cliserv/Serv.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cliserv/Serv.h" afterDir="false" />
+    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="ADD :: Serv, Cli  interface for communication">
+      <change afterPath="$PROJECT_DIR$/allTest.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/CliTest.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/ServTest.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-2c6b851c9e289bb52e22.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-08-24T16-33-59-0239.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-ba548caa99ae1508bd87.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-3c6f27c542a40adaf834.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-08-24T19-57-15-0860.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-eb5c554887c3986cadf1.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/allTest.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/allTest.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/con_cli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/info/con_cli.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/con_cli.h" beforeDir="false" afterPath="$PROJECT_DIR$/info/con_cli.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/con_serv.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/info/con_serv.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/con_serv.h" beforeDir="false" afterPath="$PROJECT_DIR$/info/con_serv.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/allTest.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/allTest.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,14 +78,16 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propDebugger&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Bill\CLionProjects\msPacMan\tests" />
+      <recent name="C:\Users\Bill\CLionProjects\msPacMan" />
       <recent name="C:\Users\Bill\CLionProjects\msPacMan\info" />
       <recent name="C:\Users\Bill\CLionProjects\msPacMan\src" />
-      <recent name="C:\Users\Bill\CLionProjects\msPacMan\tests" />
     </key>
   </component>
   <component name="RunManager">
@@ -114,7 +117,9 @@
       <workItem from="1692837739136" duration="411000" />
       <workItem from="1692838161493" duration="456000" />
       <workItem from="1692894619302" duration="3292000" />
-      <workItem from="1692906390596" duration="3163000" />
+      <workItem from="1692906390596" duration="9168000" />
+      <workItem from="1692915654059" duration="876000" />
+      <workItem from="1692916667398" duration="1270000" />
     </task>
     <task id="LOCAL-00001" summary="ADD :: ** Serv ** &amp; client">
       <option name="closed" value="true" />
@@ -140,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692894960845</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ADD :: Serv, Cli  interface for communication">
+      <option name="closed" value="true" />
+      <created>1692909626977</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692909626977</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +168,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ADD :: ** Serv ** &amp; client" />
     <MESSAGE value="ADD :: TEST CppUnit" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD :: TEST CppUnit" />
+    <MESSAGE value="ADD :: Serv, Cli  interface for communication" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD :: Serv, Cli  interface for communication" />
   </component>
 </project>
