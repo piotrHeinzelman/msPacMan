@@ -13,6 +13,8 @@ link_libraries(ws2_32 wsock32)
 
 
 add_executable(msPacMan main.cpp
+        allTest.cpp
+        allTest.h
 
 )
 
