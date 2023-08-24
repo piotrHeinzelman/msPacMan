@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/con_serv.h"
+#include "info/con_serv.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;

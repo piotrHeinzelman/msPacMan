@@ -1,9 +1,9 @@
 # ninja log v5
-1	111	7145980391923187	build.ninja	75dfae00b01cba74
+7	311	7146102356642916	build.ninja	75dfae00b01cba74
 395	5556	7145356248376853	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	ed019f3fc8c8a2e9
 7280	7523	7145356268182034	lib/libgmockd.a	24b7ef998ee91640
-2	998	7145413180335937	CMakeFiles/msPacMan.dir/main.cpp.obj	21a6499fad0bfae9
-369	633	7145417409992569	msPacMan.exe	10bd221ad59f63ad
+4	1123	7145981003263417	CMakeFiles/msPacMan.dir/main.cpp.obj	21a6499fad0bfae9
+1123	1384	7145981005804617	msPacMan.exe	d907af727727ad6b
 62	1053	7145356203480514	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	12beaf48f96c8c66
 2	758	7145395060619710	CMakeFiles/msPacMan.dir/con_serv.cpp.obj	cd363e3a36567b85
 14	1247	7145356205411801	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	c57e1f5998612ceb
@@ -11,6 +11,7 @@
 5556	7280	7145356265745899	lib/libgtestd.a	b36b3c058ffbaa35
 7523	7565	7145356268614127	lib/libgmock_maind.a	fd0db4b58ff933e5
 7284	7324	7145356266191586	lib/libgtest_maind.a	7226d71e53acf9bb
+3	420	7145980396710994	CMakeFiles/msPacMan.dir/tests/allTest.cpp.obj	172d426e7de4e437
 5	58	7145374900559919	tests/CMakeFiles/all_my_test.dir/all_my_test.cpp.obj	f6122a2e72ba5eaa
 0	7	0	clean	3fde888d6330aab7
 54	2055	7145364068251599	tests/all_my_test.exe	b6a7c1e49d4f3e7c
@@ -21,8 +22,3 @@
 346	413	7145387658037350	cpp_test.exe	f460f80005a66a9c
 8	46	7145394677886260	CMakeFiles/msPacMan.dir/con_cli.cpp.obj	b9b6d8668500ac0b
 3	368	7145417407401120	CMakeFiles/msPacMan.dir/allTest.cpp.obj	e662bd2ffc9824aa
-7	311	7145980391923187	build.ninja	75dfae00b01cba74
-3	420	7145980396710994	CMakeFiles/msPacMan.dir/tests/allTest.cpp.obj	172d426e7de4e437
-420	820	7145980400665102	msPacMan.exe	d907af727727ad6b
-4	1123	7145981003263417	CMakeFiles/msPacMan.dir/main.cpp.obj	21a6499fad0bfae9
-1123	1384	7145981005804617	msPacMan.exe	d907af727727ad6b

@@ -22,25 +22,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="ADD :: TEST CppUnit">
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/allTest.cpp.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cliserv/Cli.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cliserv/Cli.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cliserv/Serv.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cliserv/Serv.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/allTest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/tests/allTest.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-68737b887481d7422aad.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-2c6b851c9e289bb52e22.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-08-24T00-37-56-0456.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-08-24T16-33-59-0239.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-f8861c04ca386c9add04.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-ba548caa99ae1508bd87.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-2c6b851c9e289bb52e22.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-08-24T16-33-59-0239.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-ba548caa99ae1508bd87.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/con_cli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/con_cli.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/con_cli.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/con_cli.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/con_serv.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/con_serv.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/con_serv.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/con_serv.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/con_cli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/info/con_cli.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/con_cli.h" beforeDir="false" afterPath="$PROJECT_DIR$/info/con_cli.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/con_serv.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/info/con_serv.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/con_serv.h" beforeDir="false" afterPath="$PROJECT_DIR$/info/con_serv.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,10 +82,17 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Bill\CLionProjects\msPacMan\info" />
+      <recent name="C:\Users\Bill\CLionProjects\msPacMan\src" />
       <recent name="C:\Users\Bill\CLionProjects\msPacMan\tests" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="msPacMan" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="msPacMan" TARGET_NAME="msPacMan" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="msPacMan" RUN_TARGET_NAME="msPacMan">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -107,7 +113,8 @@
       <workItem from="1692837466966" duration="264000" />
       <workItem from="1692837739136" duration="411000" />
       <workItem from="1692838161493" duration="456000" />
-      <workItem from="1692894619302" duration="330000" />
+      <workItem from="1692894619302" duration="3292000" />
+      <workItem from="1692906390596" duration="3163000" />
     </task>
     <task id="LOCAL-00001" summary="ADD :: ** Serv ** &amp; client">
       <option name="closed" value="true" />
@@ -125,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692838570213</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ADD :: TEST CppUnit">
+      <option name="closed" value="true" />
+      <created>1692894960845</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1692894960845</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
