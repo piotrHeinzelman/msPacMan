@@ -1,27 +1,30 @@
 cmake_minimum_required(VERSION 3.26)
-project(xxx)
+project(msPacMan)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include")
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS} -static -lws2_32")
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-link_libraries(ws2_32 wsock32)
-
-
-add_executable(
-        xxx main.cpp
-        comm.h
-        comm.cpp
-
-        tests/commTest.h
-        tests/myTests.h
-        tests/servTest.h
-        serv.h
-        serv.cpp
-        tests/serv_win.cpp
-        tests/serv_win.h
-        tests/clien_win.cpp
-        tests/clien_win.h
+add_executable(msPacMan main.cpp
 )
 
 
+# example library
+add_library(sum_integers sum_integers.cpp)
+
+# main code
+#add_executable(msPacMan main.cpp)
+target_link_libraries(msPacMan PRIVATE sum_integers)
+
+# testing binary
+add_executable(cpp_test test.cpp)
+target_link_libraries(cpp_test PRIVATE sum_integers)
+
+# enable testing functionality
+enable_testing()
+
+# define tests
+add_test(
+        NAME cpp_test
+        COMMAND $<TARGET_FILE:cpp_test>
+)

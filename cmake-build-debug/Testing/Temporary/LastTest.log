@@ -1,3 +1,19 @@
-Start testing: Aug 23 13:51 Pacific Daylight Time
+Start testing: Aug 23 17:06 Pacific Daylight Time
 ----------------------------------------------------------
-End testing: Aug 23 13:51 Pacific Daylight Time
+1/1 Testing: cpp_test
+1/1 Test: cpp_test
+Command: "C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/cpp_test.exe"
+Directory: C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug
+"cpp_test" start time: Aug 23 17:06 Pacific Daylight Time
+Output:
+----------------------------------------------------------
+test.cpp->main();
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"cpp_test" end time: Aug 23 17:06 Pacific Daylight Time
+"cpp_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Aug 23 17:06 Pacific Daylight Time

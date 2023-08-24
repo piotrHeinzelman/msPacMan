@@ -1,3 +1,6 @@
-C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/xxx.dir
+C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/msPacMan.dir
+C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/sum_integers.dir
+C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/cpp_test.dir
+C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/test.dir
 C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/rebuild_cache.dir
