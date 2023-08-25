@@ -7,14 +7,26 @@
 
 
 #include <cassert>
+#include "../src/cliserv/Serv.h"
+#include "../src/cliserv/TCPServ.h"
+
 
 class ServTest  {
 
 public:
     void runAllTest(){
-        printf ("ServTest::runAllTest();");
         assert( true );
-        if ( true ) throw std::domain_error("test::exception");
+        //if ( true ) throw std::domain_error("test::exception");
+
+        //TCP test
+        TCPServ serv;
+        serv.createForListen();
+        serv.receive();
+
+        char* testBuff = (char*)"** test Buff **";
+        serv.send( testBuff );
+        serv.close();
+
     }
 };
 

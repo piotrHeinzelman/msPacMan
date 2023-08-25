@@ -10,7 +10,7 @@
 #include "tests/ServTest.h"
 
 int runMyTests( int a ) {
-
+    printf ("ServTest::runAllTest();\n");
     ServTest servTest;
     servTest.runAllTest();
 

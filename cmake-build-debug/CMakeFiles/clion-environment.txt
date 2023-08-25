@@ -1,4 +1,4 @@
-ToolSet: w64 11.0 (local)@C:\CLion2023.2\bin\mingw
+ToolSet: w64 6.0 (local)@C:\opt\Qt\Qt5.12.12\Tools\mingw730_64
 Options: 
 
-Options:-DCMAKE_MAKE_PROGRAM=C:/CLion2023.2/bin/ninja/win/x64/ninja.exe
+Options:-DCMAKE_MAKE_PROGRAM=C:/opt/CLion2023.2/bin/ninja/win/x64/ninja.exe

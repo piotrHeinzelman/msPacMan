@@ -1,3 +1,3 @@
-C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/msPacMan.dir
-C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/_OKNO_/2Rok/pac/cmake-build-debug/CMakeFiles/msPacMan.dir
+C:/_OKNO_/2Rok/pac/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/_OKNO_/2Rok/pac/cmake-build-debug/CMakeFiles/rebuild_cache.dir
