@@ -9,6 +9,7 @@
 #include <cassert>
 #include "../src/cliserv/Serv.h"
 #include "../src/cliserv/TCPServ.h"
+#include <stdlib.h>
 
 
 class ServTest  {
@@ -20,12 +21,11 @@ public:
 
         //TCP test
         TCPServ serv;
-        serv.createForListen();
-        serv.receive();
-
+        serv.createForListen( 8080 );
+        serv.receive_();
         char* testBuff = (char*)"** test Buff **";
-        serv.send( testBuff );
-        serv.close();
+        serv.send_( testBuff );
+        serv.close_();
 
     }
 };

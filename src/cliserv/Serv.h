@@ -25,20 +25,21 @@
 class Serv {
 protected:
     #define DEFAULT_BUFLEN 512
-    #define DEFAULT_PORT "8080"
+    //#define DEFAULT_PORT "8080"
 
     int iResult;
     int iSendResult;
+    int port;
 
     char buf[DEFAULT_BUFLEN];
     int  buflen = DEFAULT_BUFLEN;
 
 public:
 
-virtual    void  createForListen();
-virtual    char* receive();
-virtual    void  send( char* );
-virtual    void  close();
+virtual    void  createForListen( int port_=8080 );
+virtual    char* receive_();
+virtual    void  send_( char* );
+virtual    void  close_();
 
 // ? jeśli bufor prywatny to...
 /*

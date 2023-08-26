@@ -4,10 +4,10 @@
 
 #ifndef MSPACMAN_CON_SERV_H
 #define MSPACMAN_CON_SERV_H
-
 #undef UNICODE
 
 #define WIN32_LEAN_AND_MEAN
+
 #include <iostream>
 #include <windows.h>
 #include <winsock2.h>

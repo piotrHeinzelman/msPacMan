@@ -22,6 +22,7 @@ add_executable(msPacMan main.cpp
         tests/CliTest.h
         src/cliserv/TCPServ.cpp
         src/cliserv/TCPServ.h
+        info/con_serv.h
 
 )
 
