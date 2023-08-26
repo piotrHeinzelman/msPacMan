@@ -26,22 +26,8 @@
 
 class TCPServ : public Serv {
 
-private:
-    WSADATA wsaData;
-    SOCKET ListenSocket = INVALID_SOCKET;
-    SOCKET ClientSocket = INVALID_SOCKET;
-
-
-    struct addrinfo *result = NULL;
-    struct addrinfo addrInfo;
-
-
-
 public:
-     void createForListen( int port_ );
-     char *receive_();
-     void send_(char *string);
-     void close_();
+    TCPServ();
 
 
 };

@@ -9,12 +9,13 @@
 
 #include "tests/ServTest.h"
 
-int runMyTests( int a ) {
-    printf ("ServTest::runAllTest();\n");
+void runMyTests() {
+    printf ("[ TEST ] :: runAllTest();\n");
+
+    printf ("[ TEST ] :: ServTest::runAllTest();\n");
     ServTest servTest;
     servTest.runAllTest();
 
-    return a;
     }
 
 

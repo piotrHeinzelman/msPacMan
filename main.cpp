@@ -7,8 +7,7 @@ int main() {
 
     // run test
     if ( true ) {
-        std::cout << "\n\n*** Run test ***\n" << std::endl;
-        int i = runMyTests(2);
+        runMyTests();
         return 0; }
 
 

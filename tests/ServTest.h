@@ -20,12 +20,16 @@ public:
         //if ( true ) throw std::domain_error("test::exception");
 
         //TCP test
-        TCPServ serv;
-        serv.createForListen( 8080 );
-        serv.receive_();
-        char* testBuff = (char*)"** test Buff **";
-        serv.send_( testBuff );
-        serv.close_();
+        Serv s;             // klasa nadrzedna, default port
+        Serv s80(80); // klasa nadrzedna, wskazany port
+        TCPServ ts;
+        //TCPServ t;
+
+    //    serv.createForListen( );
+    //    serv.receive_();
+    //    char* testBuff = (char*)"** test Buff **";
+    //    serv.send_( testBuff );
+
 
     }
 };
