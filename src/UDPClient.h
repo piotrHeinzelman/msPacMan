@@ -39,7 +39,8 @@ private:
     int client_socket;
 
     char buf[BUFFSIZE]={0};
-    char redbuf[BUFFSIZE]={0};
+    char recbuf[BUFFSIZE]={0};
+
 
 public:
     UDPClient();

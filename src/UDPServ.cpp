@@ -41,6 +41,7 @@ void UDPServ::rec(){
         // try to receive some data, this is a blocking call
         int message_len;
         int slen = sizeof(sockaddr_in);
+        ZeroMemory(recbuf,BUFFSIZE);
         message_len = recvfrom(sock_fd, recbuf, BUFFSIZE, 0, (sockaddr*)&client, &slen) ;
         if (message_len== SOCKET_ERROR){
                 printf("recvfrom() failed with error code: %d", WSAGetLastError());

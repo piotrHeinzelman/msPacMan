@@ -14,20 +14,21 @@ DWORD WINAPI runTestInThread(LPVOID lpParameter ) {
 
     UDPServ ts;               // domyslny port
     ts.rec(); // odbior danych przez UDP
-    printf( "Serwer odebral:%s\n",ts.getBuff() );
+    printf( "S<%s\n",ts.getBuff() );
 
-    printf( "S> first reply\n" );
-    ts.setBuff("first reply\n");
+    printf( "S>first reply\n" );
+    ts.setBuff("first reply\0");
     ts.snd();
 
     bool guard=false;
     while( !guard ){
         ts.rec(); // odbior danych przez UDP
-        printf( "Serwer odebral:%s\n",ts.getBuff() );
+        printf( "S<%s\n",ts.getBuff() );
+
 
         if (ts.getBuff()[0]=='k'){ guard=true; }
-
-        printf( "S> %s\n",ts.getBuff() );
+        for (int i=0;i<3;i++){ ts.getBuff()[i]=(ts.getBuff()[i])+1; }
+        printf( "S>%s\n",ts.getBuff() );
 
         ts.setBuff( ts.getBuff() );
         ts.snd();
@@ -52,21 +53,21 @@ void runMyTests() {
     c->setBuff("first\0");
     printf( "C>first\n" );
     c->send();
-    printf( "C odebral: %s\n", c->getBuff() );
+    printf( "C<%s\n", c->getBuff() );
     delete c;
 
     c = new UDPClient();
     printf( "C>sec\n" );
     c->setBuff("sec\0");
     c->send();
-    printf( "C odebral: %s\n", c->getBuff() );
+    printf( "C<%s\n", c->getBuff() );
 
 
     printf( "C>koncz wasc!\n" );
     c->setBuff("koncz Wasc!\0");
     c->send();
 
-    printf( "C odebral: %s\n", c->getBuff() );
+    printf( "C<%s\n", c->getBuff() );
     delete c;
 
 

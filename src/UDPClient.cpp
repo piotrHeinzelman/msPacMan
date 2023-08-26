@@ -37,7 +37,8 @@ void UDPClient::send() {
     // try to receive some data, this is a blocking call
     int slen = sizeof(sockaddr_in);
     int answer_length;
-    answer_length = recvfrom(client_socket, redbuf, BUFFSIZE, 0, (sockaddr *) &server, &slen);
+    ZeroMemory(recbuf,BUFFSIZE);
+    answer_length = recvfrom(client_socket, recbuf, BUFFSIZE, 0, (sockaddr *) &server, &slen);
     if (answer_length == SOCKET_ERROR) {
             printf("recvfrom() failed with error code: %d", WSAGetLastError());
     }
@@ -47,7 +48,7 @@ void UDPClient::send() {
 
 
 char* UDPClient::getBuff(){
-    return redbuf;
+    return recbuf;
 };
 
 void UDPClient::setBuff(char* data ){
