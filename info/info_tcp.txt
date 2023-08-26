@@ -1,3 +1,6 @@
 
 
 https://cpp0x.pl/artykuly/Inne-artykuly/C-C++-Programowanie-sieciowe-TCP-i-UDP-pod-Linuxem/66
+https://www.geeksforgeeks.org/socket-programming-cc/
+
+https://www.ndchost.com/wiki/mail/test-smtp-auth-telnet

@@ -21,24 +21,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="CREATE :: TCPServ">
+    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="ADD INFO :: https://cpp0x.pl/artykuly/Inne-artykuly/C-C++-Programowanie-sieciowe-TCP-i-UDP-pod-Linuxem/66">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-be15333a76918e65f29b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-08-25T19-05-16-0032.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-5ebe04efaeb43981f03e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/cliserv/TCPServ.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/cliserv/TCPServ.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/info/con_serv.h" beforeDir="false" afterPath="$PROJECT_DIR$/info/con_serv.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cliserv/Serv.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cliserv/Serv.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cliserv/TCPServ.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cliserv/TCPServ.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cliserv/TCPServ.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cliserv/TCPServ.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ServTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ServTest.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/info/info_tcp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/info/info_tcp.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +107,7 @@
       <workItem from="1692976933998" duration="25000" />
       <workItem from="1692977015098" duration="273000" />
       <workItem from="1692989610009" duration="8433000" />
-      <workItem from="1693045777980" duration="10000" />
+      <workItem from="1693045777980" duration="1227000" />
     </task>
     <task id="LOCAL-00001" summary="ADD :: ** Serv ** &amp; client">
       <option name="closed" value="true" />
@@ -172,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692992309944</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ADD INFO :: https://cpp0x.pl/artykuly/Inne-artykuly/C-C++-Programowanie-sieciowe-TCP-i-UDP-pod-Linuxem/66">
+      <option name="closed" value="true" />
+      <created>1693045911078</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1693045911078</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +183,7 @@
     <MESSAGE value="ADD :: Serv, Cli  interface for communication" />
     <MESSAGE value="ADD :: simple test" />
     <MESSAGE value="TEST :: TCPServ" />
-    <option name="LAST_COMMIT_MESSAGE" value="TEST :: TCPServ" />
+    <MESSAGE value="ADD INFO :: https://cpp0x.pl/artykuly/Inne-artykuly/C-C++-Programowanie-sieciowe-TCP-i-UDP-pod-Linuxem/66" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD INFO :: https://cpp0x.pl/artykuly/Inne-artykuly/C-C++-Programowanie-sieciowe-TCP-i-UDP-pod-Linuxem/66" />
   </component>
 </project>
