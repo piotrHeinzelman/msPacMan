@@ -2,8 +2,8 @@
 // Created by Bill on 8/24/2023.
 //
 
-#ifndef MSPACMAN_CLI_H
-#define MSPACMAN_CLI_H
+#ifndef MSPACMAN_UDPCLIENT_H
+#define MSPACMAN_UDPCLIENT_H
 
 
 #include <string>
@@ -11,6 +11,8 @@
 #include <winsock2.h>
 #pragma comment(lib,"ws2_32.lib")
 #pragma warning(disable:4996)
+
+#define BUFFSIZE 256
 
 /***
 
@@ -28,21 +30,26 @@
 
  */
 
-class Cli {
+class UDPClient {
 
-protected:
+private:
+    char SERVER[16] = "127.0.0.1";  // or "localhost" - ip address of UDP server
+    int PORT = 8080;  // the port on which to listen for incoming data
+    sockaddr_in server;
+    int client_socket;
+
+    char buf[BUFFSIZE]={0};
+    char redbuf[BUFFSIZE]={0};
 
 public:
-    Cli();
+    UDPClient();
+    virtual ~UDPClient();
 
-// ? jeśli bufor prywatny to...
-/*
-virtual    char* getBuff();
-virtual    void  setBuff( char* );
-virtual    void  send();
-*/
+    void send();
+    char* getBuff();
+    void setBuff( char* data );
 
 };
 
 
-#endif //MSPACMAN_CLI_H
+#endif //MSPACMAN_UDPCLIENT_H

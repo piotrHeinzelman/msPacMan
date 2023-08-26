@@ -2,8 +2,8 @@
 // Created by John on 2023-08-25.
 //
 
-#ifndef MSPACMAN_TCPSERV_H
-#define MSPACMAN_TCPSERV_H
+#ifndef MSPACMAN_UDPSERV_H
+#define MSPACMAN_UDPSERV_H
 
 #undef UNICODE
 
@@ -29,7 +29,7 @@
 
 
 
-class TCPServ {
+class UDPServ {
 private:
     char SERWER_IP[16] = "127.0.0.1";
 
@@ -40,16 +40,22 @@ private:
     sockaddr_in server, client;
     int addrlen;
 
-    char buf[BUFFSIZE] = "abcdef!";
+    char buf[BUFFSIZE] = {};
+    char recbuf[BUFFSIZE] = {};
+
 
     void IsError(int underZero, const char* msg );
 
 public:
-    TCPServ( int port_=8080 );
+    UDPServ(int port_=8080 );
 
-    int rec();
+    virtual ~UDPServ();
+
+    void rec();
     void snd();
+    char* getBuff();
+    void setBuff( char* data );
 
 };
 
-#endif //MSPACMAN_TCPSERV_H
+#endif //MSPACMAN_UDPSERV_H

@@ -5,10 +5,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <process.h>
-//#include "info/con_serv.h"
 
 #include "allTest.h"
-#include "src/test.h"
+
 
 
 

@@ -14,15 +14,12 @@ link_libraries(ws2_32 wsock32)
 
 add_executable(msPacMan main.cpp
         allTest.h
-        src/cliserv/Cli.cpp
-        src/cliserv/Cli.h
-        tests/ServTest.h
-        tests/CliTest.h
-        src/cliserv/TCPServ.cpp
-        src/cliserv/TCPServ.h
+        src/UDPClient.cpp
+        src/UDPClient.h
+        src/UDPServ.cpp
+        src/UDPServ.h
         info/con_serv.h
-        src/test.cpp
-        src/test.h
+        src/UDPServ.cpp
 
 )
 

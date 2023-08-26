@@ -21,15 +21,31 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="ADD :: thread">
+    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="ADD :: test in thread !">
+      <change afterPath="$PROJECT_DIR$/src/UDPClient.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/allTest.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-7583004ce1475eaa0fcb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-08-26T18-21-54-0632.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-f8fb2e108f7a6aa44a0f.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/cliserv/Cli.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/cliserv/Cli.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/cliserv/TCPServ.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/cliserv/TCPServ.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cliserv/Cli.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cliserv/Cli.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/UDPClient.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cliserv/TCPServ.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/UDPServ.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cliserv/TCPServ.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/UDPServ.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/CliTest.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ServTest.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +97,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\_OKNO_\2Rok\pac\src" />
       <recent name="C:\Users\Bill\CLionProjects\msPacMan\tests" />
       <recent name="C:\Users\Bill\CLionProjects\msPacMan" />
       <recent name="C:\Users\Bill\CLionProjects\msPacMan\info" />
@@ -128,7 +145,7 @@
       <workItem from="1693071908474" duration="318000" />
       <workItem from="1693073075916" duration="37000" />
       <workItem from="1693073700105" duration="2823000" />
-      <workItem from="1693077182309" duration="126000" />
+      <workItem from="1693077182309" duration="6323000" />
     </task>
     <task id="LOCAL-00001" summary="ADD :: ** Serv ** &amp; client">
       <option name="closed" value="true" />
@@ -234,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693075500392</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="ADD :: test in thread !">
+      <option name="closed" value="true" />
+      <created>1693077388452</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1693077388452</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +282,7 @@
     <MESSAGE value="ADD INFO" />
     <MESSAGE value="Serv :: konstruktor z domyslnym portem" />
     <MESSAGE value="ADD :: thread" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD :: thread" />
+    <MESSAGE value="ADD :: test in thread !" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD :: test in thread !" />
   </component>
 </project>
