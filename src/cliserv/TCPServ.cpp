@@ -5,4 +5,7 @@
 #include "TCPServ.h"
 
 
-TCPServ::TCPServ() { printf("TCPServ::TCPServ()\n"); }
+TCPServ::TCPServ( int port_ ) {
+    port = htons( port_ );
+    printf("TCPServ::TCPServ(), port:%i\n" , port_ );
+}

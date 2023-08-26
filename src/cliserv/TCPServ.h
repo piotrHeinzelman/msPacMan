@@ -25,9 +25,12 @@
 
 
 class TCPServ : public Serv {
+private:
+    unsigned short port;
+
 
 public:
-    TCPServ();
+    TCPServ( int port_=8080 );
 
 
 };

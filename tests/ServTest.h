@@ -19,10 +19,13 @@ public:
         assert( true );
         //if ( true ) throw std::domain_error("test::exception");
 
-        //TCP test
-        Serv s;             // klasa nadrzedna, default port
-        Serv s80(80); // klasa nadrzedna, wskazany port
-        TCPServ ts;
+        //Serv test  ** UNUSED **
+        //Serv s;                 // klasa nadrzedna, default port
+        //Serv s80(80);           // klasa nadrzedna, wskazany port
+
+        //TCPServ                 // test konstruktora
+        TCPServ ts;               // domyslny port
+        TCPServ ts80(80);   // wskazany port;
         //TCPServ t;
 
     //    serv.createForListen( );

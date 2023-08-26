@@ -22,6 +22,17 @@
  */
 #include <cstdio>
 
+#include <iostream>
+#include <winsock2.h>
+#include <windows.h>
+#include <ws2tcpip.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+// Need to link with Ws2_32.lib
+#pragma comment (lib, "Ws2_32.lib")
+// #pragma comment (lib, "Mswsock.lib")
+
 class Serv {
 
 protected:
@@ -29,8 +40,6 @@ protected:
 
 public:
 
-    // konstrktor z domyslnym numerem portu
-    Serv( int port_=8080 ); // konstruktor z domyslnym portem
 
 
 

@@ -5,6 +5,3 @@
 
 #include "Serv.h"
 
-// implementacja
-Serv::Serv( int port_ ) {
-    printf("Serv::Serv(), port:%i \n" , port_ ); }
