@@ -15,23 +15,40 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 #include <iostream>
-#include "Serv.h"
+
+#define BUFFSIZE 256
+
 
 // Need to link with Ws2_32.lib
 #pragma comment (lib, "Ws2_32.lib")
 // #pragma comment (lib, "Mswsock.lib")
+#pragma warning(disable:4996)
+//https://gist.github.com/sunmeat/02b60c8a3eaef3b8a0fb3c249d8686fd
 
 
 
-class TCPServ : public Serv {
+class TCPServ {
 private:
-    unsigned short port;
+    char SERWER_IP[16] = "127.0.0.1";
 
+    int iResult;
+    WSADATA wsaData;
+
+    int sock_fd;
+    sockaddr_in server, client;
+    int addrlen;
+
+    char buf[BUFFSIZE] = "abcdef!";
+
+    void IsError(int underZero, const char* msg );
 
 public:
     TCPServ( int port_=8080 );
 
+    int rec();
+    void snd();
 
 };
 

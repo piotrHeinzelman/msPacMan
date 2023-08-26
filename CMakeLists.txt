@@ -14,8 +14,6 @@ link_libraries(ws2_32 wsock32)
 
 add_executable(msPacMan main.cpp
         allTest.h
-        src/cliserv/Serv.cpp
-        src/cliserv/Serv.h
         src/cliserv/Cli.cpp
         src/cliserv/Cli.h
         tests/ServTest.h

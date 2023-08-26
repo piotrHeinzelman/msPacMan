@@ -7,8 +7,8 @@
 
 
 #include <cassert>
-#include "../src/cliserv/Serv.h"
 #include "../src/cliserv/TCPServ.h"
+#include "../src/cliserv/Cli.h"
 #include <stdlib.h>
 
 
@@ -24,8 +24,16 @@ public:
         //Serv s80(80);           // klasa nadrzedna, wskazany port
 
         //TCPServ                 // test konstruktora
+        //TCPServ ts80(80);   // wskazany port;
+
+
+
         TCPServ ts;               // domyslny port
-        TCPServ ts80(80);   // wskazany port;
+        ts.rec();
+
+        //Cli c;
+
+
         //TCPServ t;
 
     //    serv.createForListen( );

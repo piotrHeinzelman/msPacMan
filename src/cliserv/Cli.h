@@ -7,6 +7,10 @@
 
 
 #include <string>
+#include <iostream>
+#include <winsock2.h>
+#pragma comment(lib,"ws2_32.lib")
+#pragma warning(disable:4996)
 
 /***
 
@@ -27,19 +31,9 @@
 class Cli {
 
 protected:
-#define DEFAULT_BUFLEN 512
-#define DEFAULT_PORT "8080"
-
-    int iResult;
-    int iSendResult;
-
-    char buf[DEFAULT_BUFLEN];
-    int  buflen = DEFAULT_BUFLEN;
 
 public:
-    virtual    void  open( std::string serverAddr="127.0.0.1" , int port=8080 );
-    virtual    char* send( char* );
-    virtual    void  close();
+    Cli();
 
 // ? jeśli bufor prywatny to...
 /*
