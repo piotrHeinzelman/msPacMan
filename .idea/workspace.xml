@@ -21,23 +21,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="Serv :: konstruktor z domyslnym portem">
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/cliserv/Cli.cpp.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/cliserv/TCPServ.cpp.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/test.cpp.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test.h" afterDir="false" />
+    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="ADD :: thread">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-bd493461f225d8476a3d.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-7583004ce1475eaa0fcb.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-08-26T17-45-15-0566.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-08-26T18-21-54-0632.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-38c04aa1f703beda06ce.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-f8fb2e108f7a6aa44a0f.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/allTest.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,9 +88,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="msPacMan" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="msPacMan" TARGET_NAME="msPacMan" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="msPacMan" RUN_TARGET_NAME="msPacMan">
@@ -136,7 +127,8 @@
       <workItem from="1693061287340" duration="10160000" />
       <workItem from="1693071908474" duration="318000" />
       <workItem from="1693073075916" duration="37000" />
-      <workItem from="1693073700105" duration="1727000" />
+      <workItem from="1693073700105" duration="2823000" />
+      <workItem from="1693077182309" duration="126000" />
     </task>
     <task id="LOCAL-00001" summary="ADD :: ** Serv ** &amp; client">
       <option name="closed" value="true" />
@@ -234,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693071991262</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="ADD :: thread">
+      <option name="closed" value="true" />
+      <created>1693075500392</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1693075500392</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +256,7 @@
     <MESSAGE value="ADD INFO :: https://cpp0x.pl/artykuly/Inne-artykuly/C-C++-Programowanie-sieciowe-TCP-i-UDP-pod-Linuxem/66" />
     <MESSAGE value="ADD INFO" />
     <MESSAGE value="Serv :: konstruktor z domyslnym portem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Serv :: konstruktor z domyslnym portem" />
+    <MESSAGE value="ADD :: thread" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD :: thread" />
   </component>
 </project>
