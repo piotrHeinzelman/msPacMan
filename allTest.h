@@ -17,7 +17,7 @@ DWORD WINAPI runTestInThread(LPVOID lpParameter ) {
     printf( "S<%s\n",ts.getBuff() );
 
     printf( "S>first reply\n" );
-    ts.setBuff("first reply\0");
+    ts.setBuff("first reply");
     ts.snd();
 
     bool guard=false;
@@ -50,7 +50,7 @@ void runMyTests() {
 
     UDPClient* c;
     c = new UDPClient();
-    c->setBuff("first\0");
+    c->setBuff("first");
     printf( "C>first\n" );
     c->send();
     printf( "C<%s\n", c->getBuff() );
@@ -58,13 +58,13 @@ void runMyTests() {
 
     c = new UDPClient();
     printf( "C>sec\n" );
-    c->setBuff("sec\0");
+    c->setBuff("sec");
     c->send();
     printf( "C<%s\n", c->getBuff() );
 
 
     printf( "C>koncz wasc!\n" );
-    c->setBuff("koncz Wasc!\0");
+    c->setBuff("koncz Wasc!");
     c->send();
 
     printf( "C<%s\n", c->getBuff() );

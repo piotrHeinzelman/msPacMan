@@ -1,28 +1,25 @@
+
 #include <iostream>
-#include <winsock2.h>
-#include <windows.h>
-#include <ws2tcpip.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <process.h>
-
 #include "allTest.h"
-
-
-
-
-
-
-
+#include "src/Tick.h"
 
 int main() {
 
+    bool allTest=false;
+    bool lastTest=true;
 
 
-    // run test
-    if ( true ) {
+    if ( allTest ) {
+        // run test Client/Server communication
         runMyTests();
-        return 0; }
+        return 0;
+    }
+    if ( lastTest ) {
+        // run Tick
+        Tick t;
+        t.run();
+        sleep(5);
+    }
 
 
     std::cout << "Hello, World!" << std::endl;
