@@ -9,6 +9,8 @@
 #include "src/UDPServ.h"
 #include "src/UDPClient.h"
 #include "src/TickRunner.h"
+#include "tests/BoardTest.h"
+
 
 DWORD WINAPI runTestInThread(LPVOID lpParameter ) {
     printf("[ TEST ] :: Create Server in Thread %d\n", GetCurrentThreadId());
@@ -76,6 +78,21 @@ void runMyTests() {
 
     }
 
+void runAllTests(){
+    // ** TEST ** Client/Server communication
+    runMyTests();  // uruchamia w innym watki serwer ktory nasuchuje w petli
+    // i odpowiada tym samym,
+    // jesli otrzyma w parametrze "k" to konczy dzialanie
+
+    // ** TEST ** tick
+    TickRun();  // uruchamia runTickInThread()  w innym watku
+    //           runTickInThread() uruchamia w petli Tick::tick(); co 500 ms
+    sleep(5);       // usypia glowny watek na 5 sek, dzieki temu widac czy dzialaja inne watki
+
+}
 
 
+void runLastTests() {
+    BoardTest b;
+}
 #endif //MSPACMAN_ALLTEST_H

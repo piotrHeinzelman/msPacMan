@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include "allTest.h"
-#include "src/TickRunner.h"
+
 
 int main() {
 
@@ -10,22 +10,9 @@ int main() {
     bool exitAfterTests=true; // czy po zakonczeniu testow zakonczyc aplikacje ?
 
 
-    if ( allTest ) {
-        // ** TEST ** Client/Server communication
-        runMyTests();  // uruchamia w innym watki serwer ktory nasuchuje w petli
-                       // i odpowiada tym samym,
-                       // jesli otrzyma w parametrze "k" to konczy dzialanie
+    if ( allTest ) runAllTests();
+    if ( lastTest ) runLastTests();
 
-        // ** TEST ** tick
-        TickRun();  // uruchamia runTickInThread()  w innym watku
-        //           runTickInThread() uruchamia w petli Tick::tick(); co 500 ms
-        sleep(5);       // usypia glowny watek na 5 sek, dzieki temu widac czy dzialaja inne watki
-
-        return 0;
-    }
-    if ( lastTest ) {
-
-    }
 
     if (exitAfterTests){return 0;}
     std::cout << "Hello, World!" << std::endl;

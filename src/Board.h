@@ -120,15 +120,17 @@ char Bridges[255]=
 //         01234567890123456789
 
 //    char Bridges[255]=" x x x x  xx xxx xx "-"xx xxx xxxxx xxxxx  "-" xxxx  xx  x  xx xx "-"x   x  x x    x x   "-"  x x         x x   "-" xxxxx x     xxxxx !"-"  x x         x x   "-"  x x  x x x  x x   "-" xxxxx x  xx xxx xx "-"xx  xx xxx xxxx xx  "-" xxxx xx  xx   x xx "-"xx x x x x x x x xx ";
+
+ https://cpp0x.pl/dokumentacja/WinAPI/Konsola/1038
 */
 
 class Board {
 
 private:
     // level1
-    char Bridges[255]=" x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x    x x     x x         x x    xxxxx x     xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x x x x x x xx ";
 
 public:
+    const char Bridges[255]=" x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x    x x     x x         x x    xxxxx x     xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x x x x x x xx ";
 
 };
 
