@@ -57,7 +57,42 @@
         pobrać połozenie Mob na mostach i zaktualizować wygląd planszy zmieniając tylko obraz mostów na których stoi Mob.
 
 
+        NODES:
 
+        0   2   4   6   8   10  12  14  16  18
+
+       20  22  24  26  28  30   32  34  36  38
+
+       40 [41] 42 [most] 44
+
+       60
+      [70] - most
+       80
+
+       most nieparzysty - poziomy
+       n+2(E) = n`  if exists n+1 (czyli jeśli istnieje most o numerze n+1 to można przejść w kierunku "E" z n do n+2
+       n-2(W) = n`  if exists n-1
+
+       most pionowy
+       n+20(S) = n` //if (n+10) exists
+       n-20(N) = n` //if (n-10) exists
+
+
+       a    a+2  ruch w prawo (E)
+       n -> n
+        [a+1] - Bridge
+
+        a-2   a  ruch w lewo (W)
+         n <- n
+  Bridge  [a-1]
+
+           ruch w dół (S)
+
+         Node  a
+               |
+           most (a+10)
+               \/
+         Node a+20
 */
 
 class Board {

@@ -38,7 +38,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++1z -fdiagnostics-color=always"
+					"fragment" : " -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always"
 				}
 			],
 			"language" : "CXX",

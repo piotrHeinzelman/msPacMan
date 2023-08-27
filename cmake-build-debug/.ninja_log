@@ -1,5 +1,5 @@
 # ninja log v5
-1	126	7148273311653943	build.ninja	1568d130486d208f
+1	126	7148462359268232	build.ninja	1568d130486d208f
 395	5556	7145356248376853	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	ed019f3fc8c8a2e9
 7280	7523	7145356268182034	lib/libgmockd.a	24b7ef998ee91640
 3	1323	7148269457541465	CMakeFiles/msPacMan.dir/main.cpp.obj	48bc853c5a81fcb
@@ -10,18 +10,24 @@
 5556	7280	7145356265745899	lib/libgtestd.a	b36b3c058ffbaa35
 7523	7565	7145356268614127	lib/libgmock_maind.a	fd0db4b58ff933e5
 7284	7324	7145356266191586	lib/libgtest_maind.a	7226d71e53acf9bb
-6	449	7148263447660044	CMakeFiles/msPacMan.dir/src/Tick.cpp.obj	1f56414dd7914802
 5	58	7145374900559919	tests/CMakeFiles/all_my_test.dir/all_my_test.cpp.obj	f6122a2e72ba5eaa
-7	2108	7147828137578490	CMakeFiles/msPacMan.dir/src/cliserv/Cli.cpp.obj	6b9040e84554b199
 0	6	0	clean	b7cb7efb00ab123
 54	2055	7145364068251599	tests/all_my_test.exe	b6a7c1e49d4f3e7c
 2	54	7145374900559919	tests/CMakeFiles/cpp_test.dir/all_my_test.cpp.obj	32314ee4574240f7
 58	101	7145374901030979	tests/liball_my_test.a	d56610e9751e61a8
 8	268	7145370660216539	tests/CMakeFiles/sum_up.dir/__/main.cpp.obj	84b313a6af33ae79
 172	224	7145382246808306	libsum_integers.a	96376518bc6c0238
-6	215	7147775956796370	CMakeFiles/msPacMan.dir/src/test.cpp.obj	83cf0bd34e31fb30
 346	413	7145387658037350	cpp_test.exe	f460f80005a66a9c
-7	2482	7147630082341661	CMakeFiles/msPacMan.dir/src/cliserv/Serv.cpp.obj	2ec7872b9add8237
-6	1448	7147832702514304	CMakeFiles/msPacMan.dir/src/cliserv/TCPServ.cpp.obj	a844218811a5da27
 8	2476	7147875662013660	CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj	e104b220b6324fca
 5	1671	7147876161818813	CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj	78c91d21e8676832
+16	104	7148462467312790	CMakeFiles/msPacMan.dir/src/Board.cpp.obj	4aadadae5f56dbd5
+13	2268	7148462488975752	CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj	f64bf9ff7d8fcbe4
+2	2327	7148462489565902	CMakeFiles/msPacMan.dir/main.cpp.obj	21a6499fad0bfae9
+7	2774	7148462494037462	CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj	4c3acfca9cdf70ea
+2775	2926	7148462495527498	msPacMan.exe	3ceaeefa7cc95594
+3	1209	7148475319519079	CMakeFiles/msPacMan.dir/main.cpp.obj	21a6499fad0bfae9
+1210	1338	7148475320764183	msPacMan.exe	3ceaeefa7cc95594
+3	1092	7148475566442351	CMakeFiles/msPacMan.dir/main.cpp.obj	21a6499fad0bfae9
+1093	1362	7148475569077116	msPacMan.exe	3ceaeefa7cc95594
+3	1109	7148475643962649	CMakeFiles/msPacMan.dir/main.cpp.obj	21a6499fad0bfae9
+1110	1210	7148475644933207	msPacMan.exe	3ceaeefa7cc95594
