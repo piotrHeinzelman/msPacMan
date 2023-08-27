@@ -11,7 +11,7 @@
 
 #include <windows.h>
 
-#include <graphics.h>
+#include "../_lib/graphics.h"
 //#pragma comment (lib, "Ws2_32.lib")
 
 
@@ -45,7 +45,24 @@ public:
             }
             printf("%s \n"  , buf);
         }
+
+
+        graph();
+
+
     }
+
+
+
+    void graph(){
+
+        void initgraph(int far *graphdriver, int far *graphmode, char far *pathtodriver);
+        void setgraphmode(int VGAHi);
+         //        Użyteczne jedynie  i IBM8514Lo
+        sleep(5);
+    }
+
+
 };
 
 
