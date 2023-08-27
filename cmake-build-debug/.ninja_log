@@ -1,15 +1,16 @@
 # ninja log v5
-1	126	7148262640882521	build.ninja	1568d130486d208f
+1	126	7148273311653943	build.ninja	1568d130486d208f
 395	5556	7145356248376853	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	ed019f3fc8c8a2e9
 7280	7523	7145356268182034	lib/libgmockd.a	24b7ef998ee91640
-3	1322	7147899179281533	CMakeFiles/msPacMan.dir/main.cpp.obj	48bc853c5a81fcb
-1323	1715	7147899183171755	msPacMan.exe	7de2caae27e08cd2
+3	1323	7148269457541465	CMakeFiles/msPacMan.dir/main.cpp.obj	48bc853c5a81fcb
+1323	1704	7148269461331682	msPacMan.exe	8f83fd844943932b
 62	1053	7145356203480514	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	12beaf48f96c8c66
 14	1247	7145356205411801	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	c57e1f5998612ceb
 11	2076	7145356213660135	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	8cbefc938757de13
 5556	7280	7145356265745899	lib/libgtestd.a	b36b3c058ffbaa35
 7523	7565	7145356268614127	lib/libgmock_maind.a	fd0db4b58ff933e5
 7284	7324	7145356266191586	lib/libgtest_maind.a	7226d71e53acf9bb
+6	449	7148263447660044	CMakeFiles/msPacMan.dir/src/Tick.cpp.obj	1f56414dd7914802
 5	58	7145374900559919	tests/CMakeFiles/all_my_test.dir/all_my_test.cpp.obj	f6122a2e72ba5eaa
 7	2108	7147828137578490	CMakeFiles/msPacMan.dir/src/cliserv/Cli.cpp.obj	6b9040e84554b199
 0	6	0	clean	b7cb7efb00ab123
@@ -24,16 +25,3 @@
 6	1448	7147832702514304	CMakeFiles/msPacMan.dir/src/cliserv/TCPServ.cpp.obj	a844218811a5da27
 8	2476	7147875662013660	CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj	e104b220b6324fca
 5	1671	7147876161818813	CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj	78c91d21e8676832
-6	449	7148263447660044	CMakeFiles/msPacMan.dir/src/Tick.cpp.obj	1f56414dd7914802
-4	1377	7148265017674231	CMakeFiles/msPacMan.dir/main.cpp.obj	48bc853c5a81fcb
-1377	1881	7148265022684518	msPacMan.exe	8f83fd844943932b
-4	1510	7148266589561869	CMakeFiles/msPacMan.dir/main.cpp.obj	48bc853c5a81fcb
-1511	2047	7148266594882173	msPacMan.exe	8f83fd844943932b
-3	1582	7148268140855890	CMakeFiles/msPacMan.dir/main.cpp.obj	48bc853c5a81fcb
-1583	1978	7148268144786114	msPacMan.exe	8f83fd844943932b
-10	1367	7148268508757733	CMakeFiles/msPacMan.dir/main.cpp.obj	48bc853c5a81fcb
-1368	1740	7148268512437943	msPacMan.exe	8f83fd844943932b
-4	1352	7148268610388965	CMakeFiles/msPacMan.dir/main.cpp.obj	48bc853c5a81fcb
-1353	1727	7148268614099177	msPacMan.exe	8f83fd844943932b
-3	1323	7148269457541465	CMakeFiles/msPacMan.dir/main.cpp.obj	48bc853c5a81fcb
-1323	1704	7148269461331682	msPacMan.exe	8f83fd844943932b
