@@ -8,6 +8,7 @@
 
 #include "src/UDPServ.h"
 #include "src/UDPClient.h"
+#include "src/TickRunner.h"
 
 DWORD WINAPI runTestInThread(LPVOID lpParameter ) {
     printf("[ TEST ] :: Create Server in Thread %d\n", GetCurrentThreadId());

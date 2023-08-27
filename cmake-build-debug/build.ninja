@@ -67,6 +67,12 @@ build CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj: CXX_COMPILER__msPacMan_unscan
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
 
+build CMakeFiles/msPacMan.dir/src/Tick.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug C$:/_OKNO_/2Rok/pac/src/Tick.cpp || cmake_object_order_depends_target_msPacMan
+  DEP_FILE = CMakeFiles\msPacMan.dir\src\Tick.cpp.obj.d
+  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++1z -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\msPacMan.dir
+  OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target msPacMan
@@ -75,7 +81,7 @@ build CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj: CXX_COMPILER__msPacMan_unscan
 #############################################
 # Link the executable msPacMan.exe
 
-build msPacMan.exe: CXX_EXECUTABLE_LINKER__msPacMan_Debug CMakeFiles/msPacMan.dir/main.cpp.obj CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj
+build msPacMan.exe: CXX_EXECUTABLE_LINKER__msPacMan_Debug CMakeFiles/msPacMan.dir/main.cpp.obj CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj CMakeFiles/msPacMan.dir/src/Tick.cpp.obj
   FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g
   LINK_FLAGS = -static -lws2_32
   LINK_LIBRARIES = -lws2_32  -lwsock32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

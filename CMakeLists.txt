@@ -20,6 +20,8 @@ add_executable(msPacMan main.cpp
         src/UDPServ.h
         info/con_serv.h
         src/UDPServ.cpp
+        src/TickRunner.h
+        src/Tick.cpp
         src/Tick.h
 
 )
