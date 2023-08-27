@@ -95,10 +95,38 @@
          Node a+20
 */
 
+
+
+/*
+  do przechowywania "mostów" uzyje starej dobrej tablicy B[255]  B[x]=" "- brak mostu, B[x]!=" " most - szybko i skutecznie bez wikłania się w nowoczesne struktury danych, drzewa, mapy, czy przeglądanie iteratorami vector<?>
+
+char Bridges[255]=
+    //Bridge E
+//         01234567890123456789
+/!00-19!/ " x x x x  xx xxx xx "\
+/!20-39!/ "xx xxx xxxxx xxxxx  "\
+/!40-59!/ " xxxx  xx  x  xx xx "\
+/!60-79!/ "x   x  x x    x x   "\
+/!80-99!/ "  x x         x x   "\
+/100-119/ " xxxxx x     xxxxx !"\
+/120-139/ "  x x         x x   "
+/140-159/ "  x x  x x x  x x   "
+/160-179/ " xxxxx x  xx xxx xx "
+/180-199/ "xx  xx xxx xxxx xx  "
+/200-219/ " xxxx xx  xx   x xx "
+/220-239/ "xx x x x x x x x xx "
+//         01234567890123456789
+*/
+
+//    char Bridges[255]=" x x x x  xx xxx xx "-"xx xxx xxxxx xxxxx  "-" xxxx  xx  x  xx xx "-"x   x  x x    x x   "-"  x x         x x   "-" xxxxx x     xxxxx !"-"  x x         x x   "-"  x x  x x x  x x   "-" xxxxx x  xx xxx xx "-"xx  xx xxx xxxx xx  "-" xxxx xx  xx   x xx "-"xx x x x x x x x xx ";
+
 class Board {
 
+private:
+    // level1
+    char Bridges[255]=" x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x    x x     x x         x x    xxxxx x     xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x x x x x x xx ";
 
-
+public:
 
 };
 
