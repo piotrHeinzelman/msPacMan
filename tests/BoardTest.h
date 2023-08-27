@@ -11,25 +11,39 @@
 
 #include <windows.h>
 
+#include <graphics.h>
+//#pragma comment (lib, "Ws2_32.lib")
 
 
 class BoardTest {
 public:
     BoardTest(){
+
+        // draw board
+
         Board board;
               board.Bridges;
 
-        char buf[20];
+        char buf[24]={0};
 
-        for (int j=0;j<260;j+=20) {
-            for (int i = 0; i < 20; i++, i++) {
+        for (int j=0;j<240;j+=20) {
+            for (int i = 0; i < 19; i++, i++) {
                 if (board.Bridges[i + 1 + j] == ' ') {
                     buf[i] = 'o'; buf[i + 1] = ' ';
                 } else {
-                    buf[i] = 'o'; buf[i + 1] = '-';
+                    buf[i] = 'o'; buf[i + 1] = board.Bridges[i + 1 + j];
                 }
             }
-            printf("%s\n" , buf);
+            printf("%s \n"  , buf);
+
+            for (int i = 0; i < 19; i++, i++) {
+                if (board.Bridges[i + 10+ j] == ' ') {
+                    buf[i] = ' '; buf[i + 1] = ' ';
+                } else {
+                    buf[i] = board.Bridges[i + 10 + j]; buf[i + 1] = ' ';
+                }
+            }
+            printf("%s \n"  , buf);
         }
     }
 };
