@@ -1,0 +1,22 @@
+
+
+1. Copy and paste graphics.h and winbgim.h files into the include folder of your compiler directory. 
+(If you have Code::Blocks installed in C drive of your computer, 
+go through: Disk C >> Program Files >> CodeBlocks >> MinGW >> include. Paste these two files there.)
+
+2. Copy and paste libbgi.a to the lib folder of your compiler directory.
+
+3.Open Code::Blocks. Go to Settings >> Compiler >> Linker settings.
+
+4.In that window, click the Add button under the “Link libraries” part, and browse and select the libbgi.a file
+
+5.Go to “Other linker options” on the right part and paste these commands:
+
+-lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32
+
+6. Then, click Ok.
+
+7. A test programe is given name "testGraphics.cpp"
+Test it.
+
+thanks for patience.
