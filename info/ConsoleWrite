@@ -1,1 +1,21 @@
 
+#include <iostream>
+#include <windows.h>
+#include <string.h>
+#include <stdlib.h>
+int main(void)
+{
+
+
+    HANDLE hout = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hout == INVALID_HANDLE_VALUE) {
+        return EXIT_FAILURE;
+    }
+    SHORT x = 7, y = 3;
+    DWORD dwWritten = 0;
+    COORD cursor = {x, y};
+    const char cs[] = "122333";
+    WriteConsoleOutputCharacter(hout, cs, strlen(cs), cursor, &dwWritten);
+    Sleep(5000);
+    return EXIT_SUCCESS;
+}
