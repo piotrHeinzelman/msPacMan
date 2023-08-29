@@ -5,13 +5,15 @@
 #include "Board.h"
 #include <vector>
 #include <iostream>
+#include <unistd.h>
 #include "Mob.h"
 
 Board::Board() {
     // level1 - public - aby był dostępny dla testu, i można sprawdzić "naocznie" połaczenia planszy
     Bridges = " x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x x  x x     x x         x x    xxxxx       xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x xxx x x x x  ";
 
-    //std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    prepare();
 }
 
 void Board::prepare() {
@@ -51,7 +53,7 @@ void Board::prepare() {
 
 
     // dla wszystkich MOB pokaz mosty, cyklicznie przesuwaj
-
+    drawBoard();
 }
 
 void Board::setMobAt( int mobId, int bridgeNum ) {  // postać zawsze na jednym akrywnym moście - o numerze unsigned int = activeBridges[ idPostaci ];
@@ -85,17 +87,34 @@ void Board::activateBridge(int bridgeNum) {};
 void Board::deactivateBridge(int bridgeNum) {}
 
 void Board::drawBridge(int bridgeNum) {
-    int bridgeHeight=3;
-    int bridgeWidth=3;
-
-    
-    if ( bridgeNum & 1 ){ std::cout << "\n="; }
-                   else { std::cout << "||"; }
+    if ( bridgeNum & 1 ) return drawBridgeW( bridgeNum );
+                   else  return drawBridgeH( bridgeNum );
 }
 
+void Board::drawBridgeW(int bridgeNum) {
+    SHORT x=bridgeNum%20;
+    SHORT y=((bridgeNum-x)/20)*2;
+
+    x*=1;//CELL_WIDTH;
+    y*=1;//CELL_HEIGHT;
+    cdraw.WriteColourChar( x,y,196 );
 
 
 
+
+
+}
+
+void Board::drawBridgeH( int bridgeNum ) {
+
+    SHORT y=1+2*((bridgeNum-10)/20) ;
+    SHORT x=(bridgeNum-10)%20;
+
+    x*=1;//CELL_WIDTH;
+    y*=1;//CELL_HEIGHT;
+    cdraw.WriteColourChar( x,y,179 );
+
+}
 
 
 void Board::BoardTick() {
@@ -123,22 +142,23 @@ void Board::BoardTick() {
 
 
 void Board::drawBoard() {
-#define BOARD_WIDTH 19
-#define BOARD_HEIGHT 22
 
-#define WID_MULL 4
-#define HEI_MULL 1
-
-#define BH BOARD_HEIGHT*HEI_MULL
-#define BW BOARD_WIDTH*WID_MULL
-
+    for (int i=0;i<240;i++,i++){
+        if( this->Bridges[i] != ' '){ drawBridgeH(i); }
+        if( this->Bridges[i+1] != ' '){ drawBridgeW(i+1); }
+    }
+    if (true )return;
     cdraw.WriteColourChar(0,0,210);
     cdraw.WriteColourChar(2+BW, 0 ,183);
     cdraw.WriteColourChar(0,    2+BH,211);
     cdraw.WriteColourChar(2+BW, 2+BH , 189);
-    for ( int i=0; i<BW; i++ ){
+    for ( int i=0; i<=BW; i++ ){
          cdraw.WriteColourChar(1+i,0,196);
          cdraw.WriteColourChar(1+i,2+BH ,196);
+    }
+    for ( int i=0; i<=BH; i++ ){
+        cdraw.WriteColourChar(0    ,1+i,186);
+        cdraw.WriteColourChar(2+BW , i+1, 186);
     }
 
 

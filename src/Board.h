@@ -5,6 +5,20 @@
 #ifndef MSPACMAN_BOARD_H
 #define MSPACMAN_BOARD_H
 
+
+#define BOARD_WIDTH 19
+#define BOARD_HEIGHT 23
+
+#define CELL_WIDTH 3 //6
+#define CELL_HEIGHT 2 // 2
+
+#define BH BOARD_HEIGHT*CELL_HEIGHT
+#define BW BOARD_WIDTH*CELL_WIDTH
+
+#define popW 0
+#define popH 0
+
+
 #include <vector>
 #include <iostream>
 #include "Mob.h"
@@ -139,6 +153,7 @@ private:
     int activeBridges [8]={0};
     ConsoleDraw cdraw;
 
+
 public:
     std::string Bridges;
 
@@ -154,10 +169,13 @@ public:
     void activateBridge( int bridgeNum  );
 
     void drawBridge( int bridgeNum );
+    void drawBridgeW( int bridgeNum );
+    void drawBridgeH( int bridgeNum );
 
     DIRECT atEdge( int id , DIRECT direction , DIRECT nextDirection );
 
     void drawBoard();
+
 
 };
 

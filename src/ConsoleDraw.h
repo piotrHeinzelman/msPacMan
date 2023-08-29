@@ -21,8 +21,10 @@ class ConsoleDraw {
 
 private:
     HANDLE hout;
-    char chr;
+    char chr[2]="";
     DWORD dwWritten;
+    COORD cursor;
+
 
 public:
     ConsoleDraw() {
@@ -35,6 +37,21 @@ public:
 
 
     void WriteColourChar(SHORT x, SHORT y, char charCode ,DWORD attrib=0x07 +0x00 ) {
+        chr[0] = charCode;
+        cursor = {x,y};
+        SetConsoleTextAttribute( hout, (WORD) 0x0F ); // White
+
+        WriteConsoleOutputCharacter(hout, chr, strlen(chr), cursor, &dwWritten);
+
+
+
+
+
+
+
+
+
+        /*
         SetConsoleTextAttribute( hout, attrib );
         chr = charCode;
         SetConsoleCursorPosition(hout,{x,y});
@@ -83,13 +100,9 @@ public:
 
 
     void WritcheChar2(SHORT x, SHORT y, const char* chr ,int len) {
-
-        SetConsoleTextAttribute( hout, (WORD) 0x02 );
-        COORD cursor = {x, y};
+        //SetConsoleTextAttribute( hout, (WORD) 0x02 );
         DWORD written;
-
-        DWORD dwWritten = 0;
-        WriteConsoleOutputCharacter(hout, chr, len, cursor, &dwWritten);
+        WriteConsoleOutputCharacter(hout, chr, len, {x,y}, &dwWritten);
 
 
 /*

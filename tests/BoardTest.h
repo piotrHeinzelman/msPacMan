@@ -6,6 +6,8 @@
 #define MSPACMAN_BOARDTEST_H
 
 
+
+
 #include <cstdio>
 #include "../src/Board.h"
 
@@ -81,16 +83,47 @@ public:
         }
 
         ConsoleDraw cd;
+        cd.WriteColourChar( 0,0,176 );
+        cd.WriteColourChar( 0,2,176 );
+        cd.WriteColourChar( 2,0,176 );
+        cd.WriteColourChar( 2,2,176 );
 
+        cd.WriteColourChar( 18,0,176 );
+        cd.WriteColourChar( 18,23,176 );
 
 
         Board b;
-        b.drawBoard();
-/*        b.drawBridge( 1);
+        //b.drawBoard();
+  /*      b.drawBridge( 1);
         b.drawBridge( 3);
         b.drawBridge( 5);
+        b.drawBridge( 7);
+        b.drawBridge( 11);
+        b.drawBridge( 13);
+        b.drawBridge( 15);
+        b.drawBridge( 17);
+
+
+
+
         b.drawBridge( 21);
+        b.drawBridge( 37);
+        b.drawBridge( 235);
 */
+        b.drawBridge( 10);
+        b.drawBridge( 28);
+        b.drawBridge( 30);
+        b.drawBridge( 210);
+        b.drawBridge( 228);
+        /*     b.drawBridge( 54);
+             b.drawBridge( 14);
+             b.drawBridge( 228);
+             b.drawBridge( 28);
+
+     /*        b.drawBridge( 3);
+             b.drawBridge( 5);
+             b.drawBridge( 21);
+     */
 
 
 
