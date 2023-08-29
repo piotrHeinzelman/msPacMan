@@ -6,8 +6,10 @@
 #define MSPACMAN_BOARD_H
 
 #include <vector>
+#include <iostream>
 #include "Mob.h"
 #include "DIRECT.h"
+#include "ConsoleDraw.h"
 
 
 
@@ -135,6 +137,7 @@ class Board {
 private:
     Mob* mobiles[8]={};
     int activeBridges [8]={0};
+    ConsoleDraw cdraw;
 
 public:
     std::string Bridges;
@@ -144,11 +147,13 @@ public:
 
     void prepare();
     void setMobAt( int  i , int bridgeNum );
-    void moveMobTo ( int i, int bridgeNum );
+    void moveMobTo ( int i, DIRECT STOP, int bridgeNum );
 
 
     void deactivateBridge( int bridgeNum );
     void activateBridge( int bridgeNum  );
+
+    void drawBridge( int bridgeNum );
 
     DIRECT atEdge( int id , DIRECT direction , DIRECT nextDirection );
 

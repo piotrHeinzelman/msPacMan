@@ -51,13 +51,35 @@ public:
     }
 
 
-    void BridgeTest(){
+    void BridgeTest() {
 
+        char Buff[255];
+
+        ConsoleDraw cd;
+        cd.WriteCharAt(3, 3, "X");
+
+        for (int i = 0; i < 255; i++) {
+            Buff[i] = i;
+            cd.WritcheChar2(4, 4, Buff, 77);
+        }
 
         Board b;
+        b.drawBridge( 1);
+        b.drawBridge( 3);
+        b.drawBridge( 5);
+        b.drawBridge( 21);
+
+
+
+        return;
+
+
         b.prepare();
         b.BoardTick();
 
+
+        b.drawBridge( 30);
+        b.drawBridge( 187);
 
 
     }
