@@ -127,11 +127,20 @@ void Board::drawBoard() {
 #define BOARD_HEIGHT 22
 
 #define WID_MULL 4
-#define HEI_MULL 2
+#define HEI_MULL 1
 
-    for ( int i=0; i<BOARD_WIDTH*WID_MULL+2; i++ ){
-        //cdraw.WriteColourChar(0,i,)
+#define BH BOARD_HEIGHT*HEI_MULL
+#define BW BOARD_WIDTH*WID_MULL
+
+    cdraw.WriteColourChar(0,0,210);
+    cdraw.WriteColourChar(2+BW, 0 ,183);
+    cdraw.WriteColourChar(0,    2+BH,211);
+    cdraw.WriteColourChar(2+BW, 2+BH , 189);
+    for ( int i=0; i<BW; i++ ){
+         cdraw.WriteColourChar(1+i,0,196);
+         cdraw.WriteColourChar(1+i,2+BH ,196);
     }
+
 
 
 

@@ -27,12 +27,9 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleDraw.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleDraw.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/BoardTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BoardTest.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +141,7 @@
       <workItem from="1693169013568" duration="761000" />
       <workItem from="1693169977588" duration="630000" />
       <workItem from="1693259246828" duration="18527000" />
-      <workItem from="1693322505787" duration="12355000" />
+      <workItem from="1693322505787" duration="14618000" />
     </task>
     <task id="LOCAL-00001" summary="ADD :: ** Serv ** &amp; client">
       <option name="closed" value="true" />
@@ -354,7 +351,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693330163546</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="char code">
+      <option name="closed" value="true" />
+      <created>1693335069824</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1693335069824</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,6 +391,7 @@
     <MESSAGE value="ADD :: draw board in console" />
     <MESSAGE value="Board" />
     <MESSAGE value="Color console" />
-    <option name="LAST_COMMIT_MESSAGE" value="Color console" />
+    <MESSAGE value="char code" />
+    <option name="LAST_COMMIT_MESSAGE" value="char code" />
   </component>
 </project>

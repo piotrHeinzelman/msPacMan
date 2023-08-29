@@ -70,20 +70,31 @@ public:
 
             cd.WriteColourChar(2,2,0x40  );
             cd.WriteColourChar(3,3,0x40,0x08);
+
+
+            // ************
+
+            for (int i=0;i<19*5;i++){
+                cd.WriteColourChar( i, 1 , i+176  );
+            }
+            cd.WriteColourChar( 3,3 ,176   );
         }
 
         ConsoleDraw cd;
 
-        for (int i=0;i<19*5;i++){
-            cd.WriteColourChar( i, 1 , i+176  );
-        }
-        cd.WriteColourChar( 3,3 ,176   );
+
 
         Board b;
-        b.drawBridge( 1);
+        b.drawBoard();
+/*        b.drawBridge( 1);
         b.drawBridge( 3);
         b.drawBridge( 5);
         b.drawBridge( 21);
+*/
+
+
+
+
 
 
 
