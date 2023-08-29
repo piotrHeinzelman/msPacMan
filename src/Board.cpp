@@ -95,13 +95,27 @@ void Board::drawBridgeW(int bridgeNum) {
     SHORT x=bridgeNum%20;
     SHORT y=((bridgeNum-x)/20)*2;
 
-    x*=1;//CELL_WIDTH;
-    y*=1;//CELL_HEIGHT;
-    cdraw.WriteColourChar( x,y,196 );
+    x*=CELL_WIDTH;
+    y*=CELL_HEIGHT;
+    //cdraw.WriteColourChar( x,y,196 );
 
 
+    //cdraw.WriteColourChar( x+CELL_WIDTH*3,y,196 );
 
+    //for (int i=-CELL_WIDTH+1;i<CELL_WIDTH*3-1;i++){
+    //    cdraw.WriteColourChar( x+i,y,196 );
+    //}
 
+    //cdraw.WriteColourChar( x-CELL_WIDTH,y,250 );
+    //cdraw.WriteColourChar( x+CELL_WIDTH+CELL_WIDTH-1,y,250 );
+
+    cdraw.WriteColourChar( x-2,y,248 );
+    cdraw.WriteColourChar( x,y,248 );
+    cdraw.WriteColourChar( x+2,y,248 );
+    cdraw.WriteColourChar( x+4,y,248 );
+
+   // if (Bridges[bridgeNum+2]==' '){ cdraw.WriteColourChar( x+5,y,176 );  }
+   // if (Bridges[bridgeNum-2]==' '){ cdraw.WriteColourChar( x-3,y,176 );  }
 
 }
 
@@ -110,9 +124,14 @@ void Board::drawBridgeH( int bridgeNum ) {
     SHORT y=1+2*((bridgeNum-10)/20) ;
     SHORT x=(bridgeNum-10)%20;
 
-    x*=1;//CELL_WIDTH;
-    y*=1;//CELL_HEIGHT;
-    cdraw.WriteColourChar( x,y,179 );
+    x*=CELL_WIDTH;
+    y*=CELL_HEIGHT;
+    //cdraw.WriteColourChar( x,y,179 );
+
+    //cdraw.WriteColourChar( x+1,y-1,250 );
+    //cdraw.WriteColourChar( x+1,y+1,250 );
+
+    cdraw.WriteColourChar( x+1,  y,248 );
 
 }
 
@@ -143,9 +162,14 @@ void Board::BoardTick() {
 
 void Board::drawBoard() {
 
-    for (int i=0;i<240;i++,i++){
-        if( this->Bridges[i] != ' '){ drawBridgeH(i); }
-        if( this->Bridges[i+1] != ' '){ drawBridgeW(i+1); }
+    //drawBridgeH(10);
+    drawBridgeH(1);
+
+    if (!false) { // wyłaczone rysowanie planszy
+    for (int i = 0; i < 240; i++, i++) {
+        if (this->Bridges[i] != ' ') { drawBridgeH(i); }
+        if (this->Bridges[i + 1] != ' ') { drawBridgeW(i + 1); }
+    }
     }
     if (true )return;
     cdraw.WriteColourChar(0,0,210);

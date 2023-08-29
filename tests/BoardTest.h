@@ -84,15 +84,16 @@ public:
 
         ConsoleDraw cd;
         cd.WriteColourChar( 0,0,176 );
-        cd.WriteColourChar( 0,2,176 );
+      /*  cd.WriteColourChar( 0,2,176 );
         cd.WriteColourChar( 2,0,176 );
         cd.WriteColourChar( 2,2,176 );
 
         cd.WriteColourChar( 18,0,176 );
         cd.WriteColourChar( 18,23,176 );
 
-
+*/
         Board b;
+        b.drawBridge(1);
         //b.drawBoard();
   /*      b.drawBridge( 1);
         b.drawBridge( 3);
@@ -109,7 +110,7 @@ public:
         b.drawBridge( 21);
         b.drawBridge( 37);
         b.drawBridge( 235);
-*/
+*//*
         b.drawBridge( 10);
         b.drawBridge( 28);
         b.drawBridge( 30);
@@ -120,7 +121,7 @@ public:
              b.drawBridge( 228);
              b.drawBridge( 28);
 
-     /*        b.drawBridge( 3);
+    */ /*        b.drawBridge( 3);
              b.drawBridge( 5);
              b.drawBridge( 21);
      */

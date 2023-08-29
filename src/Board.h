@@ -10,7 +10,7 @@
 #define BOARD_HEIGHT 23
 
 #define CELL_WIDTH 3 //6
-#define CELL_HEIGHT 2 // 2
+#define CELL_HEIGHT 1 // 2
 
 #define BH BOARD_HEIGHT*CELL_HEIGHT
 #define BW BOARD_WIDTH*CELL_WIDTH
