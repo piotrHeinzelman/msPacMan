@@ -17,7 +17,7 @@
 
 class BoardTest {
 public:
-    BoardTest(){}
+
 
 
     void BoardPreview(){
@@ -52,18 +52,12 @@ public:
 
 
     void BridgeTest(){
-/*
+
 
         Board b;
+        b.prepare();
+        b.BoardTick();
 
-
-
-        Mob pinky(0);
-        Mob inky(2);
-        Mob sue(4);
-
-        Mob pac(1);
-*/
 
 
     }

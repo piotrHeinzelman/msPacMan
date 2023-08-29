@@ -129,17 +129,18 @@ char Bridges[255]=
 
  https://cpp0x.pl/dokumentacja/WinAPI/Konsola/1038
 */
-
+class Mob;
 class Board {
 
 private:
-    void* mobiles[8]={nullptr};
+    Mob* mobiles[8]={};
     int activeBridges [8]={0};
 
 public:
     std::string Bridges;
 
     Board();
+    void BoardTick();
 
     void prepare();
     void setMobAt( int  i , int bridgeNum );

@@ -13,7 +13,7 @@
 
 #define STEPS 8
 
-
+class Board ;
 
 class Mob {
 
@@ -22,6 +22,7 @@ private:
     int positionOnBridge;
     DIRECT direction;
     DIRECT nextDirection;
+    Board* parent;
 
 
 public:
@@ -35,6 +36,7 @@ public:
     void setDirection(DIRECT direction);
     void _atEdge();
     bool isAtEdge();
+    void setParent( Board* parent );
 
 };
 
