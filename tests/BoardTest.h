@@ -17,7 +17,10 @@
 
 class BoardTest {
 public:
-    BoardTest(){
+    BoardTest(){}
+
+
+    void BoardPreview(){
 
         // draw board
 
@@ -45,21 +48,24 @@ public:
             }
             printf("%s \n"  , buf);
         }
-
-
-        graph();
-
-
     }
 
 
+    void BridgeTest(){
+/*
 
-    void graph(){
+        Board b;
 
-        void initgraph(int far *graphdriver, int far *graphmode, char far *pathtodriver);
-        void setgraphmode(int VGAHi);
-         //        Użyteczne jedynie  i IBM8514Lo
-        sleep(5);
+
+
+        Mob pinky(0);
+        Mob inky(2);
+        Mob sue(4);
+
+        Mob pac(1);
+*/
+
+
     }
 
 

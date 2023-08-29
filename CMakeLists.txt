@@ -25,6 +25,11 @@ add_executable(msPacMan main.cpp
         src/Board.cpp
         src/Board.h
         tests/BoardTest.h
+        src/ConsoleDraw.cpp
+        src/ConsoleDraw.h
+        src/Mob.cpp
+        src/Mob.h
+        src/DIRECT.h
 
 )
 

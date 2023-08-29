@@ -5,6 +5,12 @@
 #ifndef MSPACMAN_BOARD_H
 #define MSPACMAN_BOARD_H
 
+#include <vector>
+#include "Mob.h"
+#include "DIRECT.h"
+
+
+
 /* glowna klasa gry
    przechowuje
     - Mob - postacie grajace na planszy (zarowno Ghost jak i Pac)
@@ -127,10 +133,23 @@ char Bridges[255]=
 class Board {
 
 private:
-    // level1
+    void* mobiles[8]={nullptr};
+    int activeBridges [8]={0};
 
 public:
-    const char Bridges[255]=" x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x x  x x     x x         x x    xxxxx       xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x xxx x x x x  ";
+    std::string Bridges;
+
+    Board();
+
+    void prepare();
+    void setMobAt( int  i , int bridgeNum );
+    void moveMobTo ( int i, int bridgeNum );
+
+
+    void deactivateBridge( int bridgeNum );
+    void activateBridge( int bridgeNum  );
+
+    DIRECT atEdge( int id , DIRECT direction , DIRECT nextDirection );
 
 };
 

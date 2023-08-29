@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include "allTest.h"
+#include "src/ConsoleDraw.h"
 
 
 int main() {
@@ -13,7 +14,7 @@ int main() {
     if ( allTest ) runAllTests();
     if ( lastTest ) runLastTests();
 
-
+    sleep(5);
     if (exitAfterTests){return 0;}
     std::cout << "Hello, World!" << std::endl;
     //createServer();

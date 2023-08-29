@@ -12,6 +12,7 @@
 #include "tests/BoardTest.h"
 
 
+
 DWORD WINAPI runTestInThread(LPVOID lpParameter ) {
     printf("[ TEST ] :: Create Server in Thread %d\n", GetCurrentThreadId());
 
@@ -89,10 +90,17 @@ void runAllTests(){
     //           runTickInThread() uruchamia w petli Tick::tick(); co 500 ms
     sleep(5);       // usypia glowny watek na 5 sek, dzieki temu widac czy dzialaja inne watki
 
+
+    // Board
+    // podgląd planszy
+        BoardTest b;
+                  b.BoardPreview();
+
 }
 
 
 void runLastTests() {
     BoardTest b;
+    b.BridgeTest();
 }
 #endif //MSPACMAN_ALLTEST_H
