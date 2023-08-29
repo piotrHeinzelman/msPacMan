@@ -53,15 +53,31 @@ public:
 
     void BridgeTest() {
 
-        char Buff[255];
+        if (false ) {
+            char Buff[255];
+
+            ConsoleDraw cd;
+            cd.WriteCharAt(3, 3, "X");
+
+            for (unsigned int i = 0x1; i < 0x200; i++) {
+                Buff[i] = i;
+                cd.WritcheChar2(4, 4, Buff, 0x200);
+            }
+            for (unsigned int i = 0x201; i < 0x400; i++) {
+                Buff[i] = i;
+                cd.WritcheChar2(5, 5, Buff, 0x200);
+            }
+
+            cd.WriteColourChar(2,2,0x40  );
+            cd.WriteColourChar(3,3,0x40,0x08);
+        }
 
         ConsoleDraw cd;
-        cd.WriteCharAt(3, 3, "X");
 
-        for (int i = 0; i < 255; i++) {
-            Buff[i] = i;
-            cd.WritcheChar2(4, 4, Buff, 77);
+        for (int i=0;i<19*5;i++){
+            cd.WriteColourChar( i, 1 , i+176  );
         }
+        cd.WriteColourChar( 3,3 ,176   );
 
         Board b;
         b.drawBridge( 1);

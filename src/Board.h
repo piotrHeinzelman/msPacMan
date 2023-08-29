@@ -157,6 +157,8 @@ public:
 
     DIRECT atEdge( int id , DIRECT direction , DIRECT nextDirection );
 
+    void drawBoard();
+
 };
 
 

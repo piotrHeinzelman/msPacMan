@@ -21,15 +21,50 @@ class ConsoleDraw {
 
 private:
     HANDLE hout;
+    char chr;
+    DWORD dwWritten;
 
 public:
     ConsoleDraw() {
-        std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+        //std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
         hout = GetStdHandle(STD_OUTPUT_HANDLE);
         if (hout == INVALID_HANDLE_VALUE) {
             throw std::runtime_error("Console output handle error");
         }
     }
+
+
+    void WriteColourChar(SHORT x, SHORT y, char charCode ,DWORD attrib=0x07 +0x00 ) {
+        SetConsoleTextAttribute( hout, attrib );
+        chr = charCode;
+        SetConsoleCursorPosition(hout,{x,y});
+        std::cout << chr;
+        //WriteConsoleOutputCharacter(hout, &chr, 1, {x,y}, &dwWritten);
+        /*
+        0x00 czarny  0x08+0x00 szary
+        0x01 blue    0x08+0x01 hard blue
+        0x02 green   0x08+0x02 hard green
+        0x03 turkus
+        0x04 red
+        0x05 fuksja ?
+        0x06 zolty
+        0x07 bialy  0x07+0x08 =0x0f mocno biały
+        */
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     void WriteCharAt(SHORT x, SHORT y , const char* cs){
 
         COORD cursor = {x, y};
@@ -48,21 +83,13 @@ public:
 
 
     void WritcheChar2(SHORT x, SHORT y, const char* chr ,int len) {
-/*
-        BOOL WINAPI SetConsoleTextAttribute(
-                HANDLE hConsoleOutput,
-                WORD wAttributes
-        );
-*/
+
         SetConsoleTextAttribute( hout, (WORD) 0x02 );
-
-
         COORD cursor = {x, y};
         DWORD written;
 
         DWORD dwWritten = 0;
         WriteConsoleOutputCharacter(hout, chr, len, cursor, &dwWritten);
-        SetConsoleTextAttribute( hout, (WORD) 0x0F );
 
 
 /*
@@ -134,6 +161,9 @@ public:
 */
  //https://stackoverflow.com/questions/9274745/using-writeconsoleoutputcharacter-and-setconsoletextattribute
 };
+
+
+
 
 
 #endif //MSPACMAN_CONSOLEDRAW_H

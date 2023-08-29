@@ -11,7 +11,7 @@ Board::Board() {
     // level1 - public - aby był dostępny dla testu, i można sprawdzić "naocznie" połaczenia planszy
     Bridges = " x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x x  x x     x x         x x    xxxxx       xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x xxx x x x x  ";
 
-    std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    //std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 }
 
 void Board::prepare() {
@@ -89,10 +89,12 @@ void Board::drawBridge(int bridgeNum) {
     int bridgeWidth=3;
 
     
-    if ( bridgeNum & 1 ){
-        std::cout << "\n=";
-    }   else { std::cout << "||"; }
+    if ( bridgeNum & 1 ){ std::cout << "\n="; }
+                   else { std::cout << "||"; }
 }
+
+
+
 
 
 
@@ -105,6 +107,32 @@ void Board::BoardTick() {
               drawBridge( bridgeNum );
         }
     }
+
+
+}
+
+
+/*  1   1         1         2         2         2
+ *  7   8         9         0         1         2
+    ░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀
+    678901234567890123456789012345678901234567890123
+
+
+
+*/
+
+
+void Board::drawBoard() {
+#define BOARD_WIDTH 19
+#define BOARD_HEIGHT 22
+
+#define WID_MULL 4
+#define HEI_MULL 2
+
+    for ( int i=0; i<BOARD_WIDTH*WID_MULL+2; i++ ){
+        //cdraw.WriteColourChar(0,i,)
+    }
+
 
 
 }
