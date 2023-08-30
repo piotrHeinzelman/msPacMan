@@ -53,7 +53,8 @@ void Board::prepare() {
 
 
     // dla wszystkich MOB pokaz mosty, cyklicznie przesuwaj
-    drawBoard();
+    if (false ) drawBoard();
+
 }
 
 void Board::setMobAt( int mobId, int bridgeNum ) {  // postać zawsze na jednym akrywnym moście - o numerze unsigned int = activeBridges[ idPostaci ];

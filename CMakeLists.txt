@@ -30,6 +30,10 @@ add_executable(msPacMan main.cpp
         src/Mob.cpp
         src/Mob.h
         src/DIRECT.h
+        src/Bridges.cpp
+        src/Bridges.h
+        tests/CppTests.cpp
+        tests/CppTests.h
 
 )
 

@@ -24,32 +24,7 @@ public:
 
     void BoardPreview(){
 
-        // draw board
 
-        Board board;
-              board.Bridges;
-
-        char buf[24]={0};
-
-        for (int j=0;j<240;j+=20) {
-            for (int i = 0; i < 19; i++, i++) {
-                if (board.Bridges[i + 1 + j] == ' ') {
-                    buf[i] = 'o'; buf[i + 1] = ' ';
-                } else {
-                    buf[i] = 'o'; buf[i + 1] = board.Bridges[i + 1 + j];
-                }
-            }
-            printf("%s \n"  , buf);
-
-            for (int i = 0; i < 19; i++, i++) {
-                if (board.Bridges[i + 10+ j] == ' ') {
-                    buf[i] = ' '; buf[i + 1] = ' ';
-                } else {
-                    buf[i] = board.Bridges[i + 10 + j]; buf[i + 1] = ' ';
-                }
-            }
-            printf("%s \n"  , buf);
-        }
     }
 
 
@@ -94,7 +69,7 @@ public:
 */
         Board b;
         b.drawBridge(1);
-        //b.drawBoard();
+        b.drawBoard();
   /*      b.drawBridge( 1);
         b.drawBridge( 3);
         b.drawBridge( 5);

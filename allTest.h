@@ -10,7 +10,7 @@
 #include "src/UDPClient.h"
 #include "src/TickRunner.h"
 #include "tests/BoardTest.h"
-
+#include "src/Bridges.h"
 
 
 DWORD WINAPI runTestInThread(LPVOID lpParameter ) {
@@ -96,11 +96,18 @@ void runAllTests(){
         BoardTest b;
                   b.BoardPreview();
 
+
+        b.BridgeTest();
+
 }
 
 
 void runLastTests() {
-    BoardTest b;
-    b.BridgeTest();
+    Bridges bridges;
+    std::cout << "0: " << bridges.isExsits( 0 ) << "\n";
+    std::cout << "1: " << bridges.isExsits( 1 ) << "\n";
+    std::cout << "2: " << bridges.isExsits( 2 ) << "\n";
+
+    std::cout << "2: " << bridges.isExsits( 2 ) << "\n";
 }
 #endif //MSPACMAN_ALLTEST_H
