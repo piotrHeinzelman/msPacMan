@@ -28,8 +28,11 @@ bool Bridges::isW(int number){
     return (number&0x01)==1;
 }
 
-int Bridges::edgePosition( int Number, bool fromStart ){
-
+int Bridges::edgePosition( int number, bool fromStart ){
+    // TESTED !!
+    bool isW_ = isW( number );
+    int n=number;
+    return isW_ ? ( fromStart ? n-1 : n+1 ) : ( fromStart ? n-10 : n+10 ) ;
 };
 
 
@@ -41,4 +44,6 @@ int Bridges::hasWay( int bridgePosition, DIRECT direction, bool fromStart ){
 
 };
 
-bool hasWayFromEnd( int number, DIRECT direction ){}
+bool hasWayFromEnd( int number, DIRECT direction ){
+    return true;
+}
