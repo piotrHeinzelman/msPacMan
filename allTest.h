@@ -93,21 +93,15 @@ void runAllTests(){
 
     // Board
     // podgląd planszy
-        BoardTest b;
-                  b.BoardPreview();
 
 
-        b.BridgeTest();
+
 
 }
 
 
 void runLastTests() {
-    Bridges bridges;
-    std::cout << "0: " << bridges.isExsits( 0 ) << "\n";
-    std::cout << "1: " << bridges.isExsits( 1 ) << "\n";
-    std::cout << "2: " << bridges.isExsits( 2 ) << "\n";
-
-    std::cout << "2: " << bridges.isExsits( 2 ) << "\n";
+    Bridges br;
+    br.drawBoard();
 }
 #endif //MSPACMAN_ALLTEST_H

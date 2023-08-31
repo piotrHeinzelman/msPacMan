@@ -35,10 +35,11 @@ public:
         }
     }
 
-
     void WriteColourChar(SHORT x, SHORT y, char charCode ,DWORD attrib=0x07 +0x00 ) {
+        return WriteColourChar( COORD { x, y } , charCode , attrib=0x07 +0x00 );
+    }
+    void WriteColourChar( COORD cursor, char charCode ,DWORD attrib=0x07 +0x00 ) {
         chr[0] = charCode;
-        cursor = {x,y};
         SetConsoleTextAttribute( hout, (WORD) 0x0F ); // White
 
         WriteConsoleOutputCharacter(hout, chr, strlen(chr), cursor, &dwWritten);

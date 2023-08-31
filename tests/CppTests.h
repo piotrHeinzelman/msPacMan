@@ -13,7 +13,6 @@ class CppTests {
 public:
     void BridgesTest();
 
-
 };
 
 

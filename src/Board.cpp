@@ -9,10 +9,7 @@
 #include "Mob.h"
 
 Board::Board() {
-    // level1 - public - aby był dostępny dla testu, i można sprawdzić "naocznie" połaczenia planszy
-    Bridges = " x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x x  x x     x x         x x    xxxxx       xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x xxx x x x x  ";
 
-    std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     prepare();
 }
 
@@ -53,7 +50,7 @@ void Board::prepare() {
 
 
     // dla wszystkich MOB pokaz mosty, cyklicznie przesuwaj
-    if (false ) drawBoard();
+    //if (false ) drawBoard();
 
 }
 
@@ -84,66 +81,15 @@ DIRECT Board::atEdge(int id, DIRECT direction, DIRECT nextDirection) {
     return DIRECT::STOP;
 }
 
-void Board::activateBridge(int bridgeNum) {};
-void Board::deactivateBridge(int bridgeNum) {}
-
-void Board::drawBridge(int bridgeNum) {
-    if ( bridgeNum & 1 ) return drawBridgeW( bridgeNum );
-                   else  return drawBridgeH( bridgeNum );
-}
-
-void Board::drawBridgeW(int bridgeNum) {
-    SHORT x=bridgeNum%20;
-    SHORT y=((bridgeNum-x)/20)*2;
-
-    x*=CELL_WIDTH;
-    y*=CELL_HEIGHT;
-    //cdraw.WriteColourChar( x,y,196 );
-
-
-    //cdraw.WriteColourChar( x+CELL_WIDTH*3,y,196 );
-
-    //for (int i=-CELL_WIDTH+1;i<CELL_WIDTH*3-1;i++){
-    //    cdraw.WriteColourChar( x+i,y,196 );
-    //}
-
-    //cdraw.WriteColourChar( x-CELL_WIDTH,y,250 );
-    //cdraw.WriteColourChar( x+CELL_WIDTH+CELL_WIDTH-1,y,250 );
-
-    cdraw.WriteColourChar( x-2,y,248 );
-    cdraw.WriteColourChar( x,y,248 );
-    cdraw.WriteColourChar( x+2,y,248 );
-    cdraw.WriteColourChar( x+4,y,248 );
-
-   // if (Bridges[bridgeNum+2]==' '){ cdraw.WriteColourChar( x+5,y,176 );  }
-   // if (Bridges[bridgeNum-2]==' '){ cdraw.WriteColourChar( x-3,y,176 );  }
-
-}
-
-void Board::drawBridgeH( int bridgeNum ) {
-
-    SHORT y=1+2*((bridgeNum-10)/20) ;
-    SHORT x=(bridgeNum-10)%20;
-
-    x*=CELL_WIDTH;
-    y*=CELL_HEIGHT;
-    //cdraw.WriteColourChar( x,y,179 );
-
-    //cdraw.WriteColourChar( x+1,y-1,250 );
-    //cdraw.WriteColourChar( x+1,y+1,250 );
-
-    cdraw.WriteColourChar( x+1,  y,248 );
-
-}
 
 
 void Board::BoardTick() {
 
     for ( int i=0; i<8 ;i++ ){
         if ( mobiles[i]!= nullptr ) {
-              mobiles[i]->step();
-              int bridgeNum = activeBridges[i];
-              drawBridge( bridgeNum );
+            mobiles[i]->step();
+            int bridgeNum = activeBridges[i];
+            //drawBridge( bridgeNum );
         }
     }
 
@@ -151,42 +97,6 @@ void Board::BoardTick() {
 }
 
 
-/*  1   1         1         2         2         2
- *  7   8         9         0         1         2
-    ░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀
-    678901234567890123456789012345678901234567890123
 
-
-
-*/
-
-
-void Board::drawBoard() {
-
-    //drawBridgeH(10);
-    drawBridgeH(1);
-
-    if (!false) { // wyłaczone rysowanie planszy
-    for (int i = 0; i < 240; i++, i++) {
-        if (this->Bridges[i] != ' ') { drawBridgeH(i); }
-        if (this->Bridges[i + 1] != ' ') { drawBridgeW(i + 1); }
-    }
-    }
-    if (true )return;
-    cdraw.WriteColourChar(0,0,210);
-    cdraw.WriteColourChar(2+BW, 0 ,183);
-    cdraw.WriteColourChar(0,    2+BH,211);
-    cdraw.WriteColourChar(2+BW, 2+BH , 189);
-    for ( int i=0; i<=BW; i++ ){
-         cdraw.WriteColourChar(1+i,0,196);
-         cdraw.WriteColourChar(1+i,2+BH ,196);
-    }
-    for ( int i=0; i<=BH; i++ ){
-        cdraw.WriteColourChar(0    ,1+i,186);
-        cdraw.WriteColourChar(2+BW , i+1, 186);
-    }
-
-
-
-
-}
+void Board::activateBridge(int bridgeNum) {};
+void Board::deactivateBridge(int bridgeNum) {}

@@ -6,17 +6,6 @@
 #define MSPACMAN_BOARD_H
 
 
-#define BOARD_WIDTH 19
-#define BOARD_HEIGHT 23
-
-#define CELL_WIDTH 3 //6
-#define CELL_HEIGHT 1 // 2
-
-#define BH BOARD_HEIGHT*CELL_HEIGHT
-#define BW BOARD_WIDTH*CELL_WIDTH
-
-#define popW 0
-#define popH 0
 
 
 #include <vector>
@@ -145,8 +134,10 @@ char Bridges[255]=
 
  https://cpp0x.pl/dokumentacja/WinAPI/Konsola/1038
 */
+
 class Mob;
 class Board {
+    friend class Mob;
 
 private:
     Mob* mobiles[8]={};
@@ -164,17 +155,12 @@ public:
     void setMobAt( int  i , int bridgeNum );
     void moveMobTo ( int i, DIRECT STOP, int bridgeNum );
 
-
     void deactivateBridge( int bridgeNum );
     void activateBridge( int bridgeNum  );
 
-    void drawBridge( int bridgeNum );
-    void drawBridgeW( int bridgeNum );
-    void drawBridgeH( int bridgeNum );
-
     DIRECT atEdge( int id , DIRECT direction , DIRECT nextDirection );
 
-    void drawBoard();
+
 
 
 };
