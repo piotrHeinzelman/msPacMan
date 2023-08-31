@@ -62,6 +62,7 @@ public:
         void DrawCenterPiontOfWall( int bridgeNum );     // Test use only +
 
             void drawEdge( int eNum , COORD point );
+            //void clearBridge( int bridgeNum );
 
 
     COORD getCoordOfCenterBridge( int bridgeNum );  // get screen position COORD{X,Y} center, of Bridge from number i

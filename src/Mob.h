@@ -32,7 +32,7 @@ public:
     Mob(int id , std::string name , bool ghost=false );
 
     unsigned short getId();
-    void setPosition( int position );
+    void setPositionOnBridge(int position );
     int getPositionOnBridge();
     void step();
     void setDirection(DIRECT direction);

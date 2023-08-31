@@ -18,7 +18,7 @@ int main() {
     if ( lastTest ) runLastTests();
 
     sleep(15);
-    if (exitAfterTests){return 0;}
+    if (exitAfterTests){ return 0; }
     std::cout << "Hello, World!" << std::endl;
     //createServer();
 

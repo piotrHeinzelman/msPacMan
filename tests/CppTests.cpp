@@ -7,6 +7,7 @@
 #include "CppTests.h"
 #include "../src/Dot.h"
 #include <windows.h>
+#include <unistd.h>
 
 
 void showPoint( COORD point ){
@@ -203,7 +204,24 @@ void CppTests::BridgesTest() {
 
 
         bo.setMobAt( minion->getId(), 1 );
-        bo.drawAllMob();
+
+        while(true) {
+            minion->setDirection(DIRECT::E);
+            for (int i = 0; i < 10; i++) {
+                bo.moveAllMobs();
+                sleep(1);
+                bo.redrawAllBridge();
+                bo.drawAllMob();
+            }
+            minion->setDirection(DIRECT::W);
+            for (int i = 0; i < 10; i++) {
+                bo.moveAllMobs();
+                sleep(1);
+                bo.redrawAllBridge();
+                bo.drawAllMob();
+            }
+        }
+
     }
 
 

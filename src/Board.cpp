@@ -17,34 +17,35 @@ void Board::prepare() {
     //Mob* Pinky= new Mob(0, (std::string) "Pinky" );
     //Mob* Inky=  new Mob(1, (std::string)"Inky" );
     //Mob* Blinky=new Mob(2, (std::string)"Blinky");
-    Mob* Sue=   new Mob(3, (std::string)"Sue", true);
+    //Mob* Sue=   new Mob(3, (std::string)"Sue", true);
     Mob* Pac=   new Mob(4, (std::string)"Pac");
 
 
     //mobiles[Pinky->getId()]= Pinky ;
     //mobiles[Inky->getId()]= Inky;
     //mobiles[Blinky->getId()]= Blinky;
-    mobiles[Sue->getId()]= Sue;
+    //mobiles[Sue->getId()]= Sue;
     mobiles[Pac->getId()]= Pac;
 
 
 
-    //setMobAt( Pinky->getId() , 5 ); Pinky->setPosition(1);
-    //setMobAt( Inky->getId() , 10 ); Inky->setPosition(2);
-    //setMobAt( Blinky->getId() , 20 ); Blinky->setPosition(3);
-    setMobAt( Sue->getId() , 30 ); Sue->setPosition(4);
-    setMobAt( Pac->getId() , 187 ); Pac->setPosition( 0 );
+    //setMobAt( Pinky->getId() , 5 ); Pinky->setPositionOnBridge(1);
+    //setMobAt( Inky->getId() , 10 ); Inky->setPositionOnBridge(2);
+    //setMobAt( Blinky->getId() , 20 ); Blinky->setPositionOnBridge(3);
+    //setMobAt( Sue->getId() , 30 ); Sue->setPositionOnBridge(4);
+    setMobAt( Pac->getId() , 187 );
+    Pac->setPositionOnBridge(0);
 
     //Pinky->setParent( this );
     //Inky->setParent( this );
     //Blinky->setParent( this );
-    Sue->setParent( this );
+    //Sue->setParent( this );
     Pac->setParent( this );
 
     //Pinky->setDirection( DIRECT::N );
     //Inky->setDirection( DIRECT::W );
     //Blinky->setDirection( DIRECT::S );
-    Sue->setDirection( DIRECT::E );
+    //Sue->setDirection( DIRECT::E );
     Pac->setDirection( DIRECT::E );
 
 
@@ -61,7 +62,7 @@ int Board::getBridgeNumOfMobId( int mobId ){
 void Board::setMobAt( int mobId, int bridgeNum ) {  // postać zawsze na jednym akrywnym moście - o numerze unsigned int = activeBridges[ idPostaci ];
     activeBridges[mobId]=bridgeNum;
     activateBridge( activeBridges[mobId] );
-    std::cout << "Board:: setMob("<< mobId << ") at: " << activeBridges[mobId]<<"\n";
+    //std::cout << "Board:: setMob("<< mobId << ") at: " << activeBridges[mobId]<<"\n";
 }
 
 
@@ -71,9 +72,7 @@ void Board::moveMobTo(int mobId, DIRECT direction, int bridgeNum) {
     activateBridge( activeBridges[ mobId ] );
 }
 
-void Board::drawMobsOfBridge( Mob* mob , int bridgeNum ){
-    activeBridges[ mob->getId() ];
-}
+
 
 
 
@@ -212,6 +211,39 @@ void Board::eatDot( Mob* mob , COORD point ){
 }
 
 
+void Board::clearBridge( int i ){
+    int start = b.edgeChessPosition( i, true );
+    int end =   b.edgeChessPosition( i, false );
+    COORD startPoint = b.getCoordOfEdge( start );
+    COORD endPoint   = b.getCoordOfEdge( end );
+    int sx=startPoint.X;
+    int sy=startPoint.Y;
+    int ex=endPoint.X;
+    int ey=endPoint.Y;
+    for ( int x=sx; x<=ex ; x++ ){
+        for ( int y=sy; y<=ey ; y++ ){
+                cdraw.WriteColourChar( {x,y} , ' ' );
+
+        }
+    }
+}
+
+
+void Board::redrawAllBridge(){
+    for (int i=0;i<8;i++){
+        redrawBridge ( activeBridges[i]);
+    }
+}
+
+void Board::redrawBridge( int bridgeNum ){
+    clearBridge( bridgeNum );
+    b.DrawWall( bridgeNum );
+    drawDotsOfBridge ( bridgeNum );
+    //drawAllMobOnBridge ( bridgeNum );
+}
+
+
+
 void Board::drawAllMob(){
     for ( int i=0;i<8;i++){ // for all Mobiles slot
         if ( mobiles[i]!= nullptr ){
@@ -234,17 +266,34 @@ void Board::drawOneMob(int mobId) {
     //std::cout << "ex:" << endPoint.X << ", ey:" << endPoint.Y << "\n";
     int bridgeDistanceX = endPoint.X - startPoint.X;
     int bridgeDistanceY = endPoint.Y - startPoint.Y;
-    int mobX = startPoint.X  + ( bridgeDistanceX * mob->getPositionOnBridge() / STEPS );
+    int mobX = startPoint.X  + mob->getPositionOnBridge(); //( bridgeDistanceX * mob->getPositionOnBridge() / STEPS );
     int mobY = startPoint.Y  + ( bridgeDistanceY * mob->getPositionOnBridge() / STEPS );
+    //std::cout << "pos:"<< mobX << "\n\n";
 
-    char avatar=1;
-    if ( mob->isGhost() ) { avatar=2;}
-    cdraw.WriteColourChar( mobX , mobY , 254 );
+    char avatar='P';//1;
+    if ( mob->isGhost() ) { avatar='G'/*2*/;}
+    cdraw.WriteColourChar( mobX , mobY , avatar );
 
 
-    for (int i=0;i<150;i++) {
-        cdraw.WriteColourChar(i, mobY, i);
+    //std::cout << "pos." << mob->getPositionOnBridge() << ", mobX: " << mobX << "\n";
+
+
+}
+
+
+
+
+
+void Board::moveAllMobs(){
+    for ( int i=0;i<8;i++){ // for all Mobiles slot
+        if ( mobiles[i]!= nullptr ){
+            moveOneMob( mobiles[i]->getId() );
+        }
     }
+}
 
 
+
+void Board::moveOneMob( int mobId ){
+    mobiles[mobId]->step();
 }

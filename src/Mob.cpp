@@ -15,7 +15,7 @@ Mob::Mob(int id, std::string name , bool ghost ) {
     //this->parentBoard = parent;
 }
 
-void Mob::setPosition(int position) {
+void Mob::setPositionOnBridge(int position) {
     positionOnBridge=position;
     if (position==STOP) direction=STOP;
 }

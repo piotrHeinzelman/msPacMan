@@ -175,7 +175,12 @@ public:
     void drawAllMob();
     void drawOneMob( int mobId );
 
-    void drawMobsOfBridge( Mob* mob , int bridgeNum );
+    void moveAllMobs();
+    void moveOneMob( int mobId );
+    void clearBridge( int bridgeNum );
+    void redrawAllBridge();
+    void redrawBridge( int bridgeNum );
+
     void eatDot( Mob* mob , COORD );
 
     void drawOneDot( std::pair<const int, Dot *> pair );
