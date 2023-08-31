@@ -33,6 +33,12 @@ add_executable(msPacMan main.cpp
         src/Bridges.h
         tests/CppTests.cpp
         tests/CppTests.h
+        src/set.cpp
+        src/set.h
+        src/Dot.cpp
+        src/Dot.h
+        src/map.cpp
+        src/map.h
 
 )
 

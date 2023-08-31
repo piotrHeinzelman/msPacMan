@@ -115,34 +115,14 @@ COORD Bridges::getCoordOfCenterBridge( int bridgeNum ){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 void Bridges::drawBridge(int bridgeNum) {
     DrawWall( bridgeNum );
-    DrawDot ( bridgeNum );
-    DrawMob ( bridgeNum );
+    //DrawDot ( bridgeNum );
+    //DrawMob ( bridgeNum );
 }
 
 void Bridges::DrawCenterPiontOfWall( int bridgeNum ){
     draw.WriteColourChar( getCoordOfCenterBridge ( bridgeNum ) , '+');
-    return;
-    // and draw edges
-    if ( !isW(bridgeNum) ) return;
-    int edgeStart = edgeChessPosition( bridgeNum, true );
-    int edgeEnd = edgeChessPosition( bridgeNum, false );
-    draw.WriteColourChar( getCoordOfEdge ( edgeStart ) , 'c');
-    draw.WriteColourChar( getCoordOfEdge ( edgeEnd ) , 'o');
-
 };     // Test use only +
 
 void Bridges::DrawWall( int bridgeNum ){
@@ -175,8 +155,6 @@ void Bridges::DrawWall( int bridgeNum ){
     // draw edges
     drawEdge( edgeStart , startPoint );
     drawEdge( edgeEnd , endPoint );
-
-
 };
 
 
@@ -198,84 +176,10 @@ void Bridges::drawEdge( int eNum , COORD point ){
 }
 
 
-void Bridges::drawBridgeW( int bridgeNum ) {}
-void Bridges::drawBridgeH( int bridgeNum ) {}
+
 
 
 void Bridges::DrawDot ( int bridgeNum ){};
-void Bridges::DrawMob ( int bridgeNum ){
-
-
-};
-
-
-
-
-
-
-
-
-
-
-
-void Bridges::drawBoard() {
-
-/*
-    std::cout << "    ░░░░░░░░░░░░░░░░░░░░░░░░░     ░░░░░░░░░░░░░░░░░░░░░░░░░    \n";
-    std::cout << "   ░   +     +     +     +   ░   ░   +     +     +     +   ░    \n";
-    std::cout << "   ░+░░░░░░░░░░░+░░░░░░░░░░░+░░░░░+░░░░░░░░░░░+░░░░░░░░░░░+░    \n";
-    std::cout << "   ░   +     +     +     +     +     +     +     +     +   ░    \n";
-    std::cout << "   ░+░░░░░░░░░░░+░░░░░+░░░░░░░░░░░░░░░░░+░░░░░+░░░░░░░░░░░+░    \n";
-    std::cout << "   ░   +     +   ░   ░   +   ░   ░   +   ░   ░   +     +   ░    \n";
-    std::cout << "    ░░░░░░░░░░░░+░    ░░░░░░+░░░░░+░░░░░░    ░+░░░░░░░░░░░░    \n";
-    std::cout << "               ░ ░   ░   +     +     +   ░   ░ ░    \n";
-    std::cout << "               ░+░   ░+░░░░░░░░░░░░░░░░░+░   ░+░    \n";
-    std::cout << "               ░ ░   ░ ░               ░ ░   ░ ░    \n";
-    std::cout << "    ░░░░░░░░░░░░+░░░░░+░               ░+░░░░░+░░░░░░░░░░░░░░░░░    \n";
-    std::cout << "   ░   +     +     +   ░               ░   +     +     +     +    \n";
-    std::cout << "    ░░░░░░░░░░░░+░░░░░+░               ░+░░░░░+░░░░░░░░░░░░░░░░░    \n";
-    std::cout << "     ░         ░ ░   ░ ░               ░ ░   ░ ░    \n";
-    std::cout << "    ░          ░+░   ░+░░░░░░░░░░░░░░░░░+░   ░+░    \n";
-    std::cout << "               ░ ░   ░   +     +     +   ░   ░ ░    \n";
-    std::cout << "    ░░░░░░░░░░░░+░░░░░+░░░░░░░░░░░░░░░░░+░░░░░+░░░░░░░░░░░░    \n";
-    std::cout << "   ░   +     +     +     +   ░   ░   +     +     +     +   ░    \n";
-    std::cout << "   ░+░░░░░░░░░░░+░░░░░░░░░░░+░░░░░+░░░░░░░░░░░+░░░░░░░░░░░+░    \n";
-    std::cout << "   ░   +   ░   ░   +     +     +     +     +   ░   ░   +   ░    \n";
-    std::cout << "    ░░░░░░+░░░░░+░░░░░+░░░░░░░░░░░░░░░░░+░░░░░+░░░░░+░░░░░░    \n";
-    std::cout << "   ░   +     +   ░   ░   +   ░   ░   +   ░   ░   +     +   ░    \n";
-    std::cout << "   ░+░░░░░░░░░░░░░░░░░░░░░░░+░░░░░+░░░░░░░░░░░░░░░░░░░░░░░+░    \n";
-    std::cout << "   ░   +     +     +     +     +     +     +     +     +   ░    \n";
-    std::cout << "    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     \n";
-*/
-
-
-
-
-
-
-
-
-    int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-
-        if ( !false ) { // wyłaczone rysowanie planszy
-        for (int i = 0; i < LIMIT; i++) {  // walls
-            if ( !isExsits( i ) ) { continue; }
-                // draw
-                 DrawCenterPiontOfWall( i ); // testing only
-                 DrawWall( i );
-
-        }
-
-        for (int i = 0; i < LIMIT; i++) { // dots
-            if ( !isExsits( i ) ) { continue; }
-                //draw
-                DrawDot( i );
-        }
-    }
-}
-
-
-
-
+void Bridges::DrawMob ( int bridgeNum ){};
 
 

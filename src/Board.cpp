@@ -5,8 +5,8 @@
 #include "Board.h"
 #include <vector>
 #include <iostream>
-#include <unistd.h>
 #include "Mob.h"
+#include "Bridges.h"
 
 Board::Board() {
 
@@ -100,3 +100,27 @@ void Board::BoardTick() {
 
 void Board::activateBridge(int bridgeNum) {};
 void Board::deactivateBridge(int bridgeNum) {}
+
+
+
+void Board::drawBoard() {
+
+    Bridges b;
+    int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+
+        for (int i = 0; i < LIMIT; i++) {  // walls
+            if ( !b.isExsits( i ) ) { continue; }
+            COORD center = b.getCoordOfCenterBridge( i );
+            createDot( i , center , b.isW( i ));
+            b.DrawWall( i );
+        }
+
+
+
+}
+
+
+void Board::createDot( int i , COORD center , bool isW ) {
+    Dot* dot = new Dot( i, center, 1, 0 ) ;
+    //dots.insert( center , dot );
+}

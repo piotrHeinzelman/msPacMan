@@ -10,6 +10,7 @@
 #include "src/UDPClient.h"
 #include "src/TickRunner.h"
 #include "src/Bridges.h"
+#include "src/Board.h"
 
 
 DWORD WINAPI runTestInThread(LPVOID lpParameter ) {
@@ -100,7 +101,7 @@ void runAllTests(){
 
 
 void runLastTests() {
-    Bridges br;
-    br.drawBoard();
+    Board b;
+    b.drawBoard();
 }
 #endif //MSPACMAN_ALLTEST_H

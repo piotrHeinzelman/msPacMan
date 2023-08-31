@@ -10,9 +10,11 @@
 
 #include <vector>
 #include <iostream>
+#include <map>
 #include "Mob.h"
 #include "DIRECT.h"
 #include "ConsoleDraw.h"
+#include "Dot.h"
 
 
 
@@ -136,6 +138,7 @@ char Bridges[255]=
 */
 
 class Mob;
+class Dot;
 class Board {
     friend class Mob;
 
@@ -143,15 +146,16 @@ private:
     Mob* mobiles[8]={};
     int activeBridges [8]={0};
     ConsoleDraw cdraw;
+    std::map<COORD , Dot* > dots;
 
 
 public:
-    std::string Bridges;
 
     Board();
     void BoardTick();
 
     void prepare();
+    void drawBoard();
     void setMobAt( int  i , int bridgeNum );
     void moveMobTo ( int i, DIRECT STOP, int bridgeNum );
 
@@ -159,6 +163,8 @@ public:
     void activateBridge( int bridgeNum  );
 
     DIRECT atEdge( int id , DIRECT direction , DIRECT nextDirection );
+
+    void createDot( int i , COORD center ,  bool isW );
 
 
 

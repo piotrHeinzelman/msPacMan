@@ -55,9 +55,6 @@ public:
     int getAllWaysFromEdge( int eNum );       // get all possible direction from edge, binary code is: 0b00 E S W N
 
     void drawBridge ( int bridgeNum );           // call DrawW or DrawH, call DrawWall, DrawDot, DrawMob
-    void drawBridgeW( int bridgeNum );             // unused ?
-    void drawBridgeH( int bridgeNum );             // unused ?
-    void drawBoard  ();                           // call for all bridges first DrawWall, second DrawDot and last DrawMob
 
     void DrawWall( int bridgeNum );       // TODO
     void DrawDot ( int bridgeNum );        // TODO
