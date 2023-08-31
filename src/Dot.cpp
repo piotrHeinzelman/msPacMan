@@ -10,3 +10,7 @@ Dot::Dot(int parentBridge, const COORD &point, int value, int power) {
     this->value=value;
     this->power=power;
 }
+
+Dot::getPower(){
+    return power;
+};

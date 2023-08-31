@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cassert>
 #include "CppTests.h"
+#include "../src/Dot.h"
 #include <windows.h>
 
 
@@ -136,12 +137,33 @@ void CppTests::BridgesTest() {
     assert(b.getCoordOfEdge(2 ) == ( COORD{7, 0} ));
     assert(b.getCoordOfEdge(238 ) == ( COORD{55, 22} ));
 
+    {   // TEST Dot manipulation
+
+        Board bo;
+        std::map< int , Dot* > dots;
+        Dot* dot = new Dot( 1, {2,3} ) ;
+        dots[3] = dot;
+        assert( dot == dots[3] );
+
+        Dot* myDot = bo.createDot( 1 , {4,0} , true );
+        assert(myDot == bo.getDotFrom({4,0} ) );
+        assert(true == bo.IsDotAt({4,0} ) );
+        assert(false == bo.IsDotAt({3,0} ) );
 
 
+        std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
+        b.DrawWall( 1 );
+        b.DrawWall( 17 );
+        b.DrawWall( 221 );
+        b.DrawWall( 237 );
 
-
-
+        bo.createDot(1 , { 2,0 } , true , 50 , 1000 );
+        bo.createDot(17 , { 54,0 } , true , 50 , 1000 );
+        bo.createDot(221 , { 2,22 } , true , 50 , 1000 );
+        bo.createDot(237 , { 54,22 } , true , 50 , 1000 );
+        bo.drawAllDots();
+    }
 
 
 

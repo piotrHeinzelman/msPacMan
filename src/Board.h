@@ -146,7 +146,7 @@ private:
     Mob* mobiles[8]={};
     int activeBridges [8]={0};
     ConsoleDraw cdraw;
-    std::map<COORD , Dot* > dots;
+    std::map< int , Dot* > dots;
 
 
 public:
@@ -164,9 +164,10 @@ public:
 
     DIRECT atEdge( int id , DIRECT direction , DIRECT nextDirection );
 
-    void createDot( int i , COORD center ,  bool isW );
-
-
+    Dot * createDot( int i , COORD center ,  bool isW , int value=1, int power=0);
+    Dot * getDotFrom(COORD );
+    bool  IsDotAt (COORD );
+    void drawAllDots();
 
 
 };

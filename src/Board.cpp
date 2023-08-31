@@ -57,7 +57,7 @@ void Board::prepare() {
 void Board::setMobAt( int mobId, int bridgeNum ) {  // postać zawsze na jednym akrywnym moście - o numerze unsigned int = activeBridges[ idPostaci ];
     activeBridges[mobId]=bridgeNum;
     activateBridge( activeBridges[mobId] );
-    std::cout << "setMob("<< mobId << ") at: " << activeBridges[mobId];
+    std::cout << "Board:: setMob("<< mobId << ") at: " << activeBridges[mobId];
 }
 
 void Board::moveMobTo(int mobId, DIRECT direction, int bridgeNum) {
@@ -115,12 +115,34 @@ void Board::drawBoard() {
             b.DrawWall( i );
         }
 
+    createDot(1 , { 2,0 } , true , 50 , 1000 );
+    createDot(17 , { 54,0 } , true , 50 , 1000 );
+    createDot(221 , { 2,22 } , true , 50 , 1000 );
+    createDot(237 , { 54,22 } , true , 50 , 1000 );
 
-
+      drawAllDots();
 }
 
 
-void Board::createDot( int i , COORD center , bool isW ) {
-    Dot* dot = new Dot( i, center, 1, 0 ) ;
-    //dots.insert( center , dot );
+Dot* Board::createDot( int i , COORD center , bool isW , int value, int power) {
+    Dot* dot = new Dot( i, center , value , power ) ;
+    int key = 256*center.X + center.Y;
+    dots[key]=dot;
+    return dot;
+}
+
+Dot * Board::getDotFrom(COORD point ){
+    return dots[256*point.X+point.Y];
+    }
+
+bool Board::IsDotAt( COORD point ){
+    return dots.count(256*point.X+point.Y)>0;
+}
+
+void Board::drawAllDots(){
+    for ( std::pair<const int, Dot *> pair : dots ){
+        int dot=250;
+        if ( pair.second->getPower()>0 ) { dot='o'; } //249
+        cdraw.WriteColourChar( (SHORT) pair.first/256 , (SHORT)pair.first%256 , dot);
+    }
 }
