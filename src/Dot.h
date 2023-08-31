@@ -19,6 +19,8 @@ private:
 public:
     Dot(int parentBridge, const COORD &point, int value=1, int power=0 );
     int getPower();
+    int getValue();
+    int getParent();
 };
 
 

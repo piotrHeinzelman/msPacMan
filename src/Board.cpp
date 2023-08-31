@@ -17,7 +17,7 @@ void Board::prepare() {
     //Mob* Pinky= new Mob(0, (std::string) "Pinky" );
     //Mob* Inky=  new Mob(1, (std::string)"Inky" );
     //Mob* Blinky=new Mob(2, (std::string)"Blinky");
-    Mob* Sue=   new Mob(3, (std::string)"Sue");
+    Mob* Sue=   new Mob(3, (std::string)"Sue", true);
     Mob* Pac=   new Mob(4, (std::string)"Pac");
 
 
@@ -54,11 +54,16 @@ void Board::prepare() {
 
 }
 
+int Board::getBridgeNumOfMobId( int mobId ){
+    return activeBridges[mobId];
+}
+
 void Board::setMobAt( int mobId, int bridgeNum ) {  // postać zawsze na jednym akrywnym moście - o numerze unsigned int = activeBridges[ idPostaci ];
     activeBridges[mobId]=bridgeNum;
     activateBridge( activeBridges[mobId] );
-    std::cout << "Board:: setMob("<< mobId << ") at: " << activeBridges[mobId];
+    std::cout << "Board:: setMob("<< mobId << ") at: " << activeBridges[mobId]<<"\n";
 }
+
 
 void Board::moveMobTo(int mobId, DIRECT direction, int bridgeNum) {
     deactivateBridge( activeBridges[ mobId ] );
@@ -66,8 +71,29 @@ void Board::moveMobTo(int mobId, DIRECT direction, int bridgeNum) {
     activateBridge( activeBridges[ mobId ] );
 }
 
+void Board::drawMobsOfBridge( Mob* mob , int bridgeNum ){
+    activeBridges[ mob->getId() ];
+}
+
+
+
+void Board::showInfo(){
+    cdraw.WriteColourChar( 5,55 ,'x');
+}
+
+
+
+
+
+
+
+
+
+
+
+
 DIRECT Board::atEdge(int id, DIRECT direction, DIRECT nextDirection) {
-    //std::cout<<"Board::atEdge("<<id<<" , id: " << mobiles[id]->getPosition() <<  ");\n";
+    //std::cout<<"Board::atEdge("<<id<<" , id: " << mobiles[id]->getPositionOnBridge() <<  ");\n";
 
 
     int ActualPosition=activeBridges[id];
@@ -104,8 +130,7 @@ void Board::deactivateBridge(int bridgeNum) {}
 
 
 void Board::drawBoard() {
-
-    Bridges b;
+    
     int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
         for (int i = 0; i < LIMIT; i++) {  // walls
@@ -141,8 +166,85 @@ bool Board::IsDotAt( COORD point ){
 
 void Board::drawAllDots(){
     for ( std::pair<const int, Dot *> pair : dots ){
-        int dot=250;
-        if ( pair.second->getPower()>0 ) { dot='o'; } //249
-        cdraw.WriteColourChar( (SHORT) pair.first/256 , (SHORT)pair.first%256 , dot);
+        drawOneDot( pair);
     }
+}
+
+void Board::drawOneDot( std::pair<const int, Dot *> pair ){
+    int dot=250;
+    if ( pair.second->getPower()>0 ) { dot='o'; } //249
+    cdraw.WriteColourChar( (SHORT) pair.first/256 , (SHORT)pair.first%256 , dot);
+}
+
+void Board::drawDotsOfBridge( int i ){
+    int start = b.edgeChessPosition( i, true );
+    int end =   b.edgeChessPosition( i, false );
+    COORD startPoint = b.getCoordOfEdge( start );
+    COORD endPoint   = b.getCoordOfEdge( end );
+            if (false) {
+              std::cout << "start:" << start << ", startPiont: " << startPoint.X << "," << startPoint.Y  << "\n";
+              std::cout << "end:" << end << ", endPiont: " << endPoint.X << "," << endPoint.Y  << "\n"; }
+    int sx=startPoint.X;
+    int sy=startPoint.Y;
+    int ex=endPoint.X;
+    int ey=endPoint.Y;
+    for ( int x=sx; x<=ex ; x++ ){
+        for ( int y=sy; y<=ey ; y++ ){
+            //std::cout << "point:" << x << ", " << y <<   "\n";
+            //check dot at x,y
+            if ( IsDotAt( {x,y} ) ) {
+                Dot* dot = getDotFrom({x,y} );
+                std::pair<const int, Dot *> pair = { 256*x+y , dot };
+                drawOneDot(  pair );
+            }
+        }
+    }
+}
+
+void Board::eatDot( Mob* mob , COORD point ){
+    if ( IsDotAt( point )){
+        Dot* dot = getDotFrom( point );
+        mob->addPoint( dot->getValue() );
+        if ( dot->getPower()!=0 ){
+            mob->addPower( dot->getPower() );
+        }
+    }
+}
+
+
+void Board::drawAllMob(){
+    for ( int i=0;i<8;i++){ // for all Mobiles slot
+        if ( mobiles[i]!= nullptr ){
+            drawOneMob( mobiles[i]->getId() );
+        }
+    }
+}
+
+void Board::drawOneMob(int mobId) {
+    Mob* mob = mobiles[mobId];
+    int mobBridge = getBridgeNumOfMobId( mobId );
+    int start = b.edgeChessPosition( mobBridge , true );
+    int end   = b.edgeChessPosition( mobBridge , false );
+    //std::cout << "start:" << start << ", end:" << end << "\n";
+
+    COORD startPoint = b.getCoordOfEdge(start);
+    COORD endPoint = b.getCoordOfEdge(end);
+    //std::cout << "MobId:" << mobId << "\n";
+    //std::cout << "sx:" << startPoint.X << ", sy:" << startPoint.Y << "\n";
+    //std::cout << "ex:" << endPoint.X << ", ey:" << endPoint.Y << "\n";
+    int bridgeDistanceX = endPoint.X - startPoint.X;
+    int bridgeDistanceY = endPoint.Y - startPoint.Y;
+    int mobX = startPoint.X  + ( bridgeDistanceX * mob->getPositionOnBridge() / STEPS );
+    int mobY = startPoint.Y  + ( bridgeDistanceY * mob->getPositionOnBridge() / STEPS );
+
+    char avatar=1;
+    if ( mob->isGhost() ) { avatar=2;}
+    cdraw.WriteColourChar( mobX , mobY , 254 );
+
+
+    for (int i=0;i<150;i++) {
+        cdraw.WriteColourChar(i, mobY, i);
+    }
+
+
 }

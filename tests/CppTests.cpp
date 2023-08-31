@@ -153,16 +153,57 @@ void CppTests::BridgesTest() {
 
         std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
-        b.DrawWall( 1 );
-        b.DrawWall( 17 );
-        b.DrawWall( 221 );
-        b.DrawWall( 237 );
+    //    b.DrawWall( 1 );
+    //    b.DrawWall( 17 );
+    //    b.DrawWall( 221 );
+    //    b.DrawWall( 237 );
 
         bo.createDot(1 , { 2,0 } , true , 50 , 1000 );
         bo.createDot(17 , { 54,0 } , true , 50 , 1000 );
         bo.createDot(221 , { 2,22 } , true , 50 , 1000 );
         bo.createDot(237 , { 54,22 } , true , 50 , 1000 );
-        bo.drawAllDots();
+
+        for (int i = 0; i < 240; i++) {  // walls
+            if ( !b.isExsits( i ) ) { continue; }
+            COORD center = b.getCoordOfCenterBridge( i );
+            bo.createDot( i , center , b.isW( i ));
+            //b.DrawWall( i );
+        }
+        //bo.drawAllDots();
+
+
+
+
+        Mob* minion = new Mob(4, (std::string)"Minion");
+        bo.eatDot( minion, {1,1} );
+        assert(1 == minion->getPoints());
+        assert(0 == minion->getPower());
+        //std::cout<<"Minion: power: " << minion->getPower() << ", points: " << minion->getPoints()<< "\n";
+        bo.eatDot( minion , {2,0} );
+        assert(51 == minion->getPoints());
+        assert(1000 == minion->getPower());
+        //std::cout<<"Minion: power: " << minion->getPower() << ", points: " << minion->getPoints()<< "\n";
+
+        //b.draw.WriteColourChar( {0,0 } , 'X' );
+
+
+        bo.drawDotsOfBridge( 1 );
+        bo.drawDotsOfBridge( 3 );
+        bo.drawDotsOfBridge( 10 );
+
+        b.DrawWall( 1 );
+        b.DrawWall( 3 );
+        b.DrawWall( 10 );
+
+        Mob* john = new Mob(4, (std::string)"John");
+
+
+
+
+
+
+        bo.setMobAt( minion->getId(), 1 );
+        bo.drawAllMob();
     }
 
 

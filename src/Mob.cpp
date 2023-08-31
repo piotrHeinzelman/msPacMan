@@ -6,11 +6,12 @@
 #include "Mob.h"
 #include "Board.h"
 
-Mob::Mob(int id, std::string name ) {
+Mob::Mob(int id, std::string name , bool ghost ) {
     this->id=id;
     this->positionOnBridge=0;
     this->direction=DIRECT::STOP;
     this->nextDirection=DIRECT::STOP;
+    this->ghost=ghost;
     //this->parentBoard = parent;
 }
 
@@ -21,7 +22,7 @@ void Mob::setPosition(int position) {
 
 unsigned short Mob::getId() { return id;}
 
-int Mob::getPosition() {
+int Mob::getPositionOnBridge() {
     return positionOnBridge;
 }
 
@@ -50,4 +51,24 @@ void Mob::_atEdge() {
 
 void Mob::setParent( Board *parent ) {
     this->parent=parent;
+}
+
+void Mob::addPoint( int points ){
+    this->points += points;
+}
+
+void Mob::addPower( int power ){
+    this->power=power;
+}
+
+int Mob::getPower(){
+    return this->power;
+}
+
+int Mob::getPoints(){
+    return this->points;
+}
+
+bool Mob::isGhost(){
+    return this->ghost;
 }

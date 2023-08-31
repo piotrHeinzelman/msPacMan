@@ -11,6 +11,14 @@ Dot::Dot(int parentBridge, const COORD &point, int value, int power) {
     this->power=power;
 }
 
-Dot::getPower(){
+int Dot::getPower(){
     return power;
+};
+
+int Dot::getValue(){
+    return value;
+};
+
+int Dot::getParent(){
+    return parentBridge;
 };

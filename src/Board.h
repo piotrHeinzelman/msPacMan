@@ -15,7 +15,7 @@
 #include "DIRECT.h"
 #include "ConsoleDraw.h"
 #include "Dot.h"
-
+#include "Bridges.h"
 
 
 /* glowna klasa gry
@@ -143,11 +143,11 @@ class Board {
     friend class Mob;
 
 private:
-    Mob* mobiles[8]={};
+    Mob* mobiles[8]={nullptr};
     int activeBridges [8]={0};
     ConsoleDraw cdraw;
     std::map< int , Dot* > dots;
-
+    Bridges b;
 
 public:
 
@@ -158,6 +158,7 @@ public:
     void drawBoard();
     void setMobAt( int  i , int bridgeNum );
     void moveMobTo ( int i, DIRECT STOP, int bridgeNum );
+    int getBridgeNumOfMobId( int mobId );
 
     void deactivateBridge( int bridgeNum );
     void activateBridge( int bridgeNum  );
@@ -167,8 +168,22 @@ public:
     Dot * createDot( int i , COORD center ,  bool isW , int value=1, int power=0);
     Dot * getDotFrom(COORD );
     bool  IsDotAt (COORD );
-    void drawAllDots();
 
+    void drawAllDots();
+    void drawDotsOfBridge( int i );
+
+    void drawAllMob();
+    void drawOneMob( int mobId );
+
+    void drawMobsOfBridge( Mob* mob , int bridgeNum );
+    void eatDot( Mob* mob , COORD );
+
+    void drawOneDot( std::pair<const int, Dot *> pair );
+
+
+
+
+    void showInfo();
 
 };
 
