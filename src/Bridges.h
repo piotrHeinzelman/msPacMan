@@ -48,7 +48,7 @@ public:
     bool isW(int bridgeNum);         // is Horizontal bridge ? / or vertical
     COORD getCoordOfEdge( int eNum );// get x,y screen position od Edge ( end of Bridge )
 
-    int edgePosition        ( int bridgeNum, bool fromStart );        // getEdgeNum like Data[] od Bridge. Start is Top or Left Edge, !Start is Bottom or Right edge.
+    int edgeChessPosition   ( int bridgeNum, bool fromStart ); // getEdgeNum like Data[] od Bridge. Start is Top or Left Edge, !Start is Bottom or Right edge.
     bool isExistsWayFromEdge( int eNum, DIRECT direction );  // is exists way to direction from edge ?
     int getWayFromEdge      ( int eNum, DIRECT direction );  // get new Bridge num from edge to direction
                                                 //                                                            8 4 2 1
@@ -62,9 +62,13 @@ public:
     void DrawWall( int bridgeNum );       // TODO
     void DrawDot ( int bridgeNum );        // TODO
     void DrawMob ( int bridgeNum );        // TODO
+        void DrawCenterPiontOfWall( int bridgeNum );     // Test use only +
 
 
-    COORD getCoordOfCenterBridge( int i );  // get screen position COORD{X,Y} center, of Bridge from number i
+
+    COORD getCoordOfCenterBridge( int bridgeNum );  // get screen position COORD{X,Y} center, of Bridge from number i
+        COORD _getScreenCoordofCheesCoord(const COORD & chess ); // INNER USE ONLY convert chessCoord to screenCoord  w=w*3 h=h
+        COORD _getCheesCoordOfCenterBridge(int i );           // INNER USE ONLY
 
 };
 

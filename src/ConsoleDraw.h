@@ -11,11 +11,31 @@
 #include <string.h>
 #include <stdlib.h>
 
+/*
+
 // • ─ ━ │ ┃ ┄ ┅ ┆ ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏ ┐ ┑ ┒ ┓ └ ┕ ┖ ┗
 // ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟ ┠ ┡ ┢ ┣ ┤ ┥ ┦ ┧ ┨ ┩ ┪ ┫ ┬ ┭ ┮ ┯ ┰ ┱ ┲ ┳
 // ┴ ┵ ┶ ┷ ┸ ┹ ┺ ┻ ┼ ┽ ┾ ┿ ╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊ ╋ ╌ ╍ ╎ ╏
 // ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟ ╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧ ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯ ╰
 // ▀ ▄ ▌ █ ▐ ░ ▒ ▓ ■ □ ▪ ▫ ▴ ▸ ▾ ◂ ◊ ○ ◌ ☺ ☻ ☼ ♪ ♥ ♥
+
+
+
+  SetConsoleTextAttribute( hout, attrib );
+  chr = charCode;
+  SetConsoleCursorPosition(hout,{x,y});
+  std::cout << chr;
+  //WriteConsoleOutputCharacter(hout, &chr, 1, {x,y}, &dwWritten);
+
+  0x00 czarny  0x08+0x00 szary
+  0x01 blue    0x08+0x01 hard blue
+  0x02 green   0x08+0x02 hard green
+  0x03 turkus
+  0x04 red
+  0x05 fuksja ?
+  0x06 zolty
+  0x07 bialy  0x07+0x08 =0x0f mocno biały
+  */
 
 class ConsoleDraw {
 
@@ -28,12 +48,16 @@ private:
 
 public:
     ConsoleDraw() {
-        //std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
         hout = GetStdHandle(STD_OUTPUT_HANDLE);
         if (hout == INVALID_HANDLE_VALUE) {
             throw std::runtime_error("Console output handle error");
         }
     }
+
+
+
+
+
 
     void WriteColourChar(SHORT x, SHORT y, char charCode ,DWORD attrib=0x07 +0x00 ) {
         return WriteColourChar( COORD { x, y } , charCode , attrib=0x07 +0x00 );
@@ -43,32 +67,6 @@ public:
         SetConsoleTextAttribute( hout, (WORD) 0x0F ); // White
 
         WriteConsoleOutputCharacter(hout, chr, strlen(chr), cursor, &dwWritten);
-
-
-
-
-
-
-
-
-
-        /*
-        SetConsoleTextAttribute( hout, attrib );
-        chr = charCode;
-        SetConsoleCursorPosition(hout,{x,y});
-        std::cout << chr;
-        //WriteConsoleOutputCharacter(hout, &chr, 1, {x,y}, &dwWritten);
-        /*
-        0x00 czarny  0x08+0x00 szary
-        0x01 blue    0x08+0x01 hard blue
-        0x02 green   0x08+0x02 hard green
-        0x03 turkus
-        0x04 red
-        0x05 fuksja ?
-        0x06 zolty
-        0x07 bialy  0x07+0x08 =0x0f mocno biały
-        */
-
     }
 
 
@@ -83,7 +81,7 @@ public:
 
 
 
-    void WriteCharAt(SHORT x, SHORT y , const char* cs){
+    void WriteCharAt_OFF(SHORT x, SHORT y , const char* cs){
 
         COORD cursor = {x, y};
         DWORD written;
@@ -100,7 +98,7 @@ public:
     }
 
 
-    void WritcheChar2(SHORT x, SHORT y, const char* chr ,int len) {
+    void WritcheChar2_OFF(SHORT x, SHORT y, const char* chr , int len) {
         //SetConsoleTextAttribute( hout, (WORD) 0x02 );
         DWORD written;
         WriteConsoleOutputCharacter(hout, chr, len, {x,y}, &dwWritten);
@@ -170,7 +168,7 @@ public:
         WriteCharAt(0, 1, ary2);
         WriteCharAt(0, 2, ary3);
         WriteCharAt(0, 3, ary4);
-        WriteCharAt(0, 4, ary5);
+        WriteCharAt_OFF(0, 4, ary5);
     }
 */
  //https://stackoverflow.com/questions/9274745/using-writeconsoleoutputcharacter-and-setconsoletextattribute

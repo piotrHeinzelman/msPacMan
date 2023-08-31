@@ -35,10 +35,19 @@ bool Bridges::isW(int bridgeNum){ // TESTED
 }
 
 
-int Bridges::edgePosition( int bridgeNum, bool fromStart ){  // TESTED
+int Bridges::edgeChessPosition( int bridgeNum, bool fromStart ){  // TESTED
     bool isW_ = isW( bridgeNum );
     if ( isW_ ) return fromStart ? bridgeNum+W/2 : bridgeNum+E/2 ;
     return             fromStart ? bridgeNum+N/2 : bridgeNum+S/2 ;
+};
+
+
+COORD Bridges::getCoordOfEdge( int eNum ){ // TESTED
+    SHORT x;
+    SHORT y;
+        x=eNum%20;  y=2*(eNum/20);
+    //return  {x,y};
+    return _getScreenCoordofCheesCoord({x,y});
 };
 
 
@@ -68,34 +77,23 @@ int Bridges::getAllWaysFromEdge( int eNum ){ // tested
 
 // ****************** WORKING HERE !!!
 
+COORD Bridges::_getScreenCoordofCheesCoord(const COORD & chess ){ // TESTED
+    return COORD{ static_cast<SHORT>(  1+(chess.X*3) ) , chess.Y };
+}
 
-
-COORD Bridges::getCoordOfCenterBridge( int i ){
-    // dimenstion bridge w:3, h:1   Board dimension w:19 h:23
-    //
-    //    o  -  o
-    //   [e][b][e] bridge num 1
-    //   [   -   ] center - (4,0){x,y}
-    //
-
-
+COORD Bridges::_getCheesCoordOfCenterBridge(int i ){
     SHORT x;
     SHORT y;
     if ( isW (i)) {
-        x=i%20;
-        y=i/20;
+        x=i%20;  y=(i-x)/10;
+    } else {
+        x=(i-10)%20;  y=1+2*((i-10)/20);
     }
-
-    //SHORT x=edge%20;
-    //SHORT y=edge/20;
-
-    // scale
-    //x*=CELL_WIDTH;
-    //y*=CELL_HEIGHT;
-
-    //fix center point
-    //x++;
     return { x,y };
+}
+
+COORD Bridges::getCoordOfCenterBridge( int bridgeNum ){
+    return _getScreenCoordofCheesCoord(_getCheesCoordOfCenterBridge(bridgeNum));
 }
 
 
@@ -104,20 +102,6 @@ COORD Bridges::getCoordOfCenterBridge( int i ){
 
 
 
-
-
-COORD Bridges::getCoordOfEdge( int edge ){
-    SHORT x=edge%20;
-    SHORT y=edge/20;
-
-    // scale
-    x*=CELL_WIDTH;
-    y*=CELL_HEIGHT;
-
-    //fix center point
-    x++;
-    return { x,y };
-}
 
 
 
@@ -127,17 +111,24 @@ COORD Bridges::getCoordOfEdge( int edge ){
 
 
 void Bridges::drawBridge(int bridgeNum) {
-    COORD center;
-    if ( isW(bridgeNum) ) { return drawBridgeW( bridgeNum ); }
-    else  return drawBridgeH( bridgeNum );
-}
-
-void Bridges::drawBridgeW( int bridgeNum ) {
     DrawWall( bridgeNum );
     DrawDot ( bridgeNum );
     DrawMob ( bridgeNum );
 }
 
+void Bridges::DrawCenterPiontOfWall( int bridgeNum ){
+    draw.WriteColourChar( getCoordOfCenterBridge ( bridgeNum ) , '+');
+    // and draw edges
+    if ( !isW(bridgeNum) ) return;
+    int edgeStart = edgeChessPosition( bridgeNum, true );
+    int edgeEnd = edgeChessPosition( bridgeNum, false );
+    draw.WriteColourChar( getCoordOfEdge ( edgeStart ) , 'c');
+    draw.WriteColourChar( getCoordOfEdge ( edgeEnd ) , 'o');
+
+};     // Test use only +
+
+void Bridges::drawBridgeW( int bridgeNum ) {}
+void Bridges::drawBridgeH( int bridgeNum ) {}
 
 void Bridges::DrawWall( int bridgeNum ){};
 void Bridges::DrawDot ( int bridgeNum ){};
@@ -176,21 +167,10 @@ void Bridges::DrawMob ( int bridgeNum ){
 
 };
 
-void Bridges::drawBridgeH( int bridgeNum ) {
 
-    SHORT y=1+2*((bridgeNum-10)/20) ;
-    SHORT x=(bridgeNum-10)%20;
 
-    x*=CELL_WIDTH;
-    y*=CELL_HEIGHT;
-    //cdraw.WriteColourChar( x,y,179 );
 
-    //cdraw.WriteColourChar( x+1,y-1,250 );
-    //cdraw.WriteColourChar( x+1,y+1,250 );
 
-    draw.WriteColourChar( x+1,  y,248 );
-
-}
 
 
 
@@ -198,35 +178,23 @@ void Bridges::drawBridgeH( int bridgeNum ) {
 
 
 void Bridges::drawBoard() {
-    //std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
-    //drawBridgeH(10);
-    //drawBridgeH(1);
-
-    if (false) { // wyłaczone rysowanie planszy
-        for (int i = 0; i < 240; i++, i++) {
+    if ( !false ) { // wyłaczone rysowanie planszy
+        for (int i = 0; i < 240; i++) {  // walls
             if ( !isExsits( i ) ) { continue; }
-            if ( isW(i) ) { drawBridgeH(i); }
-            else { drawBridgeW(i + 1); }
+                // draw
+                 DrawCenterPiontOfWall( i ); // testing only
+                 DrawWall( i );
+
+        }
+
+        for (int i = 0; i < 240; i++) { // dots
+            if ( !isExsits( i ) ) { continue; }
+                //draw
+                DrawDot( i );
         }
     }
-    if (true )return;
-    draw.WriteColourChar(0,0,210);
-    draw.WriteColourChar(2+BW, 0 ,183);
-    draw.WriteColourChar(0,    2+BH,211);
-    draw.WriteColourChar(2+BW, 2+BH , 189);
-    for ( int i=0; i<=BW; i++ ){
-        draw.WriteColourChar(1+i,0,196);
-        draw.WriteColourChar(1+i,2+BH ,196);
-    }
-    for ( int i=0; i<=BH; i++ ){
-        draw.WriteColourChar(0    ,1+i,186);
-        draw.WriteColourChar(2+BW , i+1, 186);
-    }
-
-
-
-
 }
 
 

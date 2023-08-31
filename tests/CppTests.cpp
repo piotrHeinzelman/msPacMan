@@ -18,6 +18,9 @@ std::ostream & operator <<( std::ostream & os, const COORD & point )
     return os;
 }
 
+bool operator==( const COORD & l , const COORD & r ){
+    return ( l.X==r.X && l.Y==r.Y );
+}
 
 void CppTests::BridgesTest() {
 
@@ -34,12 +37,14 @@ void CppTests::BridgesTest() {
     assert(true == b.isW(1));
     assert(false == b.isW(10));
 
-    assert(0 == b.edgePosition(1, true));
+    assert(0 == b.edgeChessPosition(1, true));
 
-    assert(2 == b.edgePosition(1, false));
+    assert(2 == b.edgeChessPosition(1, false));
 
-    assert(20 == b.edgePosition(30, true));
-    assert(40 == b.edgePosition(30, false));
+    assert(20 == b.edgeChessPosition(30, true));
+    assert(40 == b.edgeChessPosition(30, false));
+
+
 
 
 
@@ -65,53 +70,79 @@ void CppTests::BridgesTest() {
     assert(1+4 == b.getAllWaysFromEdge(154));
 
 
-
-
-
-
-
-int  i=1;
-std::cout << "i: "<< i << ", " << b.getCoordOfCenterBridge( i ) << "\n";
-
-/*
-    // Operatory
-    Int & operator =( const Int & x )
-    {
-        i = x.i;
-        return * this;
-    }
+/*  TEST chessCoordToScreenCoord
+    COORD in = {0,0};
+    COORD req = {1,0};
+    COORD out = b._getScreenCoordofCheesCoord( in );
+    std::cout << "in: "<< in << " out: " << out << ", red:" << req << "\n";
 */
 
+// TEST _getScreenCoordofCheesCoord                                                        //   0123        01234567
+    assert(b._getScreenCoordofCheesCoord({0, 0}) == ( COORD{1, 0} )); //   o...   ->   [o]....
+    assert(b._getScreenCoordofCheesCoord({1, 0}) == ( COORD{4, 0} )); //   .o..   ->   [ ][o]..
+    assert(b._getScreenCoordofCheesCoord({2, 0}) == ( COORD{7, 0} )); //   ..o.   ->   [ ][ ][o]
+    assert(b._getScreenCoordofCheesCoord({0, 3}) == ( COORD{1, 3} )); //   ..o.   ->   [ ][ ][o]
+    assert(b._getScreenCoordofCheesCoord({2, 23}) == ( COORD{7, 23} )); //   ..o.   ->   [ ][ ][o]
 
-/*
-   // assert(1+4 == b.getCoordOfEdge(0));
-   //  Bridges::getCoordOfEdge( int edge );
-ConsoleDraw draw;
-int ed=0;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'A' );
-    ed=2;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'B' );
-    ed=4;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'C' );
-    ed=10;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'D' );
-    ed=18;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'E' );
-    ed=20;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'F' );
-    ed=40;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'G' );
-    ed=200;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'H' );
-    ed=210;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'I' );
-    ed=220;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'J' );
-           //b.drawBridge(1);
+// TEST _getCheesCoordOfCenterBridge
+/*    int in = 192;
+    COORD req = {0,1};
+    COORD out = b._getCheesCoordOfCenterBridge( in );
+    std::cout << "in: "<< in << " out: " << out << ", red:" << req << "\n";
+*/
+    assert(b._getCheesCoordOfCenterBridge(1) == ( COORD{1, 0} )); // o-o
+    assert(b._getCheesCoordOfCenterBridge(3) == ( COORD{3, 0} )); // o-o
+    assert(b._getCheesCoordOfCenterBridge(23) == ( COORD{3, 2} ));// o-o
+    assert(b._getCheesCoordOfCenterBridge(237) == ( COORD{17, 22} ));// o-o
 
-    exit(1);
-}
+    assert(b._getCheesCoordOfCenterBridge(10) == ( COORD{0, 1} )); // o
+    assert(b._getCheesCoordOfCenterBridge(14) == ( COORD{4, 1} )); // |
+    assert(b._getCheesCoordOfCenterBridge(28) == ( COORD{18, 1} ));// o
 
-/* IS NOT TEST
-std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    assert(b._getCheesCoordOfCenterBridge(192) == ( COORD{2, 19} ));
+    assert(b._getCheesCoordOfCenterBridge(210) == ( COORD{0, 21} ));
 
-    ConsoleDraw draw;
-    int ed=1;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'A' );
-    ed=17;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'B' );
-    ed=237;    std::cout << ed << "::  ,x: " << b.getCoordOfEdge(ed).X << ", y:" << b.getCoordOfEdge(ed).Y << "\n"; draw.WriteColourChar( b.getCoordOfEdge(ed), 'C' );
+
+
+// TEST getCoordOfCenterBridge( int bridgeNum )
+ /*
+    int  i=237;
+    COORD req = {10,0};
+    std::cout << "i: "<< i << ", " << b.getCoordOfCenterBridge( i ) << "   oczekiwana: " << req << "\n";
+ */
+    assert(b.getCoordOfCenterBridge(1 ) == ( COORD{4, 0} ));
+    assert(b.getCoordOfCenterBridge(3 ) == ( COORD{10, 0} ));
+    assert(b.getCoordOfCenterBridge(17 ) == ( COORD{52, 0} ));
+
+    assert(b.getCoordOfCenterBridge(237 ) == ( COORD{52, 22} ));
+
+
+// TEST getCoordOfEdge  Chees Coord !!!
+
+//    int  i=20; std::cout << "i: "<< i << ", " << b.getCoordOfEdge( i ) << "\n\n";
+/*    assert(b.getCoordOfEdge(0 ) == ( COORD{0, 0} ));
+    assert(b.getCoordOfEdge(2 ) == ( COORD{2, 0} ));
+    assert(b.getCoordOfEdge(18 ) == ( COORD{18, 0} ));
+    assert(b.getCoordOfEdge(20 ) == ( COORD{0, 2} ));
+    assert(b.getCoordOfEdge(22) == ( COORD{2, 2} ));
+    assert(b.getCoordOfEdge(234) == ( COORD{14, 22} ));
+    assert(b.getCoordOfEdge(238) == ( COORD{18, 22} ));
 */
 
-//    b.drawBridge(20);
+// TEST getCoordOfEdge (int bridgeNum, bool fromStart );
+//int  i=238; std::cout<<"i: "<<i<< ", "<< b.getCoordOfEdge( i )<<"\n";
+
+    assert(b.getCoordOfEdge(0 ) == ( COORD{1, 0} ));
+    assert(b.getCoordOfEdge(2 ) == ( COORD{7, 0} ));
+    assert(b.getCoordOfEdge(238 ) == ( COORD{55, 22} ));
+
+
+
+
+
+
+
+
 
 }
 
