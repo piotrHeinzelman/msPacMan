@@ -10,6 +10,7 @@
 #include <windows.h>
 #include <string.h>
 #include <stdlib.h>
+#include <valarray>
 
 /*
 
@@ -37,6 +38,8 @@
   0x07 bialy  0x07+0x08 =0x0f mocno biały
   */
 
+
+
 class ConsoleDraw {
 
 private:
@@ -47,27 +50,9 @@ private:
 
 
 public:
-    ConsoleDraw() {
-        hout = GetStdHandle(STD_OUTPUT_HANDLE);
-        if (hout == INVALID_HANDLE_VALUE) {
-            throw std::runtime_error("Console output handle error");
-        }
-    }
-
-
-
-
-
-
-    void WriteColourChar(SHORT x, SHORT y, char charCode ,DWORD attrib=0x07 +0x00 ) {
-        return WriteColourChar( COORD { x, y } , charCode , attrib=0x07 +0x00 );
-    }
-    void WriteColourChar( COORD cursor, char charCode ,DWORD attrib=0x07 +0x00 ) {
-        chr[0] = charCode;
-        SetConsoleTextAttribute( hout, (WORD) 0x0F ); // White
-
-        WriteConsoleOutputCharacter(hout, chr, strlen(chr), cursor, &dwWritten);
-    }
+    ConsoleDraw();  // konstruktor klasy, qaczy z obiektem Konsola
+    void WriteColourChar(SHORT x, SHORT y, char charCode ,DWORD attrib=0x07 +0x00 );  // rysuje znak
+    void WriteColourChar( COORD cursor, char charCode ,DWORD attrib=0x07 +0x00 );     // rysuje znak
 
 
 
@@ -79,7 +64,7 @@ public:
 
 
 
-
+/*
 
     void WriteCharAt_OFF(SHORT x, SHORT y , const char* cs){
 
@@ -154,7 +139,7 @@ public:
         //::WriteConsoleOutputCharacterA(h, symbol, 1, here, &written);
         //SetConsoleCursorPosition(2,2);
         // WriteConsole()
-    }
+  //  }
 
 /*
     drawW( SHORT x,SHORT y ){

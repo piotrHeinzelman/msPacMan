@@ -5,6 +5,8 @@
 #include <iostream>
 #include "Bridges.h"
 
+#define WALL 176
+
 
 /*  1   1         1         2         2         2
  *  7   8         9         0         1         2
@@ -12,8 +14,23 @@
     678901234567890123456789012345678901234567890123
 */
 
+
+
+
+/* No Ob. :- (
+COORD COORD::operator+( const COORD & r ){
+    return { static_cast<SHORT>(( X + r.X)), static_cast<SHORT>( Y + r.Y) };
+} */
+
+
+COORD operator +( const COORD & l , const COORD & r ){
+    return { static_cast<SHORT>(( l.X + r.X)), static_cast<SHORT>( l.Y + r.Y) };
+}
+
+
+
 Bridges::Bridges(){
-    bridgesData = (char*)" x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x x  x x     x x         x x    xxxxx       xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x xxx x x x x  ";
+    bridgesData = (char*)" x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x x  x x     x x         x x    xxxxx       xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x xxx x x x x             ";
 }
 
 
@@ -118,6 +135,7 @@ void Bridges::drawBridge(int bridgeNum) {
 
 void Bridges::DrawCenterPiontOfWall( int bridgeNum ){
     draw.WriteColourChar( getCoordOfCenterBridge ( bridgeNum ) , '+');
+    return;
     // and draw edges
     if ( !isW(bridgeNum) ) return;
     int edgeStart = edgeChessPosition( bridgeNum, true );
@@ -127,43 +145,66 @@ void Bridges::DrawCenterPiontOfWall( int bridgeNum ){
 
 };     // Test use only +
 
+void Bridges::DrawWall( int bridgeNum ){
+
+    int edgeStart = edgeChessPosition( bridgeNum, true );
+    int edgeEnd = edgeChessPosition( bridgeNum, false );
+
+    COORD startPoint = getCoordOfEdge( edgeStart );
+    COORD centerPoint = _getCheesCoordOfCenterBridge( bridgeNum );
+    COORD endPoint = getCoordOfEdge( edgeEnd );
+
+
+    if (isW(bridgeNum)) {
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{-2,1}) , WALL);
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{-1,1}) , WALL);
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 0,1}) , WALL);
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 1,1}) , WALL);
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 2,1}) , WALL);
+
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{-2,-1}) , WALL);
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{-1,-1}) , WALL);
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 0,-1}) , WALL);
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 1,-1}) , WALL);
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 2,-1}) , WALL);
+    } else {
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ -1, 0}) , WALL);
+        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 1, 0}) , WALL);
+    }
+
+    // draw edges
+    drawEdge( edgeStart , startPoint );
+    drawEdge( edgeEnd , endPoint );
+
+
+};
+
+
+void Bridges::drawEdge( int eNum , COORD point ){
+    //draw.WriteColourChar(operator+(point,{ 0, 0}) , 'o');
+    int ways = getAllWaysFromEdge(eNum);
+
+    if ( (ways&1)==0 ) draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
+    if ( (ways&2)==0 ) draw.WriteColourChar(operator+(point,{ -1, 0}) , WALL);// block W
+    if ( (ways&4)==0 ) draw.WriteColourChar(operator+(point,{ 0,  1}) , WALL);// block S
+    if ( (ways&8)==0 ) draw.WriteColourChar(operator+(point,{ 1, 0}) , WALL); // block E
+
+
+    if ( (ways&1+2)==0 ) draw.WriteColourChar(operator+(point,{ -1, -1}) , WALL);// block NW
+    if ( (ways&2+4)==0 ) draw.WriteColourChar(operator+(point,{ -1,  1}) , WALL);// block WS
+    if ( (ways&4+8)==0 ) draw.WriteColourChar(operator+(point,{  1,  1}) , WALL);// block SE
+    if ( (ways&1+8)==0 ) draw.WriteColourChar(operator+(point,{  1, -1}) , WALL);// block NE
+
+}
+
+
 void Bridges::drawBridgeW( int bridgeNum ) {}
 void Bridges::drawBridgeH( int bridgeNum ) {}
 
-void Bridges::DrawWall( int bridgeNum ){};
+
 void Bridges::DrawDot ( int bridgeNum ){};
 void Bridges::DrawMob ( int bridgeNum ){
 
-    /*
-     // dots
-     draw.WriteColourChar( x-3,y,248 );
-     draw.WriteColourChar( x-1,y,248 );
-     draw.WriteColourChar( x+1,y,248 );
-     draw.WriteColourChar( x+3,y,248 );
-
-     draw.WriteColourChar( x,y,196 );
-
-     int start = edgePosition( bridgeNum , true );
-     int end = edgePosition( bridgeNum , false );
-     int startWays = getAllWaysFromEdge( start );
-     int endWays   = getAllWaysFromEdge( end );
-
-     if (( startWays|( 1+2 ))==0) { drawTopLeftConner( start ); }
- */
-
-    //cdraw.WriteColourChar( x+CELL_WIDTH*3,y,196 );
-
-    //for (int i=-CELL_WIDTH+1;i<CELL_WIDTH*3-1;i++){
-    //    cdraw.WriteColourChar( x+i,y,196 );
-    //}
-
-    //cdraw.WriteColourChar( x-CELL_WIDTH,y,250 );
-    //cdraw.WriteColourChar( x+CELL_WIDTH+CELL_WIDTH-1,y,250 );
-
-
-
-    // if (Bridges[bridgeNum+2]==' '){ cdraw.WriteColourChar( x+5,y,176 );  }
-    // if (Bridges[bridgeNum-2]==' '){ cdraw.WriteColourChar( x-3,y,176 );  }
 
 };
 
@@ -178,10 +219,46 @@ void Bridges::DrawMob ( int bridgeNum ){
 
 
 void Bridges::drawBoard() {
-    std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
-    if ( !false ) { // wyłaczone rysowanie planszy
-        for (int i = 0; i < 240; i++) {  // walls
+/*
+    std::cout << "    ░░░░░░░░░░░░░░░░░░░░░░░░░     ░░░░░░░░░░░░░░░░░░░░░░░░░    \n";
+    std::cout << "   ░   +     +     +     +   ░   ░   +     +     +     +   ░    \n";
+    std::cout << "   ░+░░░░░░░░░░░+░░░░░░░░░░░+░░░░░+░░░░░░░░░░░+░░░░░░░░░░░+░    \n";
+    std::cout << "   ░   +     +     +     +     +     +     +     +     +   ░    \n";
+    std::cout << "   ░+░░░░░░░░░░░+░░░░░+░░░░░░░░░░░░░░░░░+░░░░░+░░░░░░░░░░░+░    \n";
+    std::cout << "   ░   +     +   ░   ░   +   ░   ░   +   ░   ░   +     +   ░    \n";
+    std::cout << "    ░░░░░░░░░░░░+░    ░░░░░░+░░░░░+░░░░░░    ░+░░░░░░░░░░░░    \n";
+    std::cout << "               ░ ░   ░   +     +     +   ░   ░ ░    \n";
+    std::cout << "               ░+░   ░+░░░░░░░░░░░░░░░░░+░   ░+░    \n";
+    std::cout << "               ░ ░   ░ ░               ░ ░   ░ ░    \n";
+    std::cout << "    ░░░░░░░░░░░░+░░░░░+░               ░+░░░░░+░░░░░░░░░░░░░░░░░    \n";
+    std::cout << "   ░   +     +     +   ░               ░   +     +     +     +    \n";
+    std::cout << "    ░░░░░░░░░░░░+░░░░░+░               ░+░░░░░+░░░░░░░░░░░░░░░░░    \n";
+    std::cout << "     ░         ░ ░   ░ ░               ░ ░   ░ ░    \n";
+    std::cout << "    ░          ░+░   ░+░░░░░░░░░░░░░░░░░+░   ░+░    \n";
+    std::cout << "               ░ ░   ░   +     +     +   ░   ░ ░    \n";
+    std::cout << "    ░░░░░░░░░░░░+░░░░░+░░░░░░░░░░░░░░░░░+░░░░░+░░░░░░░░░░░░    \n";
+    std::cout << "   ░   +     +     +     +   ░   ░   +     +     +     +   ░    \n";
+    std::cout << "   ░+░░░░░░░░░░░+░░░░░░░░░░░+░░░░░+░░░░░░░░░░░+░░░░░░░░░░░+░    \n";
+    std::cout << "   ░   +   ░   ░   +     +     +     +     +   ░   ░   +   ░    \n";
+    std::cout << "    ░░░░░░+░░░░░+░░░░░+░░░░░░░░░░░░░░░░░+░░░░░+░░░░░+░░░░░░    \n";
+    std::cout << "   ░   +     +   ░   ░   +   ░   ░   +   ░   ░   +     +   ░    \n";
+    std::cout << "   ░+░░░░░░░░░░░░░░░░░░░░░░░+░░░░░+░░░░░░░░░░░░░░░░░░░░░░░+░    \n";
+    std::cout << "   ░   +     +     +     +     +     +     +     +     +   ░    \n";
+    std::cout << "    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     \n";
+*/
+
+
+
+
+
+
+
+
+    int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+
+        if ( !false ) { // wyłaczone rysowanie planszy
+        for (int i = 0; i < LIMIT; i++) {  // walls
             if ( !isExsits( i ) ) { continue; }
                 // draw
                  DrawCenterPiontOfWall( i ); // testing only
@@ -189,7 +266,7 @@ void Bridges::drawBoard() {
 
         }
 
-        for (int i = 0; i < 240; i++) { // dots
+        for (int i = 0; i < LIMIT; i++) { // dots
             if ( !isExsits( i ) ) { continue; }
                 //draw
                 DrawDot( i );
