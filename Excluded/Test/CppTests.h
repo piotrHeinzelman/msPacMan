@@ -5,7 +5,7 @@
 #ifndef MSPACMAN_CPPTESTS_H
 #define MSPACMAN_CPPTESTS_H
 
-#include "../src/Bridges.h"
+#include "../src/Excluded/Bridges.h"
 
 
 class CppTests {

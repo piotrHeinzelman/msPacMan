@@ -5,10 +5,10 @@
 #include <iostream>
 #include <cassert>
 #include "CppTests.h"
-#include "../src/Dot.h"
+#include "../src/Excluded/Dot.h"
 #include <windows.h>
 #include <unistd.h>
-#include "../src/Keyb.h"
+#include "../src/Excluded/Keyb.h"
 
 void showPoint( COORD point ){
     std::cout << "x: " << point.X << ", y:" + point.Y << "\n";

@@ -4,16 +4,22 @@
 
 #include <iostream>
 #include "Mob.h"
-#include "Board.h"
 
-Mob::Mob(int id, std::string name , Board* parentBoard,  bool ghost ) {
+
+Mob::Mob(int id, std::string name, bool ghost ) {
     this->id=id;
     this->name = name;
     this->direction;
     this->nextDirection;
-    this->parentBoard=parentBoard;
     this->ghost=ghost;
 }
+
+int Mob::getStep() const { return step; }
+void Mob::setStep(int step) { Mob::step = step; }
+int Mob::getField() const { return field; }
+void Mob::setField(int field) { Mob::field = field; }
+DIRECT Mob::getDirection() const { return direction; }
+void Mob::setDirection(DIRECT direction) { Mob::direction = direction; }
 
 
 

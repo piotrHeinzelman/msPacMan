@@ -8,8 +8,6 @@
 
 #include <string>
 #include "DIRECT.h"
-#include "Board.h"
-
 
 #define STEPS 6
 
@@ -23,8 +21,6 @@ private:
     DIRECT direction;
     DIRECT nextDirection;
 
-    Board* parentBoard;
-
     int points=0;
     int power=0;
 
@@ -32,8 +28,15 @@ private:
 
 public:
     Mob();
-    Mob(int id , std::string name , Board* board,  bool ghost=false );
+    Mob(int id, std::string name,  bool ghost=false );
 
+    // getters / setters
+    int getStep() const;
+    void setStep(int step);
+    int getField() const;
+    void setField(int field);
+    DIRECT getDirection() const;
+    void setDirection(DIRECT direction);
 
 
 };

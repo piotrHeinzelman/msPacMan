@@ -6,11 +6,11 @@
 #define MSPACMAN_ALLTEST_H
 
 
-#include "src/UDPServ.h"
-#include "src/UDPClient.h"
-#include "src/TickRunner.h"
-#include "src/Bridges.h"
-#include "src/Board.h"
+#include "../src/Excluded/UDPServ.h"
+#include "../src/Excluded/UDPClient.h"
+#include "../src/Excluded/TickRunner.h"
+#include "../src/Excluded/Bridges.h"
+#include "../src/Excluded/Board.h"
 
 
 DWORD WINAPI runTestInThread_test(LPVOID lpParameter ) {

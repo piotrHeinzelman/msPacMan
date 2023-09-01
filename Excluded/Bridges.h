@@ -21,8 +21,7 @@
 #include <set>
 #include <map>
 #include "DIRECT.h"
-#include "../tests/CppTests.h"
-#include "ConsoleDraw.h"
+#include "../../tests/CppTests.h"
 
 
 /*
