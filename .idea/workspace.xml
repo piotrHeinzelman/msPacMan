@@ -22,27 +22,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Excluded/Board.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Excluded/Board.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-871b5702b08d14805262.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Excluded/Bridges.cpp.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Excluded/UDPClient.cpp.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Excluded/UDPServ.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Test/allTest.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-fd8ad0a51d6442fc9ffb.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-e872540e17c2624b79ec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-efd110e50d9567d38b4d.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-1921e9721c5529d768db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-09-01T20-02-43-0890.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-09-01T20-29-55-0992.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-01b7786671bfdd542860.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Board.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Board.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Bridges.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Bridges.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/ConsoleDraw.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/ConsoleDraw.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Dot.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Dot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Keyb.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Keyb.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Test/CppTests.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Test/CppTests.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Test/allTest.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/Tick.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/TickRunner.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/TickRunner.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/UDPClient.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/UDPClient.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/UDPServ.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/UDPServ.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/map.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/map.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/set.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excluded/set.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_lib/freeglut/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/_lib/freeglut/Readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-e872540e17c2624b79ec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-1921e9721c5529d768db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-09-01T21-43-07-0955.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-871b5702b08d14805262.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/ConsoleDraw.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/ConsoleDraw.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Excluded/Bridges.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Excluded/UDPClient.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Excluded/UDPServ.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Keyb.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Keyb.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
@@ -50,30 +74,9 @@
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridges.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Bridges.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridges.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Bridges.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleDraw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/ConsoleDraw.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleDraw.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/ConsoleDraw.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Dot.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dot.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Dot.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Keyb.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Keyb.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Keyb.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Keyb.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Mob.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Mob.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tick.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Tick.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TickRunner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/TickRunner.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TickRunner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/TickRunner.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UDPClient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/UDPClient.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UDPClient.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/UDPClient.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UDPServ.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/UDPServ.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UDPServ.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/UDPServ.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/map.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/map.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/set.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/set.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/set.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/set.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CppTests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Test/CppTests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CppTests.h" beforeDir="false" afterPath="$PROJECT_DIR$/Excluded/Test/CppTests.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/lastTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lastTest.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/lastTest.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,9 +147,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="msPacMan" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="msPacMan" TARGET_NAME="msPacMan" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="msPacMan" RUN_TARGET_NAME="msPacMan">
@@ -204,6 +207,7 @@
       <workItem from="1693529594047" duration="1764000" />
       <workItem from="1693531383965" duration="498000" />
       <workItem from="1693579188089" duration="20863000" />
+      <workItem from="1693604655446" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="ADD :: ** Serv ** &amp; client">
       <option name="closed" value="true" />
@@ -581,7 +585,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693598783706</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="-- new --">
+      <option name="closed" value="true" />
+      <created>1693604600712</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1693604600712</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

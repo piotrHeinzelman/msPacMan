@@ -8,55 +8,60 @@
 
 #include <string>
 #include "DIRECT.h"
+#include "Board.h"
+
 
 #define STEPS 6
 
+class Board ;
+
 class Mob {
+
 private:
-    std::string name;
     int id;
     int step;
-    int field;
+    int bridge;
 
     DIRECT direction;
     DIRECT nextDirection;
 
     int points=0;
     int power=0;
-
     bool ghost;
+    Board* board;
 
 public:
     Mob();
-    Mob(int id, std::string name,  bool ghost=false );
+    Mob(int id , std::string name , Board* board,  bool ghost=false );
+    int getId();
+// getters / setters
 
-    // getters / setters
-    int getStep() const;
-    void setStep(int step);
-    int getField() const;
-    void setField(int field);
-    DIRECT getDirection() const;
+
+
+    int getBridge();
+    void setBridge(int bridgeNum);
+
+    void setStep(int step );
+    int getStep();
+
+
     void setDirection(DIRECT direction);
+    void setNextDirection(DIRECT direction);
+    DIRECT getDirection();
+    DIRECT getNextDirection();
 
-
-};
-
-
-#endif //MSPACMAN_MOB_H
-/*
-      unsigned short getId();
-    void setPositionOnBridge(int position );
-    int  getPositionOnBridge();
     void nextStep();
-    void setDirection(DIRECT direction);
-    void _atEdge();
-    bool isAtEdge();
-    void setParent( Board* parent );
+
+
+
+
+
+
+
+    //
     void addPoint( int points );
     void addPower( int power );
-
     int getPower();
-    DIRECT getDirection();
     int getPoints();
     bool isGhost();
 
@@ -65,7 +70,9 @@ public:
     void stepE( bool isW );
     void stepW( bool isW );
     void stepS( bool isW );
-    void checkNextDirection();
+
+    void insertMobAtBridge(Mob *mob, int bridge);
+};
 
 
- */
+#endif //MSPACMAN_MOB_H

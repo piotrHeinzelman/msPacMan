@@ -5,10 +5,10 @@
 #include <iostream>
 #include <cassert>
 #include "CppTests.h"
-#include "../src/Excluded/Dot.h"
+#include "../src/Dot.h"
 #include <windows.h>
 #include <unistd.h>
-#include "../src/Excluded/Keyb.h"
+#include "../src/Keyb.h"
 
 void showPoint( COORD point ){
     std::cout << "x: " << point.X << ", y:" + point.Y << "\n";
@@ -203,9 +203,7 @@ void CppTests::BridgesTest() {
         Keyb k;
 
 
-
-
-        bo.setMobAt( minion->getId(), 1 );
+        bo.insertMobAtBridge(minion->getId(), 1);
 
         while(true) {
             minion->setDirection(DIRECT::E);

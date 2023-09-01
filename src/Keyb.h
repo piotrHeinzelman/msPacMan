@@ -11,7 +11,7 @@
 #define KEY_RIGHT 77
 
 #include <winsock2.h>
-#include <windows.h>
+#include <Windows.h>
 #include <wchar.h>
 #include "DIRECT.h"
 #include <conio.h>

@@ -27,7 +27,3 @@ void ConsoleDraw::WriteColourChar( COORD cursor, char charCode ,DWORD attrib  ) 
     COORD dst = { static_cast<SHORT>(3+cursor.X) , static_cast<SHORT>(3+cursor.Y) };
     WriteConsoleOutputCharacter(hout, chr, strlen(chr), dst, &dwWritten);
 }
-
-HANDLE ConsoleDraw::getHandle() {
-    return hout;
-}

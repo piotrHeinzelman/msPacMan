@@ -13,7 +13,10 @@
 #include <map>
 #include "Mob.h"
 #include "DIRECT.h"
-
+#include "ConsoleDraw.h"
+#include "Dot.h"
+#include "Bridges.h"
+#include "Keyb.h"
 
 
 /* glowna klasa gry
@@ -135,36 +138,39 @@ char Bridges[255]=
  https://cpp0x.pl/dokumentacja/WinAPI/Konsola/1038
 */
 
+class Mob;
+class Dot;
 class Board {
     friend class Mob;
 
 private:
-    std::vector<Mob*> mobs;
 
-   //
+    std::vector <Mob*> mobs;
 
-
-    /*
     Mob* mobiles[8]={nullptr};
     int activeBridges [8]={0};
-    //ConsoleDraw cdraw;
+    ConsoleDraw cdraw;
     std::map< int , Dot* > dots;
-    //Bridges b;
-    //Keyb k;
-    */
-public:
-    Board();
-    void addMob( Mob* mob );
+    Bridges b;
+    Keyb k;
 
-    /*
+public:
+    void addMob( Mob* mob );
+    void allMobShow();
+    void insertMobAtBridge( Mob* mob , int bridge );
+
+    void drawAllMob();
+    void drawOneMob( Mob* mob );
+
+
     Mob* getMobPac();
 
-
+    Board();
     void BoardTick();
 
     void prepare();
     void drawBoard();
-    void setMobAt( int  i , int bridgeNum );
+
 
     void moveMeToNextBridge(int mobId, DIRECT myDirect);
 
@@ -182,8 +188,7 @@ public:
     void drawAllDots();
     void drawDotsOfBridge( int i );
 
-    void drawAllMob();
-    void drawOneMob( int mobId );
+
 
     void moveAllMobs();
     void moveOneMob( int mobId );
@@ -194,7 +199,6 @@ public:
     void eatDot( Mob* mob , COORD );
 
     void drawOneDot( std::pair<const int, Dot *> pair );
-    Bridges* getBridges();
 
 
 
@@ -204,19 +208,6 @@ public:
     void showInfo();
 
     DWORD BoardTick(LPVOID lpParameter);
-
-
-
-
-
-
-
-
-    */
-   // move( Mob* mob );// ->getDirection, ->getBridge ->getStep
-
-
-
 };
 
 

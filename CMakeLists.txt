@@ -13,12 +13,34 @@ link_libraries(ws2_32 wsock32)
 
 
 add_executable(msPacMan main.cpp
+        allTest.h
+        src/UDPClient.cpp
+        src/UDPClient.h
+        src/UDPServ.cpp
+        src/UDPServ.h
         info/con_serv.h
-        src/Board.h
-        src/DIRECT.h
-        src/Mob.h
-        src/Mob.cpp
+        src/UDPServ.cpp
+        src/TickRunner.h
+        src/Tick.h
         src/Board.cpp
+        src/Board.h
+        src/ConsoleDraw.cpp
+        src/ConsoleDraw.h
+        src/Mob.cpp
+        src/Mob.h
+        src/DIRECT.h
+        src/Bridges.cpp
+        src/Bridges.h
+
+        src/set.cpp
+        src/set.h
+        src/Dot.cpp
+        src/Dot.h
+        src/map.cpp
+        src/map.h
+        src/Keyb.cpp
+        src/Keyb.h
+        src/TickRunner.cpp
 
 )
 

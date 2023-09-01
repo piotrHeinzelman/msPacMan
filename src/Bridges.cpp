@@ -183,6 +183,3 @@ void Bridges::DrawDot ( int bridgeNum ){};
 void Bridges::DrawMob ( int bridgeNum ){};
 
 
-HANDLE Bridges::getHandle(){
-    return draw.getHandle();
-}
