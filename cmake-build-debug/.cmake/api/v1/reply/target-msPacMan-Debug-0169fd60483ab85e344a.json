@@ -62,7 +62,9 @@
 				18,
 				20,
 				22,
-				24
+				24,
+				26,
+				28
 			]
 		}
 	],
@@ -119,7 +121,9 @@
 				18,
 				20,
 				22,
-				24
+				24,
+				26,
+				28
 			]
 		},
 		{
@@ -140,7 +144,8 @@
 				19,
 				21,
 				23,
-				25
+				25,
+				27
 			]
 		}
 	],
@@ -286,6 +291,23 @@
 			"backtrace" : 1,
 			"path" : "src/map.h",
 			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Keyb.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Keyb.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/TickRunner.cpp",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"

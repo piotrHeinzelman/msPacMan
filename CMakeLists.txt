@@ -39,6 +39,9 @@ add_executable(msPacMan main.cpp
         src/Dot.h
         src/map.cpp
         src/map.h
+        src/Keyb.cpp
+        src/Keyb.h
+        src/TickRunner.cpp
 
 )
 

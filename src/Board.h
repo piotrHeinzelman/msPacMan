@@ -190,6 +190,7 @@ public:
 
     void showInfo();
 
+    DWORD BoardTick(LPVOID lpParameter);
 };
 
 

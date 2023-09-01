@@ -13,7 +13,7 @@
 #include "src/Board.h"
 
 
-DWORD WINAPI runTestInThread(LPVOID lpParameter ) {
+DWORD WINAPI runTestInThread_test(LPVOID lpParameter ) {
     printf("[ TEST ] :: Create Server in Thread %d\n", GetCurrentThreadId());
 
     UDPServ ts;               // domyslny port
@@ -21,7 +21,7 @@ DWORD WINAPI runTestInThread(LPVOID lpParameter ) {
     printf( "S<%s\n",ts.getBuff() );
 
     printf( "S>first reply\n" );
-    ts.setBuff("first reply");
+    ts.setBuff((char*)"first reply");
     ts.snd();
 
     bool guard=false;
@@ -48,13 +48,13 @@ void runMyTests() {
 
     // new thread!
     HANDLE myhandleA;
-    myhandleA = CreateThread(0, 0, runTestInThread, 0, 0, 0);
+    myhandleA = CreateThread(0, 0, runTestInThread_test, 0, 0, 0);
 
 
 
     UDPClient* c;
     c = new UDPClient();
-    c->setBuff("first");
+    c->setBuff((char*)"first");
     printf( "C>first\n" );
     c->send();
     printf( "C<%s\n", c->getBuff() );
@@ -62,13 +62,13 @@ void runMyTests() {
 
     c = new UDPClient();
     printf( "C>sec\n" );
-    c->setBuff("sec");
+    c->setBuff((char*)"sec");
     c->send();
     printf( "C<%s\n", c->getBuff() );
 
 
     printf( "C>koncz wasc!\n" );
-    c->setBuff("koncz Wasc!");
+    c->setBuff((char*)"koncz Wasc!");
     c->send();
 
     printf( "C<%s\n", c->getBuff() );
@@ -86,7 +86,8 @@ void runAllTests(){
     // jesli otrzyma w parametrze "k" to konczy dzialanie
 
     // ** TEST ** tick
-    TickRun();  // uruchamia runTickInThread()  w innym watku
+    //TickRunner tickRunner;
+    //tickRunner.TickRun();  // uruchamia runTickInThread()  w innym watku
     //           runTickInThread() uruchamia w petli Tick::tick(); co 500 ms
     sleep(5);       // usypia glowny watek na 5 sek, dzieki temu widac czy dzialaja inne watki
 
@@ -103,5 +104,8 @@ void runAllTests(){
 void runLastTests() {
     Board b;
     b.drawBoard();
+
+    sleep(15);
+
 }
 #endif //MSPACMAN_ALLTEST_H

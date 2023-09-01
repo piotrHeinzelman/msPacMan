@@ -7,45 +7,53 @@
 #include <iostream>
 #include "Mob.h"
 #include "Bridges.h"
+#include "UDPServ.h"
+#include "UDPClient.h"
+#include "TickRunner.h"
+
+
+
+
 
 Board::Board() {
-
     prepare();
+
+    sleep(5);
 }
 
 void Board::prepare() {
-    //Mob* Pinky= new Mob(0, (std::string) "Pinky" );
-    //Mob* Inky=  new Mob(1, (std::string)"Inky" );
-    //Mob* Blinky=new Mob(2, (std::string)"Blinky");
-    //Mob* Sue=   new Mob(3, (std::string)"Sue", true);
+    Mob* Pinky= new Mob(0, (std::string) "Pinky" );
+    Mob* Inky=  new Mob(1, (std::string)"Inky" );
+    Mob* Blinky=new Mob(2, (std::string)"Blinky");
+    Mob* Sue=   new Mob(3, (std::string)"Sue", true);
     Mob* Pac=   new Mob(4, (std::string)"Pac");
 
 
-    //mobiles[Pinky->getId()]= Pinky ;
-    //mobiles[Inky->getId()]= Inky;
-    //mobiles[Blinky->getId()]= Blinky;
-    //mobiles[Sue->getId()]= Sue;
+    mobiles[Pinky->getId()]= Pinky ;
+    mobiles[Inky->getId()]= Inky;
+    mobiles[Blinky->getId()]= Blinky;
+    mobiles[Sue->getId()]= Sue;
     mobiles[Pac->getId()]= Pac;
 
 
 
-    //setMobAt( Pinky->getId() , 5 ); Pinky->setPositionOnBridge(1);
-    //setMobAt( Inky->getId() , 10 ); Inky->setPositionOnBridge(2);
-    //setMobAt( Blinky->getId() , 20 ); Blinky->setPositionOnBridge(3);
-    //setMobAt( Sue->getId() , 30 ); Sue->setPositionOnBridge(4);
+    setMobAt( Pinky->getId() , 5 ); Pinky->setPositionOnBridge(1);
+    setMobAt( Inky->getId() , 10 ); Inky->setPositionOnBridge(2);
+    setMobAt( Blinky->getId() , 20 ); Blinky->setPositionOnBridge(3);
+    setMobAt( Sue->getId() , 30 ); Sue->setPositionOnBridge(4);
     setMobAt( Pac->getId() , 187 );
     Pac->setPositionOnBridge(0);
 
-    //Pinky->setParent( this );
-    //Inky->setParent( this );
-    //Blinky->setParent( this );
-    //Sue->setParent( this );
+    Pinky->setParent( this );
+    Inky->setParent( this );
+    Blinky->setParent( this );
+    Sue->setParent( this );
     Pac->setParent( this );
 
-    //Pinky->setDirection( DIRECT::N );
-    //Inky->setDirection( DIRECT::W );
-    //Blinky->setDirection( DIRECT::S );
-    //Sue->setDirection( DIRECT::E );
+    Pinky->setDirection( DIRECT::N );
+    Inky->setDirection( DIRECT::W );
+    Blinky->setDirection( DIRECT::S );
+    Sue->setDirection( DIRECT::E );
     Pac->setDirection( DIRECT::E );
 
 
@@ -108,18 +116,7 @@ DIRECT Board::atEdge(int id, DIRECT direction, DIRECT nextDirection) {
 
 
 
-void Board::BoardTick() {
 
-    for ( int i=0; i<8 ;i++ ){
-        if ( mobiles[i]!= nullptr ) {
-            mobiles[i]->step();
-            int bridgeNum = activeBridges[i];
-            //drawBridge( bridgeNum );
-        }
-    }
-
-
-}
 
 
 
@@ -191,8 +188,8 @@ void Board::drawDotsOfBridge( int i ){
         for ( int y=sy; y<=ey ; y++ ){
             //std::cout << "point:" << x << ", " << y <<   "\n";
             //check dot at x,y
-            if ( IsDotAt( {x,y} ) ) {
-                Dot* dot = getDotFrom({x,y} );
+            if ( IsDotAt( {  static_cast<SHORT>(x),  static_cast<SHORT>(y)} ) ) {
+                Dot* dot = getDotFrom({static_cast<SHORT>(x),static_cast<SHORT>(y)} );
                 std::pair<const int, Dot *> pair = { 256*x+y , dot };
                 drawOneDot(  pair );
             }
@@ -222,7 +219,7 @@ void Board::clearBridge( int i ){
     int ey=endPoint.Y;
     for ( int x=sx; x<=ex ; x++ ){
         for ( int y=sy; y<=ey ; y++ ){
-                cdraw.WriteColourChar( {x,y} , ' ' );
+                cdraw.WriteColourChar( {static_cast<SHORT>(x),static_cast<SHORT>(y)} , ' ' );
 
         }
     }
