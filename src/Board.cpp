@@ -127,9 +127,14 @@ void Board::setMobAt( int mobId, int bridgeNum ) {  // postać zawsze na jednym 
 }
 
 void Board::moveMeToNextBridge( int mobId, DIRECT myDirect ){
+
      int actualBridgeNum = activeBridges[mobId];
-     if ( b.isExistsWayFromEdge( actualBridgeNum, myDirect ) ){
-          int nextBridge = b.getWayFromEdge(actualBridgeNum, myDirect);
+    std::cout <<"\n\nid"<<mobId<<", actualBridgeNum: " << actualBridgeNum <<", dir:"<<myDirect<<"  \n";
+    int edge = b.edgeChessPosition( actualBridgeNum, (myDirect==DIRECT::W ||  myDirect==DIRECT::N) );
+
+     if ( b.isExistsWayFromEdge( edge, myDirect ) ){
+
+          int nextBridge = b.getWayFromEdge(edge, myDirect);
           deactivateBridge( activeBridges[ mobId ] );
           activeBridges[ mobId ]=nextBridge;
           int newPos=0;

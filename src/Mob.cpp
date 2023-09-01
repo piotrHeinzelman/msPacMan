@@ -82,7 +82,7 @@ DIRECT Mob::getDirection(){
 void Mob::stepN( bool isW ){ if(!isW){ if (positionOnBridge==0    ) { board->moveMeToNextBridge(id, direction ); } else { positionOnBridge--; }}};
 void Mob::stepS( bool isW ){ if(!isW){ if (positionOnBridge==STEPS) { board->moveMeToNextBridge(id, direction ); } else { positionOnBridge++; }}};
 void Mob::stepE( bool isW ){ if( isW){
-        std::cout <<"\n\nid"<<id<<", pos: " << positionOnBridge <<", dir:"<<direction<<"  \n";
+        //std::cout <<"\n\nid"<<id<<", pos: " << positionOnBridge <<", dir:"<<direction<<"  \n";
             if (positionOnBridge==STEPS) {
                 board->moveMeToNextBridge(id, direction );
             } else { positionOnBridge++; }}};
