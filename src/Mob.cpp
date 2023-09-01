@@ -6,45 +6,75 @@
 #include "Mob.h"
 #include "Board.h"
 
-Mob::Mob(int id, std::string name , Board* board,  bool ghost ) {
+Mob::Mob(int id, std::string name , Board* parentBoard,  bool ghost ) {
     this->id=id;
-    this->positionOnBridge=0;
-    this->direction=DIRECT::STOP;
-    this->nextDirection=DIRECT::STOP;
-    this->board=board;
+    this->name = name;
+    this->direction;
+    this->nextDirection;
+    this->parentBoard=parentBoard;
     this->ghost=ghost;
-    //this->parentBoard = parent;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 void Mob::setPositionOnBridge(int position) {
-    positionOnBridge=position;
+    step=position;
     if (position==STOP) direction=STOP;
 }
 
 unsigned short Mob::getId() { return id;}
 
 int Mob::getPositionOnBridge() {
-    return positionOnBridge;
+    return step;
 }
 
-void Mob::step() {
-    int numBridge=board->activeBridges[id];
+void Mob::nextStep() {
+    int numBridge=parentBoard->activeBridges[id];
     bool isW;
     if ((numBridge&0x01)==1) { isW=true; } else {isW=false;}
 
     // move Mob
-    switch ( direction ) {
+    switch ( this->direction ) {
         case DIRECT::N: stepN(isW); break;
         case DIRECT::W: stepW(isW); break;
         case DIRECT::S: stepS(isW); break;
         case DIRECT::E: stepE(isW); break;
     }
-    board->drawOneMob( id );
+    parentBoard->drawOneMob( id );
 }
 
 void Mob::setDirection(DIRECT direction){
-    nextDirection = direction;
-    if  ( this->direction==DIRECT::STOP ) this->direction=direction;
+    this->nextDirection = direction;
+    if ( this->direction==DIRECT::STOP ) { this->direction=direction;}
+
+    //SetConsoleCursorPosition(parentBoard->cdraw.getHandle(),{5,1});
+    //std::cout << "direction: " << this->direction << ", nextDirection: " << nextDirection;
 };
 
 void Mob::_atEdge() {
@@ -79,13 +109,23 @@ DIRECT Mob::getDirection(){
     return this->direction;
 }
 
-void Mob::stepN( bool isW ){ if(!isW){ if (positionOnBridge==0    ) { board->moveMeToNextBridge(id, direction ); } else { positionOnBridge--; }}};
-void Mob::stepS( bool isW ){ if(!isW){ if (positionOnBridge==STEPS) { board->moveMeToNextBridge(id, direction ); } else { positionOnBridge++; }}};
-void Mob::stepE( bool isW ){ if( isW){
-        //std::cout <<"\n\nid"<<id<<", pos: " << positionOnBridge <<", dir:"<<direction<<"  \n";
-            if (positionOnBridge==STEPS) {
-                board->moveMeToNextBridge(id, direction );
-            } else { positionOnBridge++; }}};
-void Mob::stepW( bool isW ){ if( isW){ if (positionOnBridge==0    ) { board->moveMeToNextBridge(id, direction ); } else { positionOnBridge--; }}};
+void Mob::stepE( bool isW ){ if( isW ){ if (step != STEPS) { this->step++; } else { checkNextDirection(); parentBoard->moveMeToNextBridge(id, direction ); } }};
 
 
+void Mob::stepN( bool isW ){ if(!isW){ if (step != 0 )    { this->step--; } else  { checkNextDirection(); parentBoard->moveMeToNextBridge(id, direction ); }}};
+void Mob::stepS( bool isW ){ if(!isW){ if (step != STEPS) { this->step++; } else { checkNextDirection(); parentBoard->moveMeToNextBridge(id, direction ); } }};
+void Mob::stepW( bool isW ){ if( isW){ if (step == 0    ) { checkNextDirection(); parentBoard->moveMeToNextBridge(id, direction ); } else { step--; }}};
+
+void Mob::checkNextDirection(){
+    int numBridge=parentBoard->activeBridges[id];
+    bool isW;
+    if ((numBridge&0x01)==1) { isW=true; } else {isW=false;}
+    bool fromStart = (( direction==DIRECT::N) || (direction==DIRECT::W));
+
+    int edge = parentBoard->getBridges()->edgeChessPosition(numBridge, fromStart);
+    if ( !parentBoard->getBridges()->isExistsWayFromEdge( edge , direction )) { direction=DIRECT::STOP; }
+    if ( parentBoard->getBridges()->isExistsWayFromEdge( edge , nextDirection )) { direction=nextDirection; }
+
+}
+
+*/

@@ -190,6 +190,7 @@ public:
     void eatDot( Mob* mob , COORD );
 
     void drawOneDot( std::pair<const int, Dot *> pair );
+    Bridges* getBridges();
 
 
 
@@ -199,6 +200,19 @@ public:
     void showInfo();
 
     DWORD BoardTick(LPVOID lpParameter);
+
+
+
+
+
+
+
+
+
+    move( Mob* mob ) ->getDirection, ->getBridge ->getStep
+
+
+
 };
 
 

@@ -69,6 +69,8 @@ public:
         COORD _getScreenCoordofCheesCoord(const COORD & chess ); // INNER USE ONLY convert chessCoord to screenCoord  w=w*3 h=h
         COORD _getCheesCoordOfCenterBridge(int i );           // INNER USE ONLY
 
+
+        HANDLE getHandle();
 };
 
 

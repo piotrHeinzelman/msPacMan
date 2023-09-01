@@ -13,29 +13,38 @@
 
 #define STEPS 6
 
-class Board ;
-
 class Mob {
-
 private:
+    std::string name;
     int id;
-    int positionOnBridge;
+    int step;
+    int field;
+
     DIRECT direction;
     DIRECT nextDirection;
-    Board* parent;
+
+    Board* parentBoard;
+
     int points=0;
     int power=0;
+
     bool ghost;
-    Board* board;
 
 public:
     Mob();
     Mob(int id , std::string name , Board* board,  bool ghost=false );
 
-    unsigned short getId();
+
+
+};
+
+
+#endif //MSPACMAN_MOB_H
+/*
+      unsigned short getId();
     void setPositionOnBridge(int position );
     int  getPositionOnBridge();
-    void step();
+    void nextStep();
     void setDirection(DIRECT direction);
     void _atEdge();
     bool isAtEdge();
@@ -53,8 +62,7 @@ public:
     void stepE( bool isW );
     void stepW( bool isW );
     void stepS( bool isW );
+    void checkNextDirection();
 
-};
 
-
-#endif //MSPACMAN_MOB_H
+ */

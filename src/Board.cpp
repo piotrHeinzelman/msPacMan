@@ -35,18 +35,18 @@ void Board::prepare() {
     Mob* Pac=   new Mob(4, (std::string)"Pac", this );
 
 
-    mobiles[Pinky->getId()]= Pinky ;
-    mobiles[Inky->getId()]= Inky;
-    mobiles[Blinky->getId()]= Blinky;
-    mobiles[Sue->getId()]= Sue;
+ //   mobiles[Pinky->getId()]= Pinky ;
+ //   mobiles[Inky->getId()]= Inky;
+ //   mobiles[Blinky->getId()]= Blinky;
+ //   mobiles[Sue->getId()]= Sue;
     mobiles[Pac->getId()]= Pac;
 
 
 
-    setMobAt( Pinky->getId() , 189 );    Pinky->setPositionOnBridge( 1);
-    setMobAt( Inky->getId() , 189 );    Inky->setPositionOnBridge(  2);
-    setMobAt( Blinky->getId() , 189 ); Blinky->setPositionOnBridge(3);
-    setMobAt( Sue->getId() , 189 );     Sue->setPositionOnBridge(   4);
+//   setMobAt( Pinky->getId() , 189 );    Pinky->setPositionOnBridge( 1);
+//    setMobAt( Inky->getId() , 189 );    Inky->setPositionOnBridge(  2);
+//    setMobAt( Blinky->getId() , 189 ); Blinky->setPositionOnBridge(3);
+//    setMobAt( Sue->getId() , 189 );     Sue->setPositionOnBridge(   4);
     setMobAt( Pac->getId() , 5 );    Pac->setPositionOnBridge(   0);
 
 
@@ -61,19 +61,49 @@ void Board::prepare() {
     Inky->setDirection( DIRECT::W );
     Blinky->setDirection( DIRECT::S );
     Sue->setDirection( DIRECT::E );
-    Pac->setDirection( DIRECT::E );
+    Pac->setDirection( DIRECT::S );
 
 
 
     // dla wszystkich MOB pokaz mosty, cyklicznie przesuwaj
 
     drawBoard();
-    drawAllMob();
+    //drawAllMob();
+
+    drawOneMob(Pac->getId());
+    Pac->setPositionOnBridge(1);
+    drawOneMob(Pac->getId());
+
+    sleep(3);
+    return;
+
+    moveOneMob(4);
+        drawOneMob(4);
+    Pac->setDirection(DIRECT::E);
+    moveOneMob(4);
+    drawOneMob(4);
+
+    moveOneMob(4);
+    drawOneMob(4);
+
+    moveOneMob(4);
+    drawOneMob(4);
+
+    moveOneMob(4);
+    drawOneMob(4);
+
+    moveOneMob(4);
+    drawOneMob(4);
+    drawOneMob(4);
+    drawOneMob(4);
+    sleep(10);
+
 
     Keyb k;
     while( true ){
         usleep(50000);
         moveAllMobs();
+        drawAllMob();
     }
 //    for ( int i=0;i<2;i++) {
       //  usleep(500000);
@@ -302,13 +332,13 @@ void Board::drawAllMob(){
 }
 
 void Board::drawOneMob(int mobId) {
+
+    //std::cout << "??";
     Mob* mob = mobiles[mobId];
     int mobBridge = getBridgeNumOfMobId( mobId );
     int start = b.edgeChessPosition( mobBridge , true );
 
     COORD startPoint = b.getCoordOfEdge(start);
-
-    //std::cout << startPoint.X << ", y: " << startPoint.Y ;
 
     int mobX = startPoint.X;
     int mobY = startPoint.Y;
@@ -318,19 +348,16 @@ void Board::drawOneMob(int mobId) {
     if (isW) {
         mobX += mob->getPositionOnBridge();
     } else {
-        mobX += mob->getPositionOnBridge()/3;
+        switch (mob->getPositionOnBridge()) { // 0-6
+            case 0:case 1:   break;
+            case 2: case 3: case 4: mobX--; break;
+            case 5: case 6:  mobX--;mobX--; break;
+        }
     }
-
-
 
     char avatar='P';//1;
     if ( mob->isGhost() ) { avatar='G'/*2*/;}
     cdraw.WriteColourChar( mobX , mobY , avatar );
-
-
-    //std::cout << "pos." << mob->getPositionOnBridge() << ", mobX: " << mobX << "\n";
-
-
 }
 
 
@@ -338,12 +365,12 @@ void Board::drawOneMob(int mobId) {
 
 
 void Board::moveAllMobs(){
-    for ( int i=0;i<5;i++){ // for all Mobiles slot
+    for ( int i=0;i<8;i++){ // for all Mobiles slot
         try {
             if (mobiles[i] != nullptr) {
                 moveOneMob(mobiles[i]->getId());
             }
-        }catch( std::runtime_error e ){ std::cout << e.what(); }
+        }catch(...){ std::cout << "moveOneMob ? "; }
     }
 }
 
@@ -355,10 +382,15 @@ void Board::moveOneMob( int mobId ){
         if ( mob->getId()==4 ) {
             // zmiana kierunku
             DIRECT dir = k.read();
-            if (dir != STOP) {
-                //std::cout << "\ndirection" << dir;
+            if (dir != DIRECT::STOP) {
                 mob->setDirection( k.read());
+                //std::cout << "\ndirection" << mob->getDirection();
             }
         }
-        mob->step();
+    mob->nextStep();
+}
+
+
+Bridges* Board::getBridges(){
+    return &b;
 }
