@@ -16,6 +16,7 @@
 #include "ConsoleDraw.h"
 #include "Dot.h"
 #include "Bridges.h"
+#include "Keyb.h"
 
 
 /* glowna klasa gry
@@ -148,6 +149,7 @@ private:
     ConsoleDraw cdraw;
     std::map< int , Dot* > dots;
     Bridges b;
+    Keyb k;
 
 public:
 

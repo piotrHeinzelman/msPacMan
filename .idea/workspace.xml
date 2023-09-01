@@ -25,12 +25,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mob.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsoleDraw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleDraw.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Keyb.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Keyb.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Keyb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Keyb.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +159,7 @@
       <workItem from="1693481233243" duration="47789000" />
       <workItem from="1693529594047" duration="1764000" />
       <workItem from="1693531383965" duration="498000" />
-      <workItem from="1693579188089" duration="9218000" />
+      <workItem from="1693579188089" duration="11449000" />
     </task>
     <task id="LOCAL-00001" summary="ADD :: ** Serv ** &amp; client">
       <option name="closed" value="true" />
@@ -508,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693588632392</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="move ON">
+      <option name="closed" value="true" />
+      <created>1693589155075</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1693589155075</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +535,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ADD :: simple test" />
     <MESSAGE value="TEST :: TCPServ" />
     <MESSAGE value="ADD INFO :: https://cpp0x.pl/artykuly/Inne-artykuly/C-C++-Programowanie-sieciowe-TCP-i-UDP-pod-Linuxem/66" />
     <MESSAGE value="ADD INFO" />
@@ -547,7 +559,8 @@
     <MESSAGE value="DRAW :: board + extra dot" />
     <MESSAGE value=".." />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="move ON" />
+    <option name="LAST_COMMIT_MESSAGE" value="move ON" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -67,28 +67,14 @@ void Board::prepare() {
 
     // dla wszystkich MOB pokaz mosty, cyklicznie przesuwaj
 
-    std::cout<<"\n\n\n\n\n ";
-    drawOneMob( 4 );
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    Pac->step();
-    //drawOneMob( 4 );
-    return;
-
-
-
     drawBoard();
     drawAllMob();
 
+    Keyb k;
+    while( true ){
+        usleep(50000);
+        moveAllMobs();
+    }
 //    for ( int i=0;i<2;i++) {
       //  usleep(500000);
 //        moveAllMobs(); }
@@ -129,7 +115,7 @@ void Board::setMobAt( int mobId, int bridgeNum ) {  // postać zawsze na jednym 
 void Board::moveMeToNextBridge( int mobId, DIRECT myDirect ){
 
      int actualBridgeNum = activeBridges[mobId];
-    std::cout <<"\n\nid"<<mobId<<", actualBridgeNum: " << actualBridgeNum <<", dir:"<<myDirect<<"  \n";
+    //std::cout <<"\n\nid"<<mobId<<", actualBridgeNum: " << actualBridgeNum <<", dir:"<<myDirect<<"  \n";
     int edge = b.edgeChessPosition( actualBridgeNum, (myDirect==DIRECT::W ||  myDirect==DIRECT::N) );
 
      if ( b.isExistsWayFromEdge( edge, myDirect ) ){
@@ -322,7 +308,7 @@ void Board::drawOneMob(int mobId) {
 
     COORD startPoint = b.getCoordOfEdge(start);
 
-    std::cout << startPoint.X << ", y: " << startPoint.Y ;
+    //std::cout << startPoint.X << ", y: " << startPoint.Y ;
 
     int mobX = startPoint.X;
     int mobY = startPoint.Y;
@@ -352,7 +338,7 @@ void Board::drawOneMob(int mobId) {
 
 
 void Board::moveAllMobs(){
-    for ( int i=0;i<8;i++){ // for all Mobiles slot
+    for ( int i=0;i<5;i++){ // for all Mobiles slot
         try {
             if (mobiles[i] != nullptr) {
                 moveOneMob(mobiles[i]->getId());
@@ -365,8 +351,14 @@ void Board::moveAllMobs(){
 
 void Board::moveOneMob( int mobId ){
         Mob* mob = mobiles[mobId];
-        int mobBridge = getBridgeNumOfMobId( mobId );
-        bool isW = b.isW( mobBridge );
 
-    mobiles[mobId]->step();
+        if ( mob->getId()==4 ) {
+            // zmiana kierunku
+            DIRECT dir = k.read();
+            if (dir != STOP) {
+                //std::cout << "\ndirection" << dir;
+                mob->setDirection( k.read());
+            }
+        }
+        mob->step();
 }

@@ -9,6 +9,11 @@ ConsoleDraw::ConsoleDraw() {
     if (hout == INVALID_HANDLE_VALUE) {
         throw std::runtime_error("Console output handle error");
     }
+
+    CONSOLE_CURSOR_INFO     cursorInfo;
+    GetConsoleCursorInfo(hout, &cursorInfo);
+    cursorInfo.bVisible = false; // set the cursor visibility
+    SetConsoleCursorInfo(hout, &cursorInfo);
 }
 
 void ConsoleDraw::WriteColourChar(SHORT x, SHORT y, char charCode , DWORD attrib ) {
