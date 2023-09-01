@@ -10,21 +10,27 @@
 #include "UDPServ.h"
 #include "UDPClient.h"
 #include "TickRunner.h"
+#include "Keyb.h"
 
 
-
+DWORD runTickInThread( Board* b ){
+    while(true){
+        b->BoardTick();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
+    }
+    return 0;
+}
 
 
 Board::Board() {
     prepare();
 
-    sleep(5);
 }
 
 void Board::prepare() {
-    Mob* Pinky= new Mob(0, (std::string) "Pinky" );
-    Mob* Inky=  new Mob(1, (std::string)"Inky" );
-    Mob* Blinky=new Mob(2, (std::string)"Blinky");
+    Mob* Pinky= new Mob(0, (std::string) "Pinky" , true );
+    Mob* Inky=  new Mob(1, (std::string)"Inky" , true );
+    Mob* Blinky=new Mob(2, (std::string)"Blinky", true);
     Mob* Sue=   new Mob(3, (std::string)"Sue", true);
     Mob* Pac=   new Mob(4, (std::string)"Pac");
 
@@ -38,10 +44,14 @@ void Board::prepare() {
 
 
     setMobAt( Pinky->getId() , 5 ); Pinky->setPositionOnBridge(1);
-    setMobAt( Inky->getId() , 10 ); Inky->setPositionOnBridge(2);
-    setMobAt( Blinky->getId() , 20 ); Blinky->setPositionOnBridge(3);
-    setMobAt( Sue->getId() , 30 ); Sue->setPositionOnBridge(4);
+    setMobAt( Inky->getId() , 15 ); Inky->setPositionOnBridge(2);
+    setMobAt( Blinky->getId() , 101 ); Blinky->setPositionOnBridge(3);
+    setMobAt( Sue->getId() , 84 ); Sue->setPositionOnBridge(4);
     setMobAt( Pac->getId() , 187 );
+    Pinky->setPositionOnBridge(0);
+    Inky->setPositionOnBridge(0);
+    Blinky->setPositionOnBridge(0);
+    Sue->setPositionOnBridge(0);
     Pac->setPositionOnBridge(0);
 
     Pinky->setParent( this );
@@ -59,8 +69,36 @@ void Board::prepare() {
 
 
     // dla wszystkich MOB pokaz mosty, cyklicznie przesuwaj
-    //if (false ) drawBoard();
 
+
+    drawBoard();
+    drawAllDots();
+    drawAllMob();
+
+
+    std::thread t( runTickInThread, this );
+    t.join();
+
+    sleep(15);
+
+}
+
+
+void Board::BoardTick(){
+    Keyb k;
+    Mob* mob=getMobPac();
+    while(true){
+        //std::cout << "BoardTick";
+        mob->setDirection( k.read());
+        moveAllMobs();
+        redrawAllBridge();
+        void drawAllMob();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
+    }
+}
+
+Mob* Board::getMobPac(){
+    return mobiles[4];
 }
 
 int Board::getBridgeNumOfMobId( int mobId ){
@@ -264,7 +302,7 @@ void Board::drawOneMob(int mobId) {
     int bridgeDistanceX = endPoint.X - startPoint.X;
     int bridgeDistanceY = endPoint.Y - startPoint.Y;
     int mobX = startPoint.X  + mob->getPositionOnBridge(); //( bridgeDistanceX * mob->getPositionOnBridge() / STEPS );
-    int mobY = startPoint.Y  + ( bridgeDistanceY * mob->getPositionOnBridge() / STEPS );
+    int mobY = startPoint.Y  + mob->getPositionOnBridge();// ( bridgeDistanceY * mob->getPositionOnBridge() / STEPS );
     //std::cout << "pos:"<< mobX << "\n\n";
 
     char avatar='P';//1;

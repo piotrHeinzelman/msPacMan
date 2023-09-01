@@ -151,6 +151,8 @@ private:
 
 public:
 
+    Mob* getMobPac();
+
     Board();
     void BoardTick();
 

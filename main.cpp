@@ -20,7 +20,6 @@ int main() {
     if (exitAfterTests){ return 0; }
     //std::cout << "Hello, World!" << std::endl;
     Board board;
-          board.prepare();
     //createServer();
 
 

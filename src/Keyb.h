@@ -8,6 +8,7 @@
 #include <winsock2.h>
 #include <Windows.h>
 #include <wchar.h>
+#include "DIRECT.h"
 //https://learn.microsoft.com/en-us/windows/win32/learnwin32/keyboard-input#miscellaneous-keyboard-messages
 
 class Keyb {
@@ -15,7 +16,7 @@ class Keyb {
 public:
     Keyb();
 
-    void read();
+    DIRECT read();
 
 };
 
