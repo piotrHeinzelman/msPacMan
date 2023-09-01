@@ -52,7 +52,7 @@ public:
     bool isExistsWayFromEdge( int eNum, DIRECT direction );  // is exists way to direction from edge ?
     int getWayFromEdge      ( int eNum, DIRECT direction );  // get new Bridge num from edge to direction
                                                 //                                                            8 4 2 1
-    int getAllWaysFromEdge( int eNum );       // get all possible direction from edge, binary code is: 0b00 E S W N
+    std::set<DIRECT> getAllWaysFromEdge( int eNum );       // get all possible direction from edge, binary code is: 0b00 E S W N
 
     void drawBridge ( int bridgeNum );           // call DrawW or DrawH, call DrawWall, DrawDot, DrawMob
 

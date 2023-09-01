@@ -23,8 +23,8 @@ int Mob::getId() { return id; }
 DIRECT Mob::getDirection() { return direction; }
 DIRECT Mob::getNextDirection() { return nextDirection; }
 
-void Mob::setDirection(DIRECT direction){ nextDirection = direction; };
-void Mob::setNextDirection(DIRECT nextDirection){ nextDirection = nextDirection; };
+void Mob::setDirection(DIRECT direction){ this->direction = direction; };
+void Mob::setNextDirection(DIRECT nextDirection){ this->nextDirection = nextDirection; };
 
 int  Mob::getBridge()  { return bridge; }
 void Mob::setBridge( int bridge ) { this->bridge = bridge; }
@@ -79,6 +79,11 @@ int Mob::getPoints(){ return this->points; }
 bool Mob::isGhost(){ return this->ghost; }
 
 std::set<DIRECT> & Mob::getExits() { return exits; }
+
+
+bool Mob::isW() const     { return isW_; }
+void Mob::isW( bool isW ) { isW_ = isW; }
+
 
 
 

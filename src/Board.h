@@ -162,11 +162,10 @@ public:
 
 
     void addMob( Mob* mob );
-    void allMobShow();
 
-    void insertMobAtBridge( Mob* mob , int bridge );
+    void insertMobAtBridge( Mob* mob , int bridge, int step , bool isW );
     void moveMobNextStep(Mob* mob);
-    void moveMobNextBridge(Mob* mob, DIRECT myDirect);
+    void moveMobNextBridge(Mob* mob);
 
 
     void drawAllMob();
@@ -177,7 +176,6 @@ public:
 
 
 
-    DIRECT atEdge( int id , DIRECT direction , DIRECT nextDirection );
 
     Dot * createDot( int i , COORD center ,  bool isW , int value=1, int power=0);
     Dot * getDotFrom(COORD );
@@ -203,9 +201,10 @@ public:
 
 
 
-    void showInfo();
+    void showInfo( Mob* mob );
 
     DWORD BoardTick(LPVOID lpParameter);
+    void setMobDirection( Mob* mob, DIRECT direction);
 };
 
 

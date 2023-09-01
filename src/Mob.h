@@ -27,6 +27,7 @@ private:
     DIRECT direction;
     DIRECT nextDirection;
 
+    bool isW_;
     int points=0;
     int power=0;
     bool ghost;
@@ -58,6 +59,9 @@ public:
 
 
     // *** trivial
+    bool isW() const;
+    void isW( bool isW );
+
     void addPoint( int points );
     void addPower( int power );
     int getPower();
@@ -66,7 +70,9 @@ public:
     std::set<DIRECT> &getExits();
 
 
+
     void insertMobAtBridge(Mob *mob, int bridge);
+
 };
 
 

@@ -82,12 +82,12 @@ int Bridges::getWayFromEdge(int eNum, DIRECT direction ){// TESTED
 }
 
 
-int Bridges::getAllWaysFromEdge( int eNum ){ // tested
-    int ways=0;
-        if (isExistsWayFromEdge(eNum, N )){ ways+=1;  }
-        if (isExistsWayFromEdge(eNum, W )){ ways+=2;  }
-        if (isExistsWayFromEdge(eNum, S )){ ways+=4;  }
-        if (isExistsWayFromEdge(eNum, E )){ ways+=8;  }
+std::set<DIRECT>  Bridges::getAllWaysFromEdge( int eNum ){ // tested
+    std::set<DIRECT> ways;
+        if (isExistsWayFromEdge(eNum, N )){ ways.insert( DIRECT::N );  }
+        if (isExistsWayFromEdge(eNum, W )){ ways.insert( DIRECT::W );  }
+        if (isExistsWayFromEdge(eNum, S )){ ways.insert( DIRECT::S );  }
+        if (isExistsWayFromEdge(eNum, E )){ ways.insert( DIRECT::E );  }
     return ways;
 }
 
@@ -160,18 +160,18 @@ void Bridges::DrawWall( int bridgeNum ){
 
 void Bridges::drawEdge( int eNum , COORD point ){
     //draw.WriteColourChar(operator+(point,{ 0, 0}) , 'o');
-    int ways = getAllWaysFromEdge(eNum);
+    std::set<DIRECT> ways = getAllWaysFromEdge(eNum);
 
-    if ( (ways&1)==0 ) draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
-    if ( (ways&2)==0 ) draw.WriteColourChar(operator+(point,{ -1, 0}) , WALL);// block W
-    if ( (ways&4)==0 ) draw.WriteColourChar(operator+(point,{ 0,  1}) , WALL);// block S
-    if ( (ways&8)==0 ) draw.WriteColourChar(operator+(point,{ 1, 0}) , WALL); // block E
+    if ( ways.count(DIRECT::N)>0 ) draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
+    if ( ways.count(DIRECT::W)>0 ) draw.WriteColourChar(operator+(point,{ -1, 0}) , WALL);// block W
+    if ( ways.count(DIRECT::S)>0 ) draw.WriteColourChar(operator+(point,{ 0,  1}) , WALL);// block S
+    if ( ways.count(DIRECT::E)>0 ) draw.WriteColourChar(operator+(point,{ 1, 0}) , WALL); // block E
 
 
-    if ( (ways&1+2)==0 ) draw.WriteColourChar(operator+(point,{ -1, -1}) , WALL);// block NW
-    if ( (ways&2+4)==0 ) draw.WriteColourChar(operator+(point,{ -1,  1}) , WALL);// block WS
-    if ( (ways&4+8)==0 ) draw.WriteColourChar(operator+(point,{  1,  1}) , WALL);// block SE
-    if ( (ways&1+8)==0 ) draw.WriteColourChar(operator+(point,{  1, -1}) , WALL);// block NE
+    if ( ways.count(DIRECT::N)>0 && ways.count(DIRECT::W)>0 ) draw.WriteColourChar(operator+(point,{ -1, -1}) , WALL);// block NW
+    if ( ways.count(DIRECT::W)>0 && ways.count(DIRECT::S)>0 )  draw.WriteColourChar(operator+(point,{ -1,  1}) , WALL);// block WS
+    if ( ways.count(DIRECT::S)>0 && ways.count(DIRECT::E)>0 )  draw.WriteColourChar(operator+(point,{  1,  1}) , WALL);// block SE
+    if ( ways.count(DIRECT::N)>0 && ways.count(DIRECT::E)>0 )  draw.WriteColourChar(operator+(point,{  1, -1}) , WALL);// block NE
 
 }
 

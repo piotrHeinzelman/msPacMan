@@ -41,11 +41,11 @@ void Board::prepare() {
 
 
 
-    insertMobAtBridge(Pinky, 189);
-    insertMobAtBridge(Inky, 189);
-    insertMobAtBridge(Blinky, 189);
-    insertMobAtBridge(Sue, 189);
-    insertMobAtBridge(Pac, 5);
+    insertMobAtBridge(Pinky, 189 , 3 , true );
+    insertMobAtBridge(Inky, 189 , 3 , true );
+    insertMobAtBridge(Blinky, 189, 3 , true );
+    insertMobAtBridge(Sue, 189, 3 , true );
+    insertMobAtBridge(Pac, 5 , 3 , true );
 
 
 
@@ -82,22 +82,53 @@ void Board::addMob( Mob* mob ){
     mobs.push_back( mob );
 }
 
-void Board::allMobShow() {
-    for ( Mob* mob : mobs ){
-        std::cout << mob->getId();
-    }
-}
 
 
-void Board::insertMobAtBridge( Mob* mob , int bridge ){
+
+void Board::insertMobAtBridge( Mob* mob , int bridge , int step , bool isW ){
     mob->setBridge( bridge );
-    mob->setStep(STEPS/2);
+    mob->setStep( step );
+    mob->isW( isW );
     std::set<DIRECT> &set = mob->getExits(); set.clear();
-    if( b.isW( bridge ) ){
+    if( isW ){
         set.insert(DIRECT::E ); set.insert(DIRECT::W );
     } else {
         set.insert(DIRECT::N ); set.insert(DIRECT::S );
     }
+}
+
+
+void Board::setMobDirection(Mob *mob, DIRECT direction) {
+    if ( mob->getExits().count( direction )>0 ){
+        mob->setDirection( direction );
+    }
+    showInfo( mob );
+}
+
+
+void Board::moveMobNextStep( Mob* mob ){
+  //  if ( mob->getStep()!=0 && mob->getStep()!=STEPS ){ // step++
+        int step=mob->getStep();
+        if ( mob->isW() ){
+            if ( mob->getDirection()==DIRECT::E ) { step++ ; }
+            if ( mob->getDirection()==DIRECT::W ) { step-- ; }
+        } else {
+            if ( mob->getDirection()==DIRECT::S ) { step++; }
+            if ( mob->getDirection()==DIRECT::N ) { step--; }
+        }
+        mob->setStep(step);
+        // in range
+        if ( mob->getStep()>-1 && mob->getStep()<1+STEPS) return;
+
+        // out range
+        bool onStart=false;
+        if ( mob->getStep()<0 ) { mob->setStep(0); onStart=true; } else { mob->setStep(STEPS); }
+        int edge = b.edgeChessPosition( mob->getBridge(), onStart );
+        mob->getExits() = b.getAllWaysFromEdge( edge );
+        if ( mob->getExits().count(mob->getDirection())>0 ){
+            if ( mob->getStep()==0 ) { mob->setStep(STEPS); } else { mob->setStep(0); }
+            moveMobNextBridge( mob );
+        }
 }
 
 
@@ -107,18 +138,54 @@ void Board::drawAllMob(){
     }
 }
 
-void Board::moveMobNextBridge( Mob* mob, DIRECT myDirect ){
-    int actualBridgeNum = mob->getBridge();
-    int edge = b.edgeChessPosition( actualBridgeNum, (myDirect==DIRECT::W ||  myDirect==DIRECT::N) );
-    if ( b.isExistsWayFromEdge( edge, myDirect ) ){
 
-        int nextBridge = b.getWayFromEdge(edge, myDirect);
-        mob->setBridge(nextBridge);
-        int newPos=0;
-        if ( myDirect==DIRECT::W || myDirect==N ) { newPos=STEPS;}
-        mob->setStep(newPos);
+
+void Board::drawOneMob( Mob* mob ) {
+    int edgeStart = b.edgeChessPosition( mob->getBridge() , true );
+    COORD startPoint = b.getCoordOfEdge(edgeStart);
+
+    //std::cout << startPoint.X << ", y: " << startPoint.Y ;
+
+    int mobX = startPoint.X;
+    int mobY = startPoint.Y;
+    // correction  point
+    if ( mob->isW() ){
+        mobX += mob->getStep();
+    } else {
+        mobX += mob->getStep()/3;
+    }
+
+    char avatar='P';//1;
+    if ( mob->isGhost() ) { avatar='G'/*2*/;}
+    cdraw.WriteColourChar( mobX , mobY , avatar );
+}
+
+
+
+void Board::moveAllMobs(){
+    for ( Mob* mob : mobs ){
+        moveMobNextBridge( mob );
     }
 }
+
+
+
+void Board::moveMobNextBridge( Mob* mob ){
+    int actualBridgeNum = mob->getBridge();
+    int edge = b.edgeChessPosition( actualBridgeNum, (mob->getDirection()==DIRECT::W ||  mob->getDirection()==DIRECT::N) );
+    if ( b.isExistsWayFromEdge( edge, mob->getDirection() ) ){
+
+        int nextBridge = b.getWayFromEdge(edge, mob->getDirection());
+        mob->setBridge(nextBridge);
+        int newPos=0;
+        if ( mob->getDirection()==DIRECT::W || mob->getDirection()==N ) { newPos=STEPS;}
+        mob->setStep(newPos);
+        mob->isW( b.isW( mob->getBridge()));
+    }
+}
+
+
+
 
 
 
@@ -148,8 +215,8 @@ void Board::BoardTick(){
 
 
 
-void Board::showInfo(){
-    cdraw.WriteColourChar( 5,55 ,'x');
+void Board::showInfo( Mob* mob ){
+    std::cout << "id:" << mob->getId()<<"\n";
 }
 
 
@@ -160,23 +227,6 @@ void Board::showInfo(){
 
 
 
-
-
-
-DIRECT Board::atEdge(int id, DIRECT direction, DIRECT nextDirection) {
-    //std::cout<<"Board::atEdge("<<id<<" , id: " << mobiles[id]->getPositionOnBridge() <<  ");\n";
-
-
-    int ActualPosition=activeBridges[id];
-    int next = ActualPosition+direction;
-    if ( next > 0 && next < 255 && activeBridges[next]==' '){
-        // nastepny most nie istnieje
-        next = ActualPosition+nextDirection;
-        if ( next > 0 && next < 255 && activeBridges[next]==' '){ mobiles[id]->setDirection( STOP ); }
-    }
-    //std::cout<<"Board::atEdge("<<id<<");";
-    return DIRECT::STOP;
-}
 
 
 
@@ -307,70 +357,6 @@ void Board::redrawBridge( int bridgeNum ){
 }
 
 
-
-
-
-
-
-
-void Board::drawOneMob( Mob* mob ) {
-    int edgeStart = b.edgeChessPosition( mob->getBridge() , true );
-    COORD startPoint = b.getCoordOfEdge(edgeStart);
-
-    //std::cout << startPoint.X << ", y: " << startPoint.Y ;
-
-    int mobX = startPoint.X;
-    int mobY = startPoint.Y;
-    bool isW = b.isW( mob->getBridge() );
-
-    // fix point;
-    if (isW) {
-        mobX += mob->getStep();
-    } else {
-        mobX += mob->getStep()/3;
-    }
-
-
-
-    char avatar='P';//1;
-    if ( mob->isGhost() ) { avatar='G'/*2*/;}
-    cdraw.WriteColourChar( mobX , mobY , avatar );
-
-
-    //std::cout << "pos." << mob->getPositionOnBridge() << ", mobX: " << mobX << "\n";
-
-
-}
-
-
-
-
-
-void Board::moveAllMobs(){
-    for ( int i=0;i<5;i++){ // for all Mobiles slot
-        try {
-            if (mobiles[i] != nullptr) {
-                moveOneMob(mobiles[i]->getId());
-            }
-        }catch( std::runtime_error e ){ std::cout << e.what(); }
-    }
-}
-
-
-
-void Board::moveOneMob( int mobId ){
-        Mob* mob = mobiles[mobId];
-
-        if ( mob->getId()==4 ) {
-            // zmiana kierunku
-            DIRECT dir = k.read();
-            if (dir != STOP) {
-                //std::cout << "\ndirection" << dir;
-                mob->setDirection( k.read());
-            }
-        }
-
-}
 
 
 
