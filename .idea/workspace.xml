@@ -25,26 +25,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/ConsoleDraw.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Dot.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Keyb.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/TickRunner.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/map.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/set.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Keyb.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Keyb.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Keyb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Keyb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mob.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mob.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/CppTests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CppTests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +154,8 @@
       <workItem from="1693434349072" duration="8379000" />
       <workItem from="1693481233243" duration="47789000" />
       <workItem from="1693529594047" duration="1764000" />
-      <workItem from="1693531383965" duration="332000" />
+      <workItem from="1693531383965" duration="498000" />
+      <workItem from="1693579188089" duration="8336000" />
     </task>
     <task id="LOCAL-00001" summary="ADD :: ** Serv ** &amp; client">
       <option name="closed" value="true" />
@@ -497,7 +485,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693529078073</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="..">
+      <option name="closed" value="true" />
+      <created>1693531824367</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1693531824367</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -6,11 +6,12 @@
 #include "Mob.h"
 #include "Board.h"
 
-Mob::Mob(int id, std::string name , bool ghost ) {
+Mob::Mob(int id, std::string name , Board* board,  bool ghost ) {
     this->id=id;
     this->positionOnBridge=0;
     this->direction=DIRECT::STOP;
     this->nextDirection=DIRECT::STOP;
+    this->board=board;
     this->ghost=ghost;
     //this->parentBoard = parent;
 }
@@ -27,17 +28,18 @@ int Mob::getPositionOnBridge() {
 }
 
 void Mob::step() {
-    //std::cout << "\nid:"<<id<< ", pos:"<<positionOnBridge << "\n\n";
+    int numBridge=board->activeBridges[id];
+    bool isW;
+    if ((numBridge&0x01)==1) { isW=true; } else {isW=false;}
+
+    // move Mob
     switch ( direction ) {
-        case DIRECT::N:
-        case DIRECT::E:
-              if ( positionOnBridge!=STEPS ) { positionOnBridge++; } else { _atEdge(); } break;
-        case DIRECT::S:
-        case DIRECT::W:
-              if ( positionOnBridge!=0 ) { positionOnBridge--; } else { _atEdge(); }; break;
-        case DIRECT::STOP: _atEdge();
-        default: break;
+        case DIRECT::N: stepN(isW); break;
+        case DIRECT::W: stepW(isW); break;
+        case DIRECT::S: stepS(isW); break;
+        case DIRECT::E: stepE(isW); break;
     }
+    board->drawOneMob( id );
 }
 
 void Mob::setDirection(DIRECT direction){
@@ -72,3 +74,14 @@ int Mob::getPoints(){
 bool Mob::isGhost(){
     return this->ghost;
 }
+
+DIRECT Mob::getDirection(){
+    return this->direction;
+}
+
+void Mob::stepN( bool isW ){ if(!isW){ if (positionOnBridge==0    ) { this->board->moveMeToNextBridge(id, direction ); } else { positionOnBridge--; }}};
+void Mob::stepS( bool isW ){ if(!isW){ if (positionOnBridge==STEPS) { this->board->moveMeToNextBridge(id, direction ); } else { positionOnBridge++; }}};
+void Mob::stepE( bool isW ){ if( isW){ if (positionOnBridge==STEPS) { this->board->moveMeToNextBridge(id, direction ); } else { positionOnBridge++; }}};
+void Mob::stepW( bool isW ){ if( isW){ if (positionOnBridge==0    ) { this->board->moveMeToNextBridge(id, direction ); } else { positionOnBridge--; }}};
+
+

@@ -11,7 +11,7 @@
 #include "Board.h"
 
 
-#define STEPS 8
+#define STEPS 6
 
 class Board ;
 
@@ -26,14 +26,15 @@ private:
     int points=0;
     int power=0;
     bool ghost;
+    Board* board;
 
 public:
     Mob();
-    Mob(int id , std::string name , bool ghost=false );
+    Mob(int id , std::string name , Board* board,  bool ghost=false );
 
     unsigned short getId();
     void setPositionOnBridge(int position );
-    int getPositionOnBridge();
+    int  getPositionOnBridge();
     void step();
     void setDirection(DIRECT direction);
     void _atEdge();
@@ -43,8 +44,15 @@ public:
     void addPower( int power );
 
     int getPower();
+    DIRECT getDirection();
     int getPoints();
     bool isGhost();
+
+
+    void stepN( bool isW );
+    void stepE( bool isW );
+    void stepW( bool isW );
+    void stepS( bool isW );
 
 };
 

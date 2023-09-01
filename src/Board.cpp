@@ -28,11 +28,11 @@ Board::Board() {
 }
 
 void Board::prepare() {
-    Mob* Pinky= new Mob(0, (std::string) "Pinky" , true );
-    Mob* Inky=  new Mob(1, (std::string)"Inky" , true );
-    Mob* Blinky=new Mob(2, (std::string)"Blinky", true);
-    Mob* Sue=   new Mob(3, (std::string)"Sue", true);
-    Mob* Pac=   new Mob(4, (std::string)"Pac");
+    Mob* Pinky= new Mob(0, (std::string) "Pinky" , this, true );
+    Mob* Inky=  new Mob(1, (std::string)"Inky" , this, true );
+    Mob* Blinky=new Mob(2, (std::string)"Blinky", this, true);
+    Mob* Sue=   new Mob(3, (std::string)"Sue", this, true);
+    Mob* Pac=   new Mob(4, (std::string)"Pac", this );
 
 
     mobiles[Pinky->getId()]= Pinky ;
@@ -43,22 +43,19 @@ void Board::prepare() {
 
 
 
-    setMobAt( Pinky->getId() , 5 ); Pinky->setPositionOnBridge(1);
-    setMobAt( Inky->getId() , 15 ); Inky->setPositionOnBridge(2);
-    setMobAt( Blinky->getId() , 101 ); Blinky->setPositionOnBridge(3);
-    setMobAt( Sue->getId() , 84 ); Sue->setPositionOnBridge(4);
-    setMobAt( Pac->getId() , 187 );
-    Pinky->setPositionOnBridge(0);
-    Inky->setPositionOnBridge(0);
-    Blinky->setPositionOnBridge(0);
-    Sue->setPositionOnBridge(0);
-    Pac->setPositionOnBridge(0);
+    setMobAt( Pinky->getId() , 189 );    Pinky->setPositionOnBridge( 1);
+    setMobAt( Inky->getId() , 189 );    Inky->setPositionOnBridge(  2);
+    setMobAt( Blinky->getId() , 189 ); Blinky->setPositionOnBridge(3);
+    setMobAt( Sue->getId() , 189 );     Sue->setPositionOnBridge(   4);
+    setMobAt( Pac->getId() , 189 );    Pac->setPositionOnBridge(   0);
 
-    Pinky->setParent( this );
-    Inky->setParent( this );
+
+
+    Pinky->setParent(  this );
+    Inky->setParent(   this );
     Blinky->setParent( this );
-    Sue->setParent( this );
-    Pac->setParent( this );
+    Sue->setParent(    this );
+    Pac->setParent(    this );
 
     Pinky->setDirection( DIRECT::N );
     Inky->setDirection( DIRECT::W );
@@ -70,16 +67,22 @@ void Board::prepare() {
 
     // dla wszystkich MOB pokaz mosty, cyklicznie przesuwaj
 
+    std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    drawOneMob( 4 );
+    Pac->step();
+    sleep(20);
+
+
 
     drawBoard();
-    drawAllDots();
     drawAllMob();
 
+//    for ( int i=0;i<2;i++) {
+      //  usleep(500000);
+//        moveAllMobs(); }
 
-    std::thread t( runTickInThread, this );
-    t.join();
-
-    sleep(15);
+  //  std::thread t( runTickInThread, this );
+  //  t.join();
 
 }
 
@@ -111,14 +114,18 @@ void Board::setMobAt( int mobId, int bridgeNum ) {  // postać zawsze na jednym 
     //std::cout << "Board:: setMob("<< mobId << ") at: " << activeBridges[mobId]<<"\n";
 }
 
-
-void Board::moveMobTo(int mobId, DIRECT direction, int bridgeNum) {
-    deactivateBridge( activeBridges[ mobId ] );
-    activeBridges[ mobId ]=bridgeNum;
-    activateBridge( activeBridges[ mobId ] );
+void Board::moveMeToNextBridge( int mobId, DIRECT myDirect ){
+     int actualBridgeNum = activeBridges[mobId];
+     if ( b.isExistsWayFromEdge( actualBridgeNum, myDirect ) ){
+          int nextBridge = b.getWayFromEdge(actualBridgeNum, myDirect);
+          deactivateBridge( activeBridges[ mobId ] );
+          activeBridges[ mobId ]=nextBridge;
+          int newPos=0;
+          if ( myDirect==DIRECT::W || myDirect==N ) { newPos=STEPS;}
+              mobiles[mobId]->setPositionOnBridge(newPos );
+          activateBridge( activeBridges[ mobId ] );
+     }
 }
-
-
 
 
 
@@ -171,6 +178,10 @@ void Board::drawBoard() {
             if ( !b.isExsits( i ) ) { continue; }
             COORD center = b.getCoordOfCenterBridge( i );
             createDot( i , center , b.isW( i ));
+            if ( b.isW(i)) {
+                createDot( i , {static_cast<SHORT>((center.X-3)),center.Y} , b.isW( i ));
+                createDot( i , {static_cast<SHORT>((center.X+3)),center.Y} , b.isW( i ));
+            }
             b.DrawWall( i );
         }
 
@@ -291,19 +302,23 @@ void Board::drawOneMob(int mobId) {
     Mob* mob = mobiles[mobId];
     int mobBridge = getBridgeNumOfMobId( mobId );
     int start = b.edgeChessPosition( mobBridge , true );
-    int end   = b.edgeChessPosition( mobBridge , false );
-    //std::cout << "start:" << start << ", end:" << end << "\n";
 
     COORD startPoint = b.getCoordOfEdge(start);
-    COORD endPoint = b.getCoordOfEdge(end);
-    //std::cout << "MobId:" << mobId << "\n";
-    //std::cout << "sx:" << startPoint.X << ", sy:" << startPoint.Y << "\n";
-    //std::cout << "ex:" << endPoint.X << ", ey:" << endPoint.Y << "\n";
-    int bridgeDistanceX = endPoint.X - startPoint.X;
-    int bridgeDistanceY = endPoint.Y - startPoint.Y;
-    int mobX = startPoint.X  + mob->getPositionOnBridge(); //( bridgeDistanceX * mob->getPositionOnBridge() / STEPS );
-    int mobY = startPoint.Y  + mob->getPositionOnBridge();// ( bridgeDistanceY * mob->getPositionOnBridge() / STEPS );
-    //std::cout << "pos:"<< mobX << "\n\n";
+
+    std::cout << startPoint.X << ", y: " << startPoint.Y ;
+
+    int mobX = startPoint.X;
+    int mobY = startPoint.Y;
+    bool isW = b.isW( mobBridge );
+
+    // fix point;
+    if (isW) {
+        mobX += mob->getPositionOnBridge();
+    } else {
+        mobX += mob->getPositionOnBridge()/3;
+    }
+
+
 
     char avatar='P';//1;
     if ( mob->isGhost() ) { avatar='G'/*2*/;}
@@ -321,14 +336,20 @@ void Board::drawOneMob(int mobId) {
 
 void Board::moveAllMobs(){
     for ( int i=0;i<8;i++){ // for all Mobiles slot
-        if ( mobiles[i]!= nullptr ){
-            moveOneMob( mobiles[i]->getId() );
-        }
+        try {
+            if (mobiles[i] != nullptr) {
+                moveOneMob(mobiles[i]->getId());
+            }
+        }catch( std::runtime_error e ){ std::cout << e.what(); }
     }
 }
 
 
 
 void Board::moveOneMob( int mobId ){
+        Mob* mob = mobiles[mobId];
+        int mobBridge = getBridgeNumOfMobId( mobId );
+        bool isW = b.isW( mobBridge );
+
     mobiles[mobId]->step();
 }

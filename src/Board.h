@@ -159,7 +159,9 @@ public:
     void prepare();
     void drawBoard();
     void setMobAt( int  i , int bridgeNum );
-    void moveMobTo ( int i, DIRECT STOP, int bridgeNum );
+
+    void moveMeToNextBridge(int mobId, DIRECT myDirect);
+
     int getBridgeNumOfMobId( int mobId );
 
     void deactivateBridge( int bridgeNum );
@@ -186,6 +188,8 @@ public:
     void eatDot( Mob* mob , COORD );
 
     void drawOneDot( std::pair<const int, Dot *> pair );
+
+
 
 
 
