@@ -47,7 +47,7 @@ void Board::prepare() {
     setMobAt( Inky->getId() , 189 );    Inky->setPositionOnBridge(  2);
     setMobAt( Blinky->getId() , 189 ); Blinky->setPositionOnBridge(3);
     setMobAt( Sue->getId() , 189 );     Sue->setPositionOnBridge(   4);
-    setMobAt( Pac->getId() , 189 );    Pac->setPositionOnBridge(   0);
+    setMobAt( Pac->getId() , 5 );    Pac->setPositionOnBridge(   0);
 
 
 
@@ -67,10 +67,22 @@ void Board::prepare() {
 
     // dla wszystkich MOB pokaz mosty, cyklicznie przesuwaj
 
-    std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    std::cout<<"\n\n\n\n\n ";
     drawOneMob( 4 );
     Pac->step();
-    sleep(20);
+    Pac->step();
+    Pac->step();
+    Pac->step();
+    Pac->step();
+    Pac->step();
+    Pac->step();
+    Pac->step();
+    Pac->step();
+    Pac->step();
+    Pac->step();
+    Pac->step();
+    //drawOneMob( 4 );
+    return;
 
 
 
