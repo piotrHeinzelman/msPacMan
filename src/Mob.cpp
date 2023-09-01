@@ -54,7 +54,7 @@ board->drawOneMob( id );
   //  direction = ((Board*)board)->atEdge(id , direction , nextDirection );
 }
 
- */
+
 
 void Mob::stepN( bool isW ){ if(!isW){ if (step == 0    ) { board->moveMeToNextBridge(id, direction ); } else { step--; }}};
 void Mob::stepS( bool isW ){ if(!isW){ if (step == STEPS) { board->moveMeToNextBridge(id, direction ); } else { step++; }}};
@@ -63,8 +63,8 @@ void Mob::stepE( bool isW ){ if( isW){
         if (step == STEPS) {
             board->moveMeToNextBridge(id, direction );
         } else { step++; }}};
-void Mob::stepW( bool isW ){ if( isW){ if (step == 0    ) { board->moveMeToNextBridge(id, direction ); } else { step--; }}}
-
+void Mob::stepW( bool isW ){ if( isW){ if (step == 0    ) { board->moveMobNextBridge(id, direction ); } else { step--; }}}
+ */
 
 
 
@@ -77,6 +77,8 @@ void Mob::addPower( int power ){ this->power=power; }
 int Mob::getPower(){ return this->power; }
 int Mob::getPoints(){ return this->points; }
 bool Mob::isGhost(){ return this->ghost; }
+
+std::set<DIRECT> & Mob::getExits() { return exits; }
 
 
 

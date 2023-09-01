@@ -155,29 +155,27 @@ private:
     Keyb k;
 
 public:
+    Board();
+    void BoardTick();
+    void prepare();
+    void drawBoard();
+
+
     void addMob( Mob* mob );
     void allMobShow();
+
     void insertMobAtBridge( Mob* mob , int bridge );
+    void moveMobNextStep(Mob* mob);
+    void moveMobNextBridge(Mob* mob, DIRECT myDirect);
+
 
     void drawAllMob();
     void drawOneMob( Mob* mob );
 
 
-    Mob* getMobPac();
-
-    Board();
-    void BoardTick();
-
-    void prepare();
-    void drawBoard();
 
 
-    void moveMeToNextBridge(int mobId, DIRECT myDirect);
 
-    int getBridgeNumOfMobId( int mobId );
-
-    void deactivateBridge( int bridgeNum );
-    void activateBridge( int bridgeNum  );
 
     DIRECT atEdge( int id , DIRECT direction , DIRECT nextDirection );
 

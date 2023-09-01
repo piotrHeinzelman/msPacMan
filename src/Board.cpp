@@ -89,20 +89,36 @@ void Board::allMobShow() {
 }
 
 
-void Mob::insertMobAtBridge( Mob* mob , int bridge ){
+void Board::insertMobAtBridge( Mob* mob , int bridge ){
     mob->setBridge( bridge );
     mob->setStep(STEPS/2);
+    std::set<DIRECT> &set = mob->getExits(); set.clear();
+    if( b.isW( bridge ) ){
+        set.insert(DIRECT::E ); set.insert(DIRECT::W );
+    } else {
+        set.insert(DIRECT::N ); set.insert(DIRECT::S );
+    }
 }
 
 
 void Board::drawAllMob(){
-    for ( int i=0;i<8;i++){ // for all Mobiles slot
-        if ( mobiles[i]!= nullptr ){
-            drawOneMob( mobiles[i]->getId() );
-        }
+    for ( Mob* mob : mobs ){
+        drawOneMob( mob );
     }
 }
 
+void Board::moveMobNextBridge( Mob* mob, DIRECT myDirect ){
+    int actualBridgeNum = mob->getBridge();
+    int edge = b.edgeChessPosition( actualBridgeNum, (myDirect==DIRECT::W ||  myDirect==DIRECT::N) );
+    if ( b.isExistsWayFromEdge( edge, myDirect ) ){
+
+        int nextBridge = b.getWayFromEdge(edge, myDirect);
+        mob->setBridge(nextBridge);
+        int newPos=0;
+        if ( myDirect==DIRECT::W || myDirect==N ) { newPos=STEPS;}
+        mob->setStep(newPos);
+    }
+}
 
 
 
@@ -117,45 +133,18 @@ void Board::drawAllMob(){
 
 
 void Board::BoardTick(){
-    Keyb k;
-    Mob* mob=getMobPac();
     while(true){
-        //std::cout << "BoardTick";
-        mob->setDirection( k.read());
-        moveAllMobs();
-        redrawAllBridge();
-        void drawAllMob();
+        std::cout << "BoardTick";
         std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
     }
 }
 
-Mob* Board::getMobPac(){
-    return mobiles[4];
-}
-
-int Board::getBridgeNumOfMobId( int mobId ){
-    return activeBridges[mobId];
-}
 
 
 
-void Board::moveMeToNextBridge( int mobId, DIRECT myDirect ){
 
-     int actualBridgeNum = activeBridges[mobId];
-    //std::cout <<"\n\nid"<<mobId<<", actualBridgeNum: " << actualBridgeNum <<", dir:"<<myDirect<<"  \n";
-    int edge = b.edgeChessPosition( actualBridgeNum, (myDirect==DIRECT::W ||  myDirect==DIRECT::N) );
 
-     if ( b.isExistsWayFromEdge( edge, myDirect ) ){
 
-          int nextBridge = b.getWayFromEdge(edge, myDirect);
-          deactivateBridge( activeBridges[ mobId ] );
-          activeBridges[ mobId ]=nextBridge;
-          int newPos=0;
-          if ( myDirect==DIRECT::W || myDirect==N ) { newPos=STEPS;}
-         mobiles[mobId]->setStep(newPos);
-          activateBridge( activeBridges[ mobId ] );
-     }
-}
 
 
 
@@ -195,8 +184,7 @@ DIRECT Board::atEdge(int id, DIRECT direction, DIRECT nextDirection) {
 
 
 
-void Board::activateBridge(int bridgeNum) {};
-void Board::deactivateBridge(int bridgeNum) {}
+
 
 
 
@@ -381,7 +369,7 @@ void Board::moveOneMob( int mobId ){
                 mob->setDirection( k.read());
             }
         }
-        mob->step();
+
 }
 
 
