@@ -124,6 +124,7 @@ void runLastTests() {
     //b.drawBoard();
     b.drawOneMob( Pac );
     Pac->setDirection( DIRECT::W );
+
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
@@ -131,7 +132,13 @@ void runLastTests() {
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    Pac->setNextDirection( DIRECT::S );
+    Pac->setNextDirection( DIRECT::N );
+    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();

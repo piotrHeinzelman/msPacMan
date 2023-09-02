@@ -105,6 +105,12 @@ void Board::setMobDirection(Mob *mob, DIRECT direction) {
     showInfo( mob );
 }
 
+void Board::moveAllMobs(){
+    for ( Mob* mob : mobs ){
+        moveMobNextStep( mob );
+    }
+}
+
 
 void Board::moveMobNextStep( Mob* mob ){
         int step=mob->getStep();
@@ -125,25 +131,21 @@ void Board::moveMobNextStep( Mob* mob ){
         int edge = b.edgeChessPosition( mob->getBridge(), onStart );
         mob->getExits() = b.getAllWaysFromEdge( edge );
         //nextDirection
-        if ( mob->getExits().count(mob->getNextDirection())>0 && mob->getNextDirection()!=DIRECT::STOP ){ mob->setDirection( mob->getNextDirection());  }
+        if ( mob->getExits().count(mob->getNextDirection())>0 && mob->getNextDirection()!=DIRECT::STOP ){ mob->setDirection( mob->getNextDirection()); mob->setNextDirection( DIRECT ::STOP );  }
         if ( mob->getExits().count(mob->getDirection())>0 ){
-            if ( mob->getStep()==0 ) { mob->setStep(STEPS); } else { mob->setStep(0); }
             moveMobNextBridge( mob , onStart );
         }
 }
 
 
 
-void Board::moveMobNextBridge( Mob* mob ,bool onStart ){
+void Board::moveMobNextBridge( Mob* mob , bool onStart ){
     int actualBridgeNum = mob->getBridge();
-    int edge = b.edgeChessPosition( actualBridgeNum, (mob->getDirection()==DIRECT::W ||  mob->getDirection()==DIRECT::N) );
+    int edge = b.edgeChessPosition( actualBridgeNum,  onStart );
     if ( b.isExistsWayFromEdge( edge, mob->getDirection() ) ){
-
         int nextBridge = b.getWayFromEdge(edge, mob->getDirection());
         mob->setBridge(nextBridge);
-        int newPos=0;
-        if ( mob->getDirection()==DIRECT::W || mob->getDirection()==N ) { newPos=STEPS;}
-        mob->setStep(newPos);
+        if ( mob->getStep()==0 ) { mob->setStep(STEPS); } else { mob->setStep(0); }
         mob->isW( b.isW( mob->getBridge()));
     }
 }
@@ -188,11 +190,6 @@ void Board::drawOneMob( Mob* mob ) {
 
 
 
-void Board::moveAllMobs(){
-    for ( Mob* mob : mobs ){
-        moveMobNextBridge( mob );
-    }
-}
 
 
 

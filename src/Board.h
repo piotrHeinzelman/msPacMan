@@ -165,7 +165,7 @@ public:
 
     void insertMobAtBridge( Mob* mob , int bridge, int step , bool isW );
     void moveMobNextStep(Mob* mob);
-    void moveMobNextBridge(Mob* mob);
+    void moveMobNextBridge(Mob* mob, bool onStart);
 
 
     void drawAllMob();
