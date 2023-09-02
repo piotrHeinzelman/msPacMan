@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <future>
 #include "allTest.h"
 #include "src/ConsoleDraw.h"
 #include "tests/CppTests.h"
@@ -17,12 +18,21 @@ int main() {
     for (int i=0;i<26;i++) std::cout << "\n";
     Board b1;
     b1.prepare();
+    b1.drawBoard();
+    b1.drawAllDots();
+
     b1.RunBoardTick();
 
-
-    while (true){
+    while(true){
+        b1.clearAllUsedBridge();
+        b1.moveAllMobs();
+        b1.drawAllMob();
+        //std::async( std::launch::async, b1.ServerTick()     );
         b1.ServerTick();
     }
+
+    b1.RunBoardTick();
+    while (true){ b1.ServerTick(); }
 
 
 

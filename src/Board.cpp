@@ -11,6 +11,7 @@
 #include "UDPClient.h"
 #include "TickRunner.h"
 #include "Keyb.h"
+#include <future>
 
 
 
@@ -23,8 +24,9 @@ Board::Board() {
 // THREAD !
 DWORD runTickInThread( Board* b ){
     while(true){
-        b->BoardTick();
-        //b->ServerTick();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
+        //b->BoardTick();
+        b->ServerTick();
         //std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
     }
     return 0;
@@ -32,8 +34,8 @@ DWORD runTickInThread( Board* b ){
 
 void Board::RunBoardTick() {
     //std::thread t( runTickInThread, this  );
-    std::thread t( runTickInThread, this  );
-                t.join();
+    //std::thread t( runTickInThread, this  );
+    std::async( runTickInThread, this  );
 }
 
 
@@ -64,7 +66,7 @@ void Board::BoardTick(){
     moveAllMobs();
     drawAllMob();
         //std::cout << "BoardTick";
-        std::this_thread::sleep_for(std::chrono::milliseconds(80 ));
+        std::this_thread::sleep_for(std::chrono::milliseconds(200 ));
 }
 
 

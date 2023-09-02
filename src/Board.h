@@ -157,7 +157,7 @@ private:
     int ghostIntel=0;
 
     Mob* player;
-    UDPServ ts;
+    UDPServ ts=UDPServ(8080);
 
 public:
     Board();
