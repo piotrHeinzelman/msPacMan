@@ -14,22 +14,21 @@
 int main() {
 
     //createClient(); return 0;
-
+    for (int i=0;i<26;i++) std::cout << "\n";
     Board b1;
     b1.prepare();
-    //b1.CreateServer( b1.getPlayersMob() );
-    //b1.RunBoardTick();
     b1.RunBoardTick();
 
+
     while (true){
-        b1.BoardTick();
+        b1.ServerTick();
     }
 
 
 
 
 
-    sleep(20);
+    //sleep(20);
     return 0;
 
 

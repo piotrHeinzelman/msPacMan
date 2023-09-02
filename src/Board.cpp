@@ -23,9 +23,9 @@ Board::Board() {
 // THREAD !
 DWORD runTickInThread( Board* b ){
     while(true){
-        //b->BoardTick();
-        b->ServerTick();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
+        b->BoardTick();
+        //b->ServerTick();
+        //std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
     }
     return 0;
 }
@@ -44,7 +44,7 @@ void Board::ServerTick(){
         if ( len==0 ) return;
         char buf='.';
 
-        std::cout << ts.getBuff();
+        //std::cout << ts.getBuff();
 
         switch( ts.getBuff()[0] ){
             case 'N': player->setDirection( DIRECT::N ); break;
@@ -60,23 +60,22 @@ void Board::ServerTick(){
 
 void Board::BoardTick(){
     //allMobCheckControllers();
-    //clearAllUsedBridge();
+    clearAllUsedBridge();
     moveAllMobs();
     drawAllMob();
-        std::cout << "BoardTick";
-        //std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
+        //std::cout << "BoardTick";
+        std::this_thread::sleep_for(std::chrono::milliseconds(80 ));
 }
 
 
 
 void Board::prepare() {
 
-    std::cout << "\n\n\n";
-    Mob* Pinky= new Mob(0, (std::string) "Pinky" , this, true );
-    Mob* Inky=  new Mob(1, (std::string)"Inky" , this, true );
-    Mob* Blinky=new Mob(2, (std::string)"Blinky", this, true);
-    Mob* Sue=   new Mob(3, (std::string)"Sue", this, true);
-    Mob* Pac=   new Mob(4, (std::string)"Pac", this );
+    Mob* Pinky= new Mob(0,  "Pinky" , this, true );
+    Mob* Inky=  new Mob(1, "Inky" , this, true );
+    Mob* Blinky=new Mob(2, "Blinky", this, true);
+    Mob* Sue=   new Mob(3, "Sue", this, true);
+    Mob* Pac=   new Mob(4, "Pac", this );
     player = Pac;
 
     addMob(Pinky);
@@ -91,7 +90,7 @@ void Board::prepare() {
     insertMobAtBridge(Inky, 189 , 3 , true );
     insertMobAtBridge(Blinky, 189, 3 , true );
     insertMobAtBridge(Sue, 189, 3 , true );
-    insertMobAtBridge(Pac, 5 , 3 , true );
+    insertMobAtBridge(Pac, 5 , 0 , true );
 
 
 
@@ -100,6 +99,8 @@ void Board::prepare() {
     Blinky->setDirection( DIRECT::S );
     Sue->setDirection( DIRECT::E );
     Pac->setDirection( DIRECT::E );
+
+    drawAllMob();
 }
 
 
