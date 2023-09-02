@@ -228,18 +228,18 @@ return;
 void createClient(){
     UDPClient* c;
     c = new UDPClient();
-    char* buff="   ";
-    char* reply="   ";
+    char* buff="           ";
+    char* reply="          ";
 
     while( true ){
-        if (GetAsyncKeyState(VK_UP) < 0) {         buff[0]=(char)DIRECT::N ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
-        else if (GetAsyncKeyState(VK_DOWN) < 0) {  buff[0]=(char)DIRECT::S ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
-        else if (GetAsyncKeyState(VK_RIGHT) < 0) { buff[0]=(char)DIRECT::E ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
-        else if (GetAsyncKeyState(VK_LEFT) < 0) {  buff[0]=(char)DIRECT::W ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
-        else buff=" ";
-        //if (reinterpret_cast<const char *>(buff[0]) != " "){std::cout << 30 + buff[0];};
+        while( true ){
+        if (GetKeyState(VK_UP   ) < 0 && (buff!="N")) { buff="N" ;/*std::cout << buff;*/ c->setBuff(buff); c->send(); reply=c->getBuff(); }
+        if (GetKeyState(VK_DOWN ) < 0 && (buff!="S")) { buff="S" ;/*std::cout << buff;*/ c->setBuff(buff); c->send(); reply=c->getBuff(); }
+        if (GetKeyState(VK_LEFT ) < 0 && (buff!="W")) { buff="W" ;/*std::cout << buff;*/ c->setBuff(buff); c->send(); reply=c->getBuff(); }
+        if (GetKeyState(VK_RIGHT) < 0 && (buff!="E")) { buff="E" ;/*std::cout << buff;*/ c->setBuff(buff); c->send(); reply=c->getBuff(); }
+        }
     }
-
+    /*
     c->setBuff((char*)"first");
     printf( "C>first\n" );
     c->send();
@@ -258,6 +258,6 @@ void createClient(){
     c->send();
 
     printf( "C<%s\n", c->getBuff() );
-    delete c;
+    delete c;*/
 }
 #endif //MSPACMAN_ALLTEST_H
