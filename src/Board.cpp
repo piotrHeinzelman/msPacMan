@@ -77,6 +77,7 @@ void Board::prepare() {
     Mob* Blinky=new Mob(2, (std::string)"Blinky", this, true);
     Mob* Sue=   new Mob(3, (std::string)"Sue", this, true);
     Mob* Pac=   new Mob(4, (std::string)"Pac", this );
+    player = Pac;
 
     addMob(Pinky);
     addMob(Inky);

@@ -25,8 +25,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
@@ -157,15 +155,8 @@
       <workItem from="1693579188089" duration="20863000" />
       <workItem from="1693604655446" duration="11510000" />
       <workItem from="1693638100579" duration="15872000" />
-      <workItem from="1693654468967" duration="753000" />
-    </task>
-    <task id="LOCAL-00020" summary="ADD :: Bridge / Node info">
-      <option name="closed" value="true" />
-      <created>1693161422547</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1693161422547</updated>
+      <workItem from="1693654468967" duration="780000" />
+      <workItem from="1693655643478" duration="55000" />
     </task>
     <task id="LOCAL-00021" summary="ADD :: Board // info">
       <option name="closed" value="true" />
@@ -551,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693654811724</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="update server">
+      <option name="closed" value="true" />
+      <created>1693655243950</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1693655243950</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +564,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ADD :: Board // info" />
     <MESSAGE value="ADD :: draw board in console" />
     <MESSAGE value="Board" />
     <MESSAGE value="Color console" />
@@ -590,7 +588,8 @@
     <MESSAGE value="create client" />
     <MESSAGE value="create client without std" />
     <MESSAGE value="update client" />
-    <option name="LAST_COMMIT_MESSAGE" value="update client" />
+    <MESSAGE value="update server" />
+    <option name="LAST_COMMIT_MESSAGE" value="update server" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
