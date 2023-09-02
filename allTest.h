@@ -108,7 +108,7 @@ void runLastTests() {
 
     Mob* Pac = new Mob( 4, "mr. Pac" , &b, false );
     b.addMob( Pac );
-    b.insertMobAtBridge( Pac, 189 , 3 , true );
+    b.insertMobAtBridge( Pac, 20 , 6 , false );
     //std::cout << "exists: N:" <<Pac->getExits().count(DIRECT::N)  <<"\n";
     //std::cout << "exists: E:" <<Pac->getExits().count(DIRECT::E)  <<"\n";
 
@@ -123,7 +123,7 @@ void runLastTests() {
     std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     //b.drawBoard();
     b.drawOneMob( Pac );
-    Pac->setDirection( DIRECT::W );
+    Pac->setDirection( DIRECT::N );
 
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
@@ -132,12 +132,15 @@ void runLastTests() {
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    Pac->setNextDirection( DIRECT::N );
+    Pac->setNextDirection( DIRECT::E );
+    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    Pac->setNextDirection( DIRECT::S );
+
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
