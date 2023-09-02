@@ -27,12 +27,9 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/clientOut.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/clientOut.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,15 +160,7 @@
       <workItem from="1693531383965" duration="498000" />
       <workItem from="1693579188089" duration="20863000" />
       <workItem from="1693604655446" duration="11510000" />
-      <workItem from="1693638100579" duration="14331000" />
-    </task>
-    <task id="LOCAL-00016" summary="TEST :: Client / Server in thread DONE">
-      <option name="closed" value="true" />
-      <created>1693084630189</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1693084630189</updated>
+      <workItem from="1693638100579" duration="14513000" />
     </task>
     <task id="LOCAL-00017" summary="ADD :: Tick 500ms">
       <option name="closed" value="true" />
@@ -557,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693652378641</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="update client">
+      <option name="closed" value="true" />
+      <created>1693652885849</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1693652885850</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +568,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ADD :: Bridge / Node info" />
     <MESSAGE value="ADD :: Board // info" />
     <MESSAGE value="ADD :: draw board in console" />
     <MESSAGE value="Board" />
@@ -596,7 +592,8 @@
     <MESSAGE value="FIT consoleDraw" />
     <MESSAGE value="create client" />
     <MESSAGE value="create client without std" />
-    <option name="LAST_COMMIT_MESSAGE" value="create client without std" />
+    <MESSAGE value="update client" />
+    <option name="LAST_COMMIT_MESSAGE" value="update client" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
