@@ -140,11 +140,12 @@ void runLastTests() {
     b.drawOneMob( WhileLady );
     */
 
+    std::cout << "\n\n\n\n\n";
     ConsoleDraw draw;
     draw.WriteColourChar({0,0}, '0');
     Board b;
     Bridges br;
-    std::cout << "\n\n\n\n\n"; //\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+     //\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
     Mob* Pac = new Mob( 4, "mr. Pac" , &b, false );
     b.addMob( Pac );
@@ -152,7 +153,7 @@ void runLastTests() {
 
     Mob* WhileLady = new Mob ( 1 , "White Lady" , &b , true );
     b.addMob( WhileLady );
-    b.insertMobAtBridge( WhileLady, 3 , STEPS , false );
+    b.insertMobAtBridge( WhileLady, 3 , STEPS , true );
 
 
 
@@ -164,11 +165,17 @@ void runLastTests() {
     Pac->setDirection( DIRECT::W );
     WhileLady->setDirection( DIRECT::E );
 
-    for (int i=0;i<10;i++){
-        b.drawAllMob();
+    for (int i=0;i<50;i++){
+        //b.clearAllUsedBridge();
         b.moveAllMobs();
-        //usleep(10000);
+        b.drawAllMob();
+        //std::cout << i;
+        //sleep(1);
+
+        //usleep(100000);
     }
+
+    sleep(10);
 return;
 
     Pac->setDirection( DIRECT::N );

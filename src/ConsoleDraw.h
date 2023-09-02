@@ -54,6 +54,7 @@ public:
     ConsoleDraw();  // konstruktor klasy, qaczy z obiektem Konsola
     void WriteColourChar(SHORT x, SHORT y, char charCode ,DWORD attrib=0x07 +0x00 );  // rysuje znak
     void WriteColourChar( COORD cursor, char charCode ,DWORD attrib=0x07 +0x00 );     // rysuje znak
+    HANDLE getHandle();
 
 
 

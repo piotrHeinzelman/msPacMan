@@ -13,6 +13,17 @@
 #include "Keyb.h"
 
 
+
+Board::Board() {
+    prepare();
+    RunBoardTick();
+    while(true){
+        std::this_thread::sleep_for(std::chrono::seconds (100 ));
+    }
+}
+
+
+// THREAD !
 DWORD runTickInThread( Board* b ){
     while(true){
         b->BoardTick();
@@ -21,12 +32,27 @@ DWORD runTickInThread( Board* b ){
     return 0;
 }
 
-
-Board::Board() {
-    //prepare();
+void Board::RunBoardTick() {
+    //std::thread t( runTickInThread, this  );
+    std::thread t( runTickInThread, this  );
+                t.join();
 }
 
+
+void Board::BoardTick(){
+    allMobCheckControllers();
+    clearAllUsedBridge();
+    moveAllMobs();
+    drawAllMob();
+        //std::cout << "BoardTick";
+        //std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
+}
+
+
+
 void Board::prepare() {
+
+    std::cout << "\n\n\n";
     Mob* Pinky= new Mob(0, (std::string) "Pinky" , this, true );
     Mob* Inky=  new Mob(1, (std::string)"Inky" , this, true );
     Mob* Blinky=new Mob(2, (std::string)"Blinky", this, true);
@@ -54,27 +80,11 @@ void Board::prepare() {
     Blinky->setDirection( DIRECT::S );
     Sue->setDirection( DIRECT::E );
     Pac->setDirection( DIRECT::E );
-
-
-
-    // dla wszystkich MOB pokaz mosty, cyklicznie przesuwaj
-
-    drawBoard();
-    drawAllMob();
-
-    Keyb k;
-    while( true ){
-        usleep(50000);
-        moveAllMobs();
-    }
-//    for ( int i=0;i<2;i++) {
-      //  usleep(500000);
-//        moveAllMobs(); }
-
-  //  std::thread t( runTickInThread, this );
-  //  t.join();
-
 }
+
+
+
+
 
 
 void Board::addMob( Mob* mob ){
@@ -151,15 +161,6 @@ void Board::moveMobNextBridge( Mob* mob , bool onStart ){
 }
 
 
-
-
-
-
-
-
-
-
-
 void Board::drawAllMob(){
     for ( Mob* mob : mobs ){
         drawOneMob( mob );
@@ -190,30 +191,66 @@ void Board::drawOneMob( Mob* mob ) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void Board::BoardTick(){
-    while(true){
-        std::cout << "BoardTick";
-        std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
+void Board::clearAllUsedBridge() {
+    for ( Mob* mob : mobs ){
+        clearBridge( mob->getBridge() );
     }
 }
+
+
+
+void Board::clearBridge( int i ){
+    int start = b.edgeChessPosition( i, true );
+    int end =   b.edgeChessPosition( i, false );
+    COORD startPoint = b.getCoordOfEdge( start );
+    COORD endPoint   = b.getCoordOfEdge( end );
+    int sx=startPoint.X;
+    int sy=startPoint.Y;
+    int ex=endPoint.X;
+    int ey=endPoint.Y;
+    for ( int x=sx; x<=ex ; x++ ){
+        for ( int y=sy; y<=ey ; y++ ){
+            cdraw.WriteColourChar( {static_cast<SHORT>(x),static_cast<SHORT>(y)} , ' ' );
+
+        }
+    }
+}
+
+
+void Board::allMobCheckControllers() {
+    for ( Mob* mob : mobs ){
+        mobCheckController( mob );
+    }
+}
+
+
+void Board::mobCheckController( Mob* mob ) {
+    if ( !mob->isGhost() ){
+        if (GetAsyncKeyState(VK_UP) < 0) { mob->setDirection( DIRECT::N ); }
+        if (GetAsyncKeyState(VK_DOWN) < 0) { mob->setDirection(  DIRECT::S ) ; }
+        if (GetAsyncKeyState(VK_RIGHT) < 0) { mob->setDirection(  DIRECT::E ) ; }
+        if (GetAsyncKeyState(VK_LEFT) < 0) { mob->setDirection(  DIRECT::W ) ; }
+    }
+    else {
+        ghostIntel++;
+        if (ghostIntel%10==3) mob->setDirection( DIRECT::N );
+        if (ghostIntel%10==3) mob->setDirection( DIRECT::S );
+        if (ghostIntel%10==3) mob->setDirection( DIRECT::W );
+        if (ghostIntel%10==3) mob->setDirection( DIRECT::E );
+    }
+    cdraw.WriteColourChar({0,0}, (char) mob->getDirection());
+    //std::cout << mob->getDirection();
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -334,22 +371,6 @@ void Board::eatDot( Mob* mob , COORD point ){
 }
 
 
-void Board::clearBridge( int i ){
-    int start = b.edgeChessPosition( i, true );
-    int end =   b.edgeChessPosition( i, false );
-    COORD startPoint = b.getCoordOfEdge( start );
-    COORD endPoint   = b.getCoordOfEdge( end );
-    int sx=startPoint.X;
-    int sy=startPoint.Y;
-    int ex=endPoint.X;
-    int ey=endPoint.Y;
-    for ( int x=sx; x<=ex ; x++ ){
-        for ( int y=sy; y<=ey ; y++ ){
-                cdraw.WriteColourChar( {static_cast<SHORT>(x),static_cast<SHORT>(y)} , ' ' );
-
-        }
-    }
-}
 
 
 void Board::redrawAllBridge(){
@@ -365,33 +386,9 @@ void Board::redrawBridge( int bridgeNum ){
     //drawAllMobOnBridge ( bridgeNum );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+HANDLE Board::getHandle() {
+    return cdraw.getHandle();
+}
 
 
 

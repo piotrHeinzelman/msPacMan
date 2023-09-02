@@ -153,10 +153,12 @@ private:
     std::map< int , Dot* > dots;
     Bridges b;
     Keyb k;
+    int ghostIntel=0;
 
 public:
     Board();
     void BoardTick();
+    void RunBoardTick();
     void prepare();
     void drawBoard();
 
@@ -171,7 +173,10 @@ public:
     void drawAllMob();
     void drawOneMob( Mob* mob );
 
+    void allMobCheckControllers();
+    void mobCheckController(Mob* mob);
 
+    HANDLE getHandle();
 
 
 
@@ -189,6 +194,7 @@ public:
     void moveAllMobs();
     void moveOneMob( int mobId );
     void clearBridge( int bridgeNum );
+    void clearAllUsedBridge();
     void redrawAllBridge();
     void redrawBridge( int bridgeNum );
 
