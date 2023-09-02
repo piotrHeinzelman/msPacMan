@@ -140,7 +140,7 @@ void runLastTests() {
     b.drawOneMob( WhileLady );
     */
 
-    std::cout << "\n\n\n\n\n";
+    std::cout << "\n\n\n\n\n\n\n\n\n\n";
     ConsoleDraw draw;
     draw.WriteColourChar({0,0}, '0');
     Board b;
@@ -165,14 +165,23 @@ void runLastTests() {
     Pac->setDirection( DIRECT::W );
     WhileLady->setDirection( DIRECT::E );
 
-    for (int i=0;i<50;i++){
+    char chr;
+    DWORD written;
+    for (int i=0;i<150;i++) {
+        draw.WriteColourChar({0, 0}, (char)i);
+        sleep(1);
+    }
+
+    return;
+
+    for (int i=0;i<150;i++){
         //b.clearAllUsedBridge();
         b.moveAllMobs();
         b.drawAllMob();
         //std::cout << i;
         //sleep(1);
 
-        //usleep(100000);
+        usleep(1000);
     }
 
     sleep(10);

@@ -24,7 +24,7 @@ DIRECT Mob::getDirection() { return direction; }
 DIRECT Mob::getNextDirection() { return nextDirection; }
 
 void Mob::setDirection(DIRECT direction){ this->direction = direction; };
-void Mob::setNextDirection(DIRECT nextDirection){ this->nextDirection = nextDirection; };
+void Mob::setNextDirection(DIRECT nextDirection){ this->nextDirection = nextDirection;  };
 
 int  Mob::getBridge()  { return bridge; }
 void Mob::setBridge( int bridge ) { this->bridge = bridge; }

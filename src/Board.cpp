@@ -15,11 +15,8 @@
 
 
 Board::Board() {
-    prepare();
-    RunBoardTick();
-    while(true){
-        std::this_thread::sleep_for(std::chrono::seconds (100 ));
-    }
+    //prepare();
+    //RunBoardTick();
 }
 
 
@@ -226,10 +223,10 @@ void Board::allMobCheckControllers() {
 
 void Board::mobCheckController( Mob* mob ) {
     if ( !mob->isGhost() ){
-        if (GetAsyncKeyState(VK_UP) < 0) { mob->setDirection( DIRECT::N ); }
-        if (GetAsyncKeyState(VK_DOWN) < 0) { mob->setDirection(  DIRECT::S ) ; }
-        if (GetAsyncKeyState(VK_RIGHT) < 0) { mob->setDirection(  DIRECT::E ) ; }
-        if (GetAsyncKeyState(VK_LEFT) < 0) { mob->setDirection(  DIRECT::W ) ; }
+        if (GetAsyncKeyState(VK_UP) < 0) { mob->setNextDirection( DIRECT::N ); }
+        if (GetAsyncKeyState(VK_DOWN) < 0) { mob->setNextDirection(  DIRECT::S ) ; }
+        if (GetAsyncKeyState(VK_RIGHT) < 0) { mob->setNextDirection(  DIRECT::E ) ; }
+        if (GetAsyncKeyState(VK_LEFT) < 0) { mob->setNextDirection(  DIRECT::W ) ; }
     }
     else {
         ghostIntel++;
