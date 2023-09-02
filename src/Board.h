@@ -17,6 +17,7 @@
 #include "Dot.h"
 #include "Bridges.h"
 #include "Keyb.h"
+#include "UDPServ.h"
 
 
 /* glowna klasa gry
@@ -162,6 +163,8 @@ public:
     void prepare();
     void drawBoard();
 
+    void CreateServer(Mob* mob);
+
 
     void addMob( Mob* mob );
 
@@ -178,7 +181,7 @@ public:
 
     HANDLE getHandle();
 
-
+    Mob* getPlayersMob();
 
 
 

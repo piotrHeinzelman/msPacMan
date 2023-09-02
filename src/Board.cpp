@@ -37,9 +37,9 @@ void Board::RunBoardTick() {
 
 
 void Board::BoardTick(){
-    allMobCheckControllers();
-    clearAllUsedBridge();
-    moveAllMobs();
+    //allMobCheckControllers();
+    //clearAllUsedBridge();
+    //moveAllMobs();
     drawAllMob();
         //std::cout << "BoardTick";
         //std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
@@ -240,7 +240,12 @@ void Board::mobCheckController( Mob* mob ) {
 }
 
 
-
+Mob *Board::getPlayersMob() {
+    for ( Mob* mob : mobs ){
+        if( !mob->isGhost() ) return mob;
+    }
+    return nullptr;
+}
 
 
 
@@ -386,6 +391,31 @@ void Board::redrawBridge( int bridgeNum ){
 HANDLE Board::getHandle() {
     return cdraw.getHandle();
 }
+
+void Board::CreateServer(Mob *mob) {
+        UDPServ ts = UDPServ(8080 );
+            ts.rec(); // odbior danych przez UDP
+
+
+
+        bool guard=false;
+        while( !guard ){
+            ts.rec(); // odbior danych przez UDP
+            switch( ts.getBuff()[0] ){
+                case 'N': mob->setDirection( DIRECT::N ); break;
+                case 'S': mob->setDirection( DIRECT::S ); break;
+                case 'W': mob->setDirection( DIRECT::W ); break;
+                case 'E': mob->setDirection( DIRECT::E ); break;
+                default: break;
+            }
+
+            //printf( "S<%s\n",ts.getBuff() );
+        }
+        printf("Koncze!\n");
+
+}
+
+
 
 
 

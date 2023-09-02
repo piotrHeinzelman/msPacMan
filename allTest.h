@@ -141,6 +141,15 @@ void runLastTests() {
     */
 
 
+    Board b1;
+    b1.prepare();
+    //b1.RunBoardTick();
+    b1.CreateServer( b1.getPlayersMob() );
+
+
+    return;
+
+
 
     std::cout << "\n\n\n\n\n\n\n\n\n\n";
     ConsoleDraw draw;
@@ -239,25 +248,6 @@ void createClient(){
         if (GetKeyState(VK_RIGHT) < 0 && (buff!="E")) { buff="E" ;/*std::cout << buff;*/ c->setBuff(buff); c->send(); reply=c->getBuff(); }
         }
     }
-    /*
-    c->setBuff((char*)"first");
-    printf( "C>first\n" );
-    c->send();
-    printf( "C<%s\n", c->getBuff() );
-    delete c;
 
-    c = new UDPClient();
-    printf( "C>sec\n" );
-    c->setBuff((char*)"sec");
-    c->send();
-    printf( "C<%s\n", c->getBuff() );
-
-
-    printf( "C>koncz wasc!\n" );
-    c->setBuff((char*)"koncz Wasc!");
-    c->send();
-
-    printf( "C<%s\n", c->getBuff() );
-    delete c;*/
 }
 #endif //MSPACMAN_ALLTEST_H
