@@ -165,6 +165,8 @@ void runLastTests() {
     Pac->setDirection( DIRECT::W );
     WhileLady->setDirection( DIRECT::E );
 
+    b.RunBoardTick();
+
     char chr;
     DWORD written;
     for (int i=0;i<150;i++) {
