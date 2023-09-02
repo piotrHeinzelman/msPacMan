@@ -41,6 +41,7 @@ add_executable(msPacMan main.cpp
         src/Keyb.cpp
         src/Keyb.h
         src/TickRunner.cpp
+        tests/CppTests.cpp
 
 )
 

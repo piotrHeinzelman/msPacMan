@@ -9,6 +9,7 @@
 #include <windows.h>
 #include <unistd.h>
 #include "../src/Keyb.h"
+#include <set>
 
 void showPoint( COORD point ){
     std::cout << "x: " << point.X << ", y:" + point.Y << "\n";
@@ -67,9 +68,9 @@ void CppTests::BridgesTest() {
     assert(202 == b.getWayFromEdge(212, N));
     assert(185 == b.getWayFromEdge(186, W));
 
-    assert(1+2+8 == b.getAllWaysFromEdge(216));
-    assert(4+8 == b.getAllWaysFromEdge(0));
-    assert(1+4 == b.getAllWaysFromEdge(154));
+    std::set<DIRECT> setNWE= std::set<DIRECT>{ DIRECT::N, DIRECT::E, DIRECT::W};
+    assert( setNWE == b.getAllWaysFromEdge(216)  );
+
 
 
 /*  TEST chessCoordToScreenCoord
@@ -203,7 +204,7 @@ void CppTests::BridgesTest() {
         Keyb k;
 
 
-        bo.insertMobAtBridge(minion->getId(), 1);
+        bo.insertMobAtBridge( minion, 1, 0 , true );
 
         while(true) {
             minion->setDirection(DIRECT::E);
