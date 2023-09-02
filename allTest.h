@@ -140,6 +140,8 @@ void runLastTests() {
     b.drawOneMob( WhileLady );
     */
 
+
+
     std::cout << "\n\n\n\n\n\n\n\n\n\n";
     ConsoleDraw draw;
     draw.WriteColourChar({0,0}, '0');
@@ -165,13 +167,12 @@ void runLastTests() {
     Pac->setDirection( DIRECT::W );
     WhileLady->setDirection( DIRECT::E );
 
-    b.RunBoardTick();
+    //b.RunBoardTick();
 
     char chr;
     DWORD written;
-    for (int i=0;i<150;i++) {
+    for (int i=0;i<9999;i++) {
         draw.WriteColourChar({0, 0}, (char)i);
-        sleep(1);
     }
 
     return;
@@ -221,5 +222,41 @@ return;
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
     sleep(15);
 
+}
+
+
+void createClient(){
+    UDPClient* c;
+    c = new UDPClient();
+    char* buff="   ";
+    char* reply="   ";
+
+    while( true ){
+        if (GetAsyncKeyState(VK_UP) < 0) {         buff[0]=(char)DIRECT::N ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
+        else if (GetAsyncKeyState(VK_DOWN) < 0) {  buff[0]=(char)DIRECT::S ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
+        else if (GetAsyncKeyState(VK_RIGHT) < 0) { buff[0]=(char)DIRECT::E ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
+        else if (GetAsyncKeyState(VK_LEFT) < 0) {  buff[0]=(char)DIRECT::W ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
+
+    }
+
+    c->setBuff((char*)"first");
+    printf( "C>first\n" );
+    c->send();
+    printf( "C<%s\n", c->getBuff() );
+    delete c;
+
+    c = new UDPClient();
+    printf( "C>sec\n" );
+    c->setBuff((char*)"sec");
+    c->send();
+    printf( "C<%s\n", c->getBuff() );
+
+
+    printf( "C>koncz wasc!\n" );
+    c->setBuff((char*)"koncz Wasc!");
+    c->send();
+
+    printf( "C<%s\n", c->getBuff() );
+    delete c;
 }
 #endif //MSPACMAN_ALLTEST_H

@@ -21,9 +21,10 @@ void ConsoleDraw::WriteColourChar(SHORT x, SHORT y, char charCode , DWORD attrib
 }
 
 void ConsoleDraw::WriteColourChar( COORD cursor, char charCode ,DWORD attrib  ) {
+    cursor = { static_cast<SHORT>(cursor.X+3) , static_cast<SHORT>(cursor.Y+3) };
     chr[0] = charCode;
     //SetConsoleTextAttribute( hout, (WORD) 0x0F ); // White
-    SetConsoleCursorPosition( hout , {0,0});
+    //SetConsoleCursorPosition( hout , {0,0});
     WriteConsoleOutputCharacter(hout, reinterpret_cast<LPCSTR>(&chr), 1, cursor, &dwWritten);
 
 
