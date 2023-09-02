@@ -236,7 +236,8 @@ void createClient(){
         else if (GetAsyncKeyState(VK_DOWN) < 0) {  buff[0]=(char)DIRECT::S ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
         else if (GetAsyncKeyState(VK_RIGHT) < 0) { buff[0]=(char)DIRECT::E ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
         else if (GetAsyncKeyState(VK_LEFT) < 0) {  buff[0]=(char)DIRECT::W ; c->setBuff(buff); c->send(); reply=c->getBuff(); }
-
+        else buff=" ";
+        //if (reinterpret_cast<const char *>(buff[0]) != " "){std::cout << 30 + buff[0];};
     }
 
     c->setBuff((char*)"first");
