@@ -27,11 +27,10 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleDraw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleDraw.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,15 +161,7 @@
       <workItem from="1693531383965" duration="498000" />
       <workItem from="1693579188089" duration="20863000" />
       <workItem from="1693604655446" duration="11510000" />
-      <workItem from="1693638100579" duration="2511000" />
-    </task>
-    <task id="LOCAL-00007" summary="ADD INFO :: https://cpp0x.pl/artykuly/Inne-artykuly/C-C++-Programowanie-sieciowe-TCP-i-UDP-pod-Linuxem/66">
-      <option name="closed" value="true" />
-      <created>1693045911078</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1693045911078</updated>
+      <workItem from="1693638100579" duration="4013000" />
     </task>
     <task id="LOCAL-00008" summary="ADD INFO">
       <option name="closed" value="true" />
@@ -556,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693638768488</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Test :: draw">
+      <option name="closed" value="true" />
+      <created>1693640662723</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1693640662723</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +569,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ADD :: thread" />
     <MESSAGE value="ADD :: test in thread !" />
     <MESSAGE value="TEST :: Client / Server in thread DONE" />
     <MESSAGE value="ADD :: Tick 500ms" />
@@ -595,7 +593,8 @@
     <MESSAGE value="Board :: add vector&lt;Mod*&gt;" />
     <MESSAGE value="mobiles go E" />
     <MESSAGE value="FIX :: TESTS" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX :: TESTS" />
+    <MESSAGE value="Test :: draw" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test :: draw" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

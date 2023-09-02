@@ -178,11 +178,10 @@ void Board::drawOneMob( Mob* mob ) {
     int mobY = startPoint.Y;
     // correction  point
     if ( mob->isW() ){
-        mobX += 0 ; // mob->getStep()-STEPS/2+1;
+        mobX += mob->getStep();
     } else {
-        mobX++;
-        if ( mob->getStep()<2) { mobY--; }
-        if ( mob->getStep()<4) { mobY++; }
+       if (mob->getStep()>1) mobY++;
+       if (mob->getStep()>4) mobY++;
     }
 
     char avatar='P';//1;

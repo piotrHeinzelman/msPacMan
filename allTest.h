@@ -103,6 +103,8 @@ void runAllTests(){
 
 void runLastTests() {
 
+    // test coordinate
+    /*
     std::cout <<"\n";
     Board b;
     Bridges br;
@@ -110,14 +112,14 @@ void runLastTests() {
 
     Mob* Pac = new Mob( 4, "mr. Pac" , &b, false );
     b.addMob( Pac );
-    b.insertMobAtBridge( Pac, 10 , 0 , false );
+    b.insertMobAtBridge( Pac, 10 , 3 , false );
     //std::cout << "exists: N:" <<Pac->getExits().count(DIRECT::N)  <<"\n";
     //std::cout << "exists: E:" <<Pac->getExits().count(DIRECT::E)  <<"\n";
 
 
     Mob* WhileLady = new Mob ( 1 , "White Lady" , &b , true );
     b.addMob( WhileLady );
-    b.insertMobAtBridge( WhileLady, 1 , 6 , true );
+    b.insertMobAtBridge( WhileLady, 10 , 4 , false );
     //std::cout << "exists: N:" <<WhileLady->getExits().count(DIRECT::N)  <<"\n";
     //std::cout << "exists: E:" <<WhileLady->getExits().count(DIRECT::E)  <<"\n";
 
@@ -136,16 +138,39 @@ void runLastTests() {
     std::cout << "\n\n\n\n\n";
     b.drawOneMob( Pac );
     b.drawOneMob( WhileLady );
+    */
+
+    ConsoleDraw draw;
+    draw.WriteColourChar({0,0}, '0');
+    Board b;
+    Bridges br;
+    std::cout << "\n\n\n\n\n"; //\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+
+    Mob* Pac = new Mob( 4, "mr. Pac" , &b, false );
+    b.addMob( Pac );
+    b.insertMobAtBridge( Pac, 1 , STEPS , true );
+
+    Mob* WhileLady = new Mob ( 1 , "White Lady" , &b , true );
+    b.addMob( WhileLady );
+    b.insertMobAtBridge( WhileLady, 3 , STEPS , false );
 
 
 
+    b.drawOneMob( Pac );     b.drawOneMob( WhileLady );
+    b.moveMobNextStep( Pac ); b.moveMobNextStep( WhileLady );
+    b.drawAllMob();
+    b.moveAllMobs();
 
+    Pac->setDirection( DIRECT::W );
+    WhileLady->setDirection( DIRECT::E );
 
-    return;
+    for (int i=0;i<10;i++){
+        b.drawAllMob();
+        b.moveAllMobs();
+        //usleep(10000);
+    }
+return;
 
-    std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-    //b.drawBoard();
-    b.drawOneMob( Pac );
     Pac->setDirection( DIRECT::N );
 
     b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
