@@ -394,7 +394,7 @@ HANDLE Board::getHandle() {
 
 void Board::CreateServer(Mob *mob) {
         UDPServ ts = UDPServ(8080 );
-            ts.rec(); // odbior danych przez UDP
+            //ts.rec(); // odbior danych przez UDP
 
 
 
@@ -408,6 +408,8 @@ void Board::CreateServer(Mob *mob) {
                 case 'E': mob->setDirection( DIRECT::E ); break;
                 default: break;
             }
+            ts.setBuff(".");
+            ts.snd();
 
             //printf( "S<%s\n",ts.getBuff() );
         }

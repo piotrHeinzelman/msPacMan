@@ -28,13 +28,11 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/clientOut.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/clientOut.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,15 +163,7 @@
       <workItem from="1693531383965" duration="498000" />
       <workItem from="1693579188089" duration="20863000" />
       <workItem from="1693604655446" duration="11510000" />
-      <workItem from="1693638100579" duration="13750000" />
-    </task>
-    <task id="LOCAL-00015" summary="TEST :: Client / Server in thread DONE">
-      <option name="closed" value="true" />
-      <created>1693083760175</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1693083760175</updated>
+      <workItem from="1693638100579" duration="14331000" />
     </task>
     <task id="LOCAL-00016" summary="TEST :: Client / Server in thread DONE">
       <option name="closed" value="true" />
@@ -559,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693650513502</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="create client without std">
+      <option name="closed" value="true" />
+      <created>1693652378641</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1693652378641</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

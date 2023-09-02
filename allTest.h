@@ -237,15 +237,16 @@ return;
 void createClient(){
     UDPClient* c;
     c = new UDPClient();
-    char* buff="           ";
-    char* reply="          ";
+    char* buff=(char*) "  ";
+    char* reply=(char*) "  ";
+    bool echo=true;
 
     while( true ){
         while( true ){
-        if (GetKeyState(VK_UP   ) < 0 && (buff!="N")) { buff="N" ;/*std::cout << buff;*/ c->setBuff(buff); c->send(); reply=c->getBuff(); }
-        if (GetKeyState(VK_DOWN ) < 0 && (buff!="S")) { buff="S" ;/*std::cout << buff;*/ c->setBuff(buff); c->send(); reply=c->getBuff(); }
-        if (GetKeyState(VK_LEFT ) < 0 && (buff!="W")) { buff="W" ;/*std::cout << buff;*/ c->setBuff(buff); c->send(); reply=c->getBuff(); }
-        if (GetKeyState(VK_RIGHT) < 0 && (buff!="E")) { buff="E" ;/*std::cout << buff;*/ c->setBuff(buff); c->send(); reply=c->getBuff(); }
+        if (GetKeyState(VK_UP   ) < 0 && (buff[0]!='N')) { buff[0]='N' ; if (echo) {std::cout << buff; } ; c->setBuff(buff); c->send(); c->getBuff(); }
+        if (GetKeyState(VK_DOWN ) < 0 && (buff[0]!='S')) { buff[0]='S' ; if (echo) {std::cout << buff; } ; c->setBuff(buff); c->send(); c->getBuff(); }
+        if (GetKeyState(VK_LEFT ) < 0 && (buff[0]!='W')) { buff[0]='W' ; if (echo) {std::cout << buff; } ; c->setBuff(buff); c->send(); c->getBuff(); }
+        if (GetKeyState(VK_RIGHT) < 0 && (buff[0]!='E')) { buff[0]='E' ; if (echo) {std::cout << buff; } ; c->setBuff(buff); c->send(); c->getBuff(); }
         }
     }
 
