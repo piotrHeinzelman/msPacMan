@@ -51,7 +51,7 @@ public:
 
     virtual ~UDPServ();
 
-    void rec();
+    int rec();
     void snd();
     char* getBuff();
     void setBuff( char* data );

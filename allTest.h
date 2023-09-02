@@ -141,13 +141,7 @@ void runLastTests() {
     */
 
 
-    Board b1;
-    b1.prepare();
-    //b1.RunBoardTick();
-    b1.CreateServer( b1.getPlayersMob() );
 
-
-    return;
 
 
 

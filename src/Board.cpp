@@ -23,8 +23,9 @@ Board::Board() {
 // THREAD !
 DWORD runTickInThread( Board* b ){
     while(true){
-        b->BoardTick();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
+        //b->BoardTick();
+        b->ServerTick();
+        std::this_thread::sleep_for(std::chrono::milliseconds(10000 ));
     }
     return 0;
 }
@@ -36,12 +37,32 @@ void Board::RunBoardTick() {
 }
 
 
+
+void Board::ServerTick(){
+
+        int len = ts.rec(); // odbior danych przez UDP
+        if ( len==0 ) return;
+        char buf='.';
+
+        std::cout << ts.getBuff();
+
+        switch( ts.getBuff()[0] ){
+            case 'N': player->setDirection( DIRECT::N ); break;
+            case 'S': player->setDirection( DIRECT::S ); break;
+            case 'W': player->setDirection( DIRECT::W ); break;
+            case 'E': player->setDirection( DIRECT::E ); break;
+            default: break;
+        }
+        ts.setBuff( &buf );
+        ts.snd();
+}
+
 void Board::BoardTick(){
     //allMobCheckControllers();
     //clearAllUsedBridge();
-    //moveAllMobs();
+    moveAllMobs();
     drawAllMob();
-        //std::cout << "BoardTick";
+        std::cout << "BoardTick";
         //std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
 }
 
@@ -393,14 +414,20 @@ HANDLE Board::getHandle() {
 }
 
 void Board::CreateServer(Mob *mob) {
-        UDPServ ts = UDPServ(8080 );
+    UDPServ ts = UDPServ(8080 );
+    ts.rec(); // odbior danych przez UDP
+    player = mob;
+    //std::cout << mob->getPoints();
+
             //ts.rec(); // odbior danych przez UDP
 
-
+            /*
 
         bool guard=false;
         while( !guard ){
             ts.rec(); // odbior danych przez UDP
+            std::cout << ts.getBuff();
+
             switch( ts.getBuff()[0] ){
                 case 'N': mob->setDirection( DIRECT::N ); break;
                 case 'S': mob->setDirection( DIRECT::S ); break;
@@ -410,11 +437,11 @@ void Board::CreateServer(Mob *mob) {
             }
             ts.setBuff(".");
             ts.snd();
-
+            usleep(10000);
             //printf( "S<%s\n",ts.getBuff() );
         }
         printf("Koncze!\n");
-
+        */
 }
 
 

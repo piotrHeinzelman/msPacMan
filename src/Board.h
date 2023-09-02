@@ -156,6 +156,9 @@ private:
     Keyb k;
     int ghostIntel=0;
 
+    Mob* player;
+    UDPServ ts;
+
 public:
     Board();
     void BoardTick();
@@ -164,6 +167,7 @@ public:
     void drawBoard();
 
     void CreateServer(Mob* mob);
+    void ServerTick();
 
 
     void addMob( Mob* mob );
