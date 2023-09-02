@@ -178,7 +178,7 @@ void Board::drawOneMob( Mob* mob ) {
     int mobY = startPoint.Y;
     // correction  point
     if ( mob->isW() ){
-        mobX += mob->getStep()-STEPS/2+1;
+        mobX += 0 ; // mob->getStep()-STEPS/2+1;
     } else {
         mobX++;
         if ( mob->getStep()<2) { mobY--; }

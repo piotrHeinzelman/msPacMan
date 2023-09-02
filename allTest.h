@@ -103,22 +103,45 @@ void runAllTests(){
 
 void runLastTests() {
 
+    std::cout <<"\n";
     Board b;
+    Bridges br;
     //b.drawBoard();
 
     Mob* Pac = new Mob( 4, "mr. Pac" , &b, false );
     b.addMob( Pac );
-    b.insertMobAtBridge( Pac, 20 , 6 , false );
+    b.insertMobAtBridge( Pac, 10 , 0 , false );
     //std::cout << "exists: N:" <<Pac->getExits().count(DIRECT::N)  <<"\n";
     //std::cout << "exists: E:" <<Pac->getExits().count(DIRECT::E)  <<"\n";
 
 
     Mob* WhileLady = new Mob ( 1 , "White Lady" , &b , true );
     b.addMob( WhileLady );
-    b.insertMobAtBridge( WhileLady, 10 , 3 , false );
+    b.insertMobAtBridge( WhileLady, 1 , 6 , true );
     //std::cout << "exists: N:" <<WhileLady->getExits().count(DIRECT::N)  <<"\n";
     //std::cout << "exists: E:" <<WhileLady->getExits().count(DIRECT::E)  <<"\n";
 
+
+    ConsoleDraw draw;
+                draw.WriteColourChar({0,0}, '0');
+                std::cout <<"\n\n\n"<< "Bridge: "<< Pac->getBridge() << ", bridgeCenter coords: X: " << br.getCoordOfCenterBridge ( Pac->getBridge()).X << ",Y: " << br.getCoordOfCenterBridge ( Pac->getBridge()).Y;
+                int startEdge = br.edgeChessPosition( Pac->getBridge() , true ); int endEdge = br.edgeChessPosition( Pac->getBridge() , false );
+                std::cout <<"\n"<< "startEdge coords: X: " << br.getCoordOfEdge( startEdge).X << ",Y: " << br.getCoordOfEdge ( startEdge).Y << ", endEdge coords: X: " << br.getCoordOfEdge( endEdge ).X << ",Y: " << br.getCoordOfEdge ( endEdge ).Y;
+
+    draw.WriteColourChar(br.getCoordOfEdge ( startEdge), 's');
+    draw.WriteColourChar(br.getCoordOfCenterBridge ( Pac->getBridge()), 'c');
+    draw.WriteColourChar(br.getCoordOfEdge ( endEdge), 'e');
+
+
+    std::cout << "\n\n\n\n\n";
+    b.drawOneMob( Pac );
+    b.drawOneMob( WhileLady );
+
+
+
+
+
+    return;
 
     std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     //b.drawBoard();

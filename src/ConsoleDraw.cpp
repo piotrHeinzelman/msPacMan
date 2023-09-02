@@ -24,6 +24,8 @@ void ConsoleDraw::WriteColourChar( COORD cursor, char charCode ,DWORD attrib  ) 
     chr[0] = charCode;
     SetConsoleTextAttribute( hout, (WORD) 0x0F ); // White
 
-    COORD dst = { static_cast<SHORT>(3+cursor.X) , static_cast<SHORT>(3+cursor.Y) };
+    int x=0;//+3;
+    int y=0;//+3;
+    COORD dst = { static_cast<SHORT>(x+cursor.X) , static_cast<SHORT>(y+cursor.Y) };
     WriteConsoleOutputCharacter(hout, chr, strlen(chr), dst, &dwWritten);
 }
