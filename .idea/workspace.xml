@@ -22,23 +22,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/allTest.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridges.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridges.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridges.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridges.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mob.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mob.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,15 +161,7 @@
       <workItem from="1693529594047" duration="1764000" />
       <workItem from="1693531383965" duration="498000" />
       <workItem from="1693579188089" duration="20863000" />
-      <workItem from="1693604655446" duration="7070000" />
-    </task>
-    <task id="LOCAL-00002" summary="ADD :: TEST CppUnit">
-      <option name="closed" value="true" />
-      <created>1692838570213</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1692838570213</updated>
+      <workItem from="1693604655446" duration="9344000" />
     </task>
     <task id="LOCAL-00003" summary="ADD :: TEST CppUnit">
       <option name="closed" value="true" />
@@ -563,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693606279594</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="mobiles go E">
+      <option name="closed" value="true" />
+      <created>1693611868586</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1693611868586</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +569,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ADD INFO" />
     <MESSAGE value="Serv :: konstruktor z domyslnym portem" />
     <MESSAGE value="ADD :: thread" />
     <MESSAGE value="ADD :: test in thread !" />
@@ -602,7 +593,8 @@
     <MESSAGE value="move ON" />
     <MESSAGE value="-- new --" />
     <MESSAGE value="Board :: add vector&lt;Mod*&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Board :: add vector&lt;Mod*&gt;" />
+    <MESSAGE value="mobiles go E" />
+    <option name="LAST_COMMIT_MESSAGE" value="mobiles go E" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

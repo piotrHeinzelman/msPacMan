@@ -107,7 +107,6 @@ void Board::setMobDirection(Mob *mob, DIRECT direction) {
 
 
 void Board::moveMobNextStep( Mob* mob ){
-  //  if ( mob->getStep()!=0 && mob->getStep()!=STEPS ){ // step++
         int step=mob->getStep();
         if ( mob->isW() ){
             if ( mob->getDirection()==DIRECT::E ) { step++ ; }
@@ -117,19 +116,46 @@ void Board::moveMobNextStep( Mob* mob ){
             if ( mob->getDirection()==DIRECT::N ) { step--; }
         }
         mob->setStep(step);
-        // in range
-        if ( mob->getStep()>-1 && mob->getStep()<1+STEPS) return;
 
+        // in range
+        if ( mob->getStep()>=0 && mob->getStep()<=STEPS) return;
         // out range
         bool onStart=false;
         if ( mob->getStep()<0 ) { mob->setStep(0); onStart=true; } else { mob->setStep(STEPS); }
         int edge = b.edgeChessPosition( mob->getBridge(), onStart );
         mob->getExits() = b.getAllWaysFromEdge( edge );
+        //nextDirection
+        if ( mob->getExits().count(mob->getNextDirection())>0 && mob->getNextDirection()!=DIRECT::STOP ){ mob->setDirection( mob->getNextDirection());  }
         if ( mob->getExits().count(mob->getDirection())>0 ){
             if ( mob->getStep()==0 ) { mob->setStep(STEPS); } else { mob->setStep(0); }
-            moveMobNextBridge( mob );
+            moveMobNextBridge( mob , onStart );
         }
 }
+
+
+
+void Board::moveMobNextBridge( Mob* mob ,bool onStart ){
+    int actualBridgeNum = mob->getBridge();
+    int edge = b.edgeChessPosition( actualBridgeNum, (mob->getDirection()==DIRECT::W ||  mob->getDirection()==DIRECT::N) );
+    if ( b.isExistsWayFromEdge( edge, mob->getDirection() ) ){
+
+        int nextBridge = b.getWayFromEdge(edge, mob->getDirection());
+        mob->setBridge(nextBridge);
+        int newPos=0;
+        if ( mob->getDirection()==DIRECT::W || mob->getDirection()==N ) { newPos=STEPS;}
+        mob->setStep(newPos);
+        mob->isW( b.isW( mob->getBridge()));
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 void Board::drawAllMob(){
@@ -168,21 +194,6 @@ void Board::moveAllMobs(){
     }
 }
 
-
-
-void Board::moveMobNextBridge( Mob* mob ){
-    int actualBridgeNum = mob->getBridge();
-    int edge = b.edgeChessPosition( actualBridgeNum, (mob->getDirection()==DIRECT::W ||  mob->getDirection()==DIRECT::N) );
-    if ( b.isExistsWayFromEdge( edge, mob->getDirection() ) ){
-
-        int nextBridge = b.getWayFromEdge(edge, mob->getDirection());
-        mob->setBridge(nextBridge);
-        int newPos=0;
-        if ( mob->getDirection()==DIRECT::W || mob->getDirection()==N ) { newPos=STEPS;}
-        mob->setStep(newPos);
-        mob->isW( b.isW( mob->getBridge()));
-    }
-}
 
 
 
