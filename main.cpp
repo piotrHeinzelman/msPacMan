@@ -13,7 +13,7 @@
 
 int main() {
 
-    createClient(); return 0;
+    //createClient(); return 0;
 
     bool cppTest=!true;  // uruchomic cppcheck
     bool allTest=!true;  // czy uruchamic wszystkie testy
