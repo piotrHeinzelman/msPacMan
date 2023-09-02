@@ -17,11 +17,19 @@ int main() {
 
     Board b1;
     b1.prepare();
+    b1.CreateServer( b1.getPlayersMob() );
     //b1.RunBoardTick();
     b1.RunBoardTick();
-    b1.CreateServer( b1.getPlayersMob() );
 
-    sleep(10);
+    while (true){
+        b1.BoardTick();
+    }
+
+
+
+
+
+    sleep(20);
     return 0;
 
 

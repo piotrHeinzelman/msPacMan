@@ -25,7 +25,7 @@ DWORD runTickInThread( Board* b ){
     while(true){
         //b->BoardTick();
         b->ServerTick();
-        std::this_thread::sleep_for(std::chrono::milliseconds(10000 ));
+        std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
     }
     return 0;
 }
@@ -55,6 +55,7 @@ void Board::ServerTick(){
         }
         ts.setBuff( &buf );
         ts.snd();
+        return;
 }
 
 void Board::BoardTick(){
