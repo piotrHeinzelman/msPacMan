@@ -13,40 +13,14 @@
 #include "Keyb.h"
 #include <future>
 
-
-
-Board::Board() {
-    //prepare();
-    //RunBoardTick();
-}
-
-
-// THREAD !
-DWORD runTickInThread( Board* b ){
-    while(true){
+DWORD WINAPI BoardThreadFunc( Board* board ) {
+    Mob* player = board->getPlayersMob();
+    UDPServ ts=UDPServ(8080);
+    char buf='.';
+    while(1){
         std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
-        //b->BoardTick();
-        b->ServerTick();
-        //std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
-    }
-    return 0;
-}
-
-void Board::RunBoardTick() {
-    //std::thread t( runTickInThread, this  );
-    //std::thread t( runTickInThread, this  );
-    std::async( runTickInThread, this  );
-}
-
-
-
-void Board::ServerTick(){
-
         int len = ts.rec(); // odbior danych przez UDP
-        if ( len==0 ) return;
-        char buf='.';
-
-        //std::cout << ts.getBuff();
+        if ( len==0 ) { continue; }
 
         switch( ts.getBuff()[0] ){
             case 'N': player->setDirection( DIRECT::N ); break;
@@ -57,16 +31,12 @@ void Board::ServerTick(){
         }
         ts.setBuff( &buf );
         ts.snd();
-        return;
+    }
 }
 
-void Board::BoardTick(){
-    //allMobCheckControllers();
-    clearAllUsedBridge();
-    moveAllMobs();
-    drawAllMob();
-        //std::cout << "BoardTick";
-        std::this_thread::sleep_for(std::chrono::milliseconds(200 ));
+
+Board::Board() {
+    HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(BoardThreadFunc), this, 1, NULL);
 }
 
 
@@ -234,17 +204,12 @@ void Board::clearBridge( int i ){
     for ( int x=sx; x<=ex ; x++ ){
         for ( int y=sy; y<=ey ; y++ ){
             cdraw.WriteColourChar( {static_cast<SHORT>(x),static_cast<SHORT>(y)} , ' ' );
-
         }
     }
 }
 
 
-void Board::allMobCheckControllers() {
-    for ( Mob* mob : mobs ){
-        mobCheckController( mob );
-    }
-}
+
 
 
 void Board::mobCheckController( Mob* mob ) {
@@ -257,9 +222,9 @@ void Board::mobCheckController( Mob* mob ) {
     else {
         ghostIntel++;
         if (ghostIntel%10==3) mob->setDirection( DIRECT::N );
-        if (ghostIntel%10==3) mob->setDirection( DIRECT::S );
-        if (ghostIntel%10==3) mob->setDirection( DIRECT::W );
-        if (ghostIntel%10==3) mob->setDirection( DIRECT::E );
+        if (ghostIntel%10==7) mob->setDirection( DIRECT::S );
+        if (ghostIntel%11==4) mob->setDirection( DIRECT::W );
+        if (ghostIntel%15==2) mob->setDirection( DIRECT::E );
     }
     cdraw.WriteColourChar({0,0}, (char) mob->getDirection());
     //std::cout << mob->getDirection();
@@ -280,15 +245,6 @@ Mob *Board::getPlayersMob() {
 
 
 
-
-
-
-
-
-
-
-
-
 void Board::showInfo( Mob* mob ){
     std::cout << "id:" << mob->getId()<<"\n";
 }
@@ -297,24 +253,9 @@ void Board::showInfo( Mob* mob ){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void Board::drawBoard() {
     
-    int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
         for (int i = 0; i < LIMIT; i++) {  // walls
             if ( !b.isExsits( i ) ) { continue; }
@@ -413,44 +354,6 @@ void Board::redrawBridge( int bridgeNum ){
     drawDotsOfBridge ( bridgeNum );
     //drawAllMobOnBridge ( bridgeNum );
 }
-
-HANDLE Board::getHandle() {
-    return cdraw.getHandle();
-}
-
-void Board::CreateServer(Mob *mob) {
-    UDPServ ts = UDPServ(8080 );
-    ts.rec(); // odbior danych przez UDP
-    player = mob;
-    //std::cout << mob->getPoints();
-
-            //ts.rec(); // odbior danych przez UDP
-
-            /*
-
-        bool guard=false;
-        while( !guard ){
-            ts.rec(); // odbior danych przez UDP
-            std::cout << ts.getBuff();
-
-            switch( ts.getBuff()[0] ){
-                case 'N': mob->setDirection( DIRECT::N ); break;
-                case 'S': mob->setDirection( DIRECT::S ); break;
-                case 'W': mob->setDirection( DIRECT::W ); break;
-                case 'E': mob->setDirection( DIRECT::E ); break;
-                default: break;
-            }
-            ts.setBuff(".");
-            ts.snd();
-            usleep(10000);
-            //printf( "S<%s\n",ts.getBuff() );
-        }
-        printf("Koncze!\n");
-        */
-}
-
-
-
 
 
 

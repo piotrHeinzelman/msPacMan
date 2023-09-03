@@ -50,6 +50,8 @@ public:
     char* getBuff();
     void setBuff( char* data );
 
+
+
 };
 
 

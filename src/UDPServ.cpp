@@ -32,7 +32,7 @@ UDPServ::UDPServ(int port_ ) {
     iResult = bind( sock_fd , (const sockaddr*) &server , sizeof (server) );
         IsError(sock_fd, "Error socket creation");
 
-    printf("UDPServ::UDPServ()\n      port:%i, sock_fd:%i, servAddr: %x\n" , port_ , sock_fd, server.sin_addr.S_un.S_addr );
+    //printf("UDPServ::UDPServ()\n      port:%i, sock_fd:%i, servAddr: %x\n" , port_ , sock_fd, server.sin_addr.S_un.S_addr );
 
 }
 
@@ -42,6 +42,7 @@ int UDPServ::rec(){
         int message_len;
         int slen = sizeof(sockaddr_in);
         ZeroMemory(recbuf,BUFFSIZE);
+
         message_len = recvfrom(sock_fd, recbuf, BUFFSIZE, 0, (sockaddr*)&client, &slen) ;
         if (message_len== SOCKET_ERROR){
                 printf("recvfrom() failed with error code: %d", WSAGetLastError());

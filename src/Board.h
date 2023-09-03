@@ -157,17 +157,15 @@ private:
     int ghostIntel=0;
 
     Mob* player;
-    UDPServ ts=UDPServ(8080);
+//    UDPServ ts=UDPServ(8080);
 
 public:
     Board();
-    void BoardTick();
-    void RunBoardTick();
     void prepare();
     void drawBoard();
 
-    void CreateServer(Mob* mob);
-    void ServerTick();
+
+
 
 
     void addMob( Mob* mob );
@@ -180,7 +178,6 @@ public:
     void drawAllMob();
     void drawOneMob( Mob* mob );
 
-    void allMobCheckControllers();
     void mobCheckController(Mob* mob);
 
     HANDLE getHandle();

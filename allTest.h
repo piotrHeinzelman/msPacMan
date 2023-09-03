@@ -233,7 +233,7 @@ void createClient(){
     c = new UDPClient();
     char buff[3]={0};
     char reply[3]={0};
-    bool echo=true;
+    bool echo=false;
 
     while( true ){
         while( true ){
@@ -243,6 +243,10 @@ void createClient(){
         if (GetKeyState(VK_RIGHT) < 0 && (buff[0]!='E')) { buff[0]='E' ; if (echo) {std::cout << buff[0]; } ; c->setBuff(buff); c->send(); c->getBuff(); }
         }
     }
-
 }
+
+
+
+
+
 #endif //MSPACMAN_ALLTEST_H
