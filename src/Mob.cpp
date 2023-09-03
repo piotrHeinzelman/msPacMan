@@ -46,6 +46,10 @@ void Mob::isW( bool isW ) { isW_ = isW; }
 
 
 
+bool Mob::isGoForwart() const { return goForwart; }
+
+void Mob::setGoForwart(bool goForwart) { Mob::goForwart = goForwart; }
+
 
 
 

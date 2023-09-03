@@ -5,6 +5,6 @@
 #ifndef MSPACMAN_DIRECT_H
 #define MSPACMAN_DIRECT_H
 
-typedef  enum  { N=-20, W=-2, S=+20, E=+2, STOP } DIRECT;
+typedef  enum  { N=0, W=1, S=2, E=3, STOP=4 } DIRECT;
 
 #endif //MSPACMAN_DIRECT_H

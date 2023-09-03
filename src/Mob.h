@@ -20,6 +20,7 @@ class Mob {
 private:
     int id;
     int step;
+    bool goForwart; // ?
     int bridge;
 
     std::set<DIRECT> exits={};//= {DIRECT::N, DIRECT::S};
@@ -43,9 +44,11 @@ public:
 
 // getters / setters
 
+    bool isGoForwart() const;
 
+    void setGoForwart(bool goForwart);
 
-      int getBridge();
+    int getBridge();
      void setBridge(int bridgeNum);
 
       int getStep();
