@@ -167,11 +167,7 @@ public:
 
 
     void addMob( Mob* mob );
-
     void insertMobAtBridge( Mob* mob , int bridge, int step , bool isW );
-    void moveMobNextStep(Mob* mob);
-    void moveMobNextBridge(Mob* mob, bool onStart);
-
 
     void drawAllMob();
     void drawOneMob( Mob* mob );
@@ -192,14 +188,14 @@ public:
     void drawAllDots();
     void drawDotsOfBridge( int i );
 
-
+    void Collision( Mob* one , Mob* two );
 
     void moveAllMobs();
-    void moveOneMob( int mobId );
-    void clearBridge( int bridgeNum );
+
+    void clearBridge( Bridge* pB );
     void clearAllUsedBridge();
     void redrawAllBridge();
-    void redrawBridge( int bridgeNum );
+    void redrawBridge( Bridge* pB );
 
     void eatDot( Mob* mob , COORD );
 

@@ -23,6 +23,7 @@
 #include "DIRECT.h"
 #include "../tests/CppTests.h"
 #include "ConsoleDraw.h"
+#include "Bridge.h"
 
 
 /*
@@ -37,6 +38,7 @@ friend class CppTests;
 
 private:
     char* bridgesData = nullptr;  // Bridges` data place
+    Bridge* bridgeAry[256]={nullptr};
     ConsoleDraw draw;             // drawing class
 
 public:
@@ -69,6 +71,8 @@ public:
         COORD _getScreenCoordofCheesCoord(const COORD & chess ); // INNER USE ONLY convert chessCoord to screenCoord  w=w*3 h=h
         COORD _getCheesCoordOfCenterBridge(int i );           // INNER USE ONLY
 
+
+    Bridge* getBridgeByInt( int bridgeNum );
 };
 
 

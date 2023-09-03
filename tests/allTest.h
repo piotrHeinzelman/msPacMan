@@ -7,10 +7,10 @@
 
 
 #include <unistd.h>
-#include "src/UDPServ.h"
-#include "src/UDPClient.h"
-#include "src/Bridges.h"
-#include "src/Board.h"
+#include "../src/UDPServ.h"
+#include "../src/UDPClient.h"
+#include "../src/Bridges.h"
+#include "../src/Board.h"
 
 
 DWORD WINAPI runTestInThread_test(LPVOID lpParameter ) {
@@ -163,7 +163,7 @@ void runLastTests() {
 
 
     b.drawOneMob( Pac );     b.drawOneMob( WhileLady );
-    b.moveMobNextStep( Pac ); b.moveMobNextStep( WhileLady );
+    //b.moveMobNextStep( Pac ); b.moveMobNextStep( WhileLady );
     b.drawAllMob();
     b.moveAllMobs();
 
@@ -195,34 +195,27 @@ return;
 
     Pac->setDirection( DIRECT::N );
 
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+
     Pac->setNextDirection( DIRECT::E );
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
     Pac->setNextDirection( DIRECT::S );
 
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
-    b.moveMobNextStep( Pac ); b.drawOneMob( Pac );std::cout << Pac->getStep();
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
+    b.moveAllMobs(  ); b.drawOneMob( Pac );
     sleep(15);
 
 }

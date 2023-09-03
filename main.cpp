@@ -2,7 +2,7 @@
 #include <iostream>
 #include <future>
 #include <thread>
-#include "allTest.h"
+#include "tests/allTest.h"
 #include "src/ConsoleDraw.h"
 #include "tests/CppTests.h"
 #include "src/UDPServ.h"

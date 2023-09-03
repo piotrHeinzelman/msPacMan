@@ -21,52 +21,29 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Bridge.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Bridge.h" afterDir="false" />
+    <list default="true" id="84b36b31-b2cb-4c85-8e33-e9559c8c2210" name="Changes" comment="add class Bridge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-fd8ad0a51d6442fc9ffb.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-615a6bd9648a8361b928.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-6567aa6436ec296d309a.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-09-03T01-45-20-0360.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-e5a55b5ea77ed2cdc97b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-d85c63b437264b77ea2c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/allTest.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-c0d85cc2dc6b1de9f900.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-99ccfff78ff067c07a8a.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-09-03T22-22-33-0564.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-09-03T23-01-26-0130.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-27268a1d5997aac8491c.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-msPacMan-Debug-2f180fba79a9b95cff65.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeRCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/ConsoleDraw.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/ConsoleDraw.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Dot.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Dot.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Keyb.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/TickRunner.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/map.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/set.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Bridge.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Dot.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/info/Untitled-1.indd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DIRECT.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/DIRECT.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bridges.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridges.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bridges.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridges.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Mob.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Mob.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.h" afterDir="false" />
     </list>
@@ -201,15 +178,8 @@
       <workItem from="1693702400487" duration="3056000" />
       <workItem from="1693771165731" duration="62000" />
       <workItem from="1693771253452" duration="5187000" />
-      <workItem from="1693780274224" duration="307000" />
-    </task>
-    <task id="LOCAL-00025" summary="Board">
-      <option name="closed" value="true" />
-      <created>1693277949373</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1693277949373</updated>
+      <workItem from="1693780274224" duration="1641000" />
+      <workItem from="1693782022444" duration="1736000" />
     </task>
     <task id="LOCAL-00026" summary="Color console">
       <option name="closed" value="true" />
@@ -595,7 +565,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693704000614</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="add class Bridge">
+      <option name="closed" value="true" />
+      <created>1693780665897</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1693780665898</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,7 +587,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Board" />
     <MESSAGE value="Color console" />
     <MESSAGE value="char code" />
     <MESSAGE value="draw board I" />
@@ -634,7 +611,8 @@
     <MESSAGE value="update client" />
     <MESSAGE value="update server" />
     <MESSAGE value="Thread, Net connection, local Client" />
-    <option name="LAST_COMMIT_MESSAGE" value="Thread, Net connection, local Client" />
+    <MESSAGE value="add class Bridge" />
+    <option name="LAST_COMMIT_MESSAGE" value="add class Bridge" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -9,6 +9,7 @@
 #include "Bridges.h"
 #include "UDPServ.h"
 #include "UDPClient.h"
+#include "Bridge.h"
 #include <future>
 #include <thread>
 
@@ -87,8 +88,11 @@ void Board::addMob( Mob* mob ){
 
 
 
-void Board::insertMobAtBridge( Mob* mob , int bridge , int step , bool isW ){
-    mob->setBridge( bridge );
+void Board::insertMobAtBridge( Mob* mob , int bridgeNum , int step , bool isW ){
+
+    Bridge * pBridge = b.getBridgeByInt(bridgeNum);
+    if ( pBridge==nullptr ) { throw std::runtime_error("nie ma takiego mostu!");}
+    mob->setBridge( pBridge );
     mob->setStep( step );
     mob->isW( isW );
     std::set<DIRECT> &set = mob->getExits(); set.clear();
@@ -109,48 +113,27 @@ void Board::setMobDirection(Mob *mob, DIRECT direction) {
 
 void Board::moveAllMobs(){
     for ( Mob* mob : mobs ){
-        moveMobNextStep( mob );
+        mob->gotoNextStep();
     }
-}
+    // check collision
 
-
-void Board::moveMobNextStep( Mob* mob ){
-        int step=mob->getStep();
-        if ( mob->isW() ){
-            if ( mob->getDirection()==DIRECT::E ) { step++ ; }
-            if ( mob->getDirection()==DIRECT::W ) { step-- ; }
+    Bridge* checkedBridge = nullptr;
+       Mob* checkedMob    = nullptr;
+    for ( Mob* mob : mobs ){
+        if ( checkedBridge == nullptr ){
+            checkedBridge=mob->getBridge(); checkedMob = mob;
         } else {
-            if ( mob->getDirection()==DIRECT::S ) { step++; }
-            if ( mob->getDirection()==DIRECT::N ) { step--; }
+            if ( checkedBridge == mob->getBridge() ) { Collision( checkedMob , mob  ); }
         }
-        mob->setStep(step);
-
-        // in range
-        if ( mob->getStep()>=0 && mob->getStep()<=STEPS) return;
-        // out range
-        bool onStart=false;
-        if ( mob->getStep()<0 ) { mob->setStep(0); onStart=true; } else { mob->setStep(STEPS); }
-        int edge = b.edgeChessPosition( mob->getBridge(), onStart );
-        mob->getExits() = b.getAllWaysFromEdge( edge );
-        //nextDirection
-        if ( mob->getExits().count(mob->getNextDirection())>0 && mob->getNextDirection()!=DIRECT::STOP ){ mob->setDirection( mob->getNextDirection()); mob->setNextDirection( DIRECT ::STOP );  }
-        if ( mob->getExits().count(mob->getDirection())>0 ){
-            moveMobNextBridge( mob , onStart );
-        }
-}
-
-
-
-void Board::moveMobNextBridge( Mob* mob , bool onStart ){
-    int actualBridgeNum = mob->getBridge();
-    int edge = b.edgeChessPosition( actualBridgeNum,  onStart );
-    if ( b.isExistsWayFromEdge( edge, mob->getDirection() ) ){
-        int nextBridge = b.getWayFromEdge(edge, mob->getDirection());
-        mob->setBridge(nextBridge);
-        if ( mob->getStep()==0 ) { mob->setStep(STEPS); } else { mob->setStep(0); }
-        mob->isW( b.isW( mob->getBridge()));
     }
 }
+
+
+
+
+
+
+
 
 
 void Board::drawAllMob(){
@@ -162,6 +145,8 @@ void Board::drawAllMob(){
 
 
 void Board::drawOneMob( Mob* mob ) {
+    // TODO
+    /*
     int edgeStart = b.edgeChessPosition( mob->getBridge() , true );
     COORD startPoint = b.getCoordOfEdge(edgeStart);
 
@@ -178,8 +163,9 @@ void Board::drawOneMob( Mob* mob ) {
     }
 
     char avatar='P';//1;
-    if ( mob->isGhost() ) { avatar='G'/*2*/;}
+    if ( mob->isGhost() ) { avatar='G';}
     cdraw.WriteColourChar( mobX , mobY , avatar );
+    */
 }
 
 
@@ -191,8 +177,11 @@ void Board::clearAllUsedBridge() {
 
 
 
-void Board::clearBridge( int i ){
-    int start = b.edgeChessPosition( i, true );
+void Board::clearBridge( Bridge* pB ){
+    std::cout << "clearBridge( Bridge* pB ){" << pB;
+
+    /*
+    int start = pB->chessPosition;  b.edgeChessPosition( i, true );
     int end =   b.edgeChessPosition( i, false );
     COORD startPoint = b.getCoordOfEdge( start );
     COORD endPoint   = b.getCoordOfEdge( end );
@@ -205,6 +194,7 @@ void Board::clearBridge( int i ){
             cdraw.WriteColourChar( {static_cast<SHORT>(x),static_cast<SHORT>(y)} , ' ' );
         }
     }
+     */
 }
 
 
@@ -349,15 +339,19 @@ void Board::eatDot( Mob* mob , COORD point ){
 
 void Board::redrawAllBridge(){
     for (int i=0;i<8;i++){
-        redrawBridge ( activeBridges[i]);
+      //  redrawBridge ( activeBridges[i]);
     }
 }
 
-void Board::redrawBridge( int bridgeNum ){
-    clearBridge( bridgeNum );
-    b.DrawWall( bridgeNum );
-    drawDotsOfBridge ( bridgeNum );
-    //drawAllMobOnBridge ( bridgeNum );
+void Board::redrawBridge( Bridge* pB){
+//    clearBridge( pB );
+//    b.DrawWall( pB );
+//    drawDotsOfBridge ( pB );
+    //drawAllMobOnBridge ( pB );
+}
+
+void Board::Collision(Mob *one, Mob *two) {
+    std::cout << "COLLISTION:" << one->getId() << " : " << two->getId();
 }
 
 

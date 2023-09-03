@@ -51,61 +51,61 @@ build cmake_object_order_depends_target_msPacMan: phony || CMakeFiles/msPacMan.d
 
 build CMakeFiles/msPacMan.dir/main.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/main.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\main.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir
 
 build CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/src/UDPClient.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\src\UDPClient.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
 
 build CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/src/UDPServ.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\src\UDPServ.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
 
 build CMakeFiles/msPacMan.dir/src/Board.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/src/Board.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\src\Board.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
 
 build CMakeFiles/msPacMan.dir/src/ConsoleDraw.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/src/ConsoleDraw.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\src\ConsoleDraw.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
 
 build CMakeFiles/msPacMan.dir/src/Mob.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/src/Mob.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\src\Mob.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
 
 build CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/src/Bridges.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\src\Bridges.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
 
 build CMakeFiles/msPacMan.dir/src/Dot.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/src/Dot.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\src\Dot.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
 
 build CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/tests/CppTests.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\tests\CppTests.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\tests
 
 build CMakeFiles/msPacMan.dir/src/Bridge.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug E$:/CLion/CLionProjects/msPacMan/src/Bridge.cpp || cmake_object_order_depends_target_msPacMan
   DEP_FILE = CMakeFiles\msPacMan.dir\src\Bridge.cpp.obj.d
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g -std=c++17 -fdiagnostics-color=always
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src
 
@@ -118,7 +118,7 @@ build CMakeFiles/msPacMan.dir/src/Bridge.cpp.obj: CXX_COMPILER__msPacMan_unscann
 # Link the executable msPacMan.exe
 
 build msPacMan.exe: CXX_EXECUTABLE_LINKER__msPacMan_Debug CMakeFiles/msPacMan.dir/main.cpp.obj CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj CMakeFiles/msPacMan.dir/src/Board.cpp.obj CMakeFiles/msPacMan.dir/src/ConsoleDraw.cpp.obj CMakeFiles/msPacMan.dir/src/Mob.cpp.obj CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj CMakeFiles/msPacMan.dir/src/Dot.cpp.obj CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj CMakeFiles/msPacMan.dir/src/Bridge.cpp.obj
-  FLAGS = -std=c++11 -s -O3 -I C:/Users/Shiro/Desktop/asio-1.10.6/include -g
+  FLAGS = -std=c++11 -s -O3  -g
   LINK_FLAGS = -static -lws2_32
   LINK_LIBRARIES = -lws2_32  -lwsock32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\msPacMan.dir

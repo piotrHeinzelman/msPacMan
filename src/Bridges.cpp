@@ -180,6 +180,10 @@ void Bridges::drawEdge( int eNum , COORD point ){
 
 
 void Bridges::DrawDot ( int bridgeNum ){};
-void Bridges::DrawMob ( int bridgeNum ){};
+void Bridges::DrawMob ( int bridgeNum ){}
+
+Bridge * Bridges::getBridgeByInt(int bridgeNum) {
+    return bridgeAry[bridgeNum];
+};
 
 

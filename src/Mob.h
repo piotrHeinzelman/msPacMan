@@ -9,6 +9,7 @@
 #include <string>
 #include "DIRECT.h"
 #include "Board.h"
+#include "Bridge.h"
 #include <set>
 
 #define STEPS 6
@@ -21,7 +22,7 @@ private:
     int id;
     int step;
     bool goForwart; // ?
-    int bridge;
+    Bridge* bridge;
 
     std::set<DIRECT> exits={};//= {DIRECT::N, DIRECT::S};
 
@@ -41,23 +42,24 @@ public:
     Mob(int id , std::string name , Board* board,  bool ghost=false );
     int getId();
 
-
-// getters / setters
+    void gotoNextStep();
 
     bool isGoForwart() const;
-
     void setGoForwart(bool goForwart);
+// getters / setters
 
-    int getBridge();
-     void setBridge(int bridgeNum);
 
-      int getStep();
-     void setStep(int step );
+
+
+      Bridge * getBridge();
+     void setBridge(Bridge* bridge);
+
+    int  getStep() const;
+    void setStep(int step);
 
     DIRECT getDirection();
       void setDirection(DIRECT direction);
 
-    DIRECT getNextDirection();
       void setNextDirection(DIRECT direction);
 
 
@@ -75,8 +77,8 @@ public:
 
 
     void insertMobAtBridge(Mob *mob, int bridge);
+    void gotoNextBridge();
 
 };
-
 
 #endif //MSPACMAN_MOB_H
