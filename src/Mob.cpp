@@ -31,46 +31,6 @@ void Mob::setBridge( int bridge ) { this->bridge = bridge; }
 
 
 
-
-
-/*
-void Mob::step() {
-
-int numBridge=board->activeBridges[id];
-bool isW;
-if ((numBridge&0x01)==1) { isW=true; } else {isW=false;}
-
-// move Mob
-switch ( direction ) {
-    case DIRECT::N: stepN(isW); break;
-    case DIRECT::W: stepW(isW); break;
-    case DIRECT::S: stepS(isW); break;
-    case DIRECT::E: stepE(isW); break;
-}
-board->drawOneMob( id );
-}
-
- void Mob::_atEdge() {
-  //  direction = ((Board*)board)->atEdge(id , direction , nextDirection );
-}
-
-
-
-void Mob::stepN( bool isW ){ if(!isW){ if (step == 0    ) { board->moveMeToNextBridge(id, direction ); } else { step--; }}};
-void Mob::stepS( bool isW ){ if(!isW){ if (step == STEPS) { board->moveMeToNextBridge(id, direction ); } else { step++; }}};
-void Mob::stepE( bool isW ){ if( isW){
-        //std::cout <<"\n\nid"<<id<<", pos: " << step <<", dir:"<<direction<<"  \n";
-        if (step == STEPS) {
-            board->moveMeToNextBridge(id, direction );
-        } else { step++; }}};
-void Mob::stepW( bool isW ){ if( isW){ if (step == 0    ) { board->moveMobNextBridge(id, direction ); } else { step--; }}}
- */
-
-
-
-
-
-
 // getters / setters
 void Mob::addPoint( int points ){ this->points += points; }
 void Mob::addPower( int power ){ this->power=power; }

@@ -8,7 +8,6 @@
 #include "../src/Dot.h"
 #include <windows.h>
 #include <unistd.h>
-#include "../src/Keyb.h"
 #include <set>
 
 void showPoint( COORD point ){
@@ -200,30 +199,8 @@ void CppTests::BridgesTest() {
         Mob* john = new Mob(4, (std::string)"John", &bo );
 
 
-
-        Keyb k;
-
-
         bo.insertMobAtBridge( minion, 1, 0 , true );
 
-        while(true) {
-            minion->setDirection(DIRECT::E);
-            for (int i = 0; i < 10; i++) {
-                bo.moveAllMobs();
-                k.read();
-                usleep(20000);
-                bo.redrawAllBridge();
-                bo.drawAllMob();
-            }
-            minion->setDirection(DIRECT::W);
-            for (int i = 0; i < 10; i++) {
-                bo.moveAllMobs();
-                usleep(100000);
-                k.read();
-                bo.redrawAllBridge();
-                bo.drawAllMob();
-            }
-        }
 
     }
 

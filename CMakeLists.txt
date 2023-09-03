@@ -20,8 +20,6 @@ add_executable(msPacMan main.cpp
         src/UDPServ.h
         info/con_serv.h
         src/UDPServ.cpp
-        src/TickRunner.h
-        src/Tick.h
         src/Board.cpp
         src/Board.h
         src/ConsoleDraw.cpp
@@ -32,15 +30,8 @@ add_executable(msPacMan main.cpp
         src/Bridges.cpp
         src/Bridges.h
 
-        src/set.cpp
-        src/set.h
         src/Dot.cpp
         src/Dot.h
-        src/map.cpp
-        src/map.h
-        src/Keyb.cpp
-        src/Keyb.h
-        src/TickRunner.cpp
         tests/CppTests.cpp
 
 )

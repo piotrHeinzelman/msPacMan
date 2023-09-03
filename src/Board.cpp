@@ -9,9 +9,8 @@
 #include "Bridges.h"
 #include "UDPServ.h"
 #include "UDPClient.h"
-#include "TickRunner.h"
-#include "Keyb.h"
 #include <future>
+#include <thread>
 
 DWORD WINAPI BoardThreadFunc( Board* board ) {
     Mob* player = board->getPlayersMob();
@@ -211,6 +210,12 @@ void Board::clearBridge( int i ){
 
 
 
+void Board::allMobCheckcontroller() {
+    for ( Mob* mob : mobs ) {
+        mobCheckController(mob);
+    }
+}
+
 
 void Board::mobCheckController( Mob* mob ) {
     if ( !mob->isGhost() ){
@@ -255,7 +260,7 @@ void Board::showInfo( Mob* mob ){
 
 void Board::drawBoard() {
     
-    int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
         for (int i = 0; i < LIMIT; i++) {  // walls
             if ( !b.isExsits( i ) ) { continue; }

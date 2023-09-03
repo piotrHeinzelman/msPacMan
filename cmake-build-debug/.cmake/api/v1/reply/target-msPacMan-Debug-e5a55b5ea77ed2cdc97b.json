@@ -55,16 +55,12 @@
 				0,
 				2,
 				4,
+				7,
 				9,
 				11,
-				13,
+				14,
 				16,
-				18,
-				20,
-				22,
-				24,
-				26,
-				27
+				18
 			]
 		}
 	],
@@ -114,16 +110,12 @@
 				0,
 				2,
 				4,
+				7,
 				9,
 				11,
-				13,
+				14,
 				16,
-				18,
-				20,
-				22,
-				24,
-				26,
-				27
+				18
 			]
 		},
 		{
@@ -134,17 +126,12 @@
 				3,
 				5,
 				6,
-				7,
 				8,
 				10,
 				12,
-				14,
+				13,
 				15,
-				17,
-				19,
-				21,
-				23,
-				25
+				17
 			]
 		}
 	],
@@ -186,16 +173,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "info/con_serv.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "src/TickRunner.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "src/Tick.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -250,17 +227,6 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/set.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "src/set.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "src/Dot.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -268,34 +234,6 @@
 			"backtrace" : 1,
 			"path" : "src/Dot.h",
 			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/map.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "src/map.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Keyb.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "src/Keyb.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/TickRunner.cpp",
-			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,

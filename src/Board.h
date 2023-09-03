@@ -16,7 +16,6 @@
 #include "ConsoleDraw.h"
 #include "Dot.h"
 #include "Bridges.h"
-#include "Keyb.h"
 #include "UDPServ.h"
 
 
@@ -153,7 +152,6 @@ private:
     ConsoleDraw cdraw;
     std::map< int , Dot* > dots;
     Bridges b;
-    Keyb k;
     int ghostIntel=0;
 
     Mob* player;
@@ -178,6 +176,7 @@ public:
     void drawAllMob();
     void drawOneMob( Mob* mob );
 
+    void allMobCheckcontroller();
     void mobCheckController(Mob* mob);
 
     HANDLE getHandle();

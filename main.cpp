@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <future>
+#include <thread>
 #include "allTest.h"
 #include "src/ConsoleDraw.h"
 #include "tests/CppTests.h"
@@ -15,8 +16,8 @@
 int main() {
 
 
-    // create server
-    HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(createClient), NULL, 0, NULL);
+    // create server // TURN OFF< read key
+    //HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(createClient), NULL, 0, NULL);
 
 
     bool cppTest=!true;  // uruchomic cppcheck
@@ -46,6 +47,7 @@ int main() {
         b1.clearAllUsedBridge();
         b1.moveAllMobs();
         b1.drawAllMob();
+        b1.allMobCheckcontroller();
         //std::cout << "b";
     }
 

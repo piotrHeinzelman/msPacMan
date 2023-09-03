@@ -6,9 +6,9 @@
 #define MSPACMAN_ALLTEST_H
 
 
+#include <unistd.h>
 #include "src/UDPServ.h"
 #include "src/UDPClient.h"
-#include "src/TickRunner.h"
 #include "src/Bridges.h"
 #include "src/Board.h"
 
@@ -89,7 +89,7 @@ void runAllTests(){
     //TickRunner tickRunner;
     //tickRunner.TickRun();  // uruchamia runTickInThread()  w innym watku
     //           runTickInThread() uruchamia w petli Tick::tick(); co 500 ms
-    sleep(5);       // usypia glowny watek na 5 sek, dzieki temu widac czy dzialaja inne watki
+   // sleep(5);       // usypia glowny watek na 5 sek, dzieki temu widac czy dzialaja inne watki
 
 
     // Board
