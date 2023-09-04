@@ -23,27 +23,34 @@ void SecondTest::runTest() {
 
     hB = mapa.getBridgeByInt(10);
                     std::cout << "startEdge:" << hB->getStartEdge() << ", endEdge:  " << hB->getEndEdge() << "\n";
+                    std::cout << "centerPoint x:" << wB->getCenterPoint().X << ", y:" <<wB->getCenterPoint().Y << "\n";
 
 
     ConsoleDraw draw;
                 draw.WriteColourChar( -1,-1,'@' ,0xA0 );
- /*
-  * mapa.DrawCenterPiontOfWall(3);
-    mapa.DrawCenterPiontOfWall(14);
-    mapa.DrawCenterPiontOfWall(5);
-
-    mapa.drawBridge(3);
-    mapa.drawBridge(14);
-    mapa.drawBridge(76);
-    mapa.drawBridge(5);
-*/
+                hB->getCenterPoint();
 
 
+     Bridge* b3_w =  hB = new Bridge(3);
+     Bridge* b5_w =  hB = new Bridge(5);
+     Bridge* b14_h =  hB = new Bridge(14);
+
+    mapa.DrawCenterPiontOfWall(b3_w);
+    mapa.DrawCenterPiontOfWall(b5_w);
+    mapa.DrawCenterPiontOfWall(b14_h);
+
+    mapa.drawBridge(b3_w);
+    mapa.drawBridge(b5_w);
+    mapa.drawBridge(b14_h);
 
 
-    mapa.DrawCenterPiontOfWall(22);
-    mapa.DrawCenterPiontOfWall(24);
-    mapa.drawEdge(23,true);
+
+
+
+
+   // mapa.DrawCenterPiontOfWall(22);
+  //  mapa.DrawCenterPiontOfWall(24);
+  //  mapa.drawEdge(23,true);
 
 //    mapa.drawBridge(10);
 //    mapa.drawBridge(30);

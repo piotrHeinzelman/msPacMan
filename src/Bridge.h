@@ -8,6 +8,7 @@
 
 #include <utility>
 #include "Ways.h"
+#include "ConsoleDraw.h"
 
 class Bridge {
 private:
@@ -23,12 +24,15 @@ public:
 
     int getStartEdge() const;
     int getEndEdge() const;
+    COORD getCenterPoint() const;
 
     const Ways &getStartWays() const;
      void setStartWays(const Ways &startWays);
 
     const Ways &getEndWays() const;
     void setEndWays(const Ways &endWays);
+
+    bool isW() const;
 
 
 };

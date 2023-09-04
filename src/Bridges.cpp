@@ -141,8 +141,7 @@ COORD Bridges::_getScreenCoordofCheesCoord(const COORD & chess ){ // TESTED
 }
 
 COORD Bridges::_getCheesCoordOfCenterBridge(int i ){
-    SHORT x;
-    SHORT y;
+    SHORT x; SHORT y;
     if ( isW (i)) {
         x=i%20;  y=(i-x)/10;
     } else {
@@ -174,9 +173,9 @@ void Bridges::drawBridge(int bridgeNum) {
 
 
 
-void Bridges::DrawCenterPiontOfWall( int bridgeNum ){
-    draw.WriteColourChar( getCoordOfCenterBridge ( bridgeNum ) , '+');
-};     // Test use only +
+void Bridges::DrawCenterPiontOfWall( Bridge* bridge ){
+    draw.WriteColourChar( bridge->getCenterPoint() , '+');
+};
 
 
 
@@ -185,6 +184,24 @@ void Bridges::DrawCenterPiontOfWall( int bridgeNum ){
 
 
 void Bridges::DrawWall( Bridge* bridge ){
+
+    COORD center = bridge->getCenterPoint();
+    if ( bridge->isW()){
+        draw.WriteColourChar(operator+(center,{-2,1}) , WALL);
+        draw.WriteColourChar(operator+(center,{-1,1}) , WALL);
+        draw.WriteColourChar(operator+(center,{ 0,1}) , WALL);
+        draw.WriteColourChar(operator+(center,{ 1,1}) , WALL);
+        draw.WriteColourChar(operator+(center,{ 2,1}) , WALL);
+
+        draw.WriteColourChar(operator+(center,{-2,-1}) , WALL);
+        draw.WriteColourChar(operator+(center,{-1,-1}) , WALL);
+        draw.WriteColourChar(operator+(center,{ 0,-1}) , WALL);
+        draw.WriteColourChar(operator+(center,{ 1,-1}) , WALL);
+        draw.WriteColourChar(operator+(center,{ 2,-1}) , WALL);
+    } else {
+        draw.WriteColourChar(operator+(center,{ -1, 0}) , WALL);
+        draw.WriteColourChar(operator+(center,{ 1, 0}) , WALL);
+    }
 
 }
 
