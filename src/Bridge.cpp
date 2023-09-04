@@ -67,10 +67,23 @@ COORD Bridge::getEndPoint() const {
     return transformChessToScreen(point);
 }
 
-const Ways &Bridge::getStartWays() const { return startWays; }
-void Bridge::setStartWays(const Ways &startWays) { this->startWays = startWays; }
-const Ways &Bridge::getEndWays() const { return endWays; }
-void Bridge::setEndWays(const Ways &endWays) { this->endWays = endWays; }
+const Ways &Bridge::getStartWays() const {
+    return startWays;
+}
+
+void Bridge::setStartWays(const Ways &startWays) {
+    this->startWays = startWays;
+}
+
+const Ways &Bridge::getEndWays() const {
+    return endWays;
+}
+
+void Bridge::setEndWays(const Ways &endWays) {
+    this->endWays = endWays;
+}
+
+
 
 
 

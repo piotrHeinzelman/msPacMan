@@ -63,19 +63,14 @@ public:
     void drawAllBridges();
     void drawBridge ( Bridge* bridge  );
 
-    void DrawWall( int bridgeNum );       // TODO
     void DrawWall( Bridge* bridge );      // TODO
 
-    void DrawCenterPiontOfWall( int bridgeNum );   // TODO
     void DrawCenterPiontOfWall( Bridge* bridge );  //TODO
 
-    void DrawDot ( int bridgeNum );         // TODO
     void DrawDot ( Bridge* bridge );        // TODO
-    void DrawMob ( int bridgeNum );         // TODO
     void DrawMob ( Bridge* bridge );        // TODO
             // Test use only +
 
-    void drawEdge( int eNum , bool iSstart );        // TODO
     void drawEdge( Bridge* bridge , bool iSstart );  // TODO
 
     void clearBridge( int bridgeNum );

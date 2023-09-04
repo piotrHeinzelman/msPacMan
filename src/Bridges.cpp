@@ -46,6 +46,7 @@ Bridges::Bridges(){
             bridge->setStartWays( w );
                  w = getWays( endEdge ) ;
             bridge->setEndWays( w );
+ //           std::cout << "\nN:" << w.n << " : " << bridge->getEndWays().n << "\n";
         }
     }
 }
@@ -57,7 +58,10 @@ Ways Bridges::getWays( int edge ) {
     if ( bridgesData[edge+1]=='x') {  w.e = bridgeAry[ edge+1 ]; } else   { w.e=nullptr; }
     if ( bridgesData[edge-10]=='x') { w.n = bridgeAry[ edge-10 ]; } else { w.n=nullptr; }
     if ( bridgesData[edge+10]=='x') { w.s = bridgeAry[ edge+10 ]; } else { w.s=nullptr; }
-
+ //   std::cout << "\nN:" << w.n <<"\n";
+//   std::cout << "\ns:" << w.s <<"\n";
+  //  std::cout << "\nw:" << w.w <<"\n";
+//    std::cout << "\ne:" << w.e <<"\n";
     return w;
 }
 
@@ -211,33 +215,31 @@ void Bridges::drawEdge( Bridge* bridge, bool isStart ){
 
     Ways ways=isStart ? bridge->getStartWays() : bridge->getEndWays();
     COORD point = isStart ? bridge->getStartPoint() : bridge->getEndPoint();
-    if ( isStart ) draw.WriteColourChar( point, 's' , 0x090);
-    else draw.WriteColourChar( point, 'e' , 0x090);
 
-    std::cout << ways.e;
-
-    if ( ways.n!=nullptr )  draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
-    if ( ways.w!=nullptr )  draw.WriteColourChar(operator+(point,{ -1, 0}) , WALL);// block W
-    if ( ways.s!=nullptr )  draw.WriteColourChar(operator+(point,{ 0,  1}) , WALL);// block S
-    if ( ways.e!=nullptr )  draw.WriteColourChar(operator+(point,{ 1, 0}) , WALL); // block E
+    if ( ways.n==nullptr )  draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
+    if ( ways.w==nullptr )  draw.WriteColourChar(operator+(point,{ -1, 0}) , WALL);// block W
+    if ( ways.s==nullptr )  draw.WriteColourChar(operator+(point,{ 0,  1}) , WALL);// block S
+    if ( ways.e==nullptr )  draw.WriteColourChar(operator+(point,{ 1, 0}) , WALL); // block E
 
 
-    if ( ways.n !=nullptr   && ways.w !=nullptr )   draw.WriteColourChar(operator+(point,{ -1, -1}) , WALL);// block NW
-    if ( ways.w !=nullptr   && ways.s !=nullptr )   draw.WriteColourChar(operator+(point,{ -1,  1}) , WALL);// block WS
-    if ( ways.s !=nullptr   && ways.e !=nullptr )   draw.WriteColourChar(operator+(point,{  1,  1}) , WALL);// block SE
-    if ( ways.n !=nullptr   && ways.e !=nullptr )   draw.WriteColourChar(operator+(point,{  1, -1}) , WALL);// block NE
-
+    if ( ways.n ==nullptr   && ways.w ==nullptr )   draw.WriteColourChar(operator+(point,{ -1, -1}) , WALL);// block NW
+    if ( ways.w ==nullptr   && ways.s ==nullptr )   draw.WriteColourChar(operator+(point,{ -1,  1}) , WALL);// block WS
+    if ( ways.s ==nullptr   && ways.e ==nullptr )   draw.WriteColourChar(operator+(point,{  1,  1}) , WALL);// block SE
+    if ( ways.n ==nullptr   && ways.e ==nullptr )   draw.WriteColourChar(operator+(point,{  1, -1}) , WALL);// block NE
 }
 
 
-void Bridges::DrawDot ( int bridgeNum ){};
 void Bridges::DrawDot ( Bridge* bridge ){};
-void Bridges::DrawMob ( int bridgeNum ){}
 void Bridges::DrawMob ( Bridge* bridge ){}
 
 void Bridges::drawAllBridges() {
-    for ( int i=0;i<256;i++)
-        DrawWall(bridgeAry[i]);
+    std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    for ( int i=1;i<=250;i++) {
+        Bridge* b = bridgeAry[i];
+        if ( b!= nullptr ) {
+            drawBridge( b );
+        }
+    }
 }
 
 

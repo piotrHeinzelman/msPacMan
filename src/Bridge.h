@@ -28,15 +28,17 @@ public:
     COORD getStartPoint() const;
     COORD getEndPoint() const;
 
-    const Ways &getStartWays() const;
-    const Ways &getEndWays() const;
-
-    void setStartWays(const Ways &startWays);
-    void setEndWays(const Ways &endWays);
-
     bool isW() const;
 
     COORD transformChessToScreen( COORD point ) const;
+
+    const Ways &getStartWays() const;
+
+    void setStartWays(const Ways &startWays);
+
+    const Ways &getEndWays() const;
+
+    void setEndWays(const Ways &endWays);
 
 };
 
