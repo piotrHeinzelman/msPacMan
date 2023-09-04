@@ -157,15 +157,36 @@ COORD Bridges::getCoordOfCenterBridge( int bridgeNum ){
 
 
 
+void Bridges::drawBridge( Bridge* bridge ) {
+    DrawWall(bridge);
+    drawEdge(bridge,true);
+    drawEdge(bridge,false);
+    DrawDot(bridge);
+    DrawMob(bridge);
+}
+
 void Bridges::drawBridge(int bridgeNum) {
     DrawWall( bridgeNum );
+    drawEdge( bridgeNum, true );
     //DrawDot ( bridgeNum );
     //DrawMob ( bridgeNum );
 }
 
+
+
 void Bridges::DrawCenterPiontOfWall( int bridgeNum ){
     draw.WriteColourChar( getCoordOfCenterBridge ( bridgeNum ) , '+');
 };     // Test use only +
+
+
+
+
+
+
+
+void Bridges::DrawWall( Bridge* bridge ){
+
+}
 
 void Bridges::DrawWall( int bridgeNum ){
 
@@ -199,14 +220,16 @@ void Bridges::DrawWall( int bridgeNum ){
     drawEdge( bridgeNum , false  );
 };
 
-
+void Bridges::drawEdge( Bridge* bridge, bool isStart ){ }
 void Bridges::drawEdge( int bridgeNum , bool isStart ){
+
+
 
     COORD point;
     Ways ways;
     if ( isStart ) { point = _getCheesCoordOfCenterBridge( getBridgeByInt(bridgeNum)->getStartEdge() ); ways=getBridgeByInt(bridgeNum)->getStartWays(); }
     else           { point = _getCheesCoordOfCenterBridge( getBridgeByInt(bridgeNum)->getStartEdge() ); ways=getBridgeByInt(bridgeNum)->getEndWays(); }
-
+    draw.WriteColourChar( point, 'A' , 0x090);
 
     if ( ways.n!=nullptr ) draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
     if ( ways.w!=nullptr )  draw.WriteColourChar(operator+(point,{ -1, 0}) , WALL);// block W
@@ -221,8 +244,11 @@ void Bridges::drawEdge( int bridgeNum , bool isStart ){
 
 }
 
+
 void Bridges::DrawDot ( int bridgeNum ){};
+void Bridges::DrawDot ( Bridge* bridge ){};
 void Bridges::DrawMob ( int bridgeNum ){}
+void Bridges::DrawMob ( Bridge* bridge ){}
 
 
 

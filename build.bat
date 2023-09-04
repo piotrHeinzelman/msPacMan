@@ -1,0 +1,1 @@
+"C:\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" --build C:\Users\Bill\CLionProjects\WinBGIm-64\outFolder --target outFile -j 4

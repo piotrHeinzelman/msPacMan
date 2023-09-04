@@ -60,14 +60,25 @@ public:
    // std::set<DIRECT> getAllWaysFromEdge( int eNum );       // get all possible direction from edge, binary code is: 0b00 E S W N
 
     void drawBridge ( int bridgeNum );           // call DrawW or DrawH, call DrawWall, DrawDot, DrawMob
+    void drawBridge ( Bridge* bridge  );
 
     void DrawWall( int bridgeNum );       // TODO
-    void DrawDot ( int bridgeNum );        // TODO
-    void DrawMob ( int bridgeNum );        // TODO
-        void DrawCenterPiontOfWall( int bridgeNum );     // Test use only +
+    void DrawWall( Bridge* bridge );      // TODO
 
-            void drawEdge( int eNum , bool iSstart );
-            //void clearBridge( int bridgeNum );
+    void DrawCenterPiontOfWall( int bridgeNum );   // TODO
+    void DrawCenterPiontOfWall( Bridge* bridge );  //TODO
+
+    void DrawDot ( int bridgeNum );         // TODO
+    void DrawDot ( Bridge* bridge );        // TODO
+    void DrawMob ( int bridgeNum );         // TODO
+    void DrawMob ( Bridge* bridge );        // TODO
+            // Test use only +
+
+    void drawEdge( int eNum , bool iSstart );        // TODO
+    void drawEdge( Bridge* bridge , bool iSstart );  // TODO
+
+    void clearBridge( int bridgeNum );
+    void clearBridge( Bridge* bridge );
 
 
     COORD getCoordOfCenterBridge( int bridgeNum );  // get screen position COORD{X,Y} center, of Bridge from number i
