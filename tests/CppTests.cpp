@@ -50,25 +50,8 @@ void CppTests::BridgesTest() {
 
 
 
-    assert(true == b.isExistsWayFromEdge(144, N));
-    assert(false == b.isExistsWayFromEdge(144, E));
-    assert(true == b.isExistsWayFromEdge(144, S));
-    assert(false == b.isExistsWayFromEdge(144, W));
-    assert(true == b.isExistsWayFromEdge(0, E));
-    assert(true == b.isExistsWayFromEdge(0, S));
-    assert(true == b.isExistsWayFromEdge(238, N));
-    assert(true == b.isExistsWayFromEdge(236, W));
-    assert(false == b.isExistsWayFromEdge(170, W));
-    assert(true == b.isExistsWayFromEdge(170, E));
 
 
-    assert(1 == b.getWayFromEdge(0, E));
-    assert(10 == b.getWayFromEdge(0, S));
-    assert(202 == b.getWayFromEdge(212, N));
-    assert(185 == b.getWayFromEdge(186, W));
-
-    std::set<DIRECT> setNWE= std::set<DIRECT>{ DIRECT::N, DIRECT::E, DIRECT::W};
-    assert( setNWE == b.getAllWaysFromEdge(216)  );
 
 
 

@@ -31,7 +31,47 @@ COORD operator +( const COORD & l , const COORD & r ){
 
 Bridges::Bridges(){
     bridgesData = (char*)" x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x x  x x     x x         x x    xxxxx       xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x xxx x x x x             ";
+    for(int i=1;i<255;i++) {
+        if ( bridgesData[i] != ' ' ) {
+                addBridge(i ); // add Wbridge
+            }
+        }
+    for(int i=1;i<255;i++) {
+        if ( bridgeAry[i]!=nullptr) {
+            Bridge * bridgeI = bridgeAry[i];
+            bridgeI->setStartWays( getWays(  bridgeI->getStartEdge() ));
+            bridgeI->setEndWays  ( getWays(  bridgeI->getEndEdge()   ));
+        }
+    }
 }
+
+
+Ways Bridges::getWays( int edge ) {
+    Ways w;
+    if ( bridgesData[edge-1]=='x') {  w.w = bridgeAry[ edge-1 ]; } else   { w.w=nullptr; }
+    if ( bridgesData[edge+1]=='x') {  w.e = bridgeAry[ edge+1 ]; } else   { w.e=nullptr; }
+    if ( bridgesData[edge-10]=='x') { w.n = bridgeAry[ edge-10 ]; } else { w.n=nullptr; }
+    if ( bridgesData[edge+10]=='x') { w.s = bridgeAry[ edge+10 ]; } else { w.s=nullptr; }
+    return w;
+}
+
+
+Bridge * Bridges::getBridgeByInt(int bridgeNum) {
+    return bridgeAry[bridgeNum];
+}
+
+void Bridges::addBridge( int bridgeNum ) {
+    bridgeAry[bridgeNum] = new Bridge( bridgeNum );
+};
+
+
+
+
+
+
+
+
+
 
 
 int Bridges::checkI(int bridgeNum ){
@@ -43,7 +83,7 @@ int Bridges::checkI(int bridgeNum ){
 
 bool Bridges::isExsits( int bridgeNum ){ //TESTED
     bridgeNum = checkI( bridgeNum );
-    return bridgesData[ bridgeNum ]!=' ';
+    return bridgeAry[ bridgeNum ]!=nullptr;
 }
 
 
@@ -67,21 +107,23 @@ COORD Bridges::getCoordOfEdge( int eNum ){ // TESTED
     return _getScreenCoordofCheesCoord({x,y});
 };
 
-
+/*
 bool Bridges::isExistsWayFromEdge( int edge, DIRECT direction ){ //TESTED
     return  isExsits( edge+(direction/2));
 }
-
-
+*/
+/*
 int Bridges::getWayFromEdge(int eNum, DIRECT direction ){// TESTED
+    return getBridgeByInt( eNum ).
+
     if (isExistsWayFromEdge(eNum , direction )) {
         return eNum + (direction / 2);
     }
     throw std::runtime_error("Bridges::getWayFromEdge -> nie ma takiego pola");
     return -1;
 }
-
-
+*/
+/*
 std::set<DIRECT>  Bridges::getAllWaysFromEdge( int eNum ){ // tested
     std::set<DIRECT> ways;
         if (isExistsWayFromEdge(eNum, N )){ ways.insert( DIRECT::N );  }
@@ -90,7 +132,7 @@ std::set<DIRECT>  Bridges::getAllWaysFromEdge( int eNum ){ // tested
         if (isExistsWayFromEdge(eNum, E )){ ways.insert( DIRECT::E );  }
     return ways;
 }
-
+*/
 
 // ****************** WORKING HERE !!!
 
@@ -153,37 +195,34 @@ void Bridges::DrawWall( int bridgeNum ){
     }
 
     // draw edges
-    drawEdge( edgeStart , startPoint );
-    drawEdge( edgeEnd , endPoint );
+    drawEdge( bridgeNum , true  );
+    drawEdge( bridgeNum , false  );
 };
 
 
-void Bridges::drawEdge( int eNum , COORD point ){
-    //draw.WriteColourChar(operator+(point,{ 0, 0}) , 'o');
-    std::set<DIRECT> ways = getAllWaysFromEdge(eNum);
+void Bridges::drawEdge( int bridgeNum , bool isStart ){
 
-    if ( ways.count(DIRECT::N)>0 ) draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
-    if ( ways.count(DIRECT::W)>0 ) draw.WriteColourChar(operator+(point,{ -1, 0}) , WALL);// block W
-    if ( ways.count(DIRECT::S)>0 ) draw.WriteColourChar(operator+(point,{ 0,  1}) , WALL);// block S
-    if ( ways.count(DIRECT::E)>0 ) draw.WriteColourChar(operator+(point,{ 1, 0}) , WALL); // block E
+    COORD point;
+    Ways ways;
+    if ( isStart ) { point = _getCheesCoordOfCenterBridge( getBridgeByInt(bridgeNum)->getStartEdge() ); ways=getBridgeByInt(bridgeNum)->getStartWays(); }
+    else           { point = _getCheesCoordOfCenterBridge( getBridgeByInt(bridgeNum)->getStartEdge() ); ways=getBridgeByInt(bridgeNum)->getEndWays(); }
 
 
-    if ( ways.count(DIRECT::N)>0 && ways.count(DIRECT::W)>0 ) draw.WriteColourChar(operator+(point,{ -1, -1}) , WALL);// block NW
-    if ( ways.count(DIRECT::W)>0 && ways.count(DIRECT::S)>0 )  draw.WriteColourChar(operator+(point,{ -1,  1}) , WALL);// block WS
-    if ( ways.count(DIRECT::S)>0 && ways.count(DIRECT::E)>0 )  draw.WriteColourChar(operator+(point,{  1,  1}) , WALL);// block SE
-    if ( ways.count(DIRECT::N)>0 && ways.count(DIRECT::E)>0 )  draw.WriteColourChar(operator+(point,{  1, -1}) , WALL);// block NE
+    if ( ways.n!=nullptr ) draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
+    if ( ways.w!=nullptr )  draw.WriteColourChar(operator+(point,{ -1, 0}) , WALL);// block W
+    if ( ways.s!=nullptr )  draw.WriteColourChar(operator+(point,{ 0,  1}) , WALL);// block S
+    if ( ways.e!=nullptr )  draw.WriteColourChar(operator+(point,{ 1, 0}) , WALL); // block E
+
+
+    if ( ways.n !=nullptr   && ways.w !=nullptr )   draw.WriteColourChar(operator+(point,{ -1, -1}) , WALL);// block NW
+    if ( ways.w !=nullptr   && ways.s !=nullptr )   draw.WriteColourChar(operator+(point,{ -1,  1}) , WALL);// block WS
+    if ( ways.s !=nullptr   && ways.e !=nullptr )   draw.WriteColourChar(operator+(point,{  1,  1}) , WALL);// block SE
+    if ( ways.n !=nullptr   && ways.e !=nullptr )   draw.WriteColourChar(operator+(point,{  1, -1}) , WALL);// block NE
 
 }
-
-
-
-
 
 void Bridges::DrawDot ( int bridgeNum ){};
 void Bridges::DrawMob ( int bridgeNum ){}
 
-Bridge * Bridges::getBridgeByInt(int bridgeNum) {
-    return bridgeAry[bridgeNum];
-};
 
 

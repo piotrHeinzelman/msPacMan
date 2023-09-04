@@ -6,6 +6,7 @@
 #include "src/ConsoleDraw.h"
 #include "tests/CppTests.h"
 #include "src/UDPServ.h"
+#include "tests/SecondTest.h"
 
 
 
@@ -21,14 +22,19 @@ int main() {
 
 
     bool cppTest=!true;  // uruchomic cppcheck
+    bool secTest=true;  // uruchomic secondtest
     bool allTest=!true;  // czy uruchamic wszystkie testy
     bool lastTest=!true;  // czy uruchamia ostatni test (nad ktorym wlasnie pracuje) ?
-    bool exitAfterTests=!true; // czy po zakonczeniu testow zakonczyc aplikacje ?
+    bool exitAfterTests=true; // czy po zakonczeniu testow zakonczyc aplikacje ?
 
 
     if ( cppTest ) { CppTests cppt; cppt.BridgesTest();  }
     if ( allTest ) runAllTests();
     if ( lastTest ) runLastTests();
+    if ( secTest ) {
+        SecondTest sc;
+                   sc.runTest();
+    }
 
     if (exitAfterTests){ return 0; }
 

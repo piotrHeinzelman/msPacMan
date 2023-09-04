@@ -24,6 +24,7 @@
 #include "../tests/CppTests.h"
 #include "ConsoleDraw.h"
 #include "Bridge.h"
+#include "Ways.h"
 
 
 /*
@@ -43,6 +44,8 @@ private:
 
 public:
     explicit Bridges();           // construct object, set bridgesData
+    void addBridge( int bridgeNum );
+    Ways getWays( int bridgeNum );
 
 
     int checkI( int bridgeNum );     // guard array limit ( bridgeNum<0 =0 ,  >MAX ==MAX );
@@ -51,10 +54,10 @@ public:
     COORD getCoordOfEdge( int eNum );// get x,y screen position od Edge ( end of Bridge )
 
     int edgeChessPosition   ( int bridgeNum, bool fromStart ); // getEdgeNum like Data[] od Bridge. Start is Top or Left Edge, !Start is Bottom or Right edge.
-    bool isExistsWayFromEdge( int eNum, DIRECT direction );  // is exists way to direction from edge ?
-    int getWayFromEdge      ( int eNum, DIRECT direction );  // get new Bridge num from edge to direction
+   // bool isExistsWayFromEdge( int eNum, DIRECT direction );  // is exists way to direction from edge ?
+   // int getWayFromEdge      ( int eNum, DIRECT direction );  // get new Bridge num from edge to direction
                                                 //                                                            8 4 2 1
-    std::set<DIRECT> getAllWaysFromEdge( int eNum );       // get all possible direction from edge, binary code is: 0b00 E S W N
+   // std::set<DIRECT> getAllWaysFromEdge( int eNum );       // get all possible direction from edge, binary code is: 0b00 E S W N
 
     void drawBridge ( int bridgeNum );           // call DrawW or DrawH, call DrawWall, DrawDot, DrawMob
 
@@ -63,7 +66,7 @@ public:
     void DrawMob ( int bridgeNum );        // TODO
         void DrawCenterPiontOfWall( int bridgeNum );     // Test use only +
 
-            void drawEdge( int eNum , COORD point );
+            void drawEdge( int eNum , bool iSstart );
             //void clearBridge( int bridgeNum );
 
 

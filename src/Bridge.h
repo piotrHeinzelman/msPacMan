@@ -7,16 +7,29 @@
 
 
 #include <utility>
+#include "Ways.h"
 
 class Bridge {
 private:
-    int intPosition;
+    int bridgeNum;
     std::pair<int,int> chessPosition;
-    Bridge* startWays[4]={nullptr};
-    Bridge* endWays[4]={nullptr};
+    int startEdge;
+    int endEdge;
+    Ways startWays;
+    Ways endWays;
 
 public:
-    Bridge( int intPosition );
+    explicit Bridge( int bridgeNum );
+
+    int getStartEdge() const;
+    int getEndEdge() const;
+
+    const Ways &getStartWays() const;
+     void setStartWays(const Ways &startWays);
+
+    const Ways &getEndWays() const;
+    void setEndWays(const Ways &endWays);
+
 
 };
 
