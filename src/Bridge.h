@@ -22,18 +22,21 @@ private:
 public:
     explicit Bridge( int bridgeNum );
 
-    int getStartEdge() const;
-    int getEndEdge() const;
+    int getStartEdge() ;
+    int getEndEdge() ;
     COORD getCenterPoint() const;
+    COORD getStartPoint() const;
+    COORD getEndPoint() const;
 
     const Ways &getStartWays() const;
-     void setStartWays(const Ways &startWays);
-
     const Ways &getEndWays() const;
+
+    void setStartWays(const Ways &startWays);
     void setEndWays(const Ways &endWays);
 
     bool isW() const;
 
+    COORD transformChessToScreen( COORD point ) const;
 
 };
 

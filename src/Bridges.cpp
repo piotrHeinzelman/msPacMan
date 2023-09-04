@@ -38,9 +38,14 @@ Bridges::Bridges(){
         }
     for(int i=1;i<255;i++) {
         if ( bridgeAry[i]!=nullptr) {
-            Bridge * bridgeI = bridgeAry[i];
-            bridgeI->setStartWays( getWays(  bridgeI->getStartEdge() ));
-            bridgeI->setEndWays  ( getWays(  bridgeI->getEndEdge()   ));
+            Bridge* bridge=bridgeAry[i];
+            int startEdge = bridge->getStartEdge();
+            int endEdge = bridge->getEndEdge();
+
+            Ways w = getWays( startEdge ) ;
+            bridge->setStartWays( w );
+                 w = getWays( endEdge ) ;
+            bridge->setEndWays( w );
         }
     }
 }
@@ -52,6 +57,7 @@ Ways Bridges::getWays( int edge ) {
     if ( bridgesData[edge+1]=='x') {  w.e = bridgeAry[ edge+1 ]; } else   { w.e=nullptr; }
     if ( bridgesData[edge-10]=='x') { w.n = bridgeAry[ edge-10 ]; } else { w.n=nullptr; }
     if ( bridgesData[edge+10]=='x') { w.s = bridgeAry[ edge+10 ]; } else { w.s=nullptr; }
+
     return w;
 }
 
@@ -155,20 +161,12 @@ COORD Bridges::getCoordOfCenterBridge( int bridgeNum ){
 }
 
 
-
 void Bridges::drawBridge( Bridge* bridge ) {
     DrawWall(bridge);
     drawEdge(bridge,true);
     drawEdge(bridge,false);
     DrawDot(bridge);
     DrawMob(bridge);
-}
-
-void Bridges::drawBridge(int bridgeNum) {
-    DrawWall( bridgeNum );
-    drawEdge( bridgeNum, true );
-    //DrawDot ( bridgeNum );
-    //DrawMob ( bridgeNum );
 }
 
 
@@ -203,52 +201,22 @@ void Bridges::DrawWall( Bridge* bridge ){
         draw.WriteColourChar(operator+(center,{ 1, 0}) , WALL);
     }
 
+    // draw edges
+    drawEdge( bridge , true  );
+    drawEdge( bridge , false  );
+
 }
 
-void Bridges::DrawWall( int bridgeNum ){
+void Bridges::drawEdge( Bridge* bridge, bool isStart ){
 
-    int edgeStart = edgeChessPosition( bridgeNum, true );
-    int edgeEnd = edgeChessPosition( bridgeNum, false );
+    Ways ways=isStart ? bridge->getStartWays() : bridge->getEndWays();
+    COORD point = isStart ? bridge->getStartPoint() : bridge->getEndPoint();
+    if ( isStart ) draw.WriteColourChar( point, 's' , 0x090);
+    else draw.WriteColourChar( point, 'e' , 0x090);
 
-    COORD startPoint = getCoordOfEdge( edgeStart );
-    COORD centerPoint = _getCheesCoordOfCenterBridge( bridgeNum );
-    COORD endPoint = getCoordOfEdge( edgeEnd );
+    std::cout << ways.e;
 
-
-    if (isW(bridgeNum)) {
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{-2,1}) , WALL);
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{-1,1}) , WALL);
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 0,1}) , WALL);
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 1,1}) , WALL);
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 2,1}) , WALL);
-
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{-2,-1}) , WALL);
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{-1,-1}) , WALL);
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 0,-1}) , WALL);
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 1,-1}) , WALL);
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 2,-1}) , WALL);
-    } else {
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ -1, 0}) , WALL);
-        draw.WriteColourChar(operator+(getCoordOfCenterBridge ( bridgeNum ),{ 1, 0}) , WALL);
-    }
-
-    // draw edges
-    drawEdge( bridgeNum , true  );
-    drawEdge( bridgeNum , false  );
-};
-
-void Bridges::drawEdge( Bridge* bridge, bool isStart ){ }
-void Bridges::drawEdge( int bridgeNum , bool isStart ){
-
-
-
-    COORD point;
-    Ways ways;
-    if ( isStart ) { point = _getCheesCoordOfCenterBridge( getBridgeByInt(bridgeNum)->getStartEdge() ); ways=getBridgeByInt(bridgeNum)->getStartWays(); }
-    else           { point = _getCheesCoordOfCenterBridge( getBridgeByInt(bridgeNum)->getStartEdge() ); ways=getBridgeByInt(bridgeNum)->getEndWays(); }
-    draw.WriteColourChar( point, 'A' , 0x090);
-
-    if ( ways.n!=nullptr ) draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
+    if ( ways.n!=nullptr )  draw.WriteColourChar(operator+(point,{ 0, -1}) , WALL);// block N
     if ( ways.w!=nullptr )  draw.WriteColourChar(operator+(point,{ -1, 0}) , WALL);// block W
     if ( ways.s!=nullptr )  draw.WriteColourChar(operator+(point,{ 0,  1}) , WALL);// block S
     if ( ways.e!=nullptr )  draw.WriteColourChar(operator+(point,{ 1, 0}) , WALL); // block E
@@ -266,6 +234,11 @@ void Bridges::DrawDot ( int bridgeNum ){};
 void Bridges::DrawDot ( Bridge* bridge ){};
 void Bridges::DrawMob ( int bridgeNum ){}
 void Bridges::DrawMob ( Bridge* bridge ){}
+
+void Bridges::drawAllBridges() {
+    for ( int i=0;i<256;i++)
+        DrawWall(bridgeAry[i]);
+}
 
 
 

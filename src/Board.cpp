@@ -252,6 +252,8 @@ void Board::drawBoard() {
     
     int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
+    b.drawAllBridges();
+/*
         for (int i = 0; i < LIMIT; i++) {  // walls
             if ( !b.isExsits( i ) ) { continue; }
             COORD center = b.getCoordOfCenterBridge( i );
@@ -262,6 +264,8 @@ void Board::drawBoard() {
             }
             b.DrawWall( i );
         }
+    */
+
 
     createDot(1 , { 2,0 } , true , 50 , 1000 );
     createDot(17 , { 54,0 } , true , 50 , 1000 );

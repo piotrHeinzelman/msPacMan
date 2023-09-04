@@ -59,7 +59,8 @@ public:
                                                 //                                                            8 4 2 1
    // std::set<DIRECT> getAllWaysFromEdge( int eNum );       // get all possible direction from edge, binary code is: 0b00 E S W N
 
-    void drawBridge ( int bridgeNum );           // call DrawW or DrawH, call DrawWall, DrawDot, DrawMob
+
+    void drawAllBridges();
     void drawBridge ( Bridge* bridge  );
 
     void DrawWall( int bridgeNum );       // TODO

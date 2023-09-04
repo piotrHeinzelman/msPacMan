@@ -16,13 +16,22 @@ Bridge::Bridge( int bridgeNum ) {
     }
 }
 
-int Bridge::getStartEdge() const { return startEdge; }
-int Bridge::getEndEdge() const { return endEdge; }
+int Bridge::getStartEdge()  { return startEdge; }
+int Bridge::getEndEdge()  { return endEdge; }
 
-const Ways &Bridge::getStartWays() const { return startWays; }
-void Bridge::setStartWays(const Ways &startWays) { Bridge::startWays = startWays; }
-const Ways &Bridge::getEndWays() const { return endWays; }
-void Bridge::setEndWays(const Ways &endWays) { Bridge::endWays = endWays; }
+
+
+
+
+bool Bridge::isW() const {
+    return (bridgeNum%2==1) ;
+}
+
+COORD Bridge::transformChessToScreen(COORD point) const{
+    point.X=1+(point.X*3);
+    return point;
+}
+
 
 COORD Bridge::getCenterPoint() const {
     COORD point;
@@ -31,12 +40,38 @@ COORD Bridge::getCenterPoint() const {
     } else {
         point.X=(bridgeNum-10)%20;  point.Y=1+2*((bridgeNum-10)/20);
     }
-    point.X=1+(point.X*3);
-    return point;
+    return transformChessToScreen(point);
 }
 
-bool Bridge::isW() const {
-    return (bridgeNum%2==1) ;
+COORD Bridge::getStartPoint() const {
+    COORD point = getCenterPoint();
+    if ( this->isW()) {
+        point.X=bridgeNum%20;  point.Y=(bridgeNum-point.X)/10;
+        point.X--;
+    } else {
+        point.X=(bridgeNum-10)%20;  point.Y=1+2*((bridgeNum-10)/20);
+        point.Y--;
+    }
+    return transformChessToScreen(point);
 }
+
+COORD Bridge::getEndPoint() const {
+    COORD point = getCenterPoint();
+    if ( this->isW()) {
+        point.X=bridgeNum%20;  point.Y=(bridgeNum-point.X)/10;
+        point.X++;
+    } else {
+        point.X=(bridgeNum-10)%20;  point.Y=1+2*((bridgeNum-10)/20);
+        point.Y++;
+    }
+    return transformChessToScreen(point);
+}
+
+const Ways &Bridge::getStartWays() const { return startWays; }
+void Bridge::setStartWays(const Ways &startWays) { this->startWays = startWays; }
+const Ways &Bridge::getEndWays() const { return endWays; }
+void Bridge::setEndWays(const Ways &endWays) { this->endWays = endWays; }
+
+
 
 

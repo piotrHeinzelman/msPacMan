@@ -39,12 +39,15 @@ void SecondTest::runTest() {
     mapa.DrawCenterPiontOfWall(b5_w);
     mapa.DrawCenterPiontOfWall(b14_h);
 
-    mapa.drawBridge(b3_w);
-    mapa.drawBridge(b5_w);
-    mapa.drawBridge(b14_h);
+  //  mapa.drawBridge(b3_w);
+  //  mapa.drawBridge(b5_w);
+  //  mapa.drawBridge(b14_h);
 
+    mapa.drawEdge(b3_w, true);
+    mapa.drawEdge(b3_w, false);
 
-
+    mapa.drawEdge(b14_h, true);
+    mapa.drawEdge(b14_h, false);
 
 
 
