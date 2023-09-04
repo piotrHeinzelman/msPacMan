@@ -72,7 +72,8 @@ void Board::prepare() {
     Sue->setDirection( DIRECT::E );
     Pac->setDirection( DIRECT::E );
 
-    drawAllMob();
+    //drawAllMob();
+
 }
 
 
@@ -250,27 +251,19 @@ void Board::showInfo( Mob* mob ){
 
 void Board::drawBoard() {
     
-    int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
-    b.drawAllBridges();
-/*
-        for (int i = 0; i < LIMIT; i++) {  // walls
-            if ( !b.isExsits( i ) ) { continue; }
-            COORD center = b.getCoordOfCenterBridge( i );
-            createDot( i , center , b.isW( i ));
-            if ( b.isW(i)) {
-                createDot( i , {static_cast<SHORT>((center.X-3)),center.Y} , b.isW( i ));
-                createDot( i , {static_cast<SHORT>((center.X+3)),center.Y} , b.isW( i ));
-            }
-            b.DrawWall( i );
-        }
-    */
-
+    b.drawAllWalls();
+    b.getAllBridges();
 
     createDot(1 , { 2,0 } , true , 50 , 1000 );
     createDot(17 , { 54,0 } , true , 50 , 1000 );
     createDot(221 , { 2,22 } , true , 50 , 1000 );
     createDot(237 , { 54,22 } , true , 50 , 1000 );
+
+    for ( Bridge* bridge : b.getAllBridges() ){
+        createDot( bridge->getBridgeNum() , bridge->getCenterPoint() , 1 , 0 ); // normal dot, value 1 power 0
+    }
 
       drawAllDots();
 }

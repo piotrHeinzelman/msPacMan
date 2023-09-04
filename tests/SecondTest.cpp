@@ -6,6 +6,7 @@
 #include "SecondTest.h"
 #include "../src/Bridge.h"
 #include "../src/Bridges.h"
+#include "../src/Board.h"
 
 void SecondTest::runTest() {
 
@@ -54,7 +55,10 @@ void SecondTest::runTest() {
         mapa.drawAllBridges();
         */
 
-    Bridges mapa;
-    mapa.drawAllBridges();
+Board b;
+    b.drawBoard();
+
+  //  Bridges mapa;
+  //  mapa.drawAllBridges();
 
 }

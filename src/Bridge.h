@@ -40,6 +40,8 @@ public:
 
     void setEndWays(const Ways &endWays);
 
+    int getBridgeNum() const;
+
 };
 
 

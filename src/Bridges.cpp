@@ -46,7 +46,6 @@ Bridges::Bridges(){
             bridge->setStartWays( w );
                  w = getWays( endEdge ) ;
             bridge->setEndWays( w );
- //           std::cout << "\nN:" << w.n << " : " << bridge->getEndWays().n << "\n";
         }
     }
 }
@@ -58,10 +57,6 @@ Ways Bridges::getWays( int edge ) {
     if ( bridgesData[edge+1]=='x') {  w.e = bridgeAry[ edge+1 ]; } else   { w.e=nullptr; }
     if ( bridgesData[edge-10]=='x') { w.n = bridgeAry[ edge-10 ]; } else { w.n=nullptr; }
     if ( bridgesData[edge+10]=='x') { w.s = bridgeAry[ edge+10 ]; } else { w.s=nullptr; }
- //   std::cout << "\nN:" << w.n <<"\n";
-//   std::cout << "\ns:" << w.s <<"\n";
-  //  std::cout << "\nw:" << w.w <<"\n";
-//    std::cout << "\ne:" << w.e <<"\n";
     return w;
 }
 
@@ -73,13 +68,6 @@ Bridge * Bridges::getBridgeByInt(int bridgeNum) {
 void Bridges::addBridge( int bridgeNum ) {
     bridgeAry[bridgeNum] = new Bridge( bridgeNum );
 };
-
-
-
-
-
-
-
 
 
 
@@ -117,34 +105,6 @@ COORD Bridges::getCoordOfEdge( int eNum ){ // TESTED
     return _getScreenCoordofCheesCoord({x,y});
 };
 
-/*
-bool Bridges::isExistsWayFromEdge( int edge, DIRECT direction ){ //TESTED
-    return  isExsits( edge+(direction/2));
-}
-*/
-/*
-int Bridges::getWayFromEdge(int eNum, DIRECT direction ){// TESTED
-    return getBridgeByInt( eNum ).
-
-    if (isExistsWayFromEdge(eNum , direction )) {
-        return eNum + (direction / 2);
-    }
-    throw std::runtime_error("Bridges::getWayFromEdge -> nie ma takiego pola");
-    return -1;
-}
-*/
-/*
-std::set<DIRECT>  Bridges::getAllWaysFromEdge( int eNum ){ // tested
-    std::set<DIRECT> ways;
-        if (isExistsWayFromEdge(eNum, N )){ ways.insert( DIRECT::N );  }
-        if (isExistsWayFromEdge(eNum, W )){ ways.insert( DIRECT::W );  }
-        if (isExistsWayFromEdge(eNum, S )){ ways.insert( DIRECT::S );  }
-        if (isExistsWayFromEdge(eNum, E )){ ways.insert( DIRECT::E );  }
-    return ways;
-}
-*/
-
-// ****************** WORKING HERE !!!
 
 COORD Bridges::_getScreenCoordofCheesCoord(const COORD & chess ){ // TESTED
     return COORD{ static_cast<SHORT>(  1+(chess.X*3) ) , chess.Y };
@@ -162,15 +122,6 @@ COORD Bridges::_getCheesCoordOfCenterBridge(int i ){
 
 COORD Bridges::getCoordOfCenterBridge( int bridgeNum ){
     return _getScreenCoordofCheesCoord(_getCheesCoordOfCenterBridge(bridgeNum));
-}
-
-
-void Bridges::drawBridge( Bridge* bridge ) {
-    DrawWall(bridge);
-    drawEdge(bridge,true);
-    drawEdge(bridge,false);
-    DrawDot(bridge);
-    DrawMob(bridge);
 }
 
 
@@ -229,17 +180,26 @@ void Bridges::drawEdge( Bridge* bridge, bool isStart ){
 }
 
 
-void Bridges::DrawDot ( Bridge* bridge ){};
-void Bridges::DrawMob ( Bridge* bridge ){}
 
-void Bridges::drawAllBridges() {
-    std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+
+void Bridges::drawAllWalls() {
     for ( int i=1;i<=250;i++) {
         Bridge* b = bridgeAry[i];
         if ( b!= nullptr ) {
-            drawBridge( b );
+            DrawWall( b );
         }
     }
+}
+
+std::vector<Bridge *> Bridges::getAllBridges() {
+    std::vector<Bridge *> v;
+    for (int i=0;i<=250;i++){
+        Bridge* b = bridgeAry[i];
+        if ( b!= nullptr ) {
+            v.push_back( b );
+        }
+    }
+    return v;
 }
 
 

@@ -20,6 +20,7 @@
 
 #include <set>
 #include <map>
+#include <vector>
 #include "DIRECT.h"
 #include "../tests/CppTests.h"
 #include "ConsoleDraw.h"
@@ -54,22 +55,13 @@ public:
     COORD getCoordOfEdge( int eNum );// get x,y screen position od Edge ( end of Bridge )
 
     int edgeChessPosition   ( int bridgeNum, bool fromStart ); // getEdgeNum like Data[] od Bridge. Start is Top or Left Edge, !Start is Bottom or Right edge.
-   // bool isExistsWayFromEdge( int eNum, DIRECT direction );  // is exists way to direction from edge ?
-   // int getWayFromEdge      ( int eNum, DIRECT direction );  // get new Bridge num from edge to direction
-                                                //                                                            8 4 2 1
-   // std::set<DIRECT> getAllWaysFromEdge( int eNum );       // get all possible direction from edge, binary code is: 0b00 E S W N
 
 
-    void drawAllBridges();
-    void drawBridge ( Bridge* bridge  );
-
+    void drawAllWalls();
     void DrawWall( Bridge* bridge );      // TODO
 
     void DrawCenterPiontOfWall( Bridge* bridge );  //TODO
 
-    void DrawDot ( Bridge* bridge );        // TODO
-    void DrawMob ( Bridge* bridge );        // TODO
-            // Test use only +
 
     void drawEdge( Bridge* bridge , bool iSstart );  // TODO
 
@@ -83,6 +75,8 @@ public:
 
 
     Bridge* getBridgeByInt( int bridgeNum );
+
+    std::vector<Bridge*> getAllBridges();
 };
 
 

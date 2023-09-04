@@ -175,7 +175,7 @@ void CppTests::BridgesTest() {
         bo.drawDotsOfBridge( 3 );
         bo.drawDotsOfBridge( 10 );
 
-        b.drawAllBridges();
+        b.drawAllWalls();
 
         Mob* john = new Mob(4, (std::string)"John", &bo );
 
