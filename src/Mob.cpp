@@ -40,11 +40,6 @@ bool Mob::isGhost(){ return this->ghost; }
 std::set<DIRECT> & Mob::getExits() { return exits; }
 
 
-bool Mob::isW() const     { return isW_; }
-void Mob::isW( bool isW ) { isW_ = isW; }
-
-
-
 bool Mob::isGoForwart() const { return goForwart; }
 
 void Mob::setGoForwart(bool goForwart) { Mob::goForwart = goForwart; }

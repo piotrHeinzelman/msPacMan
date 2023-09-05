@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <unistd.h>
 #include "SecondTest.h"
 #include "../src/Bridge.h"
 #include "../src/Bridges.h"
@@ -56,9 +57,12 @@ void SecondTest::runTest() {
         */
 
 Board b;
-    b.drawBoard();
+      b.drawBoard();
+      b.drawAllMob();
 
   //  Bridges mapa;
   //  mapa.drawAllBridges();
+
+  sleep(5);
 
 }

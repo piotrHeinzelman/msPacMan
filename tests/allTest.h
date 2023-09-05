@@ -154,11 +154,11 @@ void runLastTests() {
 
     Mob* Pac = new Mob( 4, "mr. Pac" , &b, false );
     b.addMob( Pac );
-    b.insertMobAtBridge( Pac, 1 , STEPS , true );
+    b.insertMobAtBridge( Pac, 1 , STEPS  );
 
     Mob* WhileLady = new Mob ( 1 , "White Lady" , &b , true );
     b.addMob( WhileLady );
-    b.insertMobAtBridge( WhileLady, 3 , STEPS , true );
+    b.insertMobAtBridge( WhileLady, 3 , STEPS );
 
 
 

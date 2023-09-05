@@ -180,7 +180,7 @@ void CppTests::BridgesTest() {
         Mob* john = new Mob(4, (std::string)"John", &bo );
 
 
-        bo.insertMobAtBridge( minion, 1, 0 , true );
+        bo.insertMobAtBridge( minion, 1, 0 );
 
 
     }

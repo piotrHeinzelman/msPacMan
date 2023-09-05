@@ -169,7 +169,7 @@ public:
 
 
     void addMob( Mob* mob );
-    void insertMobAtBridge( Mob* mob , int bridge, int step , bool isW );
+    void insertMobAtBridge( Mob* mob , int bridge, int step=0 );
 
     void drawAllMob();
     void drawOneMob( Mob* mob );

@@ -29,7 +29,6 @@ private:
     DIRECT direction;
     DIRECT nextDirection;
 
-    bool isW_;
     int points=0;
     int power=0;
     bool ghost;
@@ -59,13 +58,7 @@ public:
 
     DIRECT getDirection();
       void setDirection(DIRECT direction);
-
       void setNextDirection(DIRECT direction);
-
-
-    // *** trivial
-    bool isW() const;
-    void isW( bool isW );
 
     void addPoint( int points );
     void addPower( int power );

@@ -47,7 +47,7 @@ void Board::prepare() {
     Mob* Inky=  new Mob(1, "Inky" , this, true );
     Mob* Blinky=new Mob(2, "Blinky", this, true);
     Mob* Sue=   new Mob(3, "Sue", this, true);
-    Mob* Pac=   new Mob(4, "Pac", this );
+    Mob* Pac=   new Mob(4, "Pac", this, false );
     player = Pac;
 
     addMob(Pinky);
@@ -58,11 +58,11 @@ void Board::prepare() {
 
 
 
-    insertMobAtBridge(Pinky, 189 , 3 , true );
-    insertMobAtBridge(Inky, 189 , 3 , true );
-    insertMobAtBridge(Blinky, 189, 3 , true );
-    insertMobAtBridge(Sue, 189, 3 , true );
-    insertMobAtBridge(Pac, 5 , 0 , true );
+    insertMobAtBridge(Pinky, 189 , 3);
+    insertMobAtBridge(Inky, 189 , 3);
+    insertMobAtBridge(Blinky, 189, 3);
+    insertMobAtBridge(Sue, 189, 3);
+    insertMobAtBridge(Pac, 5 , 0);
 
 
 
@@ -89,15 +89,15 @@ void Board::addMob( Mob* mob ){
 
 
 
-void Board::insertMobAtBridge( Mob* mob , int bridgeNum , int step , bool isW ){
-
+void Board::insertMobAtBridge( Mob* mob , int bridgeNum , int step ){
+            // isW = bridgeNum%2==1
     Bridge * pBridge = b.getBridgeByInt(bridgeNum);
     if ( pBridge==nullptr ) { throw std::runtime_error("nie ma takiego mostu!");}
     mob->setBridge( pBridge );
     mob->setStep( step );
-    mob->isW( isW );
+
     std::set<DIRECT> &set = mob->getExits(); set.clear();
-    if( isW ){
+    if( bridgeNum%2==1 ){
         set.insert(DIRECT::E ); set.insert(DIRECT::W );
     } else {
         set.insert(DIRECT::N ); set.insert(DIRECT::S );
@@ -146,17 +146,17 @@ void Board::drawAllMob(){
 
 
 void Board::drawOneMob( Mob* mob ) {
-    // TODO
-    /*
-    int edgeStart = b.edgeChessPosition( mob->getBridge() , true );
-    COORD startPoint = b.getCoordOfEdge(edgeStart);
 
-    //std::cout << startPoint.X << ", y: " << startPoint.Y ;
+    std::cout << "id:"<<mob->getId() << "\n\n" ;
+    Bridge* bridge = mob->getBridge();
+    COORD startPoint= bridge->getStartPoint();
+
+    std::cout << startPoint.X << ", y: " << startPoint.Y ;
 
     int mobX = startPoint.X;
     int mobY = startPoint.Y;
     // correction  point
-    if ( mob->isW() ){
+    if ( bridge->isW() ){
         mobX += mob->getStep();
     } else {
        if (mob->getStep()>1) mobY++;
@@ -166,7 +166,7 @@ void Board::drawOneMob( Mob* mob ) {
     char avatar='P';//1;
     if ( mob->isGhost() ) { avatar='G';}
     cdraw.WriteColourChar( mobX , mobY , avatar );
-    */
+
 }
 
 
@@ -254,7 +254,6 @@ void Board::drawBoard() {
     int LIMIT = 240;  std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
     b.drawAllWalls();
-    b.getAllBridges();
 
     createDot(1 , { 2,0 } , true , 50 , 1000 );
     createDot(17 , { 54,0 } , true , 50 , 1000 );
