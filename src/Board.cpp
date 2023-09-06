@@ -59,11 +59,11 @@ void Board::prepare() {
 
 
 
-    insertMobAtBridge(Pinky, 7 , 0);
-    insertMobAtBridge(Inky, 7 , 3);
-    insertMobAtBridge(Blinky, 7, STEPS);
-    insertMobAtBridge(Sue, 151, 3);
-    insertMobAtBridge(Pac, 1 , 3);
+    insertMobAtBridge(Pinky, 67 , 0);
+    insertMobAtBridge(Inky, 71 , STEPS);
+    insertMobAtBridge(Blinky, 67, STEPS);
+    insertMobAtBridge(Sue, 71, 0);
+    insertMobAtBridge(Pac, 189 , 3);
 
 
 
@@ -124,7 +124,6 @@ void Board::moveAllMobs(){
     }
 
     // check collision
-    Bridge* checkedBridge = nullptr;
        Mob* checkedMob    = nullptr;
 
       mobs.shrink_to_fit();
@@ -161,7 +160,17 @@ void Board::BoardCollision(Mob *one, Mob *two) {
 void Board::Collision(Mob *one, Mob *two) {
     if ( one->isGhost() != two->isGhost() ){
         // fight !
-        std::cout << "COLLISTION:" << one->getId() << " : " << two->getId();
+        Mob* player = one->isGhost() ? two : one ;
+        Mob* ghost = one->isGhost() ? one : two ;
+        if ( player->getPower()==0 ){
+             player->setBridge( b.getBridgeByInt(189 ));
+             player->setLives( player->getLives()-1);
+            // Immmortal ?
+        } else {
+            ghost->setBridge( b.getBridgeByInt(69));
+            player->addPoint( 1000 );
+        }
+        //std::cout << "COLLISTION:" << one->getId() << " : " << two->getId();
     }
 }
 
@@ -271,18 +280,31 @@ Mob *Board::getPlayersMob() {
 
 
 void Board::showInfo( Mob* mob ){
+    if (mob->getLives()==0) {
+            mob->gameOver();
+            for (auto it = mobs.begin(); it != mobs.end(); ++it ) {
+            if ( mob==*it ) {
+                mobs.erase(it);
+            }
+        }
+    }
     for (int i=0;i<mob->getLives();i++){
         COORD point={static_cast<SHORT>(i+1),24};
         cdraw.WriteColourChar( point, 2, 0x90 );
+        cdraw.WriteColourChar( {static_cast<SHORT>(point.X+1),point.Y}, ' ', 0x90 );
+        cdraw.WriteColourChar( {static_cast<SHORT>(point.X+2),point.Y}, ' ', 0x90 );
     }
     cdraw.WriteColourChar( { 20, 24 }, 0x30+(dots.size()/10), 0x90 );
     cdraw.WriteColourChar( { 21, 24 }, 0x30+(dots.size()%10), 0x90 );
 
     int pts=mob->getPoints();
 
-    cdraw.WriteColourChar( { 50,-1  }, 0x30+(pts/100), 0x90 );
-    cdraw.WriteColourChar( { 51,-1  }, 0x30+((pts/10)-(pts/100)), 0x90 );
-    cdraw.WriteColourChar( { 52, -1 }, 0x30+(pts%10), 0x90 );
+    int x=52;
+    while ( pts>0 ){
+        cdraw.WriteColourChar( { (SHORT) x, -2 }, 0x30+(pts%10), 0x90 );
+        x--;
+        pts=pts/10;
+    }
 }
 
 

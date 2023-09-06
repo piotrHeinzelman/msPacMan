@@ -19,8 +19,6 @@ Mob::Mob(int id, std::string name , Board* board,  bool ghost ) {
 
 
 
-int Mob::getId() { return id; }
-
 DIRECT Mob::getDirection() { return direction; }
 
 void Mob::setDirection(DIRECT direction){ this->direction = direction; };
@@ -39,7 +37,7 @@ void Mob::setBridge( Bridge* bridge ) { this->bridge = bridge; }
 
 
 // getters / setters
-void Mob::addPoint( int points ){ this->points += points; }
+void Mob::addPoint( u_long points ){ this->points += points; }
 void Mob::addPower( int power ){ this->power=power; }
 int  Mob::getPower(){ return this->power; }
 int  Mob::getPoints(){ return this->points; }
@@ -122,7 +120,15 @@ COORD Mob::getAvatarPosition() {
 }
 
 void Mob::grabEnergy() {
-    if ( power>0 ) { power--; }
+    if ( power<0) { power=0; }
+    if ( power>0 ) { power-=4; }
 }
 
 int Mob::getLives() { return lives; }
+void Mob::setLives(int lives) { Mob::lives = lives; }
+
+int Mob::gameOver() {
+    return 0;
+}
+
+int Mob::getId() const { return id; }

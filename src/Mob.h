@@ -40,14 +40,10 @@ private:
 public:
     Mob();
     Mob(int id , std::string name , Board* board,  bool ghost=false );
-    int getId();
     void gotoNextStep();
     void gotoNextBridge(  DIRECT dir, Ways w  );
 
-// getters / setters
-
-
-
+    // getters / setters
 
       Bridge * getBridge();
      void setBridge(Bridge* bridge);
@@ -60,21 +56,23 @@ public:
       void setDirection(DIRECT direction);
       void setNextDirection(DIRECT direction);
 
-    void addPoint( int points );
+    void addPoint( u_long points );
     void addPower( int power );
     int getPower();
     int getPoints();
     bool isGhost();
     std::set<DIRECT> &getExits();
 
-
-
     void insertMobAtBridge(Mob *mob, int bridge);
-
 
     void checkNextDirection();
     void grabEnergy();
+
     int getLives();
+    void setLives(int lives);
+    int gameOver();
+
+    int getId() const;
 
 };
 
