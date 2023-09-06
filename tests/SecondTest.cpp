@@ -56,16 +56,34 @@ void SecondTest::runTest() {
         mapa.drawAllBridges();
         */
 
+
+
+
+
+
 Board b;
       b.drawBoard();
       b.prepare();
       b.drawAllMob();
 
-        for ( int i=0;i<70;i++ ){
+
+        for ( int i=0;i<32;i++ ){
             b.moveAllMobs();
             b.drawAllMob();
         }
+        b.getPlayersMob()->setDirection( DIRECT::S);
+        for ( int i=0;i<8;i++ ){
+          b.moveAllMobs();
+           b.drawAllMob();
+        }
 
+        std::cout <<"\n\n\n\n\n\n";
+
+        b.getPlayersMob()->setDirection( DIRECT::W);
+        for ( int i=0;i<66;i++ ){
+            b.moveAllMobs();
+            b.drawAllMob();
+        }
   //  Bridges mapa;
   //  mapa.drawAllBridges();
 

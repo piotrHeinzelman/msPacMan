@@ -40,11 +40,9 @@ public:
     Mob();
     Mob(int id , std::string name , Board* board,  bool ghost=false );
     int getId();
-
     void gotoNextStep();
+    void gotoNextBridge(  DIRECT dir, Ways w  );
 
-    bool isGoForwart() const;
-    void setGoForwart(bool goForwart);
 // getters / setters
 
 
@@ -70,7 +68,9 @@ public:
 
 
     void insertMobAtBridge(Mob *mob, int bridge);
-    void gotoNextBridge();
+
+
+    void checkNextDirection();
 
 };
 

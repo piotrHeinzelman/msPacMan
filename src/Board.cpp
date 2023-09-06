@@ -44,34 +44,34 @@ Board::Board() {
 
 void Board::prepare() {
 
-    Mob* Pinky= new Mob(0,  "Pinky" , this, true );
+ /*   Mob* Pinky= new Mob(0,  "Pinky" , this, true );
     Mob* Inky=  new Mob(1, "Inky" , this, true );
     Mob* Blinky=new Mob(2, "Blinky", this, true);
     Mob* Sue=   new Mob(3, "Sue", this, true);
-    Mob* Pac=   new Mob(4, "Pac", this, false );
+*/    Mob* Pac=   new Mob(4, "Pac", this, false );
     player = Pac;
 
-    addMob(Pinky);
+/*    addMob(Pinky);
     addMob(Inky);
     addMob(Blinky);
     addMob(Sue);
-    addMob(Pac);
+*/    addMob(Pac);
 
 
 
-    insertMobAtBridge(Pinky, 7 , 0);
+ /*   insertMobAtBridge(Pinky, 7 , 0);
     insertMobAtBridge(Inky, 7 , 3);
     insertMobAtBridge(Blinky, 7, STEPS);
     insertMobAtBridge(Sue, 151, 3);
-    insertMobAtBridge(Pac, 1 , 0);
+ */   insertMobAtBridge(Pac, 1 , 3);
 
 
 
-    Pinky->setDirection( DIRECT::W );
+/*    Pinky->setDirection( DIRECT::W );
     Inky->setDirection( DIRECT::W );
     Blinky->setDirection( DIRECT::S );
     Sue->setDirection( DIRECT::E );
-    Pac->setDirection( DIRECT::E );
+*/    Pac->setDirection( DIRECT::E );
 
     drawAllMob();
 
