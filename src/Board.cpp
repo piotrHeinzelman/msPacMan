@@ -172,12 +172,18 @@ void Board::CheckTunnel(Mob *mob) {
 
 
 
-
+void Board::drawDotsOfUsedBridge(){
+    if (dots.empty()) { nextLevel(); }
+    for ( Mob* mob : mobs ){
+        drawDotsOfBridge( mob->getBridge() );
+    }
+}
 
 
 
 void Board::drawAllMob(){
     for ( Mob* mob : mobs ){
+        if (!mob->isGhost()) {mob->grabEnergy();}
         drawOneMob( mob );
     }
 }
@@ -187,6 +193,7 @@ void Board::drawAllMob(){
 void Board::drawOneMob( Mob* mob ) {
     char avatar='P';//1;
     if ( mob->isGhost() ) { avatar='G';}
+    if ( mob->getPower()>0 ) { avatar='#';}
     cdraw.WriteColourChar( mob->getAvatarPosition() , avatar );
 }
 
@@ -260,7 +267,10 @@ Mob *Board::getPlayersMob() {
 
 
 void Board::showInfo( Mob* mob ){
-    std::cout << "id:" << mob->getId()<<"\n";
+    for (int i=0;i<mob->getLives();i++){
+        COORD point={static_cast<SHORT>(i+1),24};
+        cdraw.WriteColourChar( point, 2, 0x90 );
+    }
 }
 
 
@@ -279,6 +289,7 @@ void Board::drawBoard() {
     createDot(237 , { 54,22 } , true , 50 , 1000 );
 
     for ( Bridge* bridge : b.getAllBridges() ){
+        if ( bridge->getBridgeNum()!=117 && bridge->getBridgeNum()!=101 )
         createDot( bridge->getBridgeNum() , bridge->getCenterPoint() , 1 , 0 ); // normal dot, value 1 power 0
     }
 
@@ -329,6 +340,10 @@ void Board::drawDotsOfBridge( Bridge* bridge ){
             }
         }
     }
+}
+
+void Board::nextLevel() {
+    prepare();
 }
 
 

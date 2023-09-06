@@ -14,6 +14,7 @@ Mob::Mob(int id, std::string name , Board* board,  bool ghost ) {
     this->nextDirection=DIRECT::STOP;
     this->board=board;
     this->ghost=ghost;
+    this->lives=5;
 }
 
 
@@ -117,5 +118,11 @@ COORD Mob::getAvatarPosition() {
         if (getStep() > 1) mobY++;
         if (getStep() > 4) mobY++;
     }
-    return COORD {mobX,mobY };
+    return COORD {static_cast<SHORT>(mobX),static_cast<SHORT>(mobY) };
 }
+
+void Mob::grabEnergy() {
+    if ( power>0 ) { power--; }
+}
+
+int Mob::getLives() { return lives; }

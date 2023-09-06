@@ -200,13 +200,16 @@ public:
 
 
     void CheckTunnel(Mob* mob);
-
+    void drawDotsOfUsedBridge();
 
 
     void showInfo( Mob* mob );
 
     DWORD BoardTick(LPVOID lpParameter);
     void setMobDirection( Mob* mob, DIRECT direction);
+
+    void nextLevel();
+    void drawUserInfo();
 };
 
 

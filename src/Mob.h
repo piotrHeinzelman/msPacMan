@@ -20,6 +20,7 @@ class Mob {
 
 private:
     int id;
+    int lives;
     int step;
     bool goForwart; // ?
     Bridge* bridge;
@@ -72,6 +73,8 @@ public:
 
 
     void checkNextDirection();
+    void grabEnergy();
+    int getLives();
 
 };
 

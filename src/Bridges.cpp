@@ -29,8 +29,8 @@ COORD operator +( const COORD & l , const COORD & r ){
 
 
 
-Bridges::Bridges(){
-    bridgesData = (char*)" x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x x  x x     x x         x x    xxxxx       xxxxx !  x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x xxx x x x x             ";
+Bridges::Bridges(){ //                                                                                                                           x
+    bridgesData = (char*)" x x x x  xx xxx xx xx xxx xxxxx xxxxx   xxxx  xx  x  xx xx x   x  x x x  x x     x x         x x    xxxxx       xxxxx    x x         x x     x x  x x x  x x    xxxxx x  xx xxx xx xx  xx xxx xxxx xx   xxxx xx  xx   x xx xx x x xxx x x x x             ";
     for(int i=1;i<255;i++) {
         if ( bridgesData[i] != ' ' ) {
                 addBridge(i ); // add Wbridge
@@ -189,6 +189,16 @@ void Bridges::drawAllWalls() {
             DrawWall( b );
         }
     }
+    draw.WriteColourChar( 0,9,' ' );
+    draw.WriteColourChar( 0,10,' ' );
+    draw.WriteColourChar( 0,11,' ' );
+    draw.WriteColourChar( 1,9,' ' );
+    draw.WriteColourChar( 1,11,' ' );
+    draw.WriteColourChar( 56,9,' ' );
+    draw.WriteColourChar( 56,10,' ' );
+    draw.WriteColourChar( 56,11,' ' );
+    draw.WriteColourChar( 55,9,' ' );
+    draw.WriteColourChar( 55,11,' ' );
 }
 
 std::vector<Bridge *> Bridges::getAllBridges() {

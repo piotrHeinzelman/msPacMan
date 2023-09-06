@@ -30,9 +30,12 @@ void createClient_(){
 
 void RefreshBoard( Board* board ) {
     while(true){
+        board->showInfo( board->getPlayersMob() );
         board->clearAllUsedBridge();
         board->moveAllMobs();
         board->drawAllMob();
+
+        board->drawDotsOfUsedBridge();
         std::this_thread::sleep_for(std::chrono::milliseconds(1000/20));
 /*
         b.getPlayersMob()->setDirection( DIRECT::E);
