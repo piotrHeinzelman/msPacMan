@@ -53,6 +53,7 @@ public:
 
     int  getStep() const;
     void setStep(int step);
+    COORD getAvatarPosition();
 
     DIRECT getDirection();
       void setDirection(DIRECT direction);

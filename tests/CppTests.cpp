@@ -159,11 +159,11 @@ void CppTests::BridgesTest() {
 
 
         Mob* minion = new Mob(4, (std::string)"Minion", &bo );
-        bo.eatDot( minion, {1,1} );
+      //  bo.eatDot( minion, {1,1} );
         assert(1 == minion->getPoints());
         assert(0 == minion->getPower());
         //std::cout<<"Minion: power: " << minion->getPower() << ", points: " << minion->getPoints()<< "\n";
-        bo.eatDot( minion , {2,0} );
+//bo.eatDot( minion , {2,0} );
         assert(51 == minion->getPoints());
         assert(1000 == minion->getPower());
         //std::cout<<"Minion: power: " << minion->getPower() << ", points: " << minion->getPoints()<< "\n";

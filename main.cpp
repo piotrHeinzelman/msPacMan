@@ -51,10 +51,12 @@ int main() {
 
 
 
-
+    // odrysowywanie do timer
     HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( RefreshBoard ), &b1, 1, NULL);
 
 
+
+    // LOCAL CONTROLLER
     Mob* player = b1.getPlayersMob();
     DIRECT activeDirection=DIRECT::STOP;
     DIRECT d;
@@ -63,7 +65,7 @@ int main() {
         if (GetKeyState(VK_DOWN ) < 0 ) { d=DIRECT::S; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
         if (GetKeyState(VK_LEFT ) < 0 ) { d=DIRECT::W; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
         if (GetKeyState(VK_RIGHT) < 0 ) { d=DIRECT::E; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
-        if (GetKeyState(VK_SPACE) < 0 ) { std::cout << "Bridge:" << player->getBridge()->getBridgeNum()<<", position:"<<player->getStep()<<"\n"; }
+        //if (GetKeyState(VK_SPACE) < 0 ) { std::cout << "Bridge:" << player->getBridge()->getBridgeNum()<<", position:"<<player->getStep()<<"\n"; }
     }
 
 

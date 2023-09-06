@@ -44,34 +44,34 @@ Board::Board() {
 
 void Board::prepare() {
 
- /*   Mob* Pinky= new Mob(0,  "Pinky" , this, true );
+    Mob* Pinky= new Mob(0,  "Pinky" , this, true );
     Mob* Inky=  new Mob(1, "Inky" , this, true );
     Mob* Blinky=new Mob(2, "Blinky", this, true);
     Mob* Sue=   new Mob(3, "Sue", this, true);
-*/    Mob* Pac=   new Mob(4, "Pac", this, false );
-    player = Pac;
+    Mob* Pac=   new Mob(4, "Pac", this, false );
+    player = Pac; // set Localplayer
 
-/*    addMob(Pinky);
+    addMob(Pinky);
     addMob(Inky);
     addMob(Blinky);
     addMob(Sue);
-*/    addMob(Pac);
+    addMob(Pac);
 
 
 
- /*   insertMobAtBridge(Pinky, 7 , 0);
+    insertMobAtBridge(Pinky, 7 , 0);
     insertMobAtBridge(Inky, 7 , 3);
     insertMobAtBridge(Blinky, 7, STEPS);
     insertMobAtBridge(Sue, 151, 3);
- */   insertMobAtBridge(Pac, 1 , 3);
+    insertMobAtBridge(Pac, 1 , 3);
 
 
 
-/*    Pinky->setDirection( DIRECT::W );
+    Pinky->setDirection( DIRECT::W );
     Inky->setDirection( DIRECT::W );
     Blinky->setDirection( DIRECT::S );
     Sue->setDirection( DIRECT::E );
-*/    Pac->setDirection( DIRECT::STOP );
+    Pac->setDirection( DIRECT::STOP );
 
     drawAllMob();
 
@@ -115,19 +115,57 @@ void Board::setMobDirection(Mob *mob, DIRECT direction) {
 
 void Board::moveAllMobs(){
     for ( Mob* mob : mobs ){
+        CheckTunnel( mob );
         mob->gotoNextStep();
-    }
-    // check collision
-
-    Bridge* checkedBridge = nullptr;
-       Mob* checkedMob    = nullptr;
-    for ( Mob* mob : mobs ){
-        if ( checkedBridge == nullptr ){
-            checkedBridge=mob->getBridge(); checkedMob = mob;
-        } else {
-            if ( checkedBridge == mob->getBridge() ) { Collision( checkedMob , mob  ); }
+        if (!mob->isGhost() && IsDotAt( mob->getAvatarPosition() ) ){
+            // eat dot
+            eatDot( mob );
         }
     }
+
+    // check collision
+    Bridge* checkedBridge = nullptr;
+       Mob* checkedMob    = nullptr;
+
+      mobs.shrink_to_fit();
+     for (int i=0;i<mobs.size();i++){
+         checkedMob=mobs[i];
+         for ( int j=i+1; j<mobs.size();j++){
+            if ( checkedMob->getBridge()==mobs[j]->getBridge() ) {
+                BoardCollision(checkedMob ,mobs[j] );
+            }
+         }
+     }
+}
+
+void Board::eatDot( Mob* mob ){
+    COORD point = mob->getAvatarPosition();
+    if ( IsDotAt( point )){
+        Dot* dot = getDotFrom( point );
+        mob->addPoint( dot->getValue() );
+        if ( dot->getPower()!=0 ){
+            mob->addPower( dot->getPower() );
+        }
+        dots.erase( (256*point.X+point.Y)   );
+    }
+}
+
+
+
+void Board::Collision(Mob *one, Mob *two) {
+    std::cout << "COLLISTION:" << one->getId() << " : " << two->getId();
+}
+
+void Board::BoardCollision(Mob *one, Mob *two) {
+
+}
+
+
+
+
+void Board::CheckTunnel(Mob *mob) {
+    if ( mob->getBridge()->getBridgeNum()==101 && mob->getDirection()==DIRECT::W && mob->getStep()==3 ) { mob->setBridge( b.getBridgeByInt( 117 ) ); }
+    if ( mob->getBridge()->getBridgeNum()==117 && mob->getDirection()==DIRECT::E && mob->getStep()==3 ) { mob->setBridge( b.getBridgeByInt( 101 ) ); }
 }
 
 
@@ -147,23 +185,9 @@ void Board::drawAllMob(){
 
 
 void Board::drawOneMob( Mob* mob ) {
-
-    Bridge* bridge = mob->getBridge();
-    COORD startPoint= bridge->getStartPoint();
-    int mobX = startPoint.X;
-    int mobY = startPoint.Y;
-    // correction  point
-    if ( bridge->isW() ){
-        mobX += mob->getStep();
-    } else {
-       if (mob->getStep()>1) mobY++;
-       if (mob->getStep()>4) mobY++;
-    }
-
     char avatar='P';//1;
     if ( mob->isGhost() ) { avatar='G';}
-    cdraw.WriteColourChar( mobX , mobY , avatar );
-
+    cdraw.WriteColourChar( mob->getAvatarPosition() , avatar );
 }
 
 
@@ -269,7 +293,7 @@ Dot* Board::createDot( int i , COORD center , bool isW , int value, int power) {
     return dot;
 }
 
-Dot * Board::getDotFrom(COORD point ){
+Dot* Board::getDotFrom(COORD point ){
     return dots[256*point.X+point.Y];
     }
 
@@ -307,22 +331,10 @@ void Board::drawDotsOfBridge( Bridge* bridge ){
     }
 }
 
-void Board::eatDot( Mob* mob , COORD point ){
-    if ( IsDotAt( point )){
-        Dot* dot = getDotFrom( point );
-        mob->addPoint( dot->getValue() );
-        if ( dot->getPower()!=0 ){
-            mob->addPower( dot->getPower() );
-        }
-    }
-}
 
 
 
 
-void Board::Collision(Mob *one, Mob *two) {
-    std::cout << "COLLISTION:" << one->getId() << " : " << two->getId();
-}
 
 
 

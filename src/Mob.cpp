@@ -23,7 +23,14 @@ int Mob::getId() { return id; }
 DIRECT Mob::getDirection() { return direction; }
 
 void Mob::setDirection(DIRECT direction){ this->direction = direction; };
-void Mob::setNextDirection(DIRECT nextDirection){ this->nextDirection = nextDirection; if (this->direction==DIRECT::STOP) this->direction=nextDirection; };
+void Mob::setNextDirection(DIRECT nextDirection){
+    this->nextDirection = nextDirection; if (this->direction==DIRECT::STOP) this->direction=nextDirection;
+    if (this->getBridge()->isW()){
+        if (nextDirection==DIRECT::E || nextDirection==DIRECT::W  ) { this->direction=nextDirection;}
+    } else {
+        if (nextDirection==DIRECT::N || nextDirection==DIRECT::S  ) { this->direction=nextDirection;}
+    }
+};
 
 Bridge * Mob::getBridge()  { return bridge; }
 void Mob::setBridge( Bridge* bridge ) { this->bridge = bridge; }
@@ -99,4 +106,16 @@ void Mob::checkNextDirection() {
     }
 }
 
-
+COORD Mob::getAvatarPosition() {
+    COORD startPoint = getBridge()->getStartPoint();
+    int mobX = startPoint.X;
+    int mobY = startPoint.Y;
+// correction  point
+    if (bridge->isW()) {
+        mobX += getStep();
+    } else {
+        if (getStep() > 1) mobY++;
+        if (getStep() > 4) mobY++;
+    }
+    return COORD {mobX,mobY };
+}

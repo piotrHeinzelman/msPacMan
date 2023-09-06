@@ -181,12 +181,13 @@ public:
 
 
     Dot * createDot( int i , COORD center ,  bool isW , int value=1, int power=0);
-    Dot * getDotFrom(COORD );
+    Dot * getDotFrom( COORD );
     bool  IsDotAt (COORD );
 
     void drawAllDots();
     void drawDotsOfBridge( Bridge* bridge );
 
+    void BoardCollision( Mob* one , Mob* two );
     void Collision( Mob* one , Mob* two );
 
     void moveAllMobs();
@@ -194,11 +195,11 @@ public:
     void clearBridge( Bridge* pB );
     void clearAllUsedBridge();
 
-    void eatDot( Mob* mob , COORD );
+    void eatDot( Mob* mob);
     void drawOneDot( std::pair<const int, Dot *> pair );
 
 
-
+    void CheckTunnel(Mob* mob);
 
 
 
