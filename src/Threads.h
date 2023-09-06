@@ -28,11 +28,12 @@ void createClient_(){
     }
 }
 
-void createClient( Board* board ) {
+void RefreshBoard( Board* board ) {
     while(true){
         board->clearAllUsedBridge();
         board->moveAllMobs();
         board->drawAllMob();
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000/20));
 /*
         b.getPlayersMob()->setDirection( DIRECT::E);
         b.getPlayersMob()->setNextDirection( DIRECT::S);
@@ -54,7 +55,7 @@ void createClient( Board* board ) {
     board->moveAllMobs();
     board->drawAllMob();
     */
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
     }
 }
 

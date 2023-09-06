@@ -11,13 +11,7 @@
 
 
 
-
-
-
-
 int main() {
-
-
 
     // create server // TURN OFF< read key
     //HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(createClient), &b1, 1, NULL);
@@ -58,16 +52,18 @@ int main() {
 
 
 
-    HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(createClient), &b1, 1, NULL);
+    HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( RefreshBoard ), &b1, 1, NULL);
 
 
+    Mob* player = b1.getPlayersMob();
+    DIRECT activeDirection=DIRECT::STOP;
+    DIRECT d;
     while(true){
-        std::this_thread::sleep_for(std::chrono::milliseconds(400));
-      //  b1.clearAllUsedBridge();
-     //   b1.moveAllMobs();
-     //   b1.drawAllMob();
-        b1.allMobCheckcontroller();
-        //std::cout<<" \n";
+        if (GetKeyState(VK_UP   ) < 0 ) { d=DIRECT::N; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
+        if (GetKeyState(VK_DOWN ) < 0 ) { d=DIRECT::S; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
+        if (GetKeyState(VK_LEFT ) < 0 ) { d=DIRECT::W; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
+        if (GetKeyState(VK_RIGHT) < 0 ) { d=DIRECT::E; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
+        if (GetKeyState(VK_SPACE) < 0 ) { std::cout << "Bridge:" << player->getBridge()->getBridgeNum()<<", position:"<<player->getStep()<<"\n"; }
     }
 
 
