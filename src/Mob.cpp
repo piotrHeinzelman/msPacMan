@@ -23,7 +23,7 @@ int Mob::getId() { return id; }
 DIRECT Mob::getDirection() { return direction; }
 
 void Mob::setDirection(DIRECT direction){ this->direction = direction; };
-void Mob::setNextDirection(DIRECT nextDirection){ this->nextDirection = nextDirection;  };
+void Mob::setNextDirection(DIRECT nextDirection){ this->nextDirection = nextDirection; if (this->direction==DIRECT::STOP) this->direction=nextDirection; };
 
 Bridge * Mob::getBridge()  { return bridge; }
 void Mob::setBridge( Bridge* bridge ) { this->bridge = bridge; }
@@ -48,7 +48,7 @@ void Mob::setStep( int step ) {
 }
 
 void Mob::gotoNextStep() {
-    if (id==4) { std::cout<<"Step:"<<getStep()<<", Bridge"<<getBridge()->getCenterPoint().X<<"\n"; }
+    //if (id==4) { std::cout<<"Step:"<<getStep()<<", Bridge"<<getBridge()->getCenterPoint().X<<"\n"; }
     if (  getStep()==0 || getStep()==STEPS ) {
         checkNextDirection();
         Bridge* in = getBridge();

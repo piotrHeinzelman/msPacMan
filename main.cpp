@@ -7,6 +7,7 @@
 #include "tests/CppTests.h"
 #include "src/UDPServ.h"
 #include "tests/SecondTest.h"
+#include "src/Threads.h"
 
 
 
@@ -17,15 +18,16 @@
 int main() {
 
 
+
     // create server // TURN OFF< read key
-    //HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(createClient), NULL, 0, NULL);
+    //HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(createClient), &b1, 1, NULL);
 
 
     bool cppTest=!true;  // uruchomic cppcheck
-    bool secTest=true;  // uruchomic secondtest
+    bool secTest=!true;  // uruchomic secondtest
     bool allTest=!true;  // czy uruchamic wszystkie testy
     bool lastTest=!true;  // czy uruchamia ostatni test (nad ktorym wlasnie pracuje) ?
-    bool exitAfterTests=true; // czy po zakonczeniu testow zakonczyc aplikacje ?
+    bool exitAfterTests=!true; // czy po zakonczeniu testow zakonczyc aplikacje ?
 
 
     if ( cppTest ) { CppTests cppt; cppt.BridgesTest();  }
@@ -46,15 +48,26 @@ int main() {
     b1.prepare();
     b1.drawBoard();
     b1.drawAllDots();
+    b1.drawAllMob();
+
+    b1.getPlayersMob()->setNextDirection( DIRECT::E );
+    b1.getPlayersMob()->setDirection( DIRECT::E );
+
+
+
+
+
+
+    HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(createClient), &b1, 1, NULL);
 
 
     while(true){
-        std::this_thread::sleep_for(std::chrono::milliseconds(100 ));
-        b1.clearAllUsedBridge();
-        b1.moveAllMobs();
-        b1.drawAllMob();
+        std::this_thread::sleep_for(std::chrono::milliseconds(400));
+      //  b1.clearAllUsedBridge();
+     //   b1.moveAllMobs();
+     //   b1.drawAllMob();
         b1.allMobCheckcontroller();
-        //std::cout << "b";
+        //std::cout<<" \n";
     }
 
 

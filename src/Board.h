@@ -185,7 +185,7 @@ public:
     bool  IsDotAt (COORD );
 
     void drawAllDots();
-    void drawDotsOfBridge( int i );
+    void drawDotsOfBridge( Bridge* bridge );
 
     void Collision( Mob* one , Mob* two );
 

@@ -58,12 +58,12 @@ public:
 
 
     void drawAllWalls();
-    void DrawWall( Bridge* bridge );      // TODO
+    void DrawWall( Bridge* bridge );
 
-    void DrawCenterPiontOfWall( Bridge* bridge );  //TODO
+    void DrawCenterPiontOfWall( Bridge* bridge );
 
 
-    void drawEdge( Bridge* bridge , bool iSstart );  // TODO
+    void drawEdge( Bridge* bridge , bool iSstart );
 
     void clearBridge( int bridgeNum );
     void clearBridge( Bridge* bridge );

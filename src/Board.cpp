@@ -71,7 +71,7 @@ void Board::prepare() {
     Inky->setDirection( DIRECT::W );
     Blinky->setDirection( DIRECT::S );
     Sue->setDirection( DIRECT::E );
-*/    Pac->setDirection( DIRECT::E );
+*/    Pac->setDirection( DIRECT::STOP );
 
     drawAllMob();
 
@@ -170,19 +170,16 @@ void Board::drawOneMob( Mob* mob ) {
 void Board::clearAllUsedBridge() {
     for ( Mob* mob : mobs ){
         clearBridge( mob->getBridge() );
+        drawDotsOfBridge( mob->getBridge() );
     }
 }
 
 
 
 void Board::clearBridge( Bridge* pB ){
-    std::cout << "clearBridge( Bridge* pB ){" << pB;
+    COORD startPoint = pB->getStartPoint();
+    COORD endPoint   = pB->getEndPoint();
 
-    /*
-    int start = pB->chessPosition;  b.edgeChessPosition( i, true );
-    int end =   b.edgeChessPosition( i, false );
-    COORD startPoint = b.getCoordOfEdge( start );
-    COORD endPoint   = b.getCoordOfEdge( end );
     int sx=startPoint.X;
     int sy=startPoint.Y;
     int ex=endPoint.X;
@@ -192,7 +189,7 @@ void Board::clearBridge( Bridge* pB ){
             cdraw.WriteColourChar( {static_cast<SHORT>(x),static_cast<SHORT>(y)} , ' ' );
         }
     }
-     */
+
 }
 
 
@@ -292,22 +289,15 @@ void Board::drawOneDot( std::pair<const int, Dot *> pair ){
     cdraw.WriteColourChar( (SHORT) pair.first/256 , (SHORT)pair.first%256 , dot);
 }
 
-void Board::drawDotsOfBridge( int i ){
-    int start = b.edgeChessPosition( i, true );
-    int end =   b.edgeChessPosition( i, false );
-    COORD startPoint = b.getCoordOfEdge( start );
-    COORD endPoint   = b.getCoordOfEdge( end );
-            if (false) {
-              std::cout << "start:" << start << ", startPiont: " << startPoint.X << "," << startPoint.Y  << "\n";
-              std::cout << "end:" << end << ", endPiont: " << endPoint.X << "," << endPoint.Y  << "\n"; }
+void Board::drawDotsOfBridge( Bridge* bridge ){
+    COORD startPoint = bridge->getStartPoint();
+    COORD endPoint   = bridge->getEndPoint();
     int sx=startPoint.X;
     int sy=startPoint.Y;
     int ex=endPoint.X;
     int ey=endPoint.Y;
     for ( int x=sx; x<=ex ; x++ ){
         for ( int y=sy; y<=ey ; y++ ){
-            //std::cout << "point:" << x << ", " << y <<   "\n";
-            //check dot at x,y
             if ( IsDotAt( {  static_cast<SHORT>(x),  static_cast<SHORT>(y)} ) ) {
                 Dot* dot = getDotFrom({static_cast<SHORT>(x),static_cast<SHORT>(y)} );
                 std::pair<const int, Dot *> pair = { 256*x+y , dot };
@@ -326,9 +316,6 @@ void Board::eatDot( Mob* mob , COORD point ){
         }
     }
 }
-
-
-
 
 
 

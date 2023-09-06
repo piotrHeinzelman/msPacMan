@@ -64,29 +64,22 @@ void SecondTest::runTest() {
 Board b;
       b.drawBoard();
       b.prepare();
+
+        b.getPlayersMob()->setDirection( DIRECT::E);
+        b.getPlayersMob()->setNextDirection( DIRECT::S);
       b.drawAllMob();
 
 
-        for ( int i=0;i<32;i++ ){
+        for ( int i=0;i<30;i++ ){
+            if (i==5) b.getPlayersMob()->setNextDirection( DIRECT::S);
             b.moveAllMobs();
             b.drawAllMob();
         }
-        b.getPlayersMob()->setDirection( DIRECT::S);
-        for ( int i=0;i<8;i++ ){
-          b.moveAllMobs();
-           b.drawAllMob();
-        }
 
-        std::cout <<"\n\n\n\n\n\n";
 
-        b.getPlayersMob()->setDirection( DIRECT::W);
-        for ( int i=0;i<66;i++ ){
-            b.moveAllMobs();
-            b.drawAllMob();
-        }
+
   //  Bridges mapa;
   //  mapa.drawAllBridges();
 
-  sleep(5);
 
 }

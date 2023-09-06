@@ -171,9 +171,7 @@ void CppTests::BridgesTest() {
         //b.draw.WriteColourChar( {0,0 } , 'X' );
 
 
-        bo.drawDotsOfBridge( 1 );
-        bo.drawDotsOfBridge( 3 );
-        bo.drawDotsOfBridge( 10 );
+
 
         b.drawAllWalls();
 

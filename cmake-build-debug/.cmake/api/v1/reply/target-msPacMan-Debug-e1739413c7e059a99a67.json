@@ -137,7 +137,8 @@
 				15,
 				17,
 				19,
-				22
+				22,
+				23
 			]
 		}
 	],
@@ -267,6 +268,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "src/Ways.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Threads.h",
 			"sourceGroupIndex" : 1
 		}
 	],

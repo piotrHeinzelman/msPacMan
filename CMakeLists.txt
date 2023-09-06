@@ -38,6 +38,7 @@ add_executable(msPacMan main.cpp
         src/Bridge.cpp
         tests/SecondTest.cpp
         src/Ways.h
+        src/Threads.h
 
 )
 

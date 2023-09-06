@@ -26,8 +26,8 @@ private:
 
     std::set<DIRECT> exits={};//= {DIRECT::N, DIRECT::S};
 
-    DIRECT direction;
-    DIRECT nextDirection;
+    DIRECT direction;    // <- DONT USE setDirection! (only +-)
+    DIRECT nextDirection;// <- USE nextDirection !
 
     int points=0;
     int power=0;
