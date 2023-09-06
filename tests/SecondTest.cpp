@@ -58,7 +58,13 @@ void SecondTest::runTest() {
 
 Board b;
       b.drawBoard();
+      b.prepare();
       b.drawAllMob();
+
+        for ( int i=0;i<70;i++ ){
+            b.moveAllMobs();
+            b.drawAllMob();
+        }
 
   //  Bridges mapa;
   //  mapa.drawAllBridges();

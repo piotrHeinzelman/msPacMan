@@ -146,9 +146,6 @@ class Board {
 private:
 
     std::vector <Mob*> mobs;
-
-    Mob* mobiles[8]={nullptr};
-    int activeBridges [8]={0};
     ConsoleDraw cdraw;
     std::map< int , Dot* > dots;
     Bridges b;
@@ -196,11 +193,8 @@ public:
 
     void clearBridge( Bridge* pB );
     void clearAllUsedBridge();
-    void redrawAllBridge();
-    void redrawBridge( Bridge* pB );
 
     void eatDot( Mob* mob , COORD );
-
     void drawOneDot( std::pair<const int, Dot *> pair );
 
 

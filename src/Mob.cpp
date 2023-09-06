@@ -47,34 +47,32 @@ void Mob::setGoForwart(bool goForwart) { Mob::goForwart = goForwart; }
 
 
 void Mob::gotoNextStep() {
-    // TODO
-
-    /*
-
-        int step=mob->getStep();
-        if ( mob->isW() ){
-            if ( mob->getDirection()==DIRECT::E ) { step++ ; }
-            if ( mob->getDirection()==DIRECT::W ) { step-- ; }
-        } else {
-            if ( mob->getDirection()==DIRECT::S ) { step++; }
-            if ( mob->getDirection()==DIRECT::N ) { step--; }
+    if (id==4) { std::cout<<step; }
+    int delta=0;
+    if ( getBridge()->isW() ) {
+        if ( getDirection()==DIRECT::E ) { delta++ ; }
+        if ( getDirection()==DIRECT::W ) { delta-- ; }
+    } else {
+        if ( getDirection()==DIRECT::N ) { delta-- ; }
+        if ( getDirection()==DIRECT::S ) { delta++ ; }
+    }
+    step+=delta;
+    if ( step==0 || step==STEPS ) { // koniec planszy
+        // zmiana kierunku ?
+        Ways w = (step==0) ? getBridge()->getStartWays() : getBridge()->getEndWays();
+        switch (nextDirection){ // zmiana kierunku ruchu na sugerowany następny kierunek i zmiana bridge na następny
+                    case DIRECT::N: if (w.n!=nullptr ) { direction=nextDirection; nextDirection=DIRECT::STOP;} break;
+                    case DIRECT::W: if (w.w!=nullptr ) { direction=nextDirection; nextDirection=DIRECT::STOP;} break;
+                    case DIRECT::S: if (w.s!=nullptr ) { direction=nextDirection; nextDirection=DIRECT::STOP;} break;
+                    case DIRECT::E: if (w.e!=nullptr ) { direction=nextDirection; nextDirection=DIRECT::STOP;} break;
         }
-        mob->setStep(step);
-
-        // in range
-        if ( mob->getStep()>=0 && mob->getStep()<=STEPS) return;
-        // out range
-        bool onStart=false;
-        if ( mob->getStep()<0 ) { mob->setStep(0); onStart=true; } else { mob->setStep(STEPS); }
-        int edge = b.edgeChessPosition( mob->getBridge(), onStart );
-        mob->getExits() = b.getAllWaysFromEdge( edge );
-        //nextDirection
-        if ( mob->getExits().count(mob->getNextDirection())>0 && mob->getNextDirection()!=DIRECT::STOP ){ mob->setDirection( mob->getNextDirection()); mob->setNextDirection( DIRECT ::STOP );  }
-        if ( mob->getExits().count(mob->getDirection())>0 ){
-            moveMobNextBridge( mob , onStart );
+        switch (direction){ // zmiana bridge na następny
+            case DIRECT::N: if (w.n!=nullptr ) { setBridge(w.n);} break;
+            case DIRECT::W: if (w.w!=nullptr ) { setBridge(w.w);} break;
+            case DIRECT::S: if (w.s!=nullptr ) { setBridge(w.s);} break;
+            case DIRECT::E: if (w.e!=nullptr ) { setBridge(w.e);} break;
         }
-
-     */
+    }
 }
 
 

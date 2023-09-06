@@ -36,6 +36,7 @@ DWORD WINAPI BoardThreadFunc( Board* board ) {
 
 
 Board::Board() {
+    if (false)
     HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(BoardThreadFunc), this, 1, NULL);
 }
 
@@ -58,21 +59,21 @@ void Board::prepare() {
 
 
 
-    insertMobAtBridge(Pinky, 189 , 3);
-    insertMobAtBridge(Inky, 189 , 3);
-    insertMobAtBridge(Blinky, 189, 3);
-    insertMobAtBridge(Sue, 189, 3);
-    insertMobAtBridge(Pac, 5 , 0);
+    insertMobAtBridge(Pinky, 7 , 0);
+    insertMobAtBridge(Inky, 7 , 3);
+    insertMobAtBridge(Blinky, 7, STEPS);
+    insertMobAtBridge(Sue, 151, 3);
+    insertMobAtBridge(Pac, 1 , 0);
 
 
 
-    Pinky->setDirection( DIRECT::N );
+    Pinky->setDirection( DIRECT::W );
     Inky->setDirection( DIRECT::W );
     Blinky->setDirection( DIRECT::S );
     Sue->setDirection( DIRECT::E );
     Pac->setDirection( DIRECT::E );
 
-    //drawAllMob();
+    drawAllMob();
 
 }
 
@@ -147,12 +148,8 @@ void Board::drawAllMob(){
 
 void Board::drawOneMob( Mob* mob ) {
 
-    std::cout << "id:"<<mob->getId() << "\n\n" ;
     Bridge* bridge = mob->getBridge();
     COORD startPoint= bridge->getStartPoint();
-
-    std::cout << startPoint.X << ", y: " << startPoint.Y ;
-
     int mobX = startPoint.X;
     int mobY = startPoint.Y;
     // correction  point
@@ -333,18 +330,8 @@ void Board::eatDot( Mob* mob , COORD point ){
 
 
 
-void Board::redrawAllBridge(){
-    for (int i=0;i<8;i++){
-      //  redrawBridge ( activeBridges[i]);
-    }
-}
 
-void Board::redrawBridge( Bridge* pB){
-//    clearBridge( pB );
-//    b.DrawWall( pB );
-//    drawDotsOfBridge ( pB );
-    //drawAllMobOnBridge ( pB );
-}
+
 
 void Board::Collision(Mob *one, Mob *two) {
     std::cout << "COLLISTION:" << one->getId() << " : " << two->getId();
