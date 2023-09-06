@@ -285,7 +285,6 @@ void Board::showInfo( Mob* mob ){
             for (auto it = mobs.begin(); it != mobs.end(); ++it ) {
             if ( mob==*it ) {
                 mobs.erase(it);
-                return;
             }
         }
     }
