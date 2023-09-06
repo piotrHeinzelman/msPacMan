@@ -13,8 +13,8 @@ class Dot {
 private:
     int parentBridge;
     COORD point;
-    int value;
-    int power;
+    int value=1;
+    int power=0;
 
 public:
     Dot(int parentBridge, const COORD &point, int value=1, int power=0 );

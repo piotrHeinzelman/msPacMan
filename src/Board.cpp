@@ -152,14 +152,18 @@ void Board::eatDot( Mob* mob ){
 
 
 
-void Board::Collision(Mob *one, Mob *two) {
-    std::cout << "COLLISTION:" << one->getId() << " : " << two->getId();
-}
+
 
 void Board::BoardCollision(Mob *one, Mob *two) {
-
+    if ( one->getStep()==two->getStep() ) Collision( one, two );
 }
 
+void Board::Collision(Mob *one, Mob *two) {
+    if ( one->isGhost() != two->isGhost() ){
+        // fight !
+        std::cout << "COLLISTION:" << one->getId() << " : " << two->getId();
+    }
+}
 
 
 
@@ -271,6 +275,14 @@ void Board::showInfo( Mob* mob ){
         COORD point={static_cast<SHORT>(i+1),24};
         cdraw.WriteColourChar( point, 2, 0x90 );
     }
+    cdraw.WriteColourChar( { 20, 24 }, 0x30+(dots.size()/10), 0x90 );
+    cdraw.WriteColourChar( { 21, 24 }, 0x30+(dots.size()%10), 0x90 );
+
+    int pts=mob->getPoints();
+
+    cdraw.WriteColourChar( { 50,-1  }, 0x30+(pts/100), 0x90 );
+    cdraw.WriteColourChar( { 51,-1  }, 0x30+((pts/10)-(pts/100)), 0x90 );
+    cdraw.WriteColourChar( { 52, -1 }, 0x30+(pts%10), 0x90 );
 }
 
 
@@ -290,7 +302,7 @@ void Board::drawBoard() {
 
     for ( Bridge* bridge : b.getAllBridges() ){
         if ( bridge->getBridgeNum()!=117 && bridge->getBridgeNum()!=101 )
-        createDot( bridge->getBridgeNum() , bridge->getCenterPoint() , 1 , 0 ); // normal dot, value 1 power 0
+        createDot( bridge->getBridgeNum() , bridge->getCenterPoint() , bridge->isW() , 5,0 ); // normal dot, value 1 power 0
     }
 
       drawAllDots();
@@ -344,6 +356,7 @@ void Board::drawDotsOfBridge( Bridge* bridge ){
 
 void Board::nextLevel() {
     prepare();
+    drawBoard();
 }
 
 
