@@ -4,7 +4,10 @@
 
 #include "UDPClient.h"
 
-UDPClient::UDPClient() {
+UDPClient::UDPClient(  std::string serverAddr_ ) {
+    for (int i=0;i<16;i++){ SERVER[i]=serverAddr_[i]; }
+
+
 
     // initialise winsock
     WSADATA ws;

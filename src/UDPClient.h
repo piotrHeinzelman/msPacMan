@@ -43,7 +43,7 @@ private:
 
 
 public:
-    UDPClient();
+    UDPClient( std::string serverAddr=(char*)"127.0.0.1" );
     virtual ~UDPClient();
 
     void send();

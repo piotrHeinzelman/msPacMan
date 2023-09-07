@@ -12,7 +12,60 @@
 #include "Bridge.h"
 #include <future>
 #include <thread>
+#include "Threads.h"
 
+// THREAD LOCAL REFRESH
+void RefreshBoard( Board* board ) {
+    int i=0;
+    while(true){
+        board->showInfo( board->getPlayersMob() );
+        board->clearAllUsedBridge();
+        board->moveAllMobs();
+        board->drawAllMob();
+        board->drawDotsOfUsedBridge();
+
+        i++;
+        if (i%20==0)  board->allMobCheckcontroller();
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000/20));
+    }
+}
+
+
+
+// THREAD LOCAL REFRESH
+void ServerListen( Board* board ) {
+    UDPServ serv( 8080 ); // port
+    char readChar[255];
+    int len;
+    while( true ){
+        len = serv.rec();
+        std::cout << "rec: " << len << "bytes\n";
+        //std::this_thread::sleep_for(std::chrono::milliseconds(1000/20));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 DWORD WINAPI BoardThreadFunc( Board* board ) {
     Mob* player = board->getPlayersMob();
     UDPServ ts=UDPServ(8080);
@@ -33,16 +86,91 @@ DWORD WINAPI BoardThreadFunc( Board* board ) {
         ts.snd();
     }
 }
+*/
 
 
-Board::Board() {
-    if (false)
-    HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(BoardThreadFunc), this, 1, NULL);
+
+void Board::PlayLocal() {
+
+    prepare();
+    drawBoard();
+    drawAllDots();
+    drawAllMob();
+
+    // odrysowywanie do timer
+        HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( RefreshBoard ), this, 1, NULL);
+        HANDLE thread2 = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( ServerListen ), this, 1, NULL);
+
+
+
+
+    // LOCAL CONTROLLER
+    Mob* player = getPlayersMob();
+    DIRECT activeDirection=DIRECT::STOP;
+    DIRECT d;
+    while(true){
+        if (GetKeyState(VK_UP   ) < 0 ) { d=DIRECT::N; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
+        if (GetKeyState(VK_DOWN ) < 0 ) { d=DIRECT::S; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
+        if (GetKeyState(VK_LEFT ) < 0 ) { d=DIRECT::W; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
+        if (GetKeyState(VK_RIGHT) < 0 ) { d=DIRECT::E; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
+    }
+
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Board::Board() {
+    //if (false)
+    //HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(BoardThreadFunc), this, 1, NULL);
+}
+
+
+
+
+
+
 void Board::prepare() {
+
+
+    cdraw.cls();
 
     Mob* Pinky= new Mob(0,  "Pinky" , this, true );
     Mob* Inky=  new Mob(1, "Inky" , this, true );
@@ -290,12 +418,12 @@ void Board::showInfo( Mob* mob ){
     }
     for (int i=0;i<mob->getLives();i++){
         COORD point={static_cast<SHORT>(i+1),24};
-        cdraw.WriteColourChar( point, 2, 0x90 );
+        cdraw.WriteColourChar( point, 'C', 0x90 );
         cdraw.WriteColourChar( {static_cast<SHORT>(point.X+1),point.Y}, ' ', 0x90 );
         cdraw.WriteColourChar( {static_cast<SHORT>(point.X+2),point.Y}, ' ', 0x90 );
     }
-    cdraw.WriteColourChar( { 20, 24 }, 0x30+(dots.size()/10), 0x90 );
-    cdraw.WriteColourChar( { 21, 24 }, 0x30+(dots.size()%10), 0x90 );
+    //cdraw.WriteColourChar( { 20, 24 }, 0x30+(dots.size()/10), 0x90 );
+    // cdraw.WriteColourChar( { 21, 24 }, 0x30+(dots.size()%10), 0x90 );
 
     int pts=mob->getPoints();
 
@@ -381,7 +509,9 @@ void Board::nextLevel() {
     drawBoard();
 }
 
+void Board::PlayServer(std::string ip) {
 
+}
 
 
 

@@ -8,9 +8,9 @@
 #include <thread>
 #include "UDPClient.h"
 #include "UDPServ.h"
-#include "Board.h"
 
 
+/*
 void createClient_(){
     UDPClient* c;
     c = new UDPClient();
@@ -27,44 +27,7 @@ void createClient_(){
         }
     }
 }
-
-void RefreshBoard( Board* board ) {
-    int i=0;
-    while(true){
-        board->showInfo( board->getPlayersMob() );
-        board->clearAllUsedBridge();
-        board->moveAllMobs();
-        board->drawAllMob();
-        board->drawDotsOfUsedBridge();
-
-        i++;
-        if (i%20==0)  board->allMobCheckcontroller();
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000/20));
-/*
-        b.getPlayersMob()->setDirection( DIRECT::E);
-        b.getPlayersMob()->setNextDirection( DIRECT::S);
-        b.drawAllMob();
-
-
-        for ( int i=0;i<30;i++ ){
-            if (i==5) b.getPlayersMob()->setNextDirection( DIRECT::S);
-            b.moveAllMobs();
-            b.drawAllMob();
-        }
-
-
-
-
-
-    std::cout << "1";
-    board->clearAllUsedBridge();
-    board->moveAllMobs();
-    board->drawAllMob();
-    */
-
-    }
-}
+*/
 
 
 

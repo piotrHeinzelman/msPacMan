@@ -27,7 +27,6 @@ void ConsoleDraw::WriteColourChar( COORD cursor, char charCode ,DWORD attrib  ) 
     //SetConsoleCursorPosition( hout , {0,0});
     WriteConsoleOutputCharacter(hout, reinterpret_cast<LPCSTR>(&chr), 1, cursor, &dwWritten);
 
-
     /* OK
     chr[0] = charCode;
     SetConsoleTextAttribute( hout, (WORD) 0x0F ); // White
@@ -42,3 +41,13 @@ void ConsoleDraw::WriteColourChar( COORD cursor, char charCode ,DWORD attrib  ) 
 HANDLE ConsoleDraw::getHandle() {
     return hout;
 }
+
+void ConsoleDraw::cls(){
+        SetConsoleCursorPosition(getHandle(), {0, 0});
+        for (int i = -3; i < 70; i++) {
+            for (int j = 0; j < 30; j++) {
+                WriteColourChar(i, j, ' ', 0);
+            }
+        }
+    }
+

@@ -157,6 +157,10 @@ private:
 
 
 public:
+
+    void PlayLocal();
+    void PlayServer( std::string ip );
+
     Board();
     void prepare();
     void drawBoard();
@@ -210,6 +214,7 @@ public:
 
     void nextLevel();
     void drawUserInfo();
+    void cls( HANDLE handle );
 };
 
 

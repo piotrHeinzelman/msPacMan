@@ -7,11 +7,60 @@
 #include "tests/CppTests.h"
 #include "src/UDPServ.h"
 #include "tests/SecondTest.h"
-#include "src/Threads.h"
 
 
 
 int main() {
+
+    std::string serverIp;
+    std::cout << "\n\n\n"
+                 "                       PAC MAN\n\npodaj adres serwera, lub ENTER dla uruchomienia serwera i gry lokalnej.\n:";
+    getline(std::cin, serverIp);
+    if ( serverIp.length()==0 ) {
+        Board* board = new Board();
+               board->PlayLocal();
+               sleep(1);
+        delete board;
+        return 0;
+    } else {
+        ConsoleDraw cdraw;
+                    cdraw.cls();
+        std::cout << "try connect:" << serverIp;
+        UDPClient* client = new UDPClient( serverIp );
+        char buf[255];
+        DIRECT d;
+
+        while(true){
+            if (GetKeyState(VK_UP   ) < 0 ) { buf[0]='G'; buf[1]='N'; buf[2]=0; client->setBuff(buf); client->send();  } // GoNorth
+            if (GetKeyState(VK_DOWN ) < 0 ) { buf[0]='G'; buf[1]='S'; buf[2]=0; client->setBuff(buf); client->send();  } // GoNorth
+            if (GetKeyState(VK_LEFT ) < 0 ) { buf[0]='G'; buf[1]='W'; buf[2]=0; client->setBuff(buf); client->send();  } // GoNorth
+            if (GetKeyState(VK_RIGHT) < 0 ) { buf[0]='G'; buf[1]='E'; buf[2]=0; client->setBuff(buf); client->send();  } // GoNorth
+            std::cout << client->getBuff();
+        }
+
+    }
+    return 0;
+
+    sleep(5);
+
+
+    if ( true ) {
+        Board* board;
+               board->PlayLocal();
+               return 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     // create server // TURN OFF< read key
     //HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(createClient), &b1, 1, NULL);
@@ -52,7 +101,8 @@ int main() {
 
 
     // odrysowywanie do timer
-    HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( RefreshBoard ), &b1, 1, NULL);
+    //
+    // HANDLE thread1 = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( RefreshBoard ), &b1, 1, NULL);
 
 
 
