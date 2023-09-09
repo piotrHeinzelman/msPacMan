@@ -9,6 +9,7 @@
 Mob::Mob(int id , Controller* controller , Board* board ) {
     this->id=id;
     this->controller=controller;
+    this->controller->setParent( this );
     this->step=0;
     this->board=board;
     this->lives=5;
@@ -19,15 +20,7 @@ Mob::Mob(int id , Controller* controller , Board* board ) {
 DIRECT Mob::getDirection() { return controller->getDirection(); }
 
 void Mob::setDirection(DIRECT direction){ this->controller->setDirection( direction ); };
-void Mob::setNextDirection(DIRECT nextDirection){
-    this->controller->setNextDirection(nextDirection);
-    if (this->controller->getDirection()==DIRECT::STOP) this->controller->setDirection(nextDirection);
-    if (this->getBridge()->isW()){
-        if (nextDirection==DIRECT::E || nextDirection==DIRECT::W  ) { this->controller->setDirection(nextDirection);}
-    } else {
-        if (nextDirection==DIRECT::N || nextDirection==DIRECT::S  ) { this->controller->setDirection(nextDirection);}
-    }
-};
+void Mob::setNextDirection(DIRECT nextDirection){ this->controller->setNextDirection( nextDirection ); };
 
 
 
@@ -46,7 +39,6 @@ int  Mob::getPower(){ return this->power; }
 int  Mob::getPoints(){ return this->points; }
 bool Mob::isGhost(){ return this->controller->isGhost(); }
 
-std::set<DIRECT> & Mob::getExits() { return exits; }
 
 int Mob::getStep() const { return step; }
 
@@ -59,6 +51,7 @@ void Mob::setStep( int step ) {
 void Mob::gotoNextStep() {
     //if (id==4) { std::cout<<"Step:"<<getStep()<<", Bridge"<<getBridge()->getCenterPoint().X<<"\n"; }
     if (  getStep()==0 || getStep()==STEPS ) {
+        controller->IamOnEdge();
         checkNextDirection();
         Bridge* in = getBridge();
         if ( getStep()==0 ) {   //na poczatku
@@ -71,7 +64,6 @@ void Mob::gotoNextStep() {
                             }
     }
 
-
     if ( getBridge()->isW() ) {
         if ( getDirection()==DIRECT::E ) { setStep(1+getStep()) ; }
         if ( getDirection()==DIRECT::W ) { setStep(getStep()-1) ; }
@@ -79,7 +71,6 @@ void Mob::gotoNextStep() {
         if ( getDirection()==DIRECT::N ) { setStep(getStep()-1) ; }
         if ( getDirection()==DIRECT::S ) { setStep(1+getStep()) ; }
     }
-
 }
 
 

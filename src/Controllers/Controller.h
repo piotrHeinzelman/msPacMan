@@ -13,6 +13,7 @@
 #include <string>
 #include "../Ways.h"
 #include "../DIRECT.h"
+#include "../Mob.h"
 
 class Controller {
 
@@ -20,6 +21,7 @@ private:
 
     std::string name;
     bool ghost;
+    Mob* parent = nullptr;
 
     DIRECT direction=DIRECT::STOP;     // <- DONT USE setDirection! (only +-)
     DIRECT nextDirection=DIRECT::STOP; // <- USE nextDirection !
@@ -27,14 +29,17 @@ private:
 public:
     explicit Controller( const std::string &name , bool ghost );
 
-    void getNexWayFrom( Ways w );
+    virtual void IamOnEdge(); // <-- void getNexWayFrom( Ways w );
+
+    void setDirection( DIRECT direction );
+    void setNextDirection( DIRECT nextDirection );
+
     DIRECT getDirection() const;
-    void setDirection(DIRECT direction);
+    DIRECT getNextDirection() const;
 
     bool isGhost();
+    void setParent( Mob* mob );
 
-    DIRECT getNextDirection() const;
-    void setNextDirection(DIRECT nextDirection);
 
 };
 

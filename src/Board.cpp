@@ -172,7 +172,7 @@ void Board::prepare() {
 
     cdraw.cls();
 
-    Mob* Pinky= new Mob(0,  new Controller("Pinky",true ) , this);
+    Mob* Pinky= new Mob(0, new Controller("Pinky",true ) , this);
     Mob* Inky=  new Mob(1, new Controller("Inky",true )  , this );
     Mob* Blinky=new Mob(2, new Controller("Blinky",true ) , this);
     Mob* Sue=   new Mob(3, new Controller("Sue",true ) , this);
@@ -224,22 +224,8 @@ void Board::insertMobAtBridge( Mob* mob , int bridgeNum , int step ){
     if ( pBridge==nullptr ) { throw std::runtime_error("nie ma takiego mostu!");}
     mob->setBridge( pBridge );
     mob->setStep( step );
-
-    std::set<DIRECT> &set = mob->getExits(); set.clear();
-    if( bridgeNum%2==1 ){
-        set.insert(DIRECT::E ); set.insert(DIRECT::W );
-    } else {
-        set.insert(DIRECT::N ); set.insert(DIRECT::S );
-    }
 }
 
-
-void Board::setMobDirection(Mob *mob, DIRECT direction) {
-    if ( mob->getExits().count( direction )>0 ){
-        mob->setDirection( direction );
-    }
-    showInfo( mob );
-}
 
 void Board::moveAllMobs(){
     for ( Mob* mob : mobs ){

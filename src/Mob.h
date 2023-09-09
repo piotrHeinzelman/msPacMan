@@ -28,7 +28,7 @@ private:
 
     Bridge* bridge;
 
-    std::set<DIRECT> exits={};//= {DIRECT::N, DIRECT::S};
+   // std::set<DIRECT> exits={};//= {DIRECT::N, DIRECT::S};
 
 
 
@@ -62,7 +62,6 @@ public:
     int getPower();
     int getPoints();
     bool isGhost();
-    std::set<DIRECT> &getExits();
 
     void insertMobAtBridge(Mob *mob, int bridge);
 
