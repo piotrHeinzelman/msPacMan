@@ -158,7 +158,10 @@ void CppTests::BridgesTest() {
 
 
 
-        Mob* minion = new Mob(4, (std::string)"Minion", &bo );
+
+
+
+        Mob* minion = new Mob(4, new Controller("John", true) , &bo );
       //  bo.eatDot( minion, {1,1} );
         assert(1 == minion->getPoints());
         assert(0 == minion->getPower());
@@ -175,7 +178,7 @@ void CppTests::BridgesTest() {
 
         b.drawAllWalls();
 
-        Mob* john = new Mob(4, (std::string)"John", &bo );
+        Mob* john = new Mob(4, new Controller("John",true), &bo );
 
 
         bo.insertMobAtBridge( minion, 1, 0 );

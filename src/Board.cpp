@@ -12,7 +12,6 @@
 #include "Bridge.h"
 #include <future>
 #include <thread>
-#include "Threads.h"
 
 // THREAD LOCAL REFRESH
 void RefreshBoard( Board* board ) {
@@ -173,11 +172,11 @@ void Board::prepare() {
 
     cdraw.cls();
 
-    Mob* Pinky= new Mob(0,  "Pinky" , this, true );
-    Mob* Inky=  new Mob(1, "Inky" , this, true );
-    Mob* Blinky=new Mob(2, "Blinky", this, true);
-    Mob* Sue=   new Mob(3, "Sue", this, true);
-    Mob* Pac=   new Mob(4, "Pac", this, false );
+    Mob* Pinky= new Mob(0,  new Controller("Pinky",true ) , this);
+    Mob* Inky=  new Mob(1, new Controller("Inky",true )  , this );
+    Mob* Blinky=new Mob(2, new Controller("Blinky",true ) , this);
+    Mob* Sue=   new Mob(3, new Controller("Sue",true ) , this);
+    Mob* Pac=   new Mob(4, new Controller("Pac",false ) , this);
     player = Pac; // set Localplayer
 
     addMob(Pinky);

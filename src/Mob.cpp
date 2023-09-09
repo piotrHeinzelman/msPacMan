@@ -4,32 +4,35 @@
 
 #include <iostream>
 #include "Mob.h"
-#include "Board.h"
-#include "Bridge.h"
 
-Mob::Mob(int id, std::string name , Board* board,  bool ghost ) {
+
+Mob::Mob(int id , Controller* controller , Board* board ) {
     this->id=id;
+    this->controller=controller;
     this->step=0;
-    this->direction=DIRECT::STOP;
-    this->nextDirection=DIRECT::STOP;
     this->board=board;
-    this->ghost=ghost;
     this->lives=5;
 }
 
 
 
-DIRECT Mob::getDirection() { return direction; }
+DIRECT Mob::getDirection() { return controller->getDirection(); }
 
-void Mob::setDirection(DIRECT direction){ this->direction = direction; };
+void Mob::setDirection(DIRECT direction){ this->controller->setDirection( direction ); };
 void Mob::setNextDirection(DIRECT nextDirection){
-    this->nextDirection = nextDirection; if (this->direction==DIRECT::STOP) this->direction=nextDirection;
+    this->controller->setNextDirection(nextDirection);
+    if (this->controller->getDirection()==DIRECT::STOP) this->controller->setDirection(nextDirection);
     if (this->getBridge()->isW()){
-        if (nextDirection==DIRECT::E || nextDirection==DIRECT::W  ) { this->direction=nextDirection;}
+        if (nextDirection==DIRECT::E || nextDirection==DIRECT::W  ) { this->controller->setDirection(nextDirection);}
     } else {
-        if (nextDirection==DIRECT::N || nextDirection==DIRECT::S  ) { this->direction=nextDirection;}
+        if (nextDirection==DIRECT::N || nextDirection==DIRECT::S  ) { this->controller->setDirection(nextDirection);}
     }
 };
+
+
+
+
+
 
 Bridge * Mob::getBridge()  { return bridge; }
 void Mob::setBridge( Bridge* bridge ) { this->bridge = bridge; }
@@ -41,7 +44,7 @@ void Mob::addPoint( u_long points ){ this->points += points; }
 void Mob::addPower( int power ){ this->power=power; }
 int  Mob::getPower(){ return this->power; }
 int  Mob::getPoints(){ return this->points; }
-bool Mob::isGhost(){ return this->ghost; }
+bool Mob::isGhost(){ return this->controller->isGhost(); }
 
 std::set<DIRECT> & Mob::getExits() { return exits; }
 
@@ -83,24 +86,24 @@ void Mob::gotoNextStep() {
 
 void Mob::gotoNextBridge(  DIRECT dir , Ways w ) {
     switch( dir ){
-        case DIRECT::N : if ( w.n!=nullptr ) { setBridge( w.n ); setStep( STEPS); };  break;
-        case DIRECT::W : if ( w.w!=nullptr ) { setBridge( w.w ); setStep( STEPS ); }; break;
-        case DIRECT::S : if ( w.s!=nullptr ) { setBridge( w.s ); setStep( 0 ); };  break;
-        case DIRECT::E : if ( w.e!=nullptr ) { setBridge( w.e ); setStep( 0 ); };  break;
+        case DIRECT::N : if ( w.n!=nullptr ) { setBridge( (Bridge*)w.n ); setStep( STEPS); };  break;
+        case DIRECT::W : if ( w.w!=nullptr ) { setBridge( (Bridge*)w.w ); setStep( STEPS ); }; break;
+        case DIRECT::S : if ( w.s!=nullptr ) { setBridge( (Bridge*)w.s ); setStep( 0 ); };  break;
+        case DIRECT::E : if ( w.e!=nullptr ) { setBridge( (Bridge*)w.e ); setStep( 0 ); };  break;
         default: return;
     }
 }
 
 
 void Mob::checkNextDirection() {
-    if ( nextDirection != DIRECT::STOP ){
-    Ways w = (step==0) ? getBridge()->getStartWays() : getBridge()->getEndWays();
+    if ( this->controller->getNextDirection() != DIRECT::STOP ){
+        Ways w = (step==0) ? getBridge()->getStartWays() : getBridge()->getEndWays();
         if (getBridge()->isW()){
-            if ( w.n!=nullptr && nextDirection==DIRECT::N ) setDirection( DIRECT::N );
-            if ( w.s!=nullptr && nextDirection==DIRECT::S ) setDirection( DIRECT::S );
+            if ( w.n!=nullptr && this->controller->getNextDirection()==DIRECT::N ) setDirection( DIRECT::N );
+            if ( w.s!=nullptr && this->controller->getNextDirection()==DIRECT::S ) setDirection( DIRECT::S );
         } else {
-            if ( w.e!=nullptr && nextDirection==DIRECT::E ) setDirection( DIRECT::E );
-            if ( w.w!=nullptr && nextDirection==DIRECT::W ) setDirection( DIRECT::W );
+            if ( w.e!=nullptr && this->controller->getNextDirection()==DIRECT::E ) setDirection( DIRECT::E );
+            if ( w.w!=nullptr && this->controller->getNextDirection()==DIRECT::W ) setDirection( DIRECT::W );
         }
     }
 }

@@ -6,15 +6,12 @@
 #define MSPACMAN_WAYS_H
 
 
-#include "Bridge.h"
-
-class Bridge;
 
 struct Ways {
-    Bridge* n;
-    Bridge* w;
-    Bridge* s;
-    Bridge* e;
+    void* n;
+    void* w;
+    void* s;
+    void* e;
 };
 
 

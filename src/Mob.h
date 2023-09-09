@@ -10,6 +10,7 @@
 #include "DIRECT.h"
 #include "Board.h"
 #include "Bridge.h"
+#include "Controllers/Controller.h"
 #include <set>
 
 #define STEPS 6
@@ -22,24 +23,24 @@ private:
     int id;
     int lives;
     int step;
-    bool goForwart; // ?
+
+    Controller* controller;
+
     Bridge* bridge;
 
     std::set<DIRECT> exits={};//= {DIRECT::N, DIRECT::S};
 
-    DIRECT direction;    // <- DONT USE setDirection! (only +-)
-    DIRECT nextDirection;// <- USE nextDirection !
+
 
     int points=0;
     int power=0;
-    bool ghost;
     Board* board;
 
 
 
 public:
     Mob();
-    Mob(int id , std::string name , Board* board,  bool ghost=false );
+    Mob(int id , Controller* controller , Board* board );
     void gotoNextStep();
     void gotoNextBridge(  DIRECT dir, Ways w  );
 
