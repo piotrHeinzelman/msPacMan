@@ -14,12 +14,14 @@ int main() {
 
     std::string serverIp;
     std::cout << "\n\n\n"
-                 "                       PAC MAN\n\npodaj adres serwera, lub ENTER dla uruchomienia serwera i gry lokalnej.\n:";
+                 "                       PAC MAN\n\npodaj adres serwera, lub ENTER dla uruchomienia serwera i gry lokalnej (NumKey).\n:";
     getline(std::cin, serverIp);
     if ( serverIp.length()==0 ) {
         Board* board = new Board();
                board->PlayLocal();
+
                sleep(1);
+
         delete board;
         return 0;
     } else {
