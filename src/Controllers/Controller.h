@@ -14,33 +14,50 @@
 #include "../Ways.h"
 #include "../DIRECT.h"
 #include "../Mob.h"
+#include "../Bridge.h"
 
 class Controller {
 
 private:
 
+    char avatar='?';
     std::string name;
     bool ghost;
-    Mob* parent = nullptr;
+    Mob* mob= nullptr;
+    Bridge* bridge=nullptr;
 
+    int step=0;
     DIRECT direction=DIRECT::STOP;     // <- DONT USE setDirection! (only +-)
     DIRECT nextDirection=DIRECT::STOP; // <- USE nextDirection !
 
 public:
-    explicit Controller( const std::string &name , bool ghost );
+    explicit Controller( const std::string &name , bool ghost, Bridge* bridge );
 
     virtual void IamOnEdge(); // <-- void getNexWayFrom( Ways w );
+    Mob* getMob();
 
-    void setDirection( DIRECT direction );
-    void setNextDirection( DIRECT nextDirection );
+
 
     DIRECT getDirection() const;
     DIRECT getNextDirection() const;
-
+    void setDirection( DIRECT direction );
+    void setNextDirection( DIRECT nextDirection );
     bool isGhost();
-    void setParent( Mob* mob );
+    int  getStep() const;
+    void setStep(int step);
+
+    Bridge *getBridge();
+    void setBridge(Bridge *bridge);
 
 
+    void gotoNextStep();
+    void gotoNextBridge(  DIRECT dir, Ways w  );
+    void checkNextDirection();
+    COORD getAvatarPosition();
+    void insertMobAtBridge(Mob *mob, int bridge);
+    char getAvatarCode();
+
+    virtual void checkTick();
 };
 
 

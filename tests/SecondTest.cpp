@@ -65,15 +65,15 @@ Board b;
       b.drawBoard();
       b.prepare();
 
-        b.getPlayersMob()->setDirection( DIRECT::E);
-        b.getPlayersMob()->setNextDirection( DIRECT::S);
+     //   b.getPlayersMob()->setDirection( DIRECT::E);
+     //   b.getPlayersMob()->setNextDirection( DIRECT::S);
       b.drawAllMob();
 
 
         for ( int i=0;i<30;i++ ){
-            if (i==5) b.getPlayersMob()->setNextDirection( DIRECT::S);
-            b.moveAllMobs();
-            b.drawAllMob();
+     //       if (i==5) b.getPlayersMob()->setNextDirection( DIRECT::S);
+     //       b.moveAllMobs();
+      //      b.drawAllMob();
         }
 
 

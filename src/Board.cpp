@@ -1,6 +1,3 @@
-//
-// Created by John on 2023-08-27.
-//
 
 #include "Board.h"
 #include <vector>
@@ -24,7 +21,7 @@ void RefreshBoard( Board* board ) {
         board->drawDotsOfUsedBridge();
 
         i++;
-        if (i%20==0)  board->allMobCheckcontroller();
+        if (i%20==0) board->allControllerCheckTick();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(1000/20));
     }
@@ -105,7 +102,7 @@ void Board::PlayLocal() {
 
 
     // LOCAL CONTROLLER
-    Mob* player = getPlayersMob();
+    Controller* player = getPlayersMob();
     DIRECT activeDirection=DIRECT::STOP;
     DIRECT d;
     while(true){
@@ -171,6 +168,8 @@ void Board::prepare() {
 
 
     cdraw.cls();
+/*
+    Controller* CPinky = new Controller(   )
 
     Mob* Pinky= new Mob(0, new Controller("Pinky",true ) , this);
     Mob* Inky=  new Mob(1, new Controller("Inky",true )  , this );
@@ -200,7 +199,7 @@ void Board::prepare() {
     Blinky->setDirection( DIRECT::S );
     Sue->setDirection( DIRECT::E );
     Pac->setDirection( DIRECT::STOP );
-
+*/
     drawAllMob();
 
 }
@@ -210,54 +209,54 @@ void Board::prepare() {
 
 
 
-void Board::addMob( Mob* mob ){
-    if ( mobs.size()>=8 ) return;
-    mobs.push_back( mob );
+void Board::addMob( Controller* Cmob ){
+    if ( controllers.size()>=8 ) return;
+    controllers.push_back( Cmob );
 }
 
 
 
 
-void Board::insertMobAtBridge( Mob* mob , int bridgeNum , int step ){
+void Board::insertMobAtBridge( Controller* Cmob , int bridgeNum , int step ){
             // isW = bridgeNum%2==1
     Bridge * pBridge = b.getBridgeByInt(bridgeNum);
     if ( pBridge==nullptr ) { throw std::runtime_error("nie ma takiego mostu!");}
-    mob->setBridge( pBridge );
-    mob->setStep( step );
+    Cmob->setBridge( pBridge );
+    Cmob->setStep( step );
 }
 
 
 void Board::moveAllMobs(){
-    for ( Mob* mob : mobs ){
-        CheckTunnel( mob );
-        mob->gotoNextStep();
-        if (!mob->isGhost() && IsDotAt( mob->getAvatarPosition() ) ){
+    for ( Controller* Cmob : controllers ){
+        CheckTunnel( Cmob );
+        Cmob->gotoNextStep();
+        if (!Cmob->isGhost() && IsDotAt( Cmob->getAvatarPosition() ) ){
             // eat dot
-            eatDot( mob );
+            eatDot( Cmob );
         }
     }
 
     // check collision
-       Mob* checkedMob    = nullptr;
+       Controller* checkedMob    = nullptr;
 
-      mobs.shrink_to_fit();
-     for (int i=0;i<mobs.size();i++){
-         checkedMob=mobs[i];
-         for ( int j=i+1; j<mobs.size();j++){
-            if ( checkedMob->getBridge()==mobs[j]->getBridge() ) {
-                BoardCollision(checkedMob ,mobs[j] );
+    controllers.shrink_to_fit();
+     for (int i=0;i<controllers.size();i++){
+         checkedMob=controllers[i];
+         for ( int j=i+1; j<controllers.size();j++){
+            if ( checkedMob->getBridge()==controllers[j]->getBridge() ) {
+                BoardCollision(checkedMob ,controllers[j] );
             }
          }
      }
 }
 
-void Board::eatDot( Mob* mob ){
-    COORD point = mob->getAvatarPosition();
+void Board::eatDot( Controller* Cmob ){
+    COORD point = Cmob->getAvatarPosition();
     if ( IsDotAt( point )){
         Dot* dot = getDotFrom( point );
-        mob->addPoint( dot->getValue() );
+        Cmob->getMob()->addPoint( dot->getValue() );
         if ( dot->getPower()!=0 ){
-            mob->addPower( dot->getPower() );
+            Cmob->getMob()->addPower( dot->getPower() );
         }
         dots.erase( (256*point.X+point.Y)   );
     }
@@ -267,22 +266,22 @@ void Board::eatDot( Mob* mob ){
 
 
 
-void Board::BoardCollision(Mob *one, Mob *two) {
+void Board::BoardCollision(Controller *one, Controller *two) {
     if ( one->getStep()==two->getStep() ) Collision( one, two );
 }
 
-void Board::Collision(Mob *one, Mob *two) {
+void Board::Collision(Controller *one, Controller *two) {
     if ( one->isGhost() != two->isGhost() ){
         // fight !
-        Mob* player = one->isGhost() ? two : one ;
-        Mob* ghost = one->isGhost() ? one : two ;
-        if ( player->getPower()==0 ){
+        Controller* player = one->isGhost() ? two : one ;
+        Controller* ghost = one->isGhost() ? one : two ;
+        if ( player->getMob()->getPower()==0 ){
              player->setBridge( b.getBridgeByInt(189 ));
-             player->setLives( player->getLives()-1);
+             player->getMob()->setLives( player->getMob()->getLives()-1);
             // Immmortal ?
         } else {
             ghost->setBridge( b.getBridgeByInt(69));
-            player->addPoint( 1000 );
+            player->getMob()->addPoint( 1000 );
         }
         //std::cout << "COLLISTION:" << one->getId() << " : " << two->getId();
     }
@@ -290,9 +289,9 @@ void Board::Collision(Mob *one, Mob *two) {
 
 
 
-void Board::CheckTunnel(Mob *mob) {
-    if ( mob->getBridge()->getBridgeNum()==101 && mob->getDirection()==DIRECT::W && mob->getStep()==3 ) { mob->setBridge( b.getBridgeByInt( 117 ) ); }
-    if ( mob->getBridge()->getBridgeNum()==117 && mob->getDirection()==DIRECT::E && mob->getStep()==3 ) { mob->setBridge( b.getBridgeByInt( 101 ) ); }
+void Board::CheckTunnel(Controller* Cmob) {
+    if ( Cmob->getBridge()->getBridgeNum()==101 && Cmob->getDirection()==DIRECT::W && Cmob->getStep()==3 ) { Cmob->setBridge( b.getBridgeByInt( 117 ) ); }
+    if ( Cmob->getBridge()->getBridgeNum()==117 && Cmob->getDirection()==DIRECT::E && Cmob->getStep()==3 ) { Cmob->setBridge( b.getBridgeByInt( 101 ) ); }
 }
 
 
@@ -301,34 +300,33 @@ void Board::CheckTunnel(Mob *mob) {
 
 void Board::drawDotsOfUsedBridge(){
     if (dots.empty()) { nextLevel(); }
-    for ( Mob* mob : mobs ){
-        drawDotsOfBridge( mob->getBridge() );
+    for ( Controller* Cmob : controllers ){
+        drawDotsOfBridge( Cmob->getBridge() );
     }
 }
 
 
 
 void Board::drawAllMob(){
-    for ( Mob* mob : mobs ){
-        if (!mob->isGhost()) {mob->grabEnergy();}
-        drawOneMob( mob );
+    for ( Controller* Cmob : controllers ){
+        if (!Cmob->isGhost()) {Cmob->getMob()->grabEnergy();}
+        drawOneMob( Cmob );
     }
 }
 
 
 
-void Board::drawOneMob( Mob* mob ) {
-    char avatar='P';//1;
-    if ( mob->isGhost() ) { avatar='G';}
-    if ( mob->getPower()>0 ) { avatar='#';}
-    cdraw.WriteColourChar( mob->getAvatarPosition() , avatar );
+void Board::drawOneMob(Controller* Cmob ) {
+    char avatar=Cmob->getAvatarCode();
+    if ( Cmob->getMob()->getPower()>0 ) { avatar='#';}
+    cdraw.WriteColourChar( Cmob->getAvatarPosition() , avatar );
 }
 
 
 void Board::clearAllUsedBridge() {
-    for ( Mob* mob : mobs ){
-        clearBridge( mob->getBridge() );
-        drawDotsOfBridge( mob->getBridge() );
+    for ( Controller* Cmob : controllers ){
+        clearBridge( Cmob->getBridge() );
+        drawDotsOfBridge( Cmob->getBridge() );
     }
 }
 
@@ -353,35 +351,16 @@ void Board::clearBridge( Bridge* pB ){
 
 
 
-void Board::allMobCheckcontroller() {
-    for ( Mob* mob : mobs ) {
-        mobCheckController(mob);
+void Board::allControllerCheckTick() {
+    for ( Controller* Cmob : controllers ) {
+        Cmob->checkTick();
     }
 }
 
 
-void Board::mobCheckController( Mob* mob ) {
-    if ( !mob->isGhost() ){
-        if (GetAsyncKeyState(VK_UP) < 0) { mob->setNextDirection( DIRECT::N ); }
-        if (GetAsyncKeyState(VK_DOWN) < 0) { mob->setNextDirection(  DIRECT::S ) ; }
-        if (GetAsyncKeyState(VK_RIGHT) < 0) { mob->setNextDirection(  DIRECT::E ) ; }
-        if (GetAsyncKeyState(VK_LEFT) < 0) { mob->setNextDirection(  DIRECT::W ) ; }
-    }
-    else {
-        ghostIntel++;
-        if (ghostIntel%10==3) mob->setDirection( DIRECT::N );
-        if (ghostIntel%10==7) mob->setDirection( DIRECT::S );
-        if (ghostIntel%11==4) mob->setDirection( DIRECT::W );
-        if (ghostIntel%15==2) mob->setDirection( DIRECT::E );
-    }
-    cdraw.WriteColourChar({0,0}, (char) mob->getDirection());
-    //std::cout << mob->getDirection();
-}
-
-
-Mob *Board::getPlayersMob() {
-    for ( Mob* mob : mobs ){
-        if( !mob->isGhost() ) return mob;
+Controller* Board::getPlayersMob() {
+    for ( Controller* Cmob : controllers ){
+        if( !Cmob->isGhost() ) return Cmob;
     }
     return nullptr;
 }
@@ -393,16 +372,16 @@ Mob *Board::getPlayersMob() {
 
 
 
-void Board::showInfo( Mob* mob ){
-    if (mob->getLives()==0) {
-            mob->gameOver();
-            for (auto it = mobs.begin(); it != mobs.end(); ++it ) {
-            if ( mob==*it ) {
-                mobs.erase(it);
+void Board::showInfo(Controller* Cmob ){
+    if (Cmob->getMob()->getLives()==0) {
+        Cmob->getMob()->gameOver();
+            for (auto it = controllers.begin(); it != controllers.end(); ++it ) {
+            if ( Cmob==*it ) {
+                controllers.erase(it);
             }
         }
     }
-    for (int i=0;i<mob->getLives();i++){
+    for (int i=0;i<Cmob->getMob()->getLives();i++){
         COORD point={static_cast<SHORT>(i+1),24};
         cdraw.WriteColourChar( point, 'C', 0x90 );
         cdraw.WriteColourChar( {static_cast<SHORT>(point.X+1),point.Y}, ' ', 0x90 );
@@ -411,7 +390,7 @@ void Board::showInfo( Mob* mob ){
     //cdraw.WriteColourChar( { 20, 24 }, 0x30+(dots.size()/10), 0x90 );
     // cdraw.WriteColourChar( { 21, 24 }, 0x30+(dots.size()%10), 0x90 );
 
-    int pts=mob->getPoints();
+    int pts=Cmob->getMob()->getPoints();
 
     int x=52;
     while ( pts>0 ){
@@ -499,7 +478,9 @@ void Board::PlayServer(std::string ip) {
 
 }
 
-
+Bridge* Board::getBridgeFrom(int i) {
+    return b.getBridgeByInt( i );
+}
 
 
 

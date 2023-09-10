@@ -17,7 +17,7 @@
 #include "Dot.h"
 #include "Bridges.h"
 #include "UDPServ.h"
-
+#include "Controllers/Controller.h"
 
 /* glowna klasa gry
    przechowuje
@@ -141,11 +141,14 @@ char Bridges[255]=
 class Mob;
 class Dot;
 class Board {
+    friend class Controller;
     friend class Mob;
 
 private:
 
-    std::vector <Mob*> mobs;
+ //   std::vector <Mob*> mobs;
+    std::vector <Controller*> controllers;
+
     ConsoleDraw cdraw;
     std::map< int , Dot* > dots;
     Bridges b;
@@ -169,18 +172,18 @@ public:
 
 
 
-    void addMob( Mob* mob );
-    void insertMobAtBridge( Mob* mob , int bridge, int step=0 );
+    void addMob( Controller* Cmob );
+    void insertMobAtBridge( Controller* Cmob , int bridge, int step=0 );
 
     void drawAllMob();
-    void drawOneMob( Mob* mob );
+    void drawOneMob( Controller* Cmob );
 
-    void allMobCheckcontroller();
-    void mobCheckController(Mob* mob);
+    void allControllerCheckTick();
+    void mobCheckController(Controller* Cmob);
 
     HANDLE getHandle();
 
-    Mob* getPlayersMob();
+    Controller* getPlayersMob();
 
 
 
@@ -191,29 +194,31 @@ public:
     void drawAllDots();
     void drawDotsOfBridge( Bridge* bridge );
 
-    void BoardCollision( Mob* one , Mob* two );
-    void Collision( Mob* one , Mob* two );
+    void BoardCollision( Controller* one , Controller* two );
+    void Collision( Controller* one , Controller* two );
 
     void moveAllMobs();
 
     void clearBridge( Bridge* pB );
     void clearAllUsedBridge();
 
-    void eatDot( Mob* mob);
+    void eatDot( Controller* Cmob);
     void drawOneDot( std::pair<const int, Dot *> pair );
 
 
-    void CheckTunnel(Mob* mob);
+    void CheckTunnel(Controller* Cmob);
     void drawDotsOfUsedBridge();
 
 
-    void showInfo( Mob* mob );
+    void showInfo( Controller* Cmob );
 
     DWORD BoardTick(LPVOID lpParameter);
 
     void nextLevel();
     void drawUserInfo();
     void cls( HANDLE handle );
+
+    Bridge* getBridgeFrom(int i);
 };
 
 
