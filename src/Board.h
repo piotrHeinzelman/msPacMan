@@ -17,6 +17,8 @@
 #include "Dot.h"
 #include "Bridges.h"
 #include "UDPServ.h"
+#include "Controllers/GhostAutoController.h"
+#include "Controllers/LocalKeyboardController.h"
 #include "Controllers/Controller.h"
 
 /* glowna klasa gry

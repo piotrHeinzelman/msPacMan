@@ -125,7 +125,7 @@ char Controller::getAvatarCode() {
 }
 
 void Controller::checkTick( Controller* mob ) {
-    if ( step%STEPS==0) IamOnEdge();
+ /*   if ( step%STEPS==0) IamOnEdge();
 
     //void Board::mobCheckController( Mob* mob ) {
     if ( !mob->isGhost() ){
@@ -140,6 +140,6 @@ void Controller::checkTick( Controller* mob ) {
         if (ghostIntel%10==7) mob->setDirection( DIRECT::S );
         if (ghostIntel%11==4) mob->setDirection( DIRECT::W );
         if (ghostIntel%15==2) mob->setDirection( DIRECT::E );
-    }
+    }*/
 }
 

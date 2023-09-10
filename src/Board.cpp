@@ -7,6 +7,8 @@
 #include "UDPServ.h"
 #include "UDPClient.h"
 #include "Bridge.h"
+#include "Controllers/GhostAutoController.h"
+#include "Controllers/LocalKeyboardController.h"
 #include <future>
 #include <thread>
 
@@ -170,16 +172,16 @@ void Board::prepare() {
 
     cdraw.cls();
 
-    Controller* CPinky = new Controller( "Pinky", true, getBridgeFrom(67)  );
-// Controller* CInky = new Controller( "Inky", true, getBridgeFrom(71)  );
-//    Controller* CBlinky = new Controller( "Blinky", true, getBridgeFrom(67)  );
-//    Controller* CSue = new Controller( "Sue", true, getBridgeFrom(67)  );
+    GhostAutoController* CPinky = new GhostAutoController( "Pinky", true, getBridgeFrom(67 )  );
+    GhostAutoController* CInky = new GhostAutoController( "Inky", true, getBridgeFrom(5)  );
+    GhostAutoController* CBlinky = new GhostAutoController( "Blinky", true, getBridgeFrom(13)  );
+    GhostAutoController* CSue = new GhostAutoController( "Sue", true, getBridgeFrom(69)  );
 
-    Controller* CPac = new Controller( "Pac", false, getBridgeFrom(189)  );
+    LocalKeyboardController* CPac = new LocalKeyboardController( "Pac", false, getBridgeFrom(189)  );
 
     player = CPac; // set Localplayer
 
-    addMob(CPinky); CPinky->setDirection( DIRECT::E );
+    addMob(CPinky);// CPinky->setDirection( DIRECT::E );
 //    addMob(CInky);CPinky->setDirection( DIRECT::E );
 //    addMob(CBlinky);CPinky->setDirection( DIRECT::E );
 //    addMob(CSue);CPinky->setDirection( DIRECT::E );

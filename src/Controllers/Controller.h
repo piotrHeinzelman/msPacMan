@@ -18,7 +18,7 @@
 
 class Controller {
 
-private:
+protected:
 
     char avatar='?';
     std::string name;

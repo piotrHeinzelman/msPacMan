@@ -40,6 +40,10 @@ add_executable(msPacMan main.cpp
         src/Ways.h
         src/Controllers/Controller.h
         src/Controllers/Controller.cpp
+        src/Controllers/GhostAutoController.h
+        src/Controllers/GhostAutoController.cpp
+        src/Controllers/LocalKeyboardController.h
+        src/Controllers/LocalKeyboardController.cpp
 
 )
 

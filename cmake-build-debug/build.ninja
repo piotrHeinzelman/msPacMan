@@ -121,6 +121,18 @@ build CMakeFiles/msPacMan.dir/src/Controllers/Controller.cpp.obj: CXX_COMPILER__
   OBJECT_DIR = CMakeFiles\msPacMan.dir
   OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src\Controllers
 
+build CMakeFiles/msPacMan.dir/src/Controllers/GhostAutoController.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug C$:/Users/Bill/CLionProjects/msPacMan/src/Controllers/GhostAutoController.cpp || cmake_object_order_depends_target_msPacMan
+  DEP_FILE = CMakeFiles\msPacMan.dir\src\Controllers\GhostAutoController.cpp.obj.d
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\msPacMan.dir
+  OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src\Controllers
+
+build CMakeFiles/msPacMan.dir/src/Controllers/LocalKeyboardController.cpp.obj: CXX_COMPILER__msPacMan_unscanned_Debug C$:/Users/Bill/CLionProjects/msPacMan/src/Controllers/LocalKeyboardController.cpp || cmake_object_order_depends_target_msPacMan
+  DEP_FILE = CMakeFiles\msPacMan.dir\src\Controllers\LocalKeyboardController.cpp.obj.d
+  FLAGS = -std=c++11 -s -O3  -g -std=c++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\msPacMan.dir
+  OBJECT_FILE_DIR = CMakeFiles\msPacMan.dir\src\Controllers
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target msPacMan
@@ -129,7 +141,7 @@ build CMakeFiles/msPacMan.dir/src/Controllers/Controller.cpp.obj: CXX_COMPILER__
 #############################################
 # Link the executable msPacMan.exe
 
-build msPacMan.exe: CXX_EXECUTABLE_LINKER__msPacMan_Debug CMakeFiles/msPacMan.dir/main.cpp.obj CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj CMakeFiles/msPacMan.dir/src/Board.cpp.obj CMakeFiles/msPacMan.dir/src/ConsoleDraw.cpp.obj CMakeFiles/msPacMan.dir/src/Mob.cpp.obj CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj CMakeFiles/msPacMan.dir/src/Dot.cpp.obj CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj CMakeFiles/msPacMan.dir/src/Bridge.cpp.obj CMakeFiles/msPacMan.dir/tests/SecondTest.cpp.obj CMakeFiles/msPacMan.dir/src/Controllers/Controller.cpp.obj
+build msPacMan.exe: CXX_EXECUTABLE_LINKER__msPacMan_Debug CMakeFiles/msPacMan.dir/main.cpp.obj CMakeFiles/msPacMan.dir/src/UDPClient.cpp.obj CMakeFiles/msPacMan.dir/src/UDPServ.cpp.obj CMakeFiles/msPacMan.dir/src/Board.cpp.obj CMakeFiles/msPacMan.dir/src/ConsoleDraw.cpp.obj CMakeFiles/msPacMan.dir/src/Mob.cpp.obj CMakeFiles/msPacMan.dir/src/Bridges.cpp.obj CMakeFiles/msPacMan.dir/src/Dot.cpp.obj CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj CMakeFiles/msPacMan.dir/src/Bridge.cpp.obj CMakeFiles/msPacMan.dir/tests/SecondTest.cpp.obj CMakeFiles/msPacMan.dir/src/Controllers/Controller.cpp.obj CMakeFiles/msPacMan.dir/src/Controllers/GhostAutoController.cpp.obj CMakeFiles/msPacMan.dir/src/Controllers/LocalKeyboardController.cpp.obj
   FLAGS = -std=c++11 -s -O3  -g
   LINK_FLAGS = -static -lws2_32
   LINK_LIBRARIES = -lws2_32  -lwsock32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

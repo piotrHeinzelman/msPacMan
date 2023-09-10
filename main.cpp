@@ -19,7 +19,9 @@ int main() {
         Board* board = new Board();
                board->PlayLocal();
 
-               sleep(8);
+               while(true){
+
+               }
 
         delete board;
         return 0;
