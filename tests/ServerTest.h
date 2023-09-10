@@ -22,27 +22,33 @@ void constructTest(){
         Server server( board );
 
         char in[BUFFSIZE]={'L','G',0};
-            int id= server.command( in )[0];
+            int id1= server.command( in )[0];
 
-        assert( (id >= 0) );
+        assert( (id1 >= 0) );
 
-        Controller* CMob = board->getMobFrom( id );
+        Controller* CMob = board->getMobFrom( id1 );
         assert(  ( CMob->isGhost()==true ) );
 
         // login as Pac
         in[0]='L'; in[1]='P'; in[2]=0;
-        id= server.command( in )[0];
+        int id2 = server.command( in )[0];
 
-        assert( (id >= 0) );
+        assert( (id2 >= 0) );
 
-        CMob = board->getMobFrom( id );
+        CMob = board->getMobFrom( id2 );
         assert(  ( CMob->isGhost()==false ) );
 
+    // *************   LOGOUT
 
-
+        in[0]='O'; in[1]=(char)id2; in[2]=0;
+        std::cout << "\nLogout: id(" << id2 << "), " << server.command( in ) << "\n";
+        assert( board->getMobFrom( id2 )==0 );
 
 
     }
+
+
+
     void sendTest(){
 
     }

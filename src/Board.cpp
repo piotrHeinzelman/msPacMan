@@ -191,6 +191,10 @@ Controller* Board::getMobFrom( int i ){
     return controllers[i];
 }
 
+void Board::removeMobFrom( int i ){
+    controllers[i]= nullptr;
+}
+
 
 
 void Board::insertMobAtBridge( Controller* Cmob , int bridgeNum , int step ){

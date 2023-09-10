@@ -14,7 +14,7 @@
   S>C   int Id <
  -------- logut --------
   C>S  'O'+id  >
-  S>C   'OK'   <
+  S>C  'BYE'   <
  -------- get mobiles / shadow ----
   C>S  'M'     >
   S>C  mobiles < mobiles: type, bridge, position, power ...

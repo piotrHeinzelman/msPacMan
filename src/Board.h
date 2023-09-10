@@ -176,6 +176,8 @@ public:
 
     int addMob( Controller* Cmob );
     Controller* getMobFrom( int i );
+    void removeMobFrom( int i );
+
     void insertMobAtBridge( Controller* Cmob , int bridge, int step=0 );
 
     void drawAllMob();

@@ -39,8 +39,13 @@ char* Server::Login( char *buf ) {
 // logout
 char* Server::logOut( char *buf ) {
     int i = buf[1];
-    std::cout << "\n\ni:" << i << "\n\n";
-    return nullptr;
+    board->removeMobFrom( i );
+      // std::cout << "\n\ni:" << (int)i << "\n\n";
+    buf[0]='B';
+    buf[1]='Y';
+    buf[2]='E';
+    buf[3]=0;
+    return buf;
 }
 char* Server::Mobiles( char *buf ) { return nullptr; }
 char* Server::Dots( char *buf ) { return nullptr; }
