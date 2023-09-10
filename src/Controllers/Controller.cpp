@@ -20,7 +20,7 @@ bool Controller::isGhost() { return ghost; }
 DIRECT Controller::getDirection() const { return direction; }
 DIRECT Controller::getNextDirection() const  { return nextDirection; }
 
-void Controller::setDirection(DIRECT nextDirection) { this->direction = direction; }
+void Controller::setDirection(DIRECT direction) { this->direction = direction; }
 void Controller::setNextDirection( DIRECT nextDirection ) {
     this->nextDirection=nextDirection;
     if ( this->direction==DIRECT::STOP ) this->direction=nextDirection;
@@ -124,11 +124,10 @@ char Controller::getAvatarCode() {
     return avatar;
 }
 
-void Controller::checkTick() {
-/*
+void Controller::checkTick( Controller* mob ) {
+    if ( step%STEPS==0) IamOnEdge();
 
-
-void Board::mobCheckController( Mob* mob ) {
+    //void Board::mobCheckController( Mob* mob ) {
     if ( !mob->isGhost() ){
         if (GetAsyncKeyState(VK_UP) < 0) { mob->setNextDirection( DIRECT::N ); }
         if (GetAsyncKeyState(VK_DOWN) < 0) { mob->setNextDirection(  DIRECT::S ) ; }
@@ -142,11 +141,5 @@ void Board::mobCheckController( Mob* mob ) {
         if (ghostIntel%11==4) mob->setDirection( DIRECT::W );
         if (ghostIntel%15==2) mob->setDirection( DIRECT::E );
     }
-    cdraw.WriteColourChar({0,0}, (char) mob->getDirection());
-    //std::cout << mob->getDirection();
-}
-
-
- */
 }
 

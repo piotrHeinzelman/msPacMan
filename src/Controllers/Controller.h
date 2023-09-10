@@ -29,11 +29,14 @@ private:
     int step=0;
     DIRECT direction=DIRECT::STOP;     // <- DONT USE setDirection! (only +-)
     DIRECT nextDirection=DIRECT::STOP; // <- USE nextDirection !
+    long long ghostIntel=0;
 
 public:
     explicit Controller( const std::string &name , bool ghost, Bridge* bridge );
 
     virtual void IamOnEdge(); // <-- void getNexWayFrom( Ways w );
+    virtual void checkTick(Controller *mob);
+
     Mob* getMob();
 
 
@@ -54,10 +57,9 @@ public:
     void gotoNextBridge(  DIRECT dir, Ways w  );
     void checkNextDirection();
     COORD getAvatarPosition();
-    void insertMobAtBridge(Mob *mob, int bridge);
     char getAvatarCode();
 
-    virtual void checkTick();
+
 };
 
 

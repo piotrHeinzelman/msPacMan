@@ -19,7 +19,7 @@ int main() {
         Board* board = new Board();
                board->PlayLocal();
 
-               sleep(1);
+               sleep(8);
 
         delete board;
         return 0;

@@ -20,8 +20,7 @@ void RefreshBoard( Board* board ) {
         board->drawAllMob();
         board->drawDotsOfUsedBridge();
 
-        i++;
-        if (i%20==0) board->allControllerCheckTick();
+        board->allControllerCheckTick();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(1000/20));
     }
@@ -88,16 +87,18 @@ DWORD WINAPI BoardThreadFunc( Board* board ) {
 
 void Board::PlayLocal() {
 
-    prepare();
-    drawBoard();
-    drawAllDots();
-    drawAllMob();
+      prepare();
+      drawBoard();
+      drawAllDots();
+   // drawAllMob();
+
 
     // odrysowywanie do timer
         HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( RefreshBoard ), this, 1, NULL);
     //    HANDLE thread2 = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( ServerListen ), this, 1, NULL);
 
-
+    std::cout<<"AAA\n";
+    return;
 
 
 
@@ -170,21 +171,19 @@ void Board::prepare() {
     cdraw.cls();
 
     Controller* CPinky = new Controller( "Pinky", true, getBridgeFrom(67)  );
-    Controller* CInky = new Controller( "Inky", true, getBridgeFrom(71)  );
-    Controller* CBlinky = new Controller( "Blinky", true, getBridgeFrom(67)  );
+// Controller* CInky = new Controller( "Inky", true, getBridgeFrom(71)  );
+//    Controller* CBlinky = new Controller( "Blinky", true, getBridgeFrom(67)  );
+//    Controller* CSue = new Controller( "Sue", true, getBridgeFrom(67)  );
 
-    Controller* CSue = new Controller( "Sue", true, getBridgeFrom(67)  );
-    Controller* CPac = new Controller( "Pac", true, getBridgeFrom(189)  );
+    Controller* CPac = new Controller( "Pac", false, getBridgeFrom(189)  );
 
     player = CPac; // set Localplayer
 
-    addMob(CPinky);
-    addMob(CInky);
-    addMob(CBlinky);
-    addMob(CSue);
-    addMob(CPac);
-
-
+    addMob(CPinky); CPinky->setDirection( DIRECT::E );
+//    addMob(CInky);CPinky->setDirection( DIRECT::E );
+//    addMob(CBlinky);CPinky->setDirection( DIRECT::E );
+//    addMob(CSue);CPinky->setDirection( DIRECT::E );
+    addMob(CPac); CPac->setDirection( DIRECT::E );
 
     drawAllMob();
 
@@ -339,7 +338,7 @@ void Board::clearBridge( Bridge* pB ){
 
 void Board::allControllerCheckTick() {
     for ( Controller* Cmob : controllers ) {
-        Cmob->checkTick();
+        Cmob->checkTick( Cmob );
     }
 }
 
