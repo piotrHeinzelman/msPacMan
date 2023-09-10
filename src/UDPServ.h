@@ -17,6 +17,7 @@
 
 
 #include <iostream>
+#include "Board.h"
 
 #define BUFFSIZE 256
 
@@ -47,7 +48,7 @@ private:
     void IsError(int underZero, const char* msg );
 
 public:
-    UDPServ(int port_=8080 );
+    UDPServ( int port_=8080 );
 
     virtual ~UDPServ();
 
@@ -59,3 +60,4 @@ public:
 };
 
 #endif //MSPACMAN_UDPSERV_H
+

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cassert>
 #include "CppTests.h"
-#include "../src/Dot.h"
+#include "../../src/Dot.h"
 #include <windows.h>
 #include <unistd.h>
 #include <set>

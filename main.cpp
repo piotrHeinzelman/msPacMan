@@ -7,9 +7,12 @@
 #include "src/UDPServ.h"
 #include "src/Board.h"
 #include "src/UDPClient.h"
+#include "tests/ServerTest.h"
 
 
 int main() {
+
+    constructTest();
 
     std::string serverIp;
     std::cout << "\n\n\n"

@@ -179,11 +179,17 @@ void Board::prepare() {
 
 
 
-void Board::addMob( Controller* Cmob ){
-    if ( controllers.size()>=8 ) return;
+int Board::addMob( Controller* Cmob ){
+    int i=controllers.size();
+    if ( i>=8 ) return -1;
     controllers.push_back( Cmob );
+    //std::cout << "\n\ncontrollers.size(): " << controllers.size() << "\n\n";
+    return i;
 }
 
+Controller* Board::getMobFrom( int i ){
+    return controllers[i];
+}
 
 
 

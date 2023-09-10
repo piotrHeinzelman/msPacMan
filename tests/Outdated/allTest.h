@@ -7,10 +7,10 @@
 
 
 #include <unistd.h>
-#include "../src/UDPServ.h"
-#include "../src/UDPClient.h"
-#include "../src/Bridges.h"
-#include "../src/Board.h"
+#include "../../src/UDPServ.h"
+#include "../../src/UDPClient.h"
+#include "../../src/Bridges.h"
+#include "../../src/Board.h"
 
 
 DWORD WINAPI runTestInThread_test(LPVOID lpParameter ) {

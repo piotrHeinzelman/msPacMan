@@ -5,9 +5,9 @@
 #include <iostream>
 #include <unistd.h>
 #include "SecondTest.h"
-#include "../src/Bridge.h"
-#include "../src/Bridges.h"
-#include "../src/Board.h"
+#include "../../src/Bridge.h"
+#include "../../src/Bridges.h"
+#include "../../src/Board.h"
 
 void SecondTest::runTest() {
 

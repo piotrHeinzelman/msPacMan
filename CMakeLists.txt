@@ -14,13 +14,22 @@ link_libraries(ws2_32 wsock32)
 
 
 add_executable(msPacMan main.cpp
-        tests/allTest.h
+
+        src/Controllers/Controller.h
+        src/Controllers/Controller.cpp
+        src/Controllers/GhostAutoController.h
+        src/Controllers/GhostAutoController.cpp
+        src/Controllers/LocalKeyboardController.h
+        src/Controllers/LocalKeyboardController.cpp
+        src/Controllers/RemoteUDPController.h
+        src/Controllers/RemoteUDPController.cpp
+
+
         src/UDPClient.cpp
         src/UDPClient.h
         src/UDPServ.cpp
         src/UDPServ.h
-        info/con_serv.h
-        src/UDPServ.cpp
+
         src/Board.cpp
         src/Board.h
         src/ConsoleDraw.cpp
@@ -33,19 +42,13 @@ add_executable(msPacMan main.cpp
 
         src/Dot.cpp
         src/Dot.h
-        tests/CppTests.cpp
         src/Bridge.h
         src/Bridge.cpp
-        tests/SecondTest.cpp
         src/Ways.h
-        src/Controllers/Controller.h
-        src/Controllers/Controller.cpp
-        src/Controllers/GhostAutoController.h
-        src/Controllers/GhostAutoController.cpp
-        src/Controllers/LocalKeyboardController.h
-        src/Controllers/LocalKeyboardController.cpp
-        src/Controllers/RemoteUDPController.h
-        src/Controllers/RemoteUDPController.cpp
+        src/Server.cpp
+        src/Server.h
+        tests/ServerTest.h
+
 
 )
 

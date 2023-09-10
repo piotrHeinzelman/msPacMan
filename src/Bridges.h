@@ -22,7 +22,7 @@
 #include <map>
 #include <vector>
 #include "DIRECT.h"
-#include "../tests/CppTests.h"
+#include "../tests/Outdated/CppTests.h"
 #include "ConsoleDraw.h"
 #include "Bridge.h"
 #include "Ways.h"

@@ -27,7 +27,7 @@ void RemoteUDPController::checkTick(Controller *mob) {
         std::cout << client->getBuff();
     }
     */
-}
+
 
     //NOP
 }
