@@ -44,6 +44,8 @@ add_executable(msPacMan main.cpp
         src/Controllers/GhostAutoController.cpp
         src/Controllers/LocalKeyboardController.h
         src/Controllers/LocalKeyboardController.cpp
+        src/Controllers/RemoteUDPController.h
+        src/Controllers/RemoteUDPController.cpp
 
 )
 

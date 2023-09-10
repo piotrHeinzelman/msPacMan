@@ -94,26 +94,9 @@ void Board::PlayLocal() {
       drawAllDots();
    // drawAllMob();
 
-
     // odrysowywanie do timer
         HANDLE thread = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( RefreshBoard ), this, 1, NULL);
     //    HANDLE thread2 = CreateThread(NULL, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>( ServerListen ), this, 1, NULL);
-
-    std::cout<<"AAA\n";
-    return;
-
-
-
-    // LOCAL CONTROLLER
-    Controller* player = getPlayersMob();
-    DIRECT activeDirection=DIRECT::STOP;
-    DIRECT d;
-    while(true){
-        if (GetKeyState(VK_NUMPAD8   ) < 0 ) { d=DIRECT::N; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
-        if (GetKeyState(VK_NUMPAD5 ) < 0 ) { d=DIRECT::S; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
-        if (GetKeyState(VK_NUMPAD4 ) < 0 ) { d=DIRECT::W; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
-        if (GetKeyState(VK_NUMPAD6) < 0 ) { d=DIRECT::E; if (d != activeDirection ) { activeDirection=d; player->setNextDirection( d ); }}
-    }
 
 }
 

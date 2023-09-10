@@ -19,9 +19,7 @@ int main() {
         Board* board = new Board();
                board->PlayLocal();
 
-               while(true){
-
-               }
+               while(true){}
 
         delete board;
         return 0;
@@ -40,7 +38,5 @@ int main() {
             if (GetKeyState(VK_RIGHT) < 0 ) { buf[0]='G'; buf[1]='E'; buf[2]=0; client->setBuff(buf); client->send();  } // GoNorth
             std::cout << client->getBuff();
         }
-
     }
-
 }
