@@ -25,16 +25,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Mob.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/src/Board.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/CppTests.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/SecondTest.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/msPacMan.dir/tests/SecondTest.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/msPacMan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Controller.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mob.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mob.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mob.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CppTests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CppTests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/SecondTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/SecondTest.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,15 +179,7 @@
       <workItem from="1694023223377" duration="14636000" />
       <workItem from="1694114178871" duration="2000" />
       <workItem from="1694191174954" duration="640000" />
-      <workItem from="1694291337214" duration="17420000" />
-    </task>
-    <task id="LOCAL-00043" summary="...">
-      <option name="closed" value="true" />
-      <created>1693588214785</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1693588214785</updated>
+      <workItem from="1694291337214" duration="17827000" />
     </task>
     <task id="LOCAL-00044" summary="...">
       <option name="closed" value="true" />
@@ -575,7 +565,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694301154660</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Refactor Controller Class -&gt; Mob">
+      <option name="closed" value="true" />
+      <created>1694309029419</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1694309029419</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +623,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ADD :: DOT class" />
     <MESSAGE value="DRAW :: board + extra dot" />
     <MESSAGE value=".." />
     <MESSAGE value="..." />
@@ -650,7 +647,8 @@
     <MESSAGE value="local game done" />
     <MESSAGE value="Local NumKey" />
     <MESSAGE value="ADD Controller Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD Controller Class" />
+    <MESSAGE value="Refactor Controller Class -&gt; Mob" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor Controller Class -&gt; Mob" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -168,38 +168,24 @@ void Board::prepare() {
 
 
     cdraw.cls();
-/*
-    Controller* CPinky = new Controller(   )
 
-    Mob* Pinky= new Mob(0, new Controller("Pinky",true ) , this);
-    Mob* Inky=  new Mob(1, new Controller("Inky",true )  , this );
-    Mob* Blinky=new Mob(2, new Controller("Blinky",true ) , this);
-    Mob* Sue=   new Mob(3, new Controller("Sue",true ) , this);
-    Mob* Pac=   new Mob(4, new Controller("Pac",false ) , this);
-    player = Pac; // set Localplayer
+    Controller* CPinky = new Controller( "Pinky", true, getBridgeFrom(67)  );
+    Controller* CInky = new Controller( "Inky", true, getBridgeFrom(71)  );
+    Controller* CBlinky = new Controller( "Blinky", true, getBridgeFrom(67)  );
 
-    addMob(Pinky);
-    addMob(Inky);
-    addMob(Blinky);
-    addMob(Sue);
-    addMob(Pac);
+    Controller* CSue = new Controller( "Sue", true, getBridgeFrom(67)  );
+    Controller* CPac = new Controller( "Pac", true, getBridgeFrom(189)  );
 
+    player = CPac; // set Localplayer
 
-
-    insertMobAtBridge(Pinky, 67 , 0);
-    insertMobAtBridge(Inky, 71 , STEPS);
-    insertMobAtBridge(Blinky, 67, STEPS);
-    insertMobAtBridge(Sue, 71, 0);
-    insertMobAtBridge(Pac, 189 , 3);
+    addMob(CPinky);
+    addMob(CInky);
+    addMob(CBlinky);
+    addMob(CSue);
+    addMob(CPac);
 
 
 
-    Pinky->setDirection( DIRECT::W );
-    Inky->setDirection( DIRECT::W );
-    Blinky->setDirection( DIRECT::S );
-    Sue->setDirection( DIRECT::E );
-    Pac->setDirection( DIRECT::STOP );
-*/
     drawAllMob();
 
 }

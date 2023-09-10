@@ -154,7 +154,7 @@ private:
     Bridges b;
     int ghostIntel=0;
 
-    Mob* player;
+    Controller* player;
 //    UDPServ ts=UDPServ(8080);
 
 
