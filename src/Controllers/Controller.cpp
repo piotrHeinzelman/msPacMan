@@ -143,3 +143,13 @@ void Controller::checkTick( Controller* mob ) {
     }*/
 }
 
+int Controller::getId() const {
+    return id;
+}
+
+void Controller::setId(int id) {
+    Controller::id = id;
+}
+
+
+

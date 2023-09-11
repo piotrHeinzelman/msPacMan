@@ -178,6 +178,7 @@ public:
     Controller* getMobFrom( int i );
     void removeMobFrom( int i );
 
+
     void insertMobAtBridge( Controller* Cmob , int bridge, int step=0 );
 
     void drawAllMob();
@@ -224,6 +225,11 @@ public:
     void cls( HANDLE handle );
 
     Bridge* getBridgeFrom(int i);
+
+    void getAllMobileAsString( std::string & buf );
+    void createMobFromString( std::string const& buf );
+    void getDotsAsString( std::string & buf );
+
 };
 
 

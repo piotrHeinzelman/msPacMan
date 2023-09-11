@@ -164,7 +164,7 @@ void Board::prepare() {
 
     player = CPac; // set Localplayer
 
-    addMob(CPinky);// CPinky->setDirection( DIRECT::E );
+//    addMob(CPinky);// CPinky->setDirection( DIRECT::E );
 //    addMob(CInky);CPinky->setDirection( DIRECT::E );
 //    addMob(CBlinky);CPinky->setDirection( DIRECT::E );
 //    addMob(CSue);CPinky->setDirection( DIRECT::E );
@@ -179,20 +179,30 @@ void Board::prepare() {
 
 
 
-int Board::addMob( Controller* Cmob ){
-    int i=controllers.size();
-    if ( i>=8 ) return -1;
+int Board::addMob( Controller* Cmob ) {
+    int i = 0;
+    for (Controller *Temp: controllers) {
+        if (Temp->getId() > i) { i = Temp->getId(); }
+    }
+    i++;
+    Cmob->setId(i);
     controllers.push_back( Cmob );
-    //std::cout << "\n\ncontrollers.size(): " << controllers.size() << "\n\n";
     return i;
 }
 
+
 Controller* Board::getMobFrom( int i ){
-    return controllers[i];
-}
+        for (Controller *Cmob: controllers) {
+            if (Cmob->getId()==i) { return Cmob ; }
+        }
+        return nullptr;
+    }
+
 
 void Board::removeMobFrom( int i ){
-    controllers[i]= nullptr;
+        for ( auto it = controllers.begin(); it!=controllers.end(); it++){
+            if ((*it)->getId()==i) { controllers.erase( it ); }
+        }
 }
 
 
@@ -463,7 +473,54 @@ Bridge* Board::getBridgeFrom(int i) {
 }
 
 
+void Board::getAllMobileAsString( std::string & buf ){
+    int j=0;
+    for ( auto it = controllers.begin(); it!=controllers.end(); it++ ) {
+        buf[j++]=(char)( (*it)->isGhost() ? 'G' : '?' );
+        buf[j++]=(char) (*it)->getId();
+        buf[j++]=(char) (*it)->getBridge()->getBridgeNum();
+        buf[j++]=(char) (*it)->getStep();
+    }
+    buf[j++]=0;
+}
 
+
+void Board::createMobFromString( std::string const& buf ){
+    controllers.clear();
+    int j=1;
+    while( buf[j]=='G' || buf[j]=='?'){
+        Controller* mob = new Controller( "shadow", (buf[j]=='G') , getBridgeFrom( buf[j+2] ) );
+                    mob->setId( buf[j+1] );
+                    mob->setStep(buf[j+3]);
+                    std::cout << "\n" << mob->getBridge();
+                    controllers.push_back( mob );
+        j+=4;
+    }
+}
+
+
+
+
+
+void Board::getDotsAsString( std::string & buf ){
+    std::map< int , Dot* > dots;
+    std::cout << "size:" << dots.size();
+    int j=0;
+    for ( std::pair<int, Dot*> dot : dots ){
+        std::cout << dot.first<<"\n";
+    /*    if (dot.second== nullptr) continue;
+        buf[j+0]=dot.second->toString()[0];
+        buf[j+1]=dot.second->toString()[1];
+        buf[j+2]=dot.second->toString()[2];
+        buf[j+3]=dot.second->toString()[3];
+        buf[j+4]=dot.second->toString()[4];
+        j+=5;
+        std::cout << "\n"<<buf;
+        */
+    }
+    std::cout << "j:"<<j<<"\n";
+
+}
 
 
 

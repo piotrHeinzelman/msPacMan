@@ -34,19 +34,19 @@ class Server {
 
 private:
     Board* board;
-    char buffIn[BUFFSIZE];
-    char buffOut[BUFFSIZE];
+    std::string buf="";
 
 
 public:
     explicit Server( Board* board );
-    char* command ( char* buf );
-          char* Login( char* buf );
-          char* logOut( char* buf  );
-          char* Mobiles( char* buf );
-          char* Dots( char* buf  );
-          char* Goto( char* buf  );
-          char* getBridges( char* buf  );
+    void command (std::string & buf );
+          void Login( std::string & buf );
+          void logOut( std::string & buf  );
+          void Mobiles( std::string & buf );
+          void Dots( std::string & buf  );
+          void Goto( std::string & buf  );
+          void getBridges( std::string & buf  );
+          void createMobsFromString( std::string & buf  );
 
 
 

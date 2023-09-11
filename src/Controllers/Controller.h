@@ -19,7 +19,7 @@
 class Controller {
 
 protected:
-
+    int id=0;
     char avatar='?';
     std::string name;
     bool ghost;
@@ -59,7 +59,11 @@ public:
     COORD getAvatarPosition();
     char getAvatarCode();
 
+    char* ControllerToShadowString();
 
+    int getId() const;
+
+    void setId(int id);
 };
 
 

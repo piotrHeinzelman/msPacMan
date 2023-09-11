@@ -21,6 +21,7 @@ public:
     int getPower();
     int getValue();
     int getParent();
+    std::string toString();
 };
 
 

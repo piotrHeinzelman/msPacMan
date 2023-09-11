@@ -71,7 +71,7 @@ const Ways &Bridge::getStartWays() const { return startWays; }
 void Bridge::setStartWays(const Ways &startWays) { this->startWays = startWays; }
 const Ways &Bridge::getEndWays() const { return endWays; }
 void Bridge::setEndWays(const Ways &endWays) { this->endWays = endWays; }
-int Bridge::getBridgeNum() const { return bridgeNum; }
+int Bridge::getBridgeNum() const { return this->bridgeNum; }
 
 
 

@@ -21,4 +21,14 @@ int Dot::getValue(){
 
 int Dot::getParent(){
     return parentBridge;
+}
+
+std::string Dot::toString() {
+    std::string s="      ";
+    s[0]=(char) parentBridge;
+    s[1]=(char) point.X;
+    s[2]=(char) point.Y;
+    s[3]=(char) value;
+    s[4]=(char) power;
+    return s;
 };

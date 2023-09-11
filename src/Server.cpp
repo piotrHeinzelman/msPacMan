@@ -9,21 +9,22 @@ Server::Server(Board *board) {
 
 }
 
-char* Server::command( char* buf ) {
+void Server::command( std::string & buf ) {
+
     switch (buf[0]){
         case 'L': return Login( buf ); break;
         case 'O': return logOut( buf ); break;
         case 'M': return Mobiles( buf ); break;
+        case 'C': return createMobsFromString( buf ); break;
         case 'D': return Dots( buf ); break;
         case 'G': return Goto( buf ); break;
         case 'B': return getBridges( buf ); break;
         default: break;
     }
-    return nullptr;
 }
 
 // login
-char* Server::Login( char *buf ) {
+void Server::Login( std::string & buf ) {
     bool  isGhost=(buf[1]=='G');
 
     Controller* NewMob = new Controller("One", isGhost , board->getBridgeFrom( 2 ) );
@@ -33,11 +34,10 @@ char* Server::Login( char *buf ) {
     // reply
     buf[0]=(char)i;
     buf[1]=0;
-    return buf;
 }
 
 // logout
-char* Server::logOut( char *buf ) {
+void Server::logOut( std::string & buf) {
     int i = buf[1];
     board->removeMobFrom( i );
       // std::cout << "\n\ni:" << (int)i << "\n\n";
@@ -45,9 +45,18 @@ char* Server::logOut( char *buf ) {
     buf[1]='Y';
     buf[2]='E';
     buf[3]=0;
-    return buf;
 }
-char* Server::Mobiles( char *buf ) { return nullptr; }
-char* Server::Dots( char *buf ) { return nullptr; }
-char* Server::Goto( char *buf ) { return nullptr; }
-char* Server::getBridges( char *buf ) { return nullptr; }
+void Server::Mobiles( std::string & buf ) {
+    return board->getAllMobileAsString( buf );
+}
+
+// use in client ad test
+void Server::createMobsFromString( std::string & buf  ){
+    return board->createMobFromString( buf );
+}
+
+void Server::Dots( std::string & buf ) {
+    board->getDotsAsString( buf );
+}
+void Server::Goto( std::string & buf ) { return ; }
+void Server::getBridges( std::string & buf ) { return ; }
