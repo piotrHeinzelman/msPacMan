@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Bill/CLionProjects/msPacMan/cmake-build-debug",
-		"source" : "C:/Users/Bill/CLionProjects/msPacMan"
+		"build" : "E:/CLion/CLionProjects/msPacMan/cmake-build-debug",
+		"source" : "E:/CLion/CLionProjects/msPacMan"
 	},
 	"version" : 
 	{
