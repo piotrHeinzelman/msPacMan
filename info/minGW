@@ -1,3 +1,6 @@
 WinLibs.com
 
 Standalone MinGW-w64+GCC builds for Windows, built from scratch (including all dependencies) natively on Windows for Windows.
+
+winlibs-x86_64-posix-seh-gcc-11.4.0-mingw-w64msvcrt-11.0.0-r1.zip
+          ^64bit machine                       ^classic libs (only10 is UCRT)
