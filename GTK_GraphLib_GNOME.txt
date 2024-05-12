@@ -1,0 +1,40 @@
+https://pl.wikipedia.org/wiki/GTK
+
+
+Przykładowy kod w języku C wyświetlający puste okienko:
+
+#include <gtk/gtk.h>
+
+int main(int argc, char* argv[])
+{
+  GtkWidget* window;
+
+  gtk_init(&argc, &argv);
+
+  window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title(GTK_WINDOW(window), "GTK");
+  gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+
+  gtk_widget_show(window);
+
+  g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
+  gtk_main();
+
+  return 0;
+}
+
+
+Przykładowy kod w języku Python ładujący okienko z pliku w formacie GtkBuilder (zob. Glade):
+
+#!/usr/bin/env python
+import gtk
+
+if __name__ == '__main__':
+  builder = gtk.Builder()
+  builder.add_from_file('window.glade')
+  builder.connect_signals(globals())
+  window = builder.get_object('window')
+  window.connect('destroy', gtk.main_quit)
+  window.show()
+  gtk.main()
